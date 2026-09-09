@@ -1,0 +1,106 @@
+[
+  {
+    "name": "coverage",
+    "file": "templates/coverage.sql",
+    "diagnostic": true
+  },
+  {
+    "name": "time_range",
+    "file": "templates/time_range.sql",
+    "diagnostic": false
+  },
+  {
+    "name": "traffic",
+    "file": "templates/traffic.sql",
+    "diagnostic": false
+  },
+  {
+    "name": "user",
+    "file": "templates/user.sql",
+    "diagnostic": false
+  },
+  {
+    "name": "session",
+    "file": "templates/session.sql",
+    "diagnostic": false
+  },
+  {
+    "name": "tab",
+    "file": "templates/tab.sql",
+    "diagnostic": false
+  },
+  {
+    "name": "post_paths",
+    "file": "templates/post_paths.sql",
+    "diagnostic": false
+  },
+  {
+    "name": "feature",
+    "file": "templates/feature.sql",
+    "diagnostic": false
+  },
+  {
+    "name": "feature_funnel",
+    "file": "templates/feature_funnel.sql",
+    "diagnostic": false
+  },
+  {
+    "name": "ab_assignments",
+    "file": "templates/ab_assignments.sql",
+    "diagnostic": false
+  },
+  {
+    "name": "ab_outcome",
+    "file": "templates/ab_outcome.sql",
+    "diagnostic": false
+  },
+  {
+    "name": "ua_bot",
+    "file": "templates/ua_bot.sql",
+    "diagnostic": false
+  },
+  {
+    "name": "tab_metadata_join",
+    "file": "templates/tab_metadata_join.sql",
+    "diagnostic": false
+  },
+  {
+    "name": "tab_metadata_materialized",
+    "file": "templates/tab_metadata_materialized.sql",
+    "diagnostic": false
+  },
+  {
+    "name": "ssr_raw",
+    "file": "templates/ssr_raw.sql",
+    "diagnostic": true
+  },
+  {
+    "name": "ssr_historical_join",
+    "file": "templates/ssr_historical_join.sql",
+    "diagnostic": true
+  },
+  {
+    "name": "traffic_daily",
+    "file": "templates/traffic_daily.sql",
+    "diagnostic": false,
+    "profiles": [
+      "monthly_first_days"
+    ]
+  },
+  {
+    "name": "ssr_raw_join",
+    "file": "templates/ssr_raw_join.sql",
+    "diagnostic": false,
+    "profiles": [
+      "monthly_first_days"
+    ]
+  },
+  {
+    "name": "tab_metadata_historical",
+    "file": "templates/tab_metadata_historical.sql",
+    "diagnostic": false,
+    "profiles": [
+      "monthly_first_days"
+    ]
+  }
+]

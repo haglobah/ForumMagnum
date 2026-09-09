@@ -1,0 +1,1152 @@
+{
+  "created_at": "2026-09-09T04:24:36.582802+00:00",
+  "purpose": "synthetic correctness and compatibility; not a performance ranking",
+  "engines": {
+    "clickhouse": {
+      "runner_smoke": {
+        "status": "complete",
+        "elapsed_ms": 10.993499000051088,
+        "window_coverage_complete": true,
+        "result_rows": 4,
+        "result_sha256": "6234957ecbc854a74fe91f673f06875f504700917180f65eb64d5f7c1fb637e5"
+      },
+      "canonical_rows": 675,
+      "canonical_sha256": "9ddaab65991c6bde58d01ab04fa9d23b84a20089f0182b971928ccc5efc82541",
+      "cases": [
+        {
+          "case": "traffic_hour",
+          "profile": "hour",
+          "rows": 2,
+          "sha256": "0366a32e564d38dc06aa3841a87052c0b23d1c21c6d7cba90ca1f922aabf66a5"
+        },
+        {
+          "case": "traffic_day",
+          "profile": "hour",
+          "rows": 2,
+          "sha256": "0366a32e564d38dc06aa3841a87052c0b23d1c21c6d7cba90ca1f922aabf66a5"
+        },
+        {
+          "case": "event_counts",
+          "profile": "hour",
+          "rows": 6,
+          "sha256": "bc4662848dd645de72c9559bdd74a2df73ae3ff71e48e92f1355ad5efedc88b3"
+        },
+        {
+          "case": "user",
+          "profile": "hour",
+          "rows": 2,
+          "sha256": "10378665a2ba8b6de82f364bed6a1730daecfa742bf7a76479ac548ccc99dda5"
+        },
+        {
+          "case": "session",
+          "profile": "hour",
+          "rows": 1,
+          "sha256": "96a64e00ee93c53cdadbe552de0be43670eb2a9d447d49af681998b0367517d9"
+        },
+        {
+          "case": "tab",
+          "profile": "hour",
+          "rows": 6,
+          "sha256": "808f485dfba6e12ae3dabd2f2b37022f0a4cf001fec087189e7043e8d8dcea7e"
+        },
+        {
+          "case": "post_paths",
+          "profile": "hour",
+          "rows": 2,
+          "sha256": "75cff4d3e5d11539d2f0877b13a98c4b5de9d646e2383b8614c3e5ffc328b93b"
+        },
+        {
+          "case": "feature_counts",
+          "profile": "hour",
+          "rows": 2,
+          "sha256": "1970c9eefd44af5312106f6a62436924723ed48023654f0a5e7dd7269c927ab0"
+        },
+        {
+          "case": "feature_funnel",
+          "profile": "hour",
+          "rows": 1,
+          "sha256": "1ada9ae86bcf207067ec1952dfba4a43afe5581d5e7484a88b84ae7ccf2083e5"
+        },
+        {
+          "case": "ab_assignments",
+          "profile": "hour",
+          "rows": 4,
+          "sha256": "ad2cdd5af9a68864d18f91ab80b74b72090f0d8969dbf34428426da861e9181f"
+        },
+        {
+          "case": "ab_outcome",
+          "profile": "hour",
+          "rows": 3,
+          "sha256": "8d2aee314efa6d7cdd74f2f02a897851cc053087e1ad9b37d712d1ba1f4916e5"
+        },
+        {
+          "case": "ua_bot",
+          "profile": "hour",
+          "rows": 3,
+          "sha256": "cd70f66caacbca20a0484b0f3e6856bee0345c044a67380f42497fc29c9a3cc6"
+        },
+        {
+          "case": "metadata_join",
+          "profile": "hour",
+          "rows": 4,
+          "sha256": "6234957ecbc854a74fe91f673f06875f504700917180f65eb64d5f7c1fb637e5"
+        },
+        {
+          "case": "ssr_association",
+          "profile": "hour",
+          "rows": 1,
+          "sha256": "b6f85080c5d8ad8c4e4629a651c25daa9545940e75580bf12f84fc8765da515f"
+        },
+        {
+          "case": "coverage",
+          "profile": "hour",
+          "rows": 1,
+          "sha256": "56214dc598d9c24c96f1fc1242693e27a8b1b07f03b878f35102a3e612c56330"
+        },
+        {
+          "case": "traffic_hour",
+          "profile": "day",
+          "rows": 4,
+          "sha256": "8122d52bcf0edc0fa3e02f5f414ee69ac5525110f75ff29630b0485b3e511f42"
+        },
+        {
+          "case": "traffic_day",
+          "profile": "day",
+          "rows": 2,
+          "sha256": "43cb191a1b96d0883551ec7644bd0614f3b7be53bfe9436bfb080e4a6a02ac12"
+        },
+        {
+          "case": "event_counts",
+          "profile": "day",
+          "rows": 6,
+          "sha256": "20558daacfe20bdc9269726b785856516ef6cd93c8c4b6ce71ef452387b256f3"
+        },
+        {
+          "case": "user",
+          "profile": "day",
+          "rows": 2,
+          "sha256": "92a03527c7705b2749a1c4817eef1c73fe353c853abe0fea05c6e514150bde50"
+        },
+        {
+          "case": "session",
+          "profile": "day",
+          "rows": 1,
+          "sha256": "c7ecc7bdff94743266194797e71c794ae89e3ded5615071a8a205a2dd9f03b5f"
+        },
+        {
+          "case": "tab",
+          "profile": "day",
+          "rows": 6,
+          "sha256": "86078135bd28d03da64c1757aea73b3148110982eae2ebf672bbff0ae181a148"
+        },
+        {
+          "case": "post_paths",
+          "profile": "day",
+          "rows": 2,
+          "sha256": "2f7334e8117f432b5734005869989d1fbcee11f068fb18ec62d4da46f24c4b31"
+        },
+        {
+          "case": "feature_counts",
+          "profile": "day",
+          "rows": 2,
+          "sha256": "43098107d3f05dd9234704c5eb3a42df0fe41ff1a7aa20e1cecf36142cabeb8b"
+        },
+        {
+          "case": "feature_funnel",
+          "profile": "day",
+          "rows": 1,
+          "sha256": "f43dba4e5a12e83068baef46a135cad1ff0b5f63f049cd4dcd7944af3f2164d6"
+        },
+        {
+          "case": "ab_assignments",
+          "profile": "day",
+          "rows": 4,
+          "sha256": "046d93895a4f63e8100185a74ae8d4f5708503f3d658b932cc712fca2c796071"
+        },
+        {
+          "case": "ab_outcome",
+          "profile": "day",
+          "rows": 3,
+          "sha256": "27c798ffa8bb3de37c823c31417566cff65ede32aa16b25a9e082481f40614c4"
+        },
+        {
+          "case": "ua_bot",
+          "profile": "day",
+          "rows": 3,
+          "sha256": "9ac9b9b497c092cfa5d43ac2b65bf8c93f9bf6e182d564c09ee6136bebf1e98b"
+        },
+        {
+          "case": "metadata_join",
+          "profile": "day",
+          "rows": 6,
+          "sha256": "066c3d0a1640913d0d18d16044e97587fa557138960edffa62ad64ccc7dc53cf"
+        },
+        {
+          "case": "ssr_association",
+          "profile": "day",
+          "rows": 1,
+          "sha256": "73925f21449a440c64af6fb54c66df6a34e36e18cb4d6f6325d5dcd5b8376f77"
+        },
+        {
+          "case": "coverage",
+          "profile": "day",
+          "rows": 1,
+          "sha256": "5731d4b43afc9853f53f26414ad85aadee09236f8daeac79b4cdc18c60cf6281"
+        },
+        {
+          "case": "traffic_hour",
+          "profile": "week",
+          "rows": 8,
+          "sha256": "bbbd688e512c69834409f16e3689aa87e9d4ed78656d458d7a090f0d2754378c"
+        },
+        {
+          "case": "traffic_day",
+          "profile": "week",
+          "rows": 4,
+          "sha256": "0f47dda79d6c81f7e8903f20f4b8f75c6e19b450f7e46d2ea7b1b956253a48d1"
+        },
+        {
+          "case": "event_counts",
+          "profile": "week",
+          "rows": 6,
+          "sha256": "5a198eb2da1830c12f87afeff3e4a2bd260d0fb8cc1b42cebfb93ead82536bb5"
+        },
+        {
+          "case": "user",
+          "profile": "week",
+          "rows": 2,
+          "sha256": "214fb4873e62f9c3695d1f439bcf88ecd3d37152c6f3c757f1aabbb2887106ab"
+        },
+        {
+          "case": "session",
+          "profile": "week",
+          "rows": 1,
+          "sha256": "8f6c0db66bb492f51afb14d5fd95463e0ea1171ad2423f6cae2aad4a36d94cd0"
+        },
+        {
+          "case": "tab",
+          "profile": "week",
+          "rows": 6,
+          "sha256": "43bb97592732f831dce7bfab00f8aebedfa7b15cf82885fa2a9ab5d6181963f7"
+        },
+        {
+          "case": "post_paths",
+          "profile": "week",
+          "rows": 2,
+          "sha256": "2bcc0c9d0c10f18b530d2c478cae9ff0d75ada05129fb218a3b66fae3eeb7117"
+        },
+        {
+          "case": "feature_counts",
+          "profile": "week",
+          "rows": 2,
+          "sha256": "06e7c0a4a02a3910f901e4c258d8d70154e754444e855c0a6c36b9dbfab9b6c4"
+        },
+        {
+          "case": "feature_funnel",
+          "profile": "week",
+          "rows": 1,
+          "sha256": "0f2cd6d8cbc7073dd138584503b34094789d250c5f87cf0b14f00531f01dac4f"
+        },
+        {
+          "case": "ab_assignments",
+          "profile": "week",
+          "rows": 4,
+          "sha256": "1f896cde800e6728c2521533b5850f4c0b25b87f4d82847d405948bca4bb9744"
+        },
+        {
+          "case": "ab_outcome",
+          "profile": "week",
+          "rows": 3,
+          "sha256": "6d345c1e8491cd51163cfe73e442ece5bbe815f7fd8a0bc718da32923f70e23c"
+        },
+        {
+          "case": "ua_bot",
+          "profile": "week",
+          "rows": 3,
+          "sha256": "17ca7caec0f3c211ca81344c90ebb6eb931049a364b44acfd49c4905d4a207be"
+        },
+        {
+          "case": "metadata_join",
+          "profile": "week",
+          "rows": 7,
+          "sha256": "75343ea9a51801c6771590d43c090daf558a44cd3c14ba7ae2fada308bcb4a50"
+        },
+        {
+          "case": "ssr_association",
+          "profile": "week",
+          "rows": 1,
+          "sha256": "cb9f764a85e4dccc0b5377b757329d9a4010bafd6516094330ef06c80d4bb7ee"
+        },
+        {
+          "case": "coverage",
+          "profile": "week",
+          "rows": 1,
+          "sha256": "e02fd6ec69a6344ac24d85662f91da607112e57f8aa6d9ca0dedb6d5440744f9"
+        },
+        {
+          "case": "traffic_hour",
+          "profile": "month",
+          "rows": 8,
+          "sha256": "b924fff735209ff18091516c9693c7854158c41f3209989b382c0473dc2253b1"
+        },
+        {
+          "case": "traffic_day",
+          "profile": "month",
+          "rows": 4,
+          "sha256": "52c30ac2ffdd5f5ff3268cdecb9c3ed342129addf75d149b80c04e072440ba9a"
+        },
+        {
+          "case": "event_counts",
+          "profile": "month",
+          "rows": 6,
+          "sha256": "7e1079e59b2bed4ab7e08a6e4cb631698c8c570631dcf66330f45187b9a1a4fa"
+        },
+        {
+          "case": "user",
+          "profile": "month",
+          "rows": 2,
+          "sha256": "c5e8da2d6c43fced75b7aaa1c84b7196ef28c77c65f43f9076c60322402e21a0"
+        },
+        {
+          "case": "session",
+          "profile": "month",
+          "rows": 1,
+          "sha256": "0a3d16c6db4849e885b10240ad0ed139122cb9f9d5e664fc6cd8a76ef6044945"
+        },
+        {
+          "case": "tab",
+          "profile": "month",
+          "rows": 6,
+          "sha256": "0c50a45b6c2c4a791be52e6b30362edb2311edf0a26e6e86cac17e2266a709eb"
+        },
+        {
+          "case": "post_paths",
+          "profile": "month",
+          "rows": 2,
+          "sha256": "e7a2c0c223f39e8e56a11378492beabdbc5d62b18e27f2278d0eb05c1ffb2752"
+        },
+        {
+          "case": "feature_counts",
+          "profile": "month",
+          "rows": 2,
+          "sha256": "abe3066b6dac44227635ba4bc550d5c07b468991d2ecf2ed87a44d138afa24c3"
+        },
+        {
+          "case": "feature_funnel",
+          "profile": "month",
+          "rows": 1,
+          "sha256": "2ddd5c80f5866232ff2385441a8ad3510a01e1783541594d05219f9bdb955546"
+        },
+        {
+          "case": "ab_assignments",
+          "profile": "month",
+          "rows": 5,
+          "sha256": "cade494137160c01627a0391f03360328cd16df010349d98e207e18d3c8ff2e7"
+        },
+        {
+          "case": "ab_outcome",
+          "profile": "month",
+          "rows": 4,
+          "sha256": "6c159365274519a9c5e79ed3654779f2d174cbc11bac8574d5b0f3b56e2d62f8"
+        },
+        {
+          "case": "ua_bot",
+          "profile": "month",
+          "rows": 3,
+          "sha256": "514fd1a466dacacc60ff00245e6e32851761a593be346caea0801f1ed64ee3f8"
+        },
+        {
+          "case": "metadata_join",
+          "profile": "month",
+          "rows": 7,
+          "sha256": "8166e453fd4b3c68a0f3b1d6c26b7dd390f8aa94b62b06cc65168b1a26e79e3f"
+        },
+        {
+          "case": "ssr_association",
+          "profile": "month",
+          "rows": 1,
+          "sha256": "4c4c5f4d22f9dd860165441948b1fdba7b69ee0ed1ca65f22afdeda5c514584a"
+        },
+        {
+          "case": "coverage",
+          "profile": "month",
+          "rows": 1,
+          "sha256": "c9ac30c7b5b782daa9c8e2eb86eb41ca259e24312384a7b382f32c74e502fff9"
+        },
+        {
+          "case": "traffic_hour",
+          "profile": "six_months",
+          "rows": 28,
+          "sha256": "8ef0414f83cbda782953f613072175f6c903048e6fbd4aa61813449a6c959a20"
+        },
+        {
+          "case": "traffic_day",
+          "profile": "six_months",
+          "rows": 14,
+          "sha256": "291c761ea41d55c57dbf82321f9b774195f45a93038223ded5959409ef96c1c6"
+        },
+        {
+          "case": "event_counts",
+          "profile": "six_months",
+          "rows": 6,
+          "sha256": "3fc20e0c8a04bcf247b3047ffc8303ade0fa08848c993bad31d1944132eeff4a"
+        },
+        {
+          "case": "user",
+          "profile": "six_months",
+          "rows": 2,
+          "sha256": "0039fd8cac39bc31d5da1f0994495ea85722b07e4f052f879a2bc36977e2c3ff"
+        },
+        {
+          "case": "session",
+          "profile": "six_months",
+          "rows": 1,
+          "sha256": "9723d8c62bc16e09ab0ac05b81cd450a9ca64987aafb888c6a0d5388c0400ca8"
+        },
+        {
+          "case": "tab",
+          "profile": "six_months",
+          "rows": 6,
+          "sha256": "ca3a1c4a0071efc67d24ed274a0cc01099972dca89a0e5c71710ec4b4d56fe63"
+        },
+        {
+          "case": "post_paths",
+          "profile": "six_months",
+          "rows": 2,
+          "sha256": "2ae20c409119bdd3950d39b9ee4cb85132f5a264cdbec9bed049e00b42594379"
+        },
+        {
+          "case": "feature_counts",
+          "profile": "six_months",
+          "rows": 2,
+          "sha256": "367cb144b66141371e4b2e1061eea123b21e2d85430294565f70afd6c5ea550f"
+        },
+        {
+          "case": "feature_funnel",
+          "profile": "six_months",
+          "rows": 1,
+          "sha256": "301b204ec9fd7d7d94e830fc7e05a2d7cdd18f85cf1faac0c4dad9ef7a522a57"
+        },
+        {
+          "case": "ab_assignments",
+          "profile": "six_months",
+          "rows": 5,
+          "sha256": "8d2aa21d992b3c31a8b4f6ac59004c771693709c0a10144af07fb3e9bd7afb63"
+        },
+        {
+          "case": "ab_outcome",
+          "profile": "six_months",
+          "rows": 4,
+          "sha256": "8ac2f000972af13532e546b555ca6b3a55f5a331b05e79b8a68f84c0bb79bc7c"
+        },
+        {
+          "case": "ua_bot",
+          "profile": "six_months",
+          "rows": 3,
+          "sha256": "6fc85401f6c5e85a4b209e6fabd2ad3a1c69214ea3d1a1c0d09eb6ffd62b79a3"
+        },
+        {
+          "case": "metadata_join",
+          "profile": "six_months",
+          "rows": 7,
+          "sha256": "099957ed3c9dcdfc84c4cce6650154a279bea29a9d297ccd35de5149038e5d4d"
+        },
+        {
+          "case": "ssr_association",
+          "profile": "six_months",
+          "rows": 1,
+          "sha256": "179cf848a48b1d66f18261121928f68d58173d8c34d236fb6c99bfc603aa4b02"
+        },
+        {
+          "case": "coverage",
+          "profile": "six_months",
+          "rows": 1,
+          "sha256": "35c7b28e1eadae351ed5673f5ab2b4ef475e95bc17eb786127feabfeb807e97a"
+        },
+        {
+          "case": "traffic_hour",
+          "profile": "monthly24",
+          "rows": 96,
+          "sha256": "2bbbca03d107c9bb9741863c1314668898f2cecb0eb3ecebd982dc02c40c8a08"
+        },
+        {
+          "case": "traffic_day",
+          "profile": "monthly24",
+          "rows": 48,
+          "sha256": "dab1118e86bb7ce8bb10af229e05ee8a4207952276b138c3d06e8dbad362eb3f"
+        },
+        {
+          "case": "event_counts",
+          "profile": "monthly24",
+          "rows": 144,
+          "sha256": "4ff8cc8d5ac3f7504b86898e335cf2572561c517a8cb67b28c63274d7c2bbe1d"
+        },
+        {
+          "case": "user",
+          "profile": "monthly24",
+          "rows": 48,
+          "sha256": "2c1be9cabc850a73d517c2d370b1abae812b819d9fb05bef523ebcd4d0fa676d"
+        },
+        {
+          "case": "session",
+          "profile": "monthly24",
+          "rows": 24,
+          "sha256": "34e61c7a2f7c87e8617a72eee89fb867fe40dbdf7223a9b37b183b63098d1b52"
+        },
+        {
+          "case": "tab",
+          "profile": "monthly24",
+          "rows": 144,
+          "sha256": "681100aaa9c100a9ec6576fbacce40572c40cbbe18db17b2180f91fecd5968e2"
+        },
+        {
+          "case": "post_paths",
+          "profile": "monthly24",
+          "rows": 48,
+          "sha256": "d96477a6510563079f40303a65c44ce562909574ba3129e390dfd64966598170"
+        },
+        {
+          "case": "feature_counts",
+          "profile": "monthly24",
+          "rows": 48,
+          "sha256": "26664cf6537076e8690ffeea010e2eb6ccf8dd84481e223836c00d8c74082c58"
+        },
+        {
+          "case": "feature_funnel",
+          "profile": "monthly24",
+          "rows": 24,
+          "sha256": "94215301b59e9c08c428115a65807df12e896c03f2b0fb0717de4d9550701154"
+        },
+        {
+          "case": "ab_assignments",
+          "profile": "monthly24",
+          "rows": 96,
+          "sha256": "be39fa43592f22e7067abfdf98a9e53b16ea09008e5314becf8762bb190aa409"
+        },
+        {
+          "case": "ab_outcome",
+          "profile": "monthly24",
+          "rows": 72,
+          "sha256": "9ff6bd25be664c56175e73f505d7084a9ddff1814381e20d70106aa5b184ced5"
+        },
+        {
+          "case": "ua_bot",
+          "profile": "monthly24",
+          "rows": 72,
+          "sha256": "b8a9c15186bebb3d06b5152577e78d226e8f6864a8da9d931d1025dcf9ed8daf"
+        },
+        {
+          "case": "metadata_join",
+          "profile": "monthly24",
+          "rows": 145,
+          "sha256": "486743ad5c6a6f6f6573948186a2dd3ecf34fb56921168bf981d43bd0789870a"
+        },
+        {
+          "case": "ssr_association",
+          "profile": "monthly24",
+          "rows": 24,
+          "sha256": "d9a139bd89458804e32092975e54c4020f028965a57a8e9a5403a2b9ba9adc7f"
+        },
+        {
+          "case": "coverage",
+          "profile": "monthly24",
+          "rows": 24,
+          "sha256": "065f811055bf7c32636090d2dc3b61a65e6984578e607368fbd3545eaa564379"
+        }
+      ],
+      "timeout_probe": {
+        "status": "timed_out",
+        "elapsed_ms": 1002.4886030000744,
+        "error_type": "HTTPError",
+        "timeout_seconds": 1,
+        "server_cancellation_confirmed": true,
+        "health_query_passed": true,
+        "active_queries_after_timeout": 0
+      },
+      "version": "26.8.2.7",
+      "image": "clickhouse/clickhouse-server@sha256:fa394da808cc53f76d0344429421d6c422a6ee85fe7450135c0e3cff4df9bcbb",
+      "image_digests": [
+        "clickhouse/clickhouse-server@sha256:fa394da808cc53f76d0344429421d6c422a6ee85fe7450135c0e3cff4df9bcbb"
+      ]
+    },
+    "starrocks": {
+      "runner_smoke": {
+        "status": "complete",
+        "elapsed_ms": 26.600553999969634,
+        "window_coverage_complete": true,
+        "result_rows": 4,
+        "result_sha256": "6234957ecbc854a74fe91f673f06875f504700917180f65eb64d5f7c1fb637e5"
+      },
+      "canonical_rows": 675,
+      "canonical_sha256": "9ddaab65991c6bde58d01ab04fa9d23b84a20089f0182b971928ccc5efc82541",
+      "cases": [
+        {
+          "case": "traffic_hour",
+          "profile": "hour",
+          "rows": 2,
+          "sha256": "0366a32e564d38dc06aa3841a87052c0b23d1c21c6d7cba90ca1f922aabf66a5"
+        },
+        {
+          "case": "traffic_day",
+          "profile": "hour",
+          "rows": 2,
+          "sha256": "0366a32e564d38dc06aa3841a87052c0b23d1c21c6d7cba90ca1f922aabf66a5"
+        },
+        {
+          "case": "event_counts",
+          "profile": "hour",
+          "rows": 6,
+          "sha256": "bc4662848dd645de72c9559bdd74a2df73ae3ff71e48e92f1355ad5efedc88b3"
+        },
+        {
+          "case": "user",
+          "profile": "hour",
+          "rows": 2,
+          "sha256": "10378665a2ba8b6de82f364bed6a1730daecfa742bf7a76479ac548ccc99dda5"
+        },
+        {
+          "case": "session",
+          "profile": "hour",
+          "rows": 1,
+          "sha256": "96a64e00ee93c53cdadbe552de0be43670eb2a9d447d49af681998b0367517d9"
+        },
+        {
+          "case": "tab",
+          "profile": "hour",
+          "rows": 6,
+          "sha256": "808f485dfba6e12ae3dabd2f2b37022f0a4cf001fec087189e7043e8d8dcea7e"
+        },
+        {
+          "case": "post_paths",
+          "profile": "hour",
+          "rows": 2,
+          "sha256": "75cff4d3e5d11539d2f0877b13a98c4b5de9d646e2383b8614c3e5ffc328b93b"
+        },
+        {
+          "case": "feature_counts",
+          "profile": "hour",
+          "rows": 2,
+          "sha256": "1970c9eefd44af5312106f6a62436924723ed48023654f0a5e7dd7269c927ab0"
+        },
+        {
+          "case": "feature_funnel",
+          "profile": "hour",
+          "rows": 1,
+          "sha256": "1ada9ae86bcf207067ec1952dfba4a43afe5581d5e7484a88b84ae7ccf2083e5"
+        },
+        {
+          "case": "ab_assignments",
+          "profile": "hour",
+          "rows": 4,
+          "sha256": "ad2cdd5af9a68864d18f91ab80b74b72090f0d8969dbf34428426da861e9181f"
+        },
+        {
+          "case": "ab_outcome",
+          "profile": "hour",
+          "rows": 3,
+          "sha256": "8d2aee314efa6d7cdd74f2f02a897851cc053087e1ad9b37d712d1ba1f4916e5"
+        },
+        {
+          "case": "ua_bot",
+          "profile": "hour",
+          "rows": 3,
+          "sha256": "cd70f66caacbca20a0484b0f3e6856bee0345c044a67380f42497fc29c9a3cc6"
+        },
+        {
+          "case": "metadata_join",
+          "profile": "hour",
+          "rows": 4,
+          "sha256": "6234957ecbc854a74fe91f673f06875f504700917180f65eb64d5f7c1fb637e5"
+        },
+        {
+          "case": "ssr_association",
+          "profile": "hour",
+          "rows": 1,
+          "sha256": "b6f85080c5d8ad8c4e4629a651c25daa9545940e75580bf12f84fc8765da515f"
+        },
+        {
+          "case": "coverage",
+          "profile": "hour",
+          "rows": 1,
+          "sha256": "56214dc598d9c24c96f1fc1242693e27a8b1b07f03b878f35102a3e612c56330"
+        },
+        {
+          "case": "traffic_hour",
+          "profile": "day",
+          "rows": 4,
+          "sha256": "8122d52bcf0edc0fa3e02f5f414ee69ac5525110f75ff29630b0485b3e511f42"
+        },
+        {
+          "case": "traffic_day",
+          "profile": "day",
+          "rows": 2,
+          "sha256": "43cb191a1b96d0883551ec7644bd0614f3b7be53bfe9436bfb080e4a6a02ac12"
+        },
+        {
+          "case": "event_counts",
+          "profile": "day",
+          "rows": 6,
+          "sha256": "20558daacfe20bdc9269726b785856516ef6cd93c8c4b6ce71ef452387b256f3"
+        },
+        {
+          "case": "user",
+          "profile": "day",
+          "rows": 2,
+          "sha256": "92a03527c7705b2749a1c4817eef1c73fe353c853abe0fea05c6e514150bde50"
+        },
+        {
+          "case": "session",
+          "profile": "day",
+          "rows": 1,
+          "sha256": "c7ecc7bdff94743266194797e71c794ae89e3ded5615071a8a205a2dd9f03b5f"
+        },
+        {
+          "case": "tab",
+          "profile": "day",
+          "rows": 6,
+          "sha256": "86078135bd28d03da64c1757aea73b3148110982eae2ebf672bbff0ae181a148"
+        },
+        {
+          "case": "post_paths",
+          "profile": "day",
+          "rows": 2,
+          "sha256": "2f7334e8117f432b5734005869989d1fbcee11f068fb18ec62d4da46f24c4b31"
+        },
+        {
+          "case": "feature_counts",
+          "profile": "day",
+          "rows": 2,
+          "sha256": "43098107d3f05dd9234704c5eb3a42df0fe41ff1a7aa20e1cecf36142cabeb8b"
+        },
+        {
+          "case": "feature_funnel",
+          "profile": "day",
+          "rows": 1,
+          "sha256": "f43dba4e5a12e83068baef46a135cad1ff0b5f63f049cd4dcd7944af3f2164d6"
+        },
+        {
+          "case": "ab_assignments",
+          "profile": "day",
+          "rows": 4,
+          "sha256": "046d93895a4f63e8100185a74ae8d4f5708503f3d658b932cc712fca2c796071"
+        },
+        {
+          "case": "ab_outcome",
+          "profile": "day",
+          "rows": 3,
+          "sha256": "27c798ffa8bb3de37c823c31417566cff65ede32aa16b25a9e082481f40614c4"
+        },
+        {
+          "case": "ua_bot",
+          "profile": "day",
+          "rows": 3,
+          "sha256": "9ac9b9b497c092cfa5d43ac2b65bf8c93f9bf6e182d564c09ee6136bebf1e98b"
+        },
+        {
+          "case": "metadata_join",
+          "profile": "day",
+          "rows": 6,
+          "sha256": "066c3d0a1640913d0d18d16044e97587fa557138960edffa62ad64ccc7dc53cf"
+        },
+        {
+          "case": "ssr_association",
+          "profile": "day",
+          "rows": 1,
+          "sha256": "73925f21449a440c64af6fb54c66df6a34e36e18cb4d6f6325d5dcd5b8376f77"
+        },
+        {
+          "case": "coverage",
+          "profile": "day",
+          "rows": 1,
+          "sha256": "5731d4b43afc9853f53f26414ad85aadee09236f8daeac79b4cdc18c60cf6281"
+        },
+        {
+          "case": "traffic_hour",
+          "profile": "week",
+          "rows": 8,
+          "sha256": "bbbd688e512c69834409f16e3689aa87e9d4ed78656d458d7a090f0d2754378c"
+        },
+        {
+          "case": "traffic_day",
+          "profile": "week",
+          "rows": 4,
+          "sha256": "0f47dda79d6c81f7e8903f20f4b8f75c6e19b450f7e46d2ea7b1b956253a48d1"
+        },
+        {
+          "case": "event_counts",
+          "profile": "week",
+          "rows": 6,
+          "sha256": "5a198eb2da1830c12f87afeff3e4a2bd260d0fb8cc1b42cebfb93ead82536bb5"
+        },
+        {
+          "case": "user",
+          "profile": "week",
+          "rows": 2,
+          "sha256": "214fb4873e62f9c3695d1f439bcf88ecd3d37152c6f3c757f1aabbb2887106ab"
+        },
+        {
+          "case": "session",
+          "profile": "week",
+          "rows": 1,
+          "sha256": "8f6c0db66bb492f51afb14d5fd95463e0ea1171ad2423f6cae2aad4a36d94cd0"
+        },
+        {
+          "case": "tab",
+          "profile": "week",
+          "rows": 6,
+          "sha256": "43bb97592732f831dce7bfab00f8aebedfa7b15cf82885fa2a9ab5d6181963f7"
+        },
+        {
+          "case": "post_paths",
+          "profile": "week",
+          "rows": 2,
+          "sha256": "2bcc0c9d0c10f18b530d2c478cae9ff0d75ada05129fb218a3b66fae3eeb7117"
+        },
+        {
+          "case": "feature_counts",
+          "profile": "week",
+          "rows": 2,
+          "sha256": "06e7c0a4a02a3910f901e4c258d8d70154e754444e855c0a6c36b9dbfab9b6c4"
+        },
+        {
+          "case": "feature_funnel",
+          "profile": "week",
+          "rows": 1,
+          "sha256": "0f2cd6d8cbc7073dd138584503b34094789d250c5f87cf0b14f00531f01dac4f"
+        },
+        {
+          "case": "ab_assignments",
+          "profile": "week",
+          "rows": 4,
+          "sha256": "1f896cde800e6728c2521533b5850f4c0b25b87f4d82847d405948bca4bb9744"
+        },
+        {
+          "case": "ab_outcome",
+          "profile": "week",
+          "rows": 3,
+          "sha256": "6d345c1e8491cd51163cfe73e442ece5bbe815f7fd8a0bc718da32923f70e23c"
+        },
+        {
+          "case": "ua_bot",
+          "profile": "week",
+          "rows": 3,
+          "sha256": "17ca7caec0f3c211ca81344c90ebb6eb931049a364b44acfd49c4905d4a207be"
+        },
+        {
+          "case": "metadata_join",
+          "profile": "week",
+          "rows": 7,
+          "sha256": "75343ea9a51801c6771590d43c090daf558a44cd3c14ba7ae2fada308bcb4a50"
+        },
+        {
+          "case": "ssr_association",
+          "profile": "week",
+          "rows": 1,
+          "sha256": "cb9f764a85e4dccc0b5377b757329d9a4010bafd6516094330ef06c80d4bb7ee"
+        },
+        {
+          "case": "coverage",
+          "profile": "week",
+          "rows": 1,
+          "sha256": "e02fd6ec69a6344ac24d85662f91da607112e57f8aa6d9ca0dedb6d5440744f9"
+        },
+        {
+          "case": "traffic_hour",
+          "profile": "month",
+          "rows": 8,
+          "sha256": "b924fff735209ff18091516c9693c7854158c41f3209989b382c0473dc2253b1"
+        },
+        {
+          "case": "traffic_day",
+          "profile": "month",
+          "rows": 4,
+          "sha256": "52c30ac2ffdd5f5ff3268cdecb9c3ed342129addf75d149b80c04e072440ba9a"
+        },
+        {
+          "case": "event_counts",
+          "profile": "month",
+          "rows": 6,
+          "sha256": "7e1079e59b2bed4ab7e08a6e4cb631698c8c570631dcf66330f45187b9a1a4fa"
+        },
+        {
+          "case": "user",
+          "profile": "month",
+          "rows": 2,
+          "sha256": "c5e8da2d6c43fced75b7aaa1c84b7196ef28c77c65f43f9076c60322402e21a0"
+        },
+        {
+          "case": "session",
+          "profile": "month",
+          "rows": 1,
+          "sha256": "0a3d16c6db4849e885b10240ad0ed139122cb9f9d5e664fc6cd8a76ef6044945"
+        },
+        {
+          "case": "tab",
+          "profile": "month",
+          "rows": 6,
+          "sha256": "0c50a45b6c2c4a791be52e6b30362edb2311edf0a26e6e86cac17e2266a709eb"
+        },
+        {
+          "case": "post_paths",
+          "profile": "month",
+          "rows": 2,
+          "sha256": "e7a2c0c223f39e8e56a11378492beabdbc5d62b18e27f2278d0eb05c1ffb2752"
+        },
+        {
+          "case": "feature_counts",
+          "profile": "month",
+          "rows": 2,
+          "sha256": "abe3066b6dac44227635ba4bc550d5c07b468991d2ecf2ed87a44d138afa24c3"
+        },
+        {
+          "case": "feature_funnel",
+          "profile": "month",
+          "rows": 1,
+          "sha256": "2ddd5c80f5866232ff2385441a8ad3510a01e1783541594d05219f9bdb955546"
+        },
+        {
+          "case": "ab_assignments",
+          "profile": "month",
+          "rows": 5,
+          "sha256": "cade494137160c01627a0391f03360328cd16df010349d98e207e18d3c8ff2e7"
+        },
+        {
+          "case": "ab_outcome",
+          "profile": "month",
+          "rows": 4,
+          "sha256": "6c159365274519a9c5e79ed3654779f2d174cbc11bac8574d5b0f3b56e2d62f8"
+        },
+        {
+          "case": "ua_bot",
+          "profile": "month",
+          "rows": 3,
+          "sha256": "514fd1a466dacacc60ff00245e6e32851761a593be346caea0801f1ed64ee3f8"
+        },
+        {
+          "case": "metadata_join",
+          "profile": "month",
+          "rows": 7,
+          "sha256": "8166e453fd4b3c68a0f3b1d6c26b7dd390f8aa94b62b06cc65168b1a26e79e3f"
+        },
+        {
+          "case": "ssr_association",
+          "profile": "month",
+          "rows": 1,
+          "sha256": "4c4c5f4d22f9dd860165441948b1fdba7b69ee0ed1ca65f22afdeda5c514584a"
+        },
+        {
+          "case": "coverage",
+          "profile": "month",
+          "rows": 1,
+          "sha256": "c9ac30c7b5b782daa9c8e2eb86eb41ca259e24312384a7b382f32c74e502fff9"
+        },
+        {
+          "case": "traffic_hour",
+          "profile": "six_months",
+          "rows": 28,
+          "sha256": "8ef0414f83cbda782953f613072175f6c903048e6fbd4aa61813449a6c959a20"
+        },
+        {
+          "case": "traffic_day",
+          "profile": "six_months",
+          "rows": 14,
+          "sha256": "291c761ea41d55c57dbf82321f9b774195f45a93038223ded5959409ef96c1c6"
+        },
+        {
+          "case": "event_counts",
+          "profile": "six_months",
+          "rows": 6,
+          "sha256": "3fc20e0c8a04bcf247b3047ffc8303ade0fa08848c993bad31d1944132eeff4a"
+        },
+        {
+          "case": "user",
+          "profile": "six_months",
+          "rows": 2,
+          "sha256": "0039fd8cac39bc31d5da1f0994495ea85722b07e4f052f879a2bc36977e2c3ff"
+        },
+        {
+          "case": "session",
+          "profile": "six_months",
+          "rows": 1,
+          "sha256": "9723d8c62bc16e09ab0ac05b81cd450a9ca64987aafb888c6a0d5388c0400ca8"
+        },
+        {
+          "case": "tab",
+          "profile": "six_months",
+          "rows": 6,
+          "sha256": "ca3a1c4a0071efc67d24ed274a0cc01099972dca89a0e5c71710ec4b4d56fe63"
+        },
+        {
+          "case": "post_paths",
+          "profile": "six_months",
+          "rows": 2,
+          "sha256": "2ae20c409119bdd3950d39b9ee4cb85132f5a264cdbec9bed049e00b42594379"
+        },
+        {
+          "case": "feature_counts",
+          "profile": "six_months",
+          "rows": 2,
+          "sha256": "367cb144b66141371e4b2e1061eea123b21e2d85430294565f70afd6c5ea550f"
+        },
+        {
+          "case": "feature_funnel",
+          "profile": "six_months",
+          "rows": 1,
+          "sha256": "301b204ec9fd7d7d94e830fc7e05a2d7cdd18f85cf1faac0c4dad9ef7a522a57"
+        },
+        {
+          "case": "ab_assignments",
+          "profile": "six_months",
+          "rows": 5,
+          "sha256": "8d2aa21d992b3c31a8b4f6ac59004c771693709c0a10144af07fb3e9bd7afb63"
+        },
+        {
+          "case": "ab_outcome",
+          "profile": "six_months",
+          "rows": 4,
+          "sha256": "8ac2f000972af13532e546b555ca6b3a55f5a331b05e79b8a68f84c0bb79bc7c"
+        },
+        {
+          "case": "ua_bot",
+          "profile": "six_months",
+          "rows": 3,
+          "sha256": "6fc85401f6c5e85a4b209e6fabd2ad3a1c69214ea3d1a1c0d09eb6ffd62b79a3"
+        },
+        {
+          "case": "metadata_join",
+          "profile": "six_months",
+          "rows": 7,
+          "sha256": "099957ed3c9dcdfc84c4cce6650154a279bea29a9d297ccd35de5149038e5d4d"
+        },
+        {
+          "case": "ssr_association",
+          "profile": "six_months",
+          "rows": 1,
+          "sha256": "179cf848a48b1d66f18261121928f68d58173d8c34d236fb6c99bfc603aa4b02"
+        },
+        {
+          "case": "coverage",
+          "profile": "six_months",
+          "rows": 1,
+          "sha256": "35c7b28e1eadae351ed5673f5ab2b4ef475e95bc17eb786127feabfeb807e97a"
+        },
+        {
+          "case": "traffic_hour",
+          "profile": "monthly24",
+          "rows": 96,
+          "sha256": "2bbbca03d107c9bb9741863c1314668898f2cecb0eb3ecebd982dc02c40c8a08"
+        },
+        {
+          "case": "traffic_day",
+          "profile": "monthly24",
+          "rows": 48,
+          "sha256": "dab1118e86bb7ce8bb10af229e05ee8a4207952276b138c3d06e8dbad362eb3f"
+        },
+        {
+          "case": "event_counts",
+          "profile": "monthly24",
+          "rows": 144,
+          "sha256": "4ff8cc8d5ac3f7504b86898e335cf2572561c517a8cb67b28c63274d7c2bbe1d"
+        },
+        {
+          "case": "user",
+          "profile": "monthly24",
+          "rows": 48,
+          "sha256": "2c1be9cabc850a73d517c2d370b1abae812b819d9fb05bef523ebcd4d0fa676d"
+        },
+        {
+          "case": "session",
+          "profile": "monthly24",
+          "rows": 24,
+          "sha256": "34e61c7a2f7c87e8617a72eee89fb867fe40dbdf7223a9b37b183b63098d1b52"
+        },
+        {
+          "case": "tab",
+          "profile": "monthly24",
+          "rows": 144,
+          "sha256": "681100aaa9c100a9ec6576fbacce40572c40cbbe18db17b2180f91fecd5968e2"
+        },
+        {
+          "case": "post_paths",
+          "profile": "monthly24",
+          "rows": 48,
+          "sha256": "d96477a6510563079f40303a65c44ce562909574ba3129e390dfd64966598170"
+        },
+        {
+          "case": "feature_counts",
+          "profile": "monthly24",
+          "rows": 48,
+          "sha256": "26664cf6537076e8690ffeea010e2eb6ccf8dd84481e223836c00d8c74082c58"
+        },
+        {
+          "case": "feature_funnel",
+          "profile": "monthly24",
+          "rows": 24,
+          "sha256": "94215301b59e9c08c428115a65807df12e896c03f2b0fb0717de4d9550701154"
+        },
+        {
+          "case": "ab_assignments",
+          "profile": "monthly24",
+          "rows": 96,
+          "sha256": "be39fa43592f22e7067abfdf98a9e53b16ea09008e5314becf8762bb190aa409"
+        },
+        {
+          "case": "ab_outcome",
+          "profile": "monthly24",
+          "rows": 72,
+          "sha256": "9ff6bd25be664c56175e73f505d7084a9ddff1814381e20d70106aa5b184ced5"
+        },
+        {
+          "case": "ua_bot",
+          "profile": "monthly24",
+          "rows": 72,
+          "sha256": "b8a9c15186bebb3d06b5152577e78d226e8f6864a8da9d931d1025dcf9ed8daf"
+        },
+        {
+          "case": "metadata_join",
+          "profile": "monthly24",
+          "rows": 145,
+          "sha256": "486743ad5c6a6f6f6573948186a2dd3ecf34fb56921168bf981d43bd0789870a"
+        },
+        {
+          "case": "ssr_association",
+          "profile": "monthly24",
+          "rows": 24,
+          "sha256": "d9a139bd89458804e32092975e54c4020f028965a57a8e9a5403a2b9ba9adc7f"
+        },
+        {
+          "case": "coverage",
+          "profile": "monthly24",
+          "rows": 24,
+          "sha256": "065f811055bf7c32636090d2dc3b61a65e6984578e607368fbd3545eaa564379"
+        }
+      ],
+      "timeout_probe": {
+        "status": "timed_out",
+        "elapsed_ms": 1013.9084410000123,
+        "error_type": "OperationalError",
+        "timeout_seconds": 1,
+        "server_cancellation_confirmed": true,
+        "health_query_passed": true,
+        "active_queries_after_timeout": 0
+      },
+      "version": "4.1.4-4a9848e",
+      "image": "starrocks/allin1-ubuntu@sha256:faf7ce9c24d9c29c9431b4e8cbd4bb7a74cd169907c63f0c5ebaacc7f9df276b",
+      "image_digests": [
+        "starrocks/allin1-ubuntu@sha256:faf7ce9c24d9c29c9431b4e8cbd4bb7a74cd169907c63f0c5ebaacc7f9df276b"
+      ]
+    }
+  },
+  "reference": {
+    "engine": "duckdb",
+    "version": "v1.5.5",
+    "rows": 675
+  },
+  "source_sha256": {
+    "queries.py": "91f30e229bbddb4f52a38fbf2d4e8c8c72f91a2831cd77496159576f5840140d",
+    "runner.py": "36e9c8eddcd4c8758ba5dfca8081b6ba61907861c6adaae4d190a1d6dedc9a11",
+    "load_snapshot.py": "cc9c21b1a05c8e3e7d81f470b5e58923896ed62567dec664e55c795aa946ba33",
+    "test_suite.py": "cfd750c56b6790f02ec09697d46f7b72e589c28de0e3e5907396a41510f1253e",
+    "live_validation.py": "1303c8236800779e79201f47893ce49a556171e69a15961e911484006e62d639"
+  }
+}

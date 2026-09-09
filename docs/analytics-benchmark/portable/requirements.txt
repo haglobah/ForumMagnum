@@ -1,0 +1,4 @@
+duckdb==1.5.5
+psycopg[binary]==3.3.5
+PyMySQL==1.2.0
+sqlglot==30.18.0
