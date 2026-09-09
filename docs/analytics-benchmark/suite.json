@@ -1,0 +1,78 @@
+[
+  {
+    "name": "time_range_1h",
+    "file": "time_range_1h.sql"
+  },
+  {
+    "name": "traffic_1h",
+    "file": "traffic_1h.sql"
+  },
+  {
+    "name": "traffic_1d",
+    "file": "traffic_1d.sql"
+  },
+  {
+    "name": "user_1h",
+    "file": "user_1h.sql"
+  },
+  {
+    "name": "session_1h",
+    "file": "session_1h.sql"
+  },
+  {
+    "name": "tab_1d",
+    "file": "tab_1d.sql"
+  },
+  {
+    "name": "post_paths_1h",
+    "file": "post_paths_1h.sql"
+  },
+  {
+    "name": "feature_1d",
+    "file": "feature_1d.sql"
+  },
+  {
+    "name": "ab_assignments_1d",
+    "file": "ab_assignments_1d.sql"
+  },
+  {
+    "name": "ua_bot_1d",
+    "file": "ua_bot_1d.sql"
+  },
+  {
+    "name": "ssr_raw_1d",
+    "file": "ssr_raw_1d.sql"
+  },
+  {
+    "name": "feature_funnel_1h",
+    "file": "feature_funnel_1h.sql"
+  },
+  {
+    "name": "ab_assignments_1h",
+    "file": "ab_assignments_1h.sql"
+  },
+  {
+    "name": "ua_bot_1h",
+    "file": "ua_bot_1h.sql"
+  },
+  {
+    "name": "feature_1h",
+    "file": "feature_1h.sql"
+  },
+  {
+    "name": "tab_metadata_join_1h",
+    "file": "tab_metadata_join_1h.sql"
+  },
+  {
+    "name": "ab_outcome_1h",
+    "file": "ab_outcome_1h.sql"
+  },
+  {
+    "name": "ssr_historical_join_1h",
+    "file": "ssr_historical_join_1h.sql"
+  },
+  {
+    "name": "tab_metadata_materialized_1h",
+    "file": "tab_metadata_materialized_1h.sql"
+  }
+]
