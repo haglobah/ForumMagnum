@@ -84,6 +84,64 @@ Fixed profiles, matching the investigation:
 
 ## Freeze one reproducible dataset
 
+From the repository root, download the initial day snapshot with progress and ETA:
+
+```bash
+node docs/analytics-benchmark/portable/download_snapshot.mjs
+```
+
+This launcher uses `/tmp/analytics-perf-venv/bin/python` (override with `BENCH_PYTHON`),
+loads `private_analytics_connectionString` from the root `.env.local` (override with
+`ANALYTICS_ENV_FILE`), and supplies it only to the exporter. An existing
+`BENCH_POSTGRES_DSN` takes precedence. It discovers a GCC runtime on Nix and scopes
+`umask 077` to its own process and child. No shell settings change.
+The default is `--profile day --dataset-id analytics-day-v1 --output /tmp/analytics-day-v1`;
+pass exporter options to override these defaults, or `--help` to see available options.
+The output directory must not already exist.
+
+Progress uses `EXPLAIN` (without `ANALYZE`) for an approximate row total, marked `~`.
+The percentage and ETA depend on planner statistics and can be inaccurate; an
+underestimate is explicitly reported if exported rows exceed it. Pass `--exact-count`
+to perform an additional `COUNT(*)` in the same read-only snapshot instead; this adds
+source I/O and can hit the statement timeout before any rows are exported.
+While connecting/estimating/counting, the exporter shows elapsed time; after the first saved batch,
+it shows percentage, rows/second and estimated remaining export time. ETA excludes the
+already completed preparation and varies with throughput. A heartbeat continues during slow
+batches. Redirected output emits a progress line every ten seconds. Success is reported
+only after `manifest.json` is written. The launcher does not install dependencies or
+start database servers.
+Connections have a ten-second connection timeout and TCP keepalive/user timeouts
+to detect broken connections. PostgreSQL identifies them as `analytics_snapshot_export`.
+The launcher reports signal termination as well as ordinary export errors.
+
+The exporter writes normalized batches directly through PyArrow with an explicit
+schema; it does not insert each row into an intermediate DuckDB table. Progress
+includes cumulative fetch, normalization, Parquet write, and accounting times.
+`fetch` includes source query execution, network transfer and driver decoding.
+For larger exports, `--batch-rows 100000` reduces cursor round trips and the number
+of small files while keeping memory bounded by the batch size.
+
+A local comparison on the same 10,000 downloaded canonical rows measured the old
+DuckDB insert-and-write path at 10.901 seconds and the direct writer at a median
+0.01058 seconds over five writes (about 1,030× faster), with exact row equality.
+This measures only local conversion/writing of already normalized rows, not source
+reads or JSON normalization. The first live 100,000-row bulk batch spent 43.59 seconds
+fetching and 0.39 seconds normalizing, writing and accounting. The source read became
+the dominant cost; the local speedup is not an end-to-end download speedup.
+
+For a source waiting on disk reads during an index scan, try `--read-strategy bitmap`.
+This applies only to the export transaction: `enable_indexscan=off`, `work_mem=64MB`,
+`effective_io_concurrency=32`, and `cursor_tuple_fraction=1.0`. It lets bitmap heap
+scans read matching pages in physical order with prefetching; the planner can also
+choose a sequential scan. It does not change source data, indexes, or global settings.
+Compare live fetch throughput before adopting it for another database or window.
+The [read-plan trials](read-plan-validation.json) record bounded one-hour tests and
+their cache-state limitations. On the live full-range trial, the first 900,000 rows
+took 196.20 seconds of fetch time with bitmap settings, versus 366.29 seconds in the
+earlier index-scan run. These are different snapshots and row orders with uncontrolled
+caches/load, not a controlled speedup benchmark. A comparison against the earlier
+partial download found 99,936 shared event IDs with zero canonical-row differences.
+
 Prepare a private parameter file outside the repository:
 
 ```json

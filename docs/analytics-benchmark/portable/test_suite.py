@@ -13,9 +13,11 @@ import tempfile
 import duckdb
 import psycopg
 import pymysql
+import pyarrow as pa
+import pyarrow.parquet as pq
 import sqlglot
 
-from export_snapshot import normalize, merged_intervals
+from export_snapshot import normalize, merged_intervals, write_batch
 from queries import CASES, COLUMNS, ENGINES, ddl, render, windows
 from runner import failure_status, attempt, ch_rows, compare, digest, result_digest, scalar, summarize, validate_manifest
 
@@ -127,6 +129,48 @@ def test_protocol():
         sqlglot.parse_one(ddl(engine), read=engine)
 
 
+def test_columnar_export():
+    rows = fixture()
+    for event_id, level in ((-(2**63), '-999999999999.999999'), (2**63 - 1, '999999999999.999999'),
+                            (0, '-0.000001'), (1, '0.000000')):
+        rows.append(normalize((event_id, datetime(2026, 9, 7, 1, 2, 3, 987654,
+                                                 tzinfo=timezone(timedelta(hours=5, minutes=30))),
+                               None, 'navigate', {'to': 'https://lesswrong.com/posts/λ?x=1',
+                               'userId': '', 'clientId': '001', 'userAgent': '雪\x00browser',
+                               'expansionLevel': level, 'abTestGroups': {'welcomeBoxABTest': ''}}),
+                              PARAMS['experiment']))
+    with tempfile.TemporaryDirectory(prefix='analytics-columnar-test-') as directory:
+        path = Path(directory) / 'columnar.parquet'
+        old_path = Path(directory) / 'old.parquet'
+        with duckdb.connect(':memory:') as db:
+            db.execute(ddl('duckdb'))
+            db.executemany('INSERT INTO events VALUES (' + ','.join('?' for _ in COLUMNS) + ')', rows)
+            db.execute('COPY events TO ? (FORMAT PARQUET, COMPRESSION ZSTD)', [str(old_path)])
+            write_batch(rows, path)
+            old_rows = db.execute('SELECT * FROM read_parquet(?) ORDER BY event_id', [str(old_path)]).fetchall()
+            new_rows = db.execute('SELECT * FROM read_parquet(?) ORDER BY event_id', [str(path)]).fetchall()
+            assert new_rows == old_rows == sorted(rows, key=lambda row: row[0])
+            assert db.execute('DESCRIBE SELECT * FROM read_parquet(?)', [str(path)]).fetchall() == db.execute(
+                'DESCRIBE SELECT * FROM read_parquet(?)', [str(old_path)]).fetchall()
+        schema = pq.read_schema(path)
+        assert schema.names == list(COLUMNS)
+        assert schema.field('event_id').type == pa.int64()
+        assert schema.field('occurred_at').type == pa.timestamp('us')
+        assert schema.field('expansion_level').type == pa.decimal128(18, 6)
+        assert schema.field('user_id').nullable
+        metadata = pq.read_metadata(path)
+        assert all(metadata.row_group(0).column(index).compression == 'ZSTD' for index in range(len(COLUMNS)))
+        write_batch([], Path(directory) / 'empty.parquet')
+        assert pq.read_table(Path(directory) / 'empty.parquet').num_rows == 0
+    for event in ({'expansionLevel': '0.0000001'}, {'expansionLevel': '1000000000000'},
+                  {'expansionLevel': 'NaN'}, {'userId': 123}, {'path': 1}):
+        try:
+            normalize((1, START, 'lesswrong.com', 'ssr', event), PARAMS['experiment'])
+            raise AssertionError('Invalid source value accepted')
+        except ValueError:
+            pass
+
+
 def write_fixture(db, destination, rows=None):
     if destination.exists():
         raise ValueError('Fixture destination must not exist')
@@ -151,6 +195,7 @@ def main():
     parser.add_argument('--write-fixture', type=Path)
     args = parser.parse_args()
     test_protocol()
+    test_columnar_export()
     rows = fixture()
     db = duckdb.connect(':memory:')
     db.execute(ddl('duckdb'))
@@ -161,7 +206,7 @@ def main():
         write_fixture(db, args.write_fixture)
     with tempfile.TemporaryDirectory(prefix='analytics-perf-fixture-') as directory:
         path = str(Path(directory) / 'events.parquet')
-        db.execute("COPY events TO '" + path + "' (FORMAT PARQUET, COMPRESSION ZSTD)")
+        write_batch(rows, path)
         parquet = duckdb.connect(':memory:')
         parquet.execute("CREATE VIEW events AS SELECT * FROM read_parquet('" + path + "')")
         parquet_outputs = check_results(parquet)
