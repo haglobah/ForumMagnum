@@ -651,6 +651,9 @@ class ElasticQuery {
       highlightName,
       highlightQuery,
     } = this.compileQuery();
+    // The plain highlighter can fail while rewriting filter clauses (notably
+    // negated exists queries in article filters). Highlight only the text query,
+    // retaining the specialized queries used for quoted and advanced searches.
     const highlightConfig =  {
       type: "plain",
       pre_tags: [preTag ?? "<em>"],
@@ -675,12 +678,12 @@ class ElasticQuery {
             fields: {
               [snippetName]: {
                 ...highlightConfig,
-                highlight_query: snippetQuery,
+                highlight_query: snippetQuery ?? searchQuery,
               },
               ...(highlightName && {
                 [highlightName]: {
                   ...highlightConfig,
-                  highlight_query: highlightQuery,
+                  highlight_query: highlightQuery ?? searchQuery,
                 },
               }),
             },
