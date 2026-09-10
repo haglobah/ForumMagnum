@@ -38,9 +38,9 @@ export type IndexConfig = {
    */
   snippet: string,
   /**
-   * The name of the field to create a match highlight from.
+   * Fields to return as complete highlighted labels.
    */
-  highlight?: string,
+  highlight?: string[],
   /**
    * An array of ranking specifications to manually tune the relevancy of results.
    * Ordering does not matter.
@@ -175,7 +175,7 @@ const elasticSearchConfig: () => Record<SearchIndexCollectionName, IndexConfig> 
       "authorDisplayName^11",
     ],
     snippet: "body",
-    highlight: "authorDisplayName",
+    highlight: ["authorDisplayName"],
     ranking: [
       {
         field: "baseScore",
@@ -230,7 +230,7 @@ const elasticSearchConfig: () => Record<SearchIndexCollectionName, IndexConfig> 
       "body",
     ],
     snippet: "body",
-    highlight: "title",
+    highlight: ["title", "authorDisplayName"],
     ranking: [
       {
         field: "baseScore",
@@ -290,6 +290,7 @@ const elasticSearchConfig: () => Record<SearchIndexCollectionName, IndexConfig> 
       "howOthersCanHelpMe",
     ],
     snippet: "bio",
+    highlight: ["displayName"],
     ranking: [
       {
         field: "karma",
@@ -365,6 +366,7 @@ const elasticSearchConfig: () => Record<SearchIndexCollectionName, IndexConfig> 
       "authorDisplayName",
     ],
     snippet: "plaintextDescription",
+    highlight: ["title", "authorDisplayName"],
     tiebreaker: "publicDateMs",
     filters: [
       {term: {isDeleted: false}},
@@ -395,6 +397,7 @@ const elasticSearchConfig: () => Record<SearchIndexCollectionName, IndexConfig> 
       "description",
     ],
     snippet: "description",
+    highlight: ["name"],
     ranking: [
       {
         field: "core",

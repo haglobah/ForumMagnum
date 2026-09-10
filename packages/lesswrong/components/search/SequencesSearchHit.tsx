@@ -1,3 +1,4 @@
+import SearchHighlight from "./SearchHighlight";
 import React from 'react';
 import { Link } from '../../lib/reactRouterWrapper';
 import type { Hit } from 'react-instantsearch-core';
@@ -54,7 +55,7 @@ const styles = defineStyles("SequencesSearchHit", (theme: ThemeType) => ({
 const SequencesSearchHit = ({hit, clickAction, showIcon=false}: SearchHitComponentProps) => {
   const classes = useStyles(styles);
   const sequence: SearchSequence = hit;
-  const showSnippet = hit._snippetResult?.body?.matchLevel !== "none"
+  const showSnippet = hit._snippetResult?.plaintextDescription?.matchLevel !== "none"
 
   return <div className={classes.root}>
       {showIcon && <LWTooltip title="Sequence">
@@ -63,17 +64,17 @@ const SequencesSearchHit = ({hit, clickAction, showIcon=false}: SearchHitCompone
       <Link to={"/sequences/" + sequence._id} onClick={() => clickAction(sequence._id)}>
         <div className="sequences-item-body ">
           <div className={classes.title}>
-            {sequence.title}
+            <SearchHighlight hit={hit} attribute="title">{sequence.title}</SearchHighlight>
           </div>
           <div className={classes.meta}>
-            <MetaInfo>{sequence.authorDisplayName}</MetaInfo>
+            <MetaInfo><SearchHighlight hit={hit} attribute="authorDisplayName">{sequence.authorDisplayName}</SearchHighlight></MetaInfo>
             <MetaInfo className="sequences-item-created-date">
               <FormatDate date={sequence.createdAt}/>
             </MetaInfo>
           </div>
         </div>
         {showSnippet && <div className={classes.snippet}>
-          <Snippet attribute="description" hit={sequence} tagName="mark" />
+          <Snippet attribute="plaintextDescription" hit={sequence} tagName="mark" />
         </div>}
       </Link>
   </div>

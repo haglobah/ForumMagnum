@@ -84,8 +84,19 @@ type CompiledQuery = {
   searchQuery: QueryDslQueryContainer,
   snippetName: string,
   snippetQuery?: QueryDslQueryContainer,
-  highlightName?: string,
-  highlightQuery?: QueryDslQueryContainer,
+  highlights?: Record<string, QueryDslQueryContainer | undefined>,
+}
+
+function compileAdvancedHighlight(fieldName: string, tokens: QueryToken[]): QueryDslQueryContainer {
+  const should: QueryDslQueryContainer[] = [];
+  for (const {type, token} of tokens) {
+    if (type === "must") {
+      should.push({match_phrase: {[fieldName]: {query: token, analyzer: "simple"}}});
+    } else if (type === "should") {
+      should.push({match: {[fieldName]: {query: token}}});
+    }
+  }
+  return {bool: {should, minimum_should_match: 1}};
 }
 
 class ElasticQuery {
@@ -390,8 +401,9 @@ class ElasticQuery {
           ],
         },
       },
-      snippetName: snippet,
-      highlightName: highlight,
+      // Use the same analyzer as the query: base fields stem words that .exact retains.
+      snippetName: this.queryData.unifiedRanking ? `${snippet}.exact` : snippet,
+      highlights: Object.fromEntries((highlight ?? []).map(name => [this.queryData.unifiedRanking ? `${name}.exact` : name, undefined])),
     };
   }
 
@@ -407,27 +419,19 @@ class ElasticQuery {
   }
 
   private getAdvancedHighlightQuery(
-    mustToken: string,
+    tokens: QueryToken[],
   ): Omit<CompiledQuery, "searchQuery"> {
     const {snippet, highlight} = this.config;
     const snippetName = `${snippet}.exact`;
-    const highlightName = `${highlight}.exact`;
-    const buildQuery = (fieldName: string) => ({
-      match_phrase: {
-        [fieldName]: {
-          query: mustToken,
-          analyzer: "simple",
-        },
-      },
-    });
+    const highlights: Record<string, QueryDslQueryContainer> = {};
+    for (const name of highlight ?? []) {
+      highlights[`${name}.exact`] = compileAdvancedHighlight(`${name}.exact`, tokens);
+    }
     return {
-      tokens: [{ type: "must", token: mustToken }],
+      tokens,
       snippetName,
-      snippetQuery: buildQuery(snippetName),
-      ...(highlight && {
-        highlightName,
-        highlightQuery: buildQuery(highlightName),
-      }),
+      snippetQuery: compileAdvancedHighlight(snippetName, tokens),
+      highlights,
     };
   }
 
@@ -477,7 +481,7 @@ class ElasticQuery {
 
     if (must.length) {
       const advancedHighlight = this.getAdvancedHighlightQuery(
-        must[0].multi_match!.query,
+        tokens,
       );
       return {
         ...advancedHighlight,
@@ -487,7 +491,7 @@ class ElasticQuery {
     }
 
     const highlightQueryString = tokens.filter(
-      ({type}) => type !== "user" && type !== "tag",
+      ({type}) => type === "must" || type === "should",
     ).map(({token}) => token).join(" ");
     const highlightQuery = this.getDefaultQuery(
       highlightQueryString,
@@ -497,10 +501,10 @@ class ElasticQuery {
     return {
       tokens,
       searchQuery,
-      snippetName: snippet,
+      // Use the same analyzer as the query: base fields stem words that .exact retains.
+      snippetName: this.queryData.unifiedRanking ? `${snippet}.exact` : snippet,
       snippetQuery: highlightQuery,
-      highlightName: highlight,
-      highlightQuery,
+      highlights: Object.fromEntries((highlight ?? []).map(name => [this.queryData.unifiedRanking ? `${name}.exact` : name, highlightQuery])),
     };
   }
 
@@ -648,8 +652,7 @@ class ElasticQuery {
       searchQuery,
       snippetName,
       snippetQuery,
-      highlightName,
-      highlightQuery,
+      highlights,
     } = this.compileQuery();
     // The plain highlighter can fail while rewriting filter clauses (notably
     // negated exists queries in article filters). Highlight only the text query,
@@ -680,12 +683,11 @@ class ElasticQuery {
                 ...highlightConfig,
                 highlight_query: snippetQuery ?? searchQuery,
               },
-              ...(highlightName && {
-                [highlightName]: {
-                  ...highlightConfig,
-                  highlight_query: highlightQuery ?? searchQuery,
-                },
-              }),
+              ...Object.fromEntries(Object.entries(highlights ?? {}).map(([name, query]) => [name, {
+                ...highlightConfig,
+                number_of_fragments: 0,
+                highlight_query: query ?? searchQuery,
+              }])),
             },
             number_of_fragments: 1,
             fragment_size: 140,
