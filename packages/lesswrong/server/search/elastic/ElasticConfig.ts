@@ -160,6 +160,10 @@ const keywordMapping: MappingProperty = {
   type: "keyword",
 };
 
+const dateMapping: MappingProperty = {
+  type: "date",
+};
+
 const objectMapping = (
   properties: Record<string, MappingProperty>,
 ): MappingProperty => ({properties});
@@ -254,6 +258,7 @@ const elasticSearchConfig: () => Record<SearchIndexCollectionName, IndexConfig> 
       body: fullTextMapping,
       feedLink: keywordMapping,
       slug: keywordMapping,
+      startTime: dateMapping,
       tags: objectMapping({
         _id: keywordMapping,
         slug: keywordMapping,
@@ -320,6 +325,7 @@ const elasticSearchConfig: () => Record<SearchIndexCollectionName, IndexConfig> 
     ],
     mappings: {
       displayName: nameTextMapping,
+      fullName: shingleTextMapping,
       bio: fullTextMapping,
       mapLocationAddress: fullTextMapping,
       jobTitle: fullTextMapping,
