@@ -2233,6 +2233,7 @@ interface DbUser extends DbObject {
   reviewVotesQuadratic2020: boolean | null
   reviewedAt: Date | null
   reviewedByUserId: string | null
+  searchHistory: Array<string>
   sequenceCount: number
   sequenceDraftCount: number
   services: any | null
