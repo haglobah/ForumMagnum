@@ -1,0 +1,322 @@
+[
+  {
+    "label": "database",
+    "query_id": "pilot-build-512c3c58-bf90-4b54-b465-d985bde88118",
+    "status": "complete",
+    "sql": "CREATE DATABASE IF NOT EXISTS benchmark_20260910",
+    "utc": "2026-09-10T21:55:53.224910+00:00",
+    "elapsed_ms": 242.99791899989032
+  },
+  {
+    "label": "raw-create",
+    "query_id": "pilot-build-530f46fc-5a55-4ffa-a3f3-65fd83ab465c",
+    "status": "complete",
+    "sql": "CREATE TABLE benchmark_20260910.raw (id Nullable(Int64), timestamp DateTime64(6), environment String, event_type String, event String) ENGINE=MergeTree ORDER BY tuple()",
+    "utc": "2026-09-10T21:55:53.468739+00:00",
+    "elapsed_ms": 170.18689700012146
+  },
+  {
+    "label": "raw-copy",
+    "query_id": "pilot-build-63588f5f-19ac-4707-bbe5-f8ffdbb07665",
+    "status": "complete",
+    "sql": "INSERT INTO benchmark_20260910.raw SELECT id,timestamp,environment,event_type,event FROM default.public_raw PREWHERE timestamp>=toDateTime64('2026-08-31 00:00:00',6,'UTC') AND timestamp<toDateTime64('2026-09-08 00:05:00',6,'UTC') AND environment='lesswrong.com'",
+    "utc": "2026-09-10T21:55:53.646895+00:00",
+    "elapsed_ms": 182040.37930499998
+  },
+  {
+    "label": "database",
+    "query_id": "pilot-build-f56d7833-f228-4841-b08b-58a87ff6b582",
+    "status": "complete",
+    "sql": "CREATE DATABASE IF NOT EXISTS benchmark_20260910",
+    "utc": "2026-09-10T22:00:11.805178+00:00",
+    "elapsed_ms": 211.39385300011782
+  },
+  {
+    "label": "minmax-create",
+    "query_id": "pilot-build-1f63251f-0e81-48a7-8c9f-33c7b95e39f5",
+    "status": "complete",
+    "sql": "CREATE TABLE benchmark_20260910.minmax (id Nullable(Int64), timestamp DateTime64(6), environment String, event_type String, event String) ENGINE=MergeTree ORDER BY tuple()",
+    "utc": "2026-09-10T22:00:12.017466+00:00",
+    "elapsed_ms": 191.24440500013407
+  },
+  {
+    "label": "minmax-copy",
+    "query_id": "pilot-build-589fa5ae-e3bc-4ec4-bb5e-6cefd89345db",
+    "status": "complete",
+    "sql": "INSERT INTO benchmark_20260910.minmax SELECT * FROM benchmark_20260910.raw",
+    "utc": "2026-09-10T22:00:12.216696+00:00",
+    "elapsed_ms": 19940.70851299989
+  },
+  {
+    "label": "minmax-index",
+    "query_id": "pilot-build-2e467f0e-bea3-494e-a141-a9244ba975c0",
+    "status": "complete",
+    "sql": "ALTER TABLE benchmark_20260910.minmax ADD INDEX timestamp_minmax timestamp TYPE minmax GRANULARITY 1",
+    "utc": "2026-09-10T22:00:32.165290+00:00",
+    "elapsed_ms": 88.26166600010765
+  },
+  {
+    "label": "minmax-materialize",
+    "query_id": "pilot-build-c3a8ff14-bf8c-48ea-b54d-dbe725b8a8f9",
+    "status": "complete",
+    "sql": "ALTER TABLE benchmark_20260910.minmax MATERIALIZE INDEX timestamp_minmax SETTINGS mutations_sync=2",
+    "utc": "2026-09-10T22:00:32.254115+00:00",
+    "elapsed_ms": 6129.70724999991
+  },
+  {
+    "label": "database",
+    "query_id": "pilot-build-652240ba-cdbb-407e-938d-1bea8bfaf15c",
+    "status": "complete",
+    "sql": "CREATE DATABASE IF NOT EXISTS benchmark_20260910",
+    "utc": "2026-09-10T22:00:38.384777+00:00",
+    "elapsed_ms": 65.55272100013099
+  },
+  {
+    "label": "projection-create",
+    "query_id": "pilot-build-c42f4430-61c3-4226-8506-68ac8e189602",
+    "status": "complete",
+    "sql": "CREATE TABLE benchmark_20260910.projection (id Nullable(Int64), timestamp DateTime64(6), environment String, event_type String, event String) ENGINE=MergeTree ORDER BY tuple()",
+    "utc": "2026-09-10T22:00:38.458099+00:00",
+    "elapsed_ms": 164.83356399999138
+  },
+  {
+    "label": "projection-copy",
+    "query_id": "pilot-build-64c4b3f0-4416-4bba-9a37-80d89845cc63",
+    "status": "complete",
+    "sql": "INSERT INTO benchmark_20260910.projection SELECT * FROM benchmark_20260910.raw",
+    "utc": "2026-09-10T22:00:38.623827+00:00",
+    "elapsed_ms": 19512.42910099995
+  },
+  {
+    "label": "projection-add",
+    "query_id": "pilot-build-72dcd1da-5888-4d23-a3d8-c5b555192413",
+    "status": "complete",
+    "sql": "ALTER TABLE benchmark_20260910.projection ADD PROJECTION time_order (SELECT _part_offset ORDER BY (environment,timestamp))",
+    "utc": "2026-09-10T22:00:58.137341+00:00",
+    "elapsed_ms": 85.33862600006614
+  },
+  {
+    "label": "projection-materialize",
+    "query_id": "pilot-build-a6e6354b-95cc-4ab1-b9f0-b2613143346b",
+    "status": "complete",
+    "sql": "ALTER TABLE benchmark_20260910.projection MATERIALIZE PROJECTION time_order SETTINGS mutations_sync=2",
+    "utc": "2026-09-10T22:00:58.223495+00:00",
+    "elapsed_ms": 10164.020577999963
+  },
+  {
+    "label": "database",
+    "query_id": "pilot-build-83965556-b3af-48bf-abc7-860be096d409",
+    "status": "complete",
+    "sql": "CREATE DATABASE IF NOT EXISTS benchmark_20260910",
+    "utc": "2026-09-10T22:01:08.388175+00:00",
+    "elapsed_ms": 65.28099199999815
+  },
+  {
+    "label": "typed-create",
+    "query_id": "pilot-build-cb94472e-d0ca-4afb-9349-1fdb16c5764c",
+    "status": "complete",
+    "sql": "CREATE TABLE benchmark_20260910.typed (event_id Nullable(Int64),occurred_at DateTime64(6, 'UTC'),environment String,event_type String,user_id Nullable(String),client_id Nullable(String),session_id Nullable(String),tab_id Nullable(String),path Nullable(String),feed_item_id Nullable(String),expansion_level Nullable(Decimal(38,6)),user_agent Nullable(String),ab_variant Nullable(String)) ENGINE=MergeTree PARTITION BY toYYYYMM(occurred_at) ORDER BY (environment,occurred_at,event_type)",
+    "utc": "2026-09-10T22:01:08.454155+00:00",
+    "elapsed_ms": 168.31147500010957
+  },
+  {
+    "label": "typed-copy",
+    "query_id": "pilot-build-1696b444-f2c6-4784-8ffc-a72bb1321bf6",
+    "status": "complete",
+    "sql": "INSERT INTO benchmark_20260910.typed SELECT id AS event_id,timestamp AS occurred_at,environment AS environment,event_type AS event_type,JSONExtract(event,'userId','Nullable(String)') AS user_id,JSONExtract(event,'clientId','Nullable(String)') AS client_id,JSONExtract(event,'sessionId','Nullable(String)') AS session_id,JSONExtract(event,'tabId','Nullable(String)') AS tab_id,replaceRegexpOne(CASE WHEN event_type='navigate' THEN JSONExtract(event,'to','Nullable(String)') WHEN event_type='pageLoadFinished' THEN JSONExtract(event,'url','Nullable(String)') ELSE JSONExtract(event,'path','Nullable(String)') END,'^https?://[^/]+','') AS path,JSONExtract(event,'feedItemId','Nullable(String)') AS feed_item_id,if(JSONType(event,'expansionLevel')='Null',NULL,toDecimal128(if(JSONType(event,'expansionLevel')='String',JSONExtractString(event,'expansionLevel'),JSONExtractRaw(event,'expansionLevel')),6)) AS expansion_level,JSONExtract(event,'userAgent','Nullable(String)') AS user_agent,JSONExtract(event,'abTestGroups','welcomeBoxABTest','Nullable(String)') AS ab_variant FROM benchmark_20260910.raw",
+    "utc": "2026-09-10T22:01:08.623422+00:00",
+    "elapsed_ms": 38253.60679999994
+  },
+  {
+    "label": "synthetic-typed-create",
+    "query_id": "pilot-build-30b77994-62f5-4e04-8beb-bfc8dbe60ea0",
+    "status": "complete",
+    "sql": "CREATE TABLE benchmark_20260910.typed_fixture AS benchmark_20260910.typed",
+    "utc": "2026-09-10T22:08:07.386466+00:00",
+    "elapsed_ms": 330.3168160000496
+  },
+  {
+    "label": "synthetic-typed-copy",
+    "query_id": "pilot-build-8019e9a7-0327-4dd3-858c-8ae9d703c56c",
+    "status": "complete",
+    "sql": "INSERT INTO benchmark_20260910.typed_fixture SELECT id AS event_id,timestamp AS occurred_at,environment AS environment,event_type AS event_type,JSONExtract(event,'userId','Nullable(String)') AS user_id,JSONExtract(event,'clientId','Nullable(String)') AS client_id,JSONExtract(event,'sessionId','Nullable(String)') AS session_id,JSONExtract(event,'tabId','Nullable(String)') AS tab_id,replaceRegexpOne(CASE WHEN event_type='navigate' THEN JSONExtract(event,'to','Nullable(String)') WHEN event_type='pageLoadFinished' THEN JSONExtract(event,'url','Nullable(String)') ELSE JSONExtract(event,'path','Nullable(String)') END,'^https?://[^/]+','') AS path,JSONExtract(event,'feedItemId','Nullable(String)') AS feed_item_id,if(JSONType(event,'expansionLevel')='Null',NULL,toDecimal128(if(JSONType(event,'expansionLevel')='String',JSONExtractString(event,'expansionLevel'),JSONExtractRaw(event,'expansionLevel')),6)) AS expansion_level,JSONExtract(event,'userAgent','Nullable(String)') AS user_agent,JSONExtract(event,'abTestGroups','welcomeBoxABTest','Nullable(String)') AS ab_variant FROM (SELECT toInt64(9007199254740993) AS id,toDateTime64('2026-08-31 00:00:00.000000', 6, 'UTC') AS timestamp,'lesswrong.com' AS environment,'tabStarted' AS event_type,'{\"tabId\": \"t\", \"userAgent\": \"old\", \"abTestGroups\": {\"welcomeBoxABTest\": \"old\"}}' AS event UNION ALL SELECT toInt64(9007199254740994) AS id,toDateTime64('2026-09-07 00:00:00.000000', 6, 'UTC') AS timestamp,'lesswrong.com' AS environment,'pageLoadFinished' AS event_type,'{\"userId\": \"u\", \"clientId\": \"c\", \"sessionId\": \"s\", \"tabId\": \"t\", \"url\": \"/posts/x\"}' AS event UNION ALL SELECT toInt64(9007199254740995) AS id,toDateTime64('2026-09-07 00:00:05.000000', 6, 'UTC') AS timestamp,'lesswrong.com' AS environment,'ssr' AS event_type,'{\"tabId\": \"t\", \"userAgent\": \"Crawler\", \"abTestGroups\": {\"welcomeBoxABTest\": \"001\"}}' AS event UNION ALL SELECT toInt64(9007199254740996) AS id,toDateTime64('2026-09-07 00:00:05.000000', 6, 'UTC') AS timestamp,'lesswrong.com' AS environment,'tabStarted' AS event_type,'{\"tabId\": \"t\", \"userAgent\": \"Browser\", \"abTestGroups\": {\"welcomeBoxABTest\": \"002\"}}' AS event UNION ALL SELECT toInt64(9007199254740997) AS id,toDateTime64('2026-09-07 00:00:06.123456', 6, 'UTC') AS timestamp,'lesswrong.com' AS environment,'navigate' AS event_type,'{\"clientId\": \"c\", \"tabId\": \"t\", \"to\": \"/posts/x\"}' AS event UNION ALL SELECT toInt64(9007199254740998) AS id,toDateTime64('2026-09-07 00:00:07.000000', 6, 'UTC') AS timestamp,'lesswrong.com' AS environment,'navigate' AS event_type,'{\"clientId\": \"c\", \"tabId\": \"t\", \"to\": \"/elsewhere\"}' AS event UNION ALL SELECT toInt64(9007199254740999) AS id,toDateTime64('2026-09-07 00:00:10.000000', 6, 'UTC') AS timestamp,'lesswrong.com' AS environment,'ultraFeedItemViewed' AS event_type,'{\"userId\": \"u\", \"tabId\": \"t\", \"feedItemId\": \"i\"}' AS event UNION ALL SELECT toInt64(9007199254741000) AS id,toDateTime64('2026-09-07 00:00:11.000000', 6, 'UTC') AS timestamp,'lesswrong.com' AS environment,'ultraFeedItemViewed' AS event_type,'{\"userId\": \"u\", \"tabId\": \"t\", \"feedItemId\": \"i\"}' AS event UNION ALL SELECT toInt64(9007199254741001) AS id,toDateTime64('2026-09-07 00:00:12.000000', 6, 'UTC') AS timestamp,'lesswrong.com' AS environment,'ultraFeedItemExpanded' AS event_type,'{\"tabId\": \"t\", \"feedItemId\": \"i\", \"expansionLevel\": \"0\"}' AS event UNION ALL SELECT toInt64(9007199254741002) AS id,toDateTime64('2026-09-07 00:00:13.000000', 6, 'UTC') AS timestamp,'lesswrong.com' AS environment,'ultraFeedItemExpanded' AS event_type,'{\"tabId\": \"t\", \"feedItemId\": \"i\", \"expansionLevel\": \"1\"}' AS event UNION ALL SELECT toInt64(9007199254741003) AS id,toDateTime64('2026-09-07 00:00:14.000000', 6, 'UTC') AS timestamp,'lesswrong.com' AS environment,'ultraFeedItemExpanded' AS event_type,'{\"tabId\": \"t\", \"feedItemId\": \"i\", \"expansionLevel\": \"2\"}' AS event UNION ALL SELECT toInt64(9007199254741004) AS id,toDateTime64('2026-09-07 00:00:15.000000', 6, 'UTC') AS timestamp,'lesswrong.com' AS environment,'ultraFeedItemExpanded' AS event_type,'{\"tabId\": \"t\", \"feedItemId\": \"j\", \"expansionLevel\": \"1\"}' AS event UNION ALL SELECT toInt64(9007199254741005) AS id,toDateTime64('2026-09-07 00:00:16.000000', 6, 'UTC') AS timestamp,'lesswrong.com' AS environment,'ultraFeedItemViewed' AS event_type,'{\"userId\": \"u\", \"tabId\": \"t\", \"feedItemId\": \"j\"}' AS event UNION ALL SELECT toInt64(9007199254741006) AS id,toDateTime64('2026-09-07 00:00:17.000000', 6, 'UTC') AS timestamp,'lesswrong.com' AS environment,'ultraFeedItemViewed' AS event_type,'{\"userId\": \"u\", \"feedItemId\": \"orphan\"}' AS event UNION ALL SELECT toInt64(9007199254741007) AS id,toDateTime64('2026-09-07 00:00:20.000000', 6, 'UTC') AS timestamp,'lesswrong.com' AS environment,'navigate' AS event_type,'{\"to\": \"/posts/anonymous\"}' AS event UNION ALL SELECT toInt64(9007199254741008) AS id,toDateTime64('2026-09-07 00:00:25.000000', 6, 'UTC') AS timestamp,'lesswrong.com' AS environment,'ssr' AS event_type,'{\"tabId\": \"historic\", \"userAgent\": \"HeadlessBrowser\", \"abTestGroups\": {\"welcomeBoxABTest\": \"001\"}}' AS event UNION ALL SELECT toInt64(9007199254741009) AS id,toDateTime64('2026-09-07 00:00:30.000000', 6, 'UTC') AS timestamp,'lesswrong.com' AS environment,'pageLoadFinished' AS event_type,'{\"clientId\": \"h\", \"tabId\": \"historic\", \"url\": \"/posts/h\"}' AS event UNION ALL SELECT toInt64(9007199254741010) AS id,toDateTime64('2026-09-07 00:00:31.000000', 6, 'UTC') AS timestamp,'lesswrong.com' AS environment,'pageLoadFinished' AS event_type,'{\"clientId\": \"h\", \"tabId\": \"historic\", \"url\": \"/posts/h\"}' AS event UNION ALL SELECT toInt64(9007199254741011) AS id,toDateTime64('2026-09-07 00:00:32.000000', 6, 'UTC') AS timestamp,'lesswrong.com' AS environment,'tabStarted' AS event_type,'{\"tabId\": \"unknown\", \"userAgent\": \"\"}' AS event UNION ALL SELECT toInt64(9007199254741012) AS id,toDateTime64('2026-09-07 00:00:33.000000', 6, 'UTC') AS timestamp,'lesswrong.com' AS environment,'navigate' AS event_type,'{\"tabId\": \"unknown\"}' AS event UNION ALL SELECT toInt64(9007199254741013) AS id,toDateTime64('2026-09-07 00:59:59.000000', 6, 'UTC') AS timestamp,'lesswrong.com' AS environment,'tabStarted' AS event_type,'{\"tabId\": \"late\", \"abTestGroups\": {\"welcomeBoxABTest\": \"late\"}}' AS event UNION ALL SELECT toInt64(9007199254741014) AS id,toDateTime64('2026-09-07 01:00:00.000000', 6, 'UTC') AS timestamp,'lesswrong.com' AS environment,'navigate' AS event_type,'{\"tabId\": \"late\"}' AS event UNION ALL SELECT toInt64(9007199254741015) AS id,toDateTime64('2026-08-30 23:59:59.000000', 6, 'UTC') AS timestamp,'lesswrong.com' AS environment,'ssr' AS event_type,'{\"tabId\": \"expired\", \"userAgent\": \"bot\"}' AS event UNION ALL SELECT toInt64(9007199254741016) AS id,toDateTime64('2026-09-07 00:00:00.000000', 6, 'UTC') AS timestamp,'lesswrong.com' AS environment,'navigate' AS event_type,'{\"tabId\": \"expired\"}' AS event UNION ALL SELECT toInt64(9007199254741017) AS id,toDateTime64('2026-09-07 00:59:59.000000', 6, 'UTC') AS timestamp,'lesswrong.com' AS environment,'ssr' AS event_type,'{\"tabId\": \"followup\"}' AS event UNION ALL SELECT toInt64(9007199254741018) AS id,toDateTime64('2026-09-07 01:00:01.000000', 6, 'UTC') AS timestamp,'lesswrong.com' AS environment,'pageLoadFinished' AS event_type,'{\"tabId\": \"followup\"}' AS event UNION ALL SELECT toInt64(9007199254741992) AS id,toDateTime64('2026-09-07 00:00:05.000000', 6, 'UTC') AS timestamp,'other.example' AS environment,'tabStarted' AS event_type,'{\"tabId\": \"t\", \"userAgent\": \"bot\", \"abTestGroups\": {\"welcomeBoxABTest\": \"wrong-environment\"}}' AS event)",
+    "utc": "2026-09-10T22:08:07.717437+00:00",
+    "elapsed_ms": 254.49502699984805
+  },
+  {
+    "label": "event-create",
+    "query_id": "pilot-build-f6374f68-6e7b-4c8f-b6e6-4f0a2218934f",
+    "status": "complete",
+    "sql": "CREATE TABLE benchmark_20260910.typed_event AS benchmark_20260910.typed",
+    "utc": "2026-09-10T22:11:57.137603+00:00",
+    "elapsed_ms": 388.69592699984423
+  },
+  {
+    "label": "event-copy",
+    "query_id": "pilot-build-2ee4de01-93c8-46d2-9d66-57d17b069088",
+    "status": "complete",
+    "sql": "INSERT INTO benchmark_20260910.typed_event SELECT * FROM benchmark_20260910.typed",
+    "utc": "2026-09-10T22:11:57.527332+00:00",
+    "elapsed_ms": 8563.116616000116
+  },
+  {
+    "label": "event-projection-add",
+    "query_id": "pilot-build-e0ccfe67-b263-492d-851f-67f6d6f2598a",
+    "status": "complete",
+    "sql": "ALTER TABLE benchmark_20260910.typed_event ADD PROJECTION event_order (SELECT _part_offset ORDER BY (environment,event_type,occurred_at))",
+    "utc": "2026-09-10T22:12:06.091672+00:00",
+    "elapsed_ms": 156.7301159998351
+  },
+  {
+    "label": "event-projection-materialize",
+    "query_id": "pilot-build-5e37144c-2664-4445-a1e2-973008501b55",
+    "status": "complete",
+    "sql": "ALTER TABLE benchmark_20260910.typed_event MATERIALIZE PROJECTION event_order SETTINGS mutations_sync=2",
+    "utc": "2026-09-10T22:12:06.257019+00:00",
+    "elapsed_ms": 19183.328226999947
+  },
+  {
+    "label": "user-create",
+    "query_id": "pilot-build-d304715d-84b3-4edf-ab5b-26de9bcac0ce",
+    "status": "complete",
+    "sql": "CREATE TABLE benchmark_20260910.typed_user AS benchmark_20260910.typed",
+    "utc": "2026-09-10T22:12:25.463347+00:00",
+    "elapsed_ms": 225.81336900020688
+  },
+  {
+    "label": "user-copy",
+    "query_id": "pilot-build-838015bb-4c21-4a99-8d85-7a7f734cdde6",
+    "status": "complete",
+    "sql": "INSERT INTO benchmark_20260910.typed_user SELECT * FROM benchmark_20260910.typed",
+    "utc": "2026-09-10T22:12:25.690582+00:00",
+    "elapsed_ms": 7139.756414999738
+  },
+  {
+    "label": "user-projection-add",
+    "query_id": "pilot-build-443c9745-7164-46aa-ad9b-afc6c9fc4f91",
+    "status": "complete",
+    "sql": "ALTER TABLE benchmark_20260910.typed_user ADD PROJECTION user_order (SELECT _part_offset ORDER BY (environment,ifNull(user_id,''),occurred_at))",
+    "utc": "2026-09-10T22:12:32.838833+00:00",
+    "elapsed_ms": 89.75779399997919
+  },
+  {
+    "label": "user-projection-materialize",
+    "query_id": "pilot-build-b05bbfa5-00e6-4324-8427-0d6f4b7dc518",
+    "status": "complete",
+    "sql": "ALTER TABLE benchmark_20260910.typed_user MATERIALIZE PROJECTION user_order SETTINGS mutations_sync=2",
+    "utc": "2026-09-10T22:12:32.929813+00:00",
+    "elapsed_ms": 12147.887965999871
+  },
+  {
+    "label": "session-create",
+    "query_id": "pilot-build-57b8066b-074f-42c1-9b27-b802cce9171b",
+    "status": "complete",
+    "sql": "CREATE TABLE benchmark_20260910.typed_session AS benchmark_20260910.typed",
+    "utc": "2026-09-10T22:12:45.078889+00:00",
+    "elapsed_ms": 278.4662330000174
+  },
+  {
+    "label": "session-copy",
+    "query_id": "pilot-build-e859a475-20d2-45f6-8d95-baa6221e41af",
+    "status": "complete",
+    "sql": "INSERT INTO benchmark_20260910.typed_session SELECT * FROM benchmark_20260910.typed",
+    "utc": "2026-09-10T22:12:45.372361+00:00",
+    "elapsed_ms": 7028.356389999772
+  },
+  {
+    "label": "session-projection-add",
+    "query_id": "pilot-build-5b03f91c-b7fd-41a8-8b1c-c3d07c07dd3c",
+    "status": "complete",
+    "sql": "ALTER TABLE benchmark_20260910.typed_session ADD PROJECTION session_order (SELECT _part_offset ORDER BY (environment,ifNull(session_id,''),occurred_at))",
+    "utc": "2026-09-10T22:12:52.408652+00:00",
+    "elapsed_ms": 150.22056800034989
+  },
+  {
+    "label": "session-projection-materialize",
+    "query_id": "pilot-build-a98ed1ed-7ac6-46a5-b5f5-37bd485df588",
+    "status": "complete",
+    "sql": "ALTER TABLE benchmark_20260910.typed_session MATERIALIZE PROJECTION session_order SETTINGS mutations_sync=2",
+    "utc": "2026-09-10T22:12:52.559620+00:00",
+    "elapsed_ms": 14135.729966000326
+  },
+  {
+    "label": "tab-create",
+    "query_id": "pilot-build-a927424c-f4ee-435a-8fec-3a2a0d26386e",
+    "status": "complete",
+    "sql": "CREATE TABLE benchmark_20260910.typed_tab AS benchmark_20260910.typed",
+    "utc": "2026-09-10T22:13:06.696293+00:00",
+    "elapsed_ms": 209.02484199996252
+  },
+  {
+    "label": "tab-copy",
+    "query_id": "pilot-build-d55a3a50-799f-4318-82a2-2e34528da6cb",
+    "status": "complete",
+    "sql": "INSERT INTO benchmark_20260910.typed_tab SELECT * FROM benchmark_20260910.typed",
+    "utc": "2026-09-10T22:13:06.914011+00:00",
+    "elapsed_ms": 6583.585415000016
+  },
+  {
+    "label": "tab-projection-add",
+    "query_id": "pilot-build-92a48ac6-3aaa-46f0-94db-5671074f61a1",
+    "status": "complete",
+    "sql": "ALTER TABLE benchmark_20260910.typed_tab ADD PROJECTION tab_order (SELECT _part_offset ORDER BY (environment,ifNull(tab_id,''),occurred_at))",
+    "utc": "2026-09-10T22:13:13.499060+00:00",
+    "elapsed_ms": 139.47070499989422
+  },
+  {
+    "label": "tab-projection-materialize",
+    "query_id": "pilot-build-bea1819c-5676-4ca1-9682-16dd8aa23721",
+    "status": "complete",
+    "sql": "ALTER TABLE benchmark_20260910.typed_tab MATERIALIZE PROJECTION tab_order SETTINGS mutations_sync=2",
+    "utc": "2026-09-10T22:13:13.647046+00:00",
+    "elapsed_ms": 14158.87785699988
+  },
+  {
+    "label": "metadata-create",
+    "query_id": "pilot-build-f512bea1-6a37-4a31-90c8-ffbc7a0e1c97",
+    "status": "complete",
+    "sql": "CREATE TABLE benchmark_20260910.metadata_compact ENGINE=MergeTree ORDER BY (environment,ifNull(tab_id,''),occurred_at) AS SELECT event_id,occurred_at,environment,event_type,tab_id,ab_variant,user_agent FROM benchmark_20260910.typed WHERE 0",
+    "utc": "2026-09-10T22:13:27.813677+00:00",
+    "elapsed_ms": 229.4303610001407
+  },
+  {
+    "label": "metadata-copy",
+    "query_id": "pilot-build-35c46238-8433-48a4-b0ca-fb23c68d7a16",
+    "status": "complete",
+    "sql": "INSERT INTO benchmark_20260910.metadata_compact SELECT event_id,occurred_at,environment,event_type,tab_id,ab_variant,user_agent FROM benchmark_20260910.typed WHERE event_type IN ('tabStarted','ssr')",
+    "utc": "2026-09-10T22:13:28.051775+00:00",
+    "elapsed_ms": 2154.7161339999548
+  },
+  {
+    "label": "rollup-create",
+    "query_id": "pilot-build-7a84674a-9536-4bac-9ef9-6361d7193c95",
+    "status": "complete",
+    "sql": "CREATE TABLE benchmark_20260910.hourly_rollup ENGINE=AggregatingMergeTree ORDER BY (environment,hour,event_type) AS SELECT environment,toStartOfHour(occurred_at) AS hour,event_type,countState() AS events,uniqExactState(client_id) AS clients FROM benchmark_20260910.typed GROUP BY environment,hour,event_type LIMIT 0",
+    "utc": "2026-09-10T22:13:30.215086+00:00",
+    "elapsed_ms": 218.173563000164
+  },
+  {
+    "label": "rollup-copy",
+    "query_id": "pilot-build-6f24a47b-0a7e-4124-98ca-e16c3dabbe5e",
+    "status": "complete",
+    "sql": "INSERT INTO benchmark_20260910.hourly_rollup SELECT environment,toStartOfHour(occurred_at) AS hour,event_type,countState() AS events,uniqExactState(client_id) AS clients FROM benchmark_20260910.typed GROUP BY environment,hour,event_type",
+    "utc": "2026-09-10T22:13:30.448317+00:00",
+    "elapsed_ms": 2180.8963440003026
+  },
+  {
+    "label": "rollup-fine-create",
+    "query_id": "pilot-build-85ff0ec5-03f3-41cd-bffb-f2c08e1f1232",
+    "status": "complete",
+    "sql": "CREATE TABLE benchmark_20260910.hourly_rollup_fine ENGINE=AggregatingMergeTree ORDER BY (environment,hour,event_type) SETTINGS index_granularity=64 AS SELECT environment,toStartOfHour(occurred_at) AS hour,event_type,countState() AS events,uniqExactState(client_id) AS clients FROM benchmark_20260910.typed GROUP BY environment,hour,event_type LIMIT 0",
+    "utc": "2026-09-10T22:15:44.355762+00:00",
+    "elapsed_ms": 367.12818300020444
+  },
+  {
+    "label": "rollup-fine-copy",
+    "query_id": "pilot-build-87f9dca7-c7c0-436d-8680-c46e26eaf8d3",
+    "status": "complete",
+    "sql": "INSERT INTO benchmark_20260910.hourly_rollup_fine SELECT * FROM benchmark_20260910.hourly_rollup",
+    "utc": "2026-09-10T22:15:44.724200+00:00",
+    "elapsed_ms": 1233.2426309999391
+  }
+]

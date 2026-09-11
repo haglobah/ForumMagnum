@@ -1,0 +1,422 @@
+{
+  "traffic_hour": {
+    "raw": {
+      "status": "complete",
+      "query_id": "pilot-aa227c22-b2d1-4988-8760-d2b9e52784e0",
+      "elapsed_ms": 119.53325600006792,
+      "rows": 2,
+      "sha256": "0366a32e564d38dc06aa3841a87052c0b23d1c21c6d7cba90ca1f922aabf66a5",
+      "statistics": {
+        "elapsed": "0.052731102",
+        "rows_read": 27,
+        "bytes_read": 27
+      },
+      "matches_duckdb": true
+    },
+    "typed": {
+      "status": "complete",
+      "query_id": "pilot-89ce6fd5-b8d1-49bd-93f0-e548c81cade6",
+      "elapsed_ms": 72.39799499984656,
+      "rows": 2,
+      "sha256": "0366a32e564d38dc06aa3841a87052c0b23d1c21c6d7cba90ca1f922aabf66a5",
+      "statistics": {
+        "elapsed": "0.005416588",
+        "rows_read": 25,
+        "bytes_read": 1176
+      },
+      "matches_duckdb": true
+    }
+  },
+  "traffic_day": {
+    "raw": {
+      "status": "complete",
+      "query_id": "pilot-5428fe09-43ca-4072-98f9-d30a20a07ae8",
+      "elapsed_ms": 111.51440799994816,
+      "rows": 2,
+      "sha256": "0366a32e564d38dc06aa3841a87052c0b23d1c21c6d7cba90ca1f922aabf66a5",
+      "statistics": {
+        "elapsed": "0.044473043",
+        "rows_read": 27,
+        "bytes_read": 27
+      },
+      "matches_duckdb": true
+    },
+    "typed": {
+      "status": "complete",
+      "query_id": "pilot-215f7db7-c9b9-49d3-b331-b025f68b26a2",
+      "elapsed_ms": 71.51862399996389,
+      "rows": 2,
+      "sha256": "0366a32e564d38dc06aa3841a87052c0b23d1c21c6d7cba90ca1f922aabf66a5",
+      "statistics": {
+        "elapsed": "0.00518931",
+        "rows_read": 25,
+        "bytes_read": 1176
+      },
+      "matches_duckdb": true
+    }
+  },
+  "event_counts": {
+    "raw": {
+      "status": "complete",
+      "query_id": "pilot-f28b10a8-0274-43a2-ac26-43724738e735",
+      "elapsed_ms": 94.4789979998859,
+      "rows": 6,
+      "sha256": "bc4662848dd645de72c9559bdd74a2df73ae3ff71e48e92f1355ad5efedc88b3",
+      "statistics": {
+        "elapsed": "0.027825533",
+        "rows_read": 27,
+        "bytes_read": 27
+      },
+      "matches_duckdb": true
+    },
+    "typed": {
+      "status": "complete",
+      "query_id": "pilot-5e5588c3-a36e-47bd-b2ce-372a46a5cd12",
+      "elapsed_ms": 69.84522300035678,
+      "rows": 6,
+      "sha256": "bc4662848dd645de72c9559bdd74a2df73ae3ff71e48e92f1355ad5efedc88b3",
+      "statistics": {
+        "elapsed": "0.004368144",
+        "rows_read": 25,
+        "bytes_read": 946
+      },
+      "matches_duckdb": true
+    }
+  },
+  "user": {
+    "raw": {
+      "status": "complete",
+      "query_id": "pilot-e5237562-07cb-428c-b5a7-557e1f0a5e7c",
+      "elapsed_ms": 104.29760300030466,
+      "rows": 2,
+      "sha256": "10378665a2ba8b6de82f364bed6a1730daecfa742bf7a76479ac548ccc99dda5",
+      "statistics": {
+        "elapsed": "0.038464163",
+        "rows_read": 27,
+        "bytes_read": 27
+      },
+      "matches_duckdb": true
+    },
+    "typed": {
+      "status": "complete",
+      "query_id": "pilot-176ceda4-fa79-4053-a52f-46556e3a2d63",
+      "elapsed_ms": 70.12140400001954,
+      "rows": 2,
+      "sha256": "10378665a2ba8b6de82f364bed6a1730daecfa742bf7a76479ac548ccc99dda5",
+      "statistics": {
+        "elapsed": "0.004784377",
+        "rows_read": 25,
+        "bytes_read": 1176
+      },
+      "matches_duckdb": true
+    }
+  },
+  "session": {
+    "raw": {
+      "status": "complete",
+      "query_id": "pilot-cae38a52-19dc-4a7d-9ab1-b7ec8608b7a8",
+      "elapsed_ms": 104.26439399998344,
+      "rows": 1,
+      "sha256": "96a64e00ee93c53cdadbe552de0be43670eb2a9d447d49af681998b0367517d9",
+      "statistics": {
+        "elapsed": "0.038269077",
+        "rows_read": 27,
+        "bytes_read": 27
+      },
+      "matches_duckdb": true
+    },
+    "typed": {
+      "status": "complete",
+      "query_id": "pilot-3dd316df-2590-4c97-8339-433f7123d181",
+      "elapsed_ms": 70.6517429998712,
+      "rows": 1,
+      "sha256": "96a64e00ee93c53cdadbe552de0be43670eb2a9d447d49af681998b0367517d9",
+      "statistics": {
+        "elapsed": "0.004696625",
+        "rows_read": 25,
+        "bytes_read": 1172
+      },
+      "matches_duckdb": true
+    }
+  },
+  "tab": {
+    "raw": {
+      "status": "complete",
+      "query_id": "pilot-bf1fbd1e-a844-4ec0-8480-4e0b452898af",
+      "elapsed_ms": 106.87708299974474,
+      "rows": 6,
+      "sha256": "808f485dfba6e12ae3dabd2f2b37022f0a4cf001fec087189e7043e8d8dcea7e",
+      "statistics": {
+        "elapsed": "0.038579093",
+        "rows_read": 27,
+        "bytes_read": 27
+      },
+      "matches_duckdb": true
+    },
+    "typed": {
+      "status": "complete",
+      "query_id": "pilot-12fe0a96-146c-4dce-ba17-27680a805da7",
+      "elapsed_ms": 72.66031600011047,
+      "rows": 6,
+      "sha256": "808f485dfba6e12ae3dabd2f2b37022f0a4cf001fec087189e7043e8d8dcea7e",
+      "statistics": {
+        "elapsed": "0.004796062",
+        "rows_read": 25,
+        "bytes_read": 1253
+      },
+      "matches_duckdb": true
+    }
+  },
+  "post_paths": {
+    "raw": {
+      "status": "complete",
+      "query_id": "pilot-3e67b8ad-0ada-4fdf-89f3-baaa38d985b4",
+      "elapsed_ms": 119.23052600013762,
+      "rows": 2,
+      "sha256": "75cff4d3e5d11539d2f0877b13a98c4b5de9d646e2383b8614c3e5ffc328b93b",
+      "statistics": {
+        "elapsed": "0.048445281",
+        "rows_read": 27,
+        "bytes_read": 27
+      },
+      "matches_duckdb": true
+    },
+    "typed": {
+      "status": "complete",
+      "query_id": "pilot-719ecbc4-a8be-4619-a856-ec936c9f6ebd",
+      "elapsed_ms": 72.35945799993715,
+      "rows": 2,
+      "sha256": "75cff4d3e5d11539d2f0877b13a98c4b5de9d646e2383b8614c3e5ffc328b93b",
+      "statistics": {
+        "elapsed": "0.005054473",
+        "rows_read": 25,
+        "bytes_read": 1229
+      },
+      "matches_duckdb": true
+    }
+  },
+  "feature_counts": {
+    "raw": {
+      "status": "complete",
+      "query_id": "pilot-8e3aabc4-fdaf-4058-a913-6beda509831e",
+      "elapsed_ms": 112.98863499996514,
+      "rows": 2,
+      "sha256": "1970c9eefd44af5312106f6a62436924723ed48023654f0a5e7dd7269c927ab0",
+      "statistics": {
+        "elapsed": "0.040010288",
+        "rows_read": 27,
+        "bytes_read": 27
+      },
+      "matches_duckdb": true
+    },
+    "typed": {
+      "status": "complete",
+      "query_id": "pilot-ab721fe5-1dbc-4eda-b0f3-46840aae6e69",
+      "elapsed_ms": 71.14120200003526,
+      "rows": 2,
+      "sha256": "1970c9eefd44af5312106f6a62436924723ed48023654f0a5e7dd7269c927ab0",
+      "statistics": {
+        "elapsed": "0.004963701",
+        "rows_read": 25,
+        "bytes_read": 1176
+      },
+      "matches_duckdb": true
+    }
+  },
+  "feature_funnel": {
+    "raw": {
+      "status": "complete",
+      "query_id": "pilot-58e5b6f4-3474-4814-9521-54a88d6fc975",
+      "elapsed_ms": 215.7250949999252,
+      "rows": 1,
+      "sha256": "1ada9ae86bcf207067ec1952dfba4a43afe5581d5e7484a88b84ae7ccf2083e5",
+      "statistics": {
+        "elapsed": "0.14453718",
+        "rows_read": 55,
+        "bytes_read": 55
+      },
+      "matches_duckdb": true
+    },
+    "typed": {
+      "status": "complete",
+      "query_id": "pilot-51763a73-c39a-4a41-8153-397df1f4f294",
+      "elapsed_ms": 80.1324030003343,
+      "rows": 1,
+      "sha256": "1ada9ae86bcf207067ec1952dfba4a43afe5581d5e7484a88b84ae7ccf2083e5",
+      "statistics": {
+        "elapsed": "0.014165498",
+        "rows_read": 51,
+        "bytes_read": 3638
+      },
+      "matches_duckdb": true
+    }
+  },
+  "ab_assignments": {
+    "raw": {
+      "status": "complete",
+      "query_id": "pilot-9e76c7b0-0fda-4894-810a-1cf1f73b896b",
+      "elapsed_ms": 110.01152399967395,
+      "rows": 4,
+      "sha256": "ad2cdd5af9a68864d18f91ab80b74b72090f0d8969dbf34428426da861e9181f",
+      "statistics": {
+        "elapsed": "0.04285521",
+        "rows_read": 27,
+        "bytes_read": 27
+      },
+      "matches_duckdb": true
+    },
+    "typed": {
+      "status": "complete",
+      "query_id": "pilot-6906ab2a-da51-4583-a66b-579e96fcc2a6",
+      "elapsed_ms": 71.90296199996737,
+      "rows": 4,
+      "sha256": "ad2cdd5af9a68864d18f91ab80b74b72090f0d8969dbf34428426da861e9181f",
+      "statistics": {
+        "elapsed": "0.004968614",
+        "rows_read": 25,
+        "bytes_read": 1431
+      },
+      "matches_duckdb": true
+    }
+  },
+  "ab_outcome": {
+    "raw": {
+      "status": "complete",
+      "query_id": "pilot-8c042a28-68cc-4245-87f3-92459b8fa902",
+      "elapsed_ms": 189.89417600005254,
+      "rows": 3,
+      "sha256": "8d2aee314efa6d7cdd74f2f02a897851cc053087e1ad9b37d712d1ba1f4916e5",
+      "statistics": {
+        "elapsed": "0.11844681",
+        "rows_read": 54,
+        "bytes_read": 54
+      },
+      "matches_duckdb": true
+    },
+    "typed": {
+      "status": "complete",
+      "query_id": "pilot-d1c2ea7f-1995-45dc-b607-76b44c699e07",
+      "elapsed_ms": 77.47757100014496,
+      "rows": 3,
+      "sha256": "8d2aee314efa6d7cdd74f2f02a897851cc053087e1ad9b37d712d1ba1f4916e5",
+      "statistics": {
+        "elapsed": "0.011188414",
+        "rows_read": 50,
+        "bytes_read": 2986
+      },
+      "matches_duckdb": true
+    }
+  },
+  "ua_bot": {
+    "raw": {
+      "status": "complete",
+      "query_id": "pilot-078e6c8c-afd0-4496-b2a4-eed3dcdfd8a0",
+      "elapsed_ms": 111.37884599975223,
+      "rows": 3,
+      "sha256": "cd70f66caacbca20a0484b0f3e6856bee0345c044a67380f42497fc29c9a3cc6",
+      "statistics": {
+        "elapsed": "0.044083361",
+        "rows_read": 27,
+        "bytes_read": 27
+      },
+      "matches_duckdb": true
+    },
+    "typed": {
+      "status": "complete",
+      "query_id": "pilot-ee3fee7c-c98e-41af-aa3a-9e1bab0db952",
+      "elapsed_ms": 77.14475700004186,
+      "rows": 3,
+      "sha256": "cd70f66caacbca20a0484b0f3e6856bee0345c044a67380f42497fc29c9a3cc6",
+      "statistics": {
+        "elapsed": "0.006068524",
+        "rows_read": 25,
+        "bytes_read": 1203
+      },
+      "matches_duckdb": true
+    }
+  },
+  "metadata_join": {
+    "raw": {
+      "status": "complete",
+      "query_id": "pilot-520f1b24-d36a-4141-9b89-19ff975d8f18",
+      "elapsed_ms": 265.2856400000019,
+      "rows": 4,
+      "sha256": "6234957ecbc854a74fe91f673f06875f504700917180f65eb64d5f7c1fb637e5",
+      "statistics": {
+        "elapsed": "0.195964529",
+        "rows_read": 81,
+        "bytes_read": 81
+      },
+      "matches_duckdb": true
+    },
+    "typed": {
+      "status": "complete",
+      "query_id": "pilot-afb632ae-52f2-46d7-94b8-43e674157caa",
+      "elapsed_ms": 85.73118799995427,
+      "rows": 4,
+      "sha256": "6234957ecbc854a74fe91f673f06875f504700917180f65eb64d5f7c1fb637e5",
+      "statistics": {
+        "elapsed": "0.018761584",
+        "rows_read": 77,
+        "bytes_read": 5094
+      },
+      "matches_duckdb": true
+    }
+  },
+  "ssr_association": {
+    "raw": {
+      "status": "complete",
+      "query_id": "pilot-58e5f5a2-3068-4cd3-8b4d-ff6743c8d118",
+      "elapsed_ms": 217.73312200002692,
+      "rows": 1,
+      "sha256": "b6f85080c5d8ad8c4e4629a651c25daa9545940e75580bf12f84fc8765da515f",
+      "statistics": {
+        "elapsed": "0.144767393",
+        "rows_read": 82,
+        "bytes_read": 82
+      },
+      "matches_duckdb": true
+    },
+    "typed": {
+      "status": "complete",
+      "query_id": "pilot-330aca18-97bb-4942-ad05-81c7bbecb244",
+      "elapsed_ms": 81.84648999986166,
+      "rows": 1,
+      "sha256": "b6f85080c5d8ad8c4e4629a651c25daa9545940e75580bf12f84fc8765da515f",
+      "statistics": {
+        "elapsed": "0.01472541",
+        "rows_read": 76,
+        "bytes_read": 3903
+      },
+      "matches_duckdb": true
+    }
+  },
+  "coverage": {
+    "raw": {
+      "status": "complete",
+      "query_id": "pilot-c4d46750-4fce-4f68-bab3-e1913e74dbac",
+      "elapsed_ms": 98.77035599993178,
+      "rows": 1,
+      "sha256": "56214dc598d9c24c96f1fc1242693e27a8b1b07f03b878f35102a3e612c56330",
+      "statistics": {
+        "elapsed": "0.031766706",
+        "rows_read": 28,
+        "bytes_read": 28
+      },
+      "matches_duckdb": true
+    },
+    "typed": {
+      "status": "complete",
+      "query_id": "pilot-33c78fa0-270f-4765-b362-215350acb3fd",
+      "elapsed_ms": 73.51803499977905,
+      "rows": 1,
+      "sha256": "56214dc598d9c24c96f1fc1242693e27a8b1b07f03b878f35102a3e612c56330",
+      "statistics": {
+        "elapsed": "0.005031767",
+        "rows_read": 26,
+        "bytes_read": 1172
+      },
+      "matches_duckdb": true
+    }
+  }
+}

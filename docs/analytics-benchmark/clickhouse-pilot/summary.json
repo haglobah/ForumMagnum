@@ -1,0 +1,842 @@
+{
+  "raw/feature_counts/day": {
+    "client_ms": 864.8425535000115,
+    "server_ms": 798.8352155,
+    "rows_read": 13711369.0,
+    "bytes_read": 1429707577.0,
+    "repeats": 6
+  },
+  "minmax/metadata_join/hour": {
+    "client_ms": 3007.293600999901,
+    "server_ms": 2877.6785729999997,
+    "rows_read": 21151235.0,
+    "bytes_read": 5136240382.0,
+    "repeats": 6
+  },
+  "raw/ssr_association/day": {
+    "client_ms": 1637.564988000122,
+    "server_ms": 1571.8357395,
+    "rows_read": 41134108.0,
+    "bytes_read": 2061365100.0,
+    "repeats": 6
+  },
+  "raw/ua_bot/hour": {
+    "client_ms": 452.74026449988014,
+    "server_ms": 385.61851549999994,
+    "rows_read": 13711369.0,
+    "bytes_read": 383074352.0,
+    "repeats": 6
+  },
+  "raw/traffic_hour/day": {
+    "client_ms": 933.8271580000992,
+    "server_ms": 854.3977629999999,
+    "rows_read": 13711369.0,
+    "bytes_read": 1449119451.0,
+    "repeats": 6
+  },
+  "minmax/tab/hour": {
+    "client_ms": 235.88248850001037,
+    "server_ms": 167.345751,
+    "rows_read": 3863293.0,
+    "bytes_read": 143994314.0,
+    "repeats": 6
+  },
+  "minmax/traffic_day/hour": {
+    "client_ms": 207.43407149984705,
+    "server_ms": 140.32807400000002,
+    "rows_read": 3863293.0,
+    "bytes_read": 146721170.0,
+    "repeats": 6
+  },
+  "projection/metadata_join/hour": {
+    "client_ms": 2832.3431739999023,
+    "server_ms": 2766.0058790000003,
+    "rows_read": 14186505.0,
+    "bytes_read": 4970346811.0,
+    "repeats": 6
+  },
+  "projection/ab_outcome/day": {
+    "client_ms": 1707.2287139998252,
+    "server_ms": 1624.400144,
+    "rows_read": 8617984.0,
+    "bytes_read": 2680048049.0,
+    "repeats": 6
+  },
+  "projection/event_counts/day": {
+    "client_ms": 375.10171000008086,
+    "server_ms": 268.03310400000004,
+    "rows_read": 4308992.0,
+    "bytes_read": 173651515.0,
+    "repeats": 6
+  },
+  "projection/ssr_association/hour": {
+    "client_ms": 203.38405699999385,
+    "server_ms": 133.38144599999998,
+    "rows_read": 720897.0,
+    "bytes_read": 78652029.0,
+    "repeats": 6
+  },
+  "raw/event_counts/hour": {
+    "client_ms": 411.64940899989233,
+    "server_ms": 344.70422499999995,
+    "rows_read": 13711369.0,
+    "bytes_read": 332364560.0,
+    "repeats": 6
+  },
+  "minmax/event_counts/hour": {
+    "client_ms": 189.4133480000164,
+    "server_ms": 120.87361250000001,
+    "rows_read": 3863293.0,
+    "bytes_read": 95820156.0,
+    "repeats": 6
+  },
+  "minmax/post_paths/hour": {
+    "client_ms": 235.0659790000691,
+    "server_ms": 169.092652,
+    "rows_read": 3863293.0,
+    "bytes_read": 145421134.0,
+    "repeats": 6
+  },
+  "typed/coverage/hour": {
+    "client_ms": 88.71938499999033,
+    "server_ms": 22.741979,
+    "rows_read": 98305.0,
+    "bytes_read": 4629090.0,
+    "repeats": 6
+  },
+  "raw/traffic_day/hour": {
+    "client_ms": 445.70766899994396,
+    "server_ms": 379.44418900000005,
+    "rows_read": 13711369.0,
+    "bytes_read": 383074352.0,
+    "repeats": 6
+  },
+  "minmax/post_paths/day": {
+    "client_ms": 911.3106830001243,
+    "server_ms": 845.329751,
+    "rows_read": 4150013.0,
+    "bytes_read": 1392241269.0,
+    "repeats": 6
+  },
+  "minmax/ua_bot/day": {
+    "client_ms": 744.5357134999995,
+    "server_ms": 678.6618665000001,
+    "rows_read": 4150013.0,
+    "bytes_read": 1304282585.0,
+    "repeats": 6
+  },
+  "raw/metadata_join/day": {
+    "client_ms": 4657.308708000073,
+    "server_ms": 4590.277234499999,
+    "rows_read": 41134107.0,
+    "bytes_read": 7967961257.0,
+    "repeats": 6
+  },
+  "projection/feature_funnel/hour": {
+    "client_ms": 196.40337250029916,
+    "server_ms": 129.1268985,
+    "rows_read": 475137.0,
+    "bytes_read": 86251632.0,
+    "repeats": 6
+  },
+  "typed/feature_counts/hour": {
+    "client_ms": 81.21550800001387,
+    "server_ms": 15.085866000000001,
+    "rows_read": 98304.0,
+    "bytes_read": 5220805.0,
+    "repeats": 6
+  },
+  "minmax/ssr_association/hour": {
+    "client_ms": 439.08681149991935,
+    "server_ms": 348.6518315,
+    "rows_read": 11598072.0,
+    "bytes_read": 281761915.0,
+    "repeats": 6
+  },
+  "raw/metadata_join/hour": {
+    "client_ms": 3467.7387839999483,
+    "server_ms": 3398.4543235,
+    "rows_read": 41134107.0,
+    "bytes_read": 5593501004.0,
+    "repeats": 6
+  },
+  "minmax/session/day": {
+    "client_ms": 982.20120950009,
+    "server_ms": 903.5665730000001,
+    "rows_read": 4150013.0,
+    "bytes_read": 1241077494.0,
+    "repeats": 6
+  },
+  "raw/feature_funnel/hour": {
+    "client_ms": 916.1237985001662,
+    "server_ms": 850.3676125,
+    "rows_read": 27422739.0,
+    "bytes_read": 733409484.0,
+    "repeats": 6
+  },
+  "raw/session/hour": {
+    "client_ms": 494.7721519999959,
+    "server_ms": 427.41865300000006,
+    "rows_read": 13711369.0,
+    "bytes_read": 384452798.0,
+    "repeats": 6
+  },
+  "typed/traffic_hour/hour": {
+    "client_ms": 83.09462099987286,
+    "server_ms": 17.7456725,
+    "rows_read": 98304.0,
+    "bytes_read": 6302549.0,
+    "repeats": 6
+  },
+  "typed/feature_funnel/hour": {
+    "client_ms": 105.52904949986441,
+    "server_ms": 37.606627,
+    "rows_read": 196609.0,
+    "bytes_read": 15298260.0,
+    "repeats": 6
+  },
+  "raw/feature_counts/hour": {
+    "client_ms": 440.962667499889,
+    "server_ms": 374.088161,
+    "rows_read": 13711369.0,
+    "bytes_read": 383074352.0,
+    "repeats": 6
+  },
+  "typed/ssr_association/day": {
+    "client_ms": 181.063623,
+    "server_ms": 115.00039699999999,
+    "rows_read": 3555125.0,
+    "bytes_read": 76733868.0,
+    "repeats": 6
+  },
+  "minmax/traffic_hour/hour": {
+    "client_ms": 206.37365950005915,
+    "server_ms": 140.013099,
+    "rows_read": 3863293.0,
+    "bytes_read": 146721170.0,
+    "repeats": 6
+  },
+  "projection/coverage/day": {
+    "client_ms": 500.9890325000015,
+    "server_ms": 434.8541245,
+    "rows_read": 4308993.0,
+    "bytes_read": 207127950.0,
+    "repeats": 6
+  },
+  "projection/user/day": {
+    "client_ms": 1055.9530930001984,
+    "server_ms": 989.210206,
+    "rows_read": 4308992.0,
+    "bytes_read": 1278701954.0,
+    "repeats": 6
+  },
+  "raw/tab/hour": {
+    "client_ms": 486.94590850004715,
+    "server_ms": 420.5610835,
+    "rows_read": 13711369.0,
+    "bytes_read": 380171892.0,
+    "repeats": 6
+  },
+  "minmax/coverage/day": {
+    "client_ms": 464.43559750014174,
+    "server_ms": 398.64539449999995,
+    "rows_read": 4150014.0,
+    "bytes_read": 206528498.0,
+    "repeats": 6
+  },
+  "typed/feature_counts/day": {
+    "client_ms": 189.00134000000435,
+    "server_ms": 123.13494,
+    "rows_read": 1777562.0,
+    "bytes_read": 100360247.0,
+    "repeats": 6
+  },
+  "minmax/ab_assignments/day": {
+    "client_ms": 743.0290524998782,
+    "server_ms": 663.603331,
+    "rows_read": 4150013.0,
+    "bytes_read": 1304282585.0,
+    "repeats": 6
+  },
+  "projection/session/hour": {
+    "client_ms": 138.87969799998245,
+    "server_ms": 71.8233845,
+    "rows_read": 237568.0,
+    "bytes_read": 60303805.0,
+    "repeats": 6
+  },
+  "typed/tab/day": {
+    "client_ms": 101.03672549985276,
+    "server_ms": 33.5337985,
+    "rows_read": 1777562.0,
+    "bytes_read": 46269384.0,
+    "repeats": 6
+  },
+  "minmax/traffic_hour/day": {
+    "client_ms": 802.6705604997915,
+    "server_ms": 705.052454,
+    "rows_read": 4150013.0,
+    "bytes_read": 1304282585.0,
+    "repeats": 6
+  },
+  "typed/user/day": {
+    "client_ms": 109.27602749984544,
+    "server_ms": 42.290121,
+    "rows_read": 1777562.0,
+    "bytes_read": 32992435.0,
+    "repeats": 6
+  },
+  "raw/traffic_day/day": {
+    "client_ms": 917.9758334996677,
+    "server_ms": 850.0785350000001,
+    "rows_read": 13711369.0,
+    "bytes_read": 1449119451.0,
+    "repeats": 6
+  },
+  "projection/traffic_day/hour": {
+    "client_ms": 136.29623300016647,
+    "server_ms": 71.07994149999999,
+    "rows_read": 237568.0,
+    "bytes_read": 59495426.0,
+    "repeats": 6
+  },
+  "raw/ab_outcome/hour": {
+    "client_ms": 879.4277609999881,
+    "server_ms": 813.1940935,
+    "rows_read": 27422738.0,
+    "bytes_read": 767618863.0,
+    "repeats": 6
+  },
+  "projection/traffic_hour/hour": {
+    "client_ms": 137.7242245000616,
+    "server_ms": 71.4494765,
+    "rows_read": 237568.0,
+    "bytes_read": 59495426.0,
+    "repeats": 6
+  },
+  "typed/feature_funnel/day": {
+    "client_ms": 314.23834199995326,
+    "server_ms": 247.146127,
+    "rows_read": 3555125.0,
+    "bytes_read": 250194292.0,
+    "repeats": 6
+  },
+  "projection/ab_outcome/hour": {
+    "client_ms": 214.65624399979788,
+    "server_ms": 145.289343,
+    "rows_read": 475136.0,
+    "bytes_read": 120461011.0,
+    "repeats": 6
+  },
+  "minmax/traffic_day/day": {
+    "client_ms": 760.6596164998791,
+    "server_ms": 694.8286035000001,
+    "rows_read": 4150013.0,
+    "bytes_read": 1304282585.0,
+    "repeats": 6
+  },
+  "raw/feature_funnel/day": {
+    "client_ms": 1562.145325000074,
+    "server_ms": 1496.066388,
+    "rows_read": 27422739.0,
+    "bytes_read": 2115553467.0,
+    "repeats": 6
+  },
+  "typed/ab_outcome/hour": {
+    "client_ms": 106.4855700001317,
+    "server_ms": 39.8468115,
+    "rows_read": 196608.0,
+    "bytes_read": 14478960.0,
+    "repeats": 6
+  },
+  "minmax/tab/day": {
+    "client_ms": 999.765802499951,
+    "server_ms": 907.490661,
+    "rows_read": 4150013.0,
+    "bytes_read": 1240667737.0,
+    "repeats": 6
+  },
+  "raw/session/day": {
+    "client_ms": 1138.550057999737,
+    "server_ms": 1069.7918815,
+    "rows_read": 13711369.0,
+    "bytes_read": 1394221650.0,
+    "repeats": 6
+  },
+  "typed/post_paths/day": {
+    "client_ms": 240.87726350012417,
+    "server_ms": 175.3834485,
+    "rows_read": 1777562.0,
+    "bytes_read": 155695909.0,
+    "repeats": 6
+  },
+  "projection/feature_counts/day": {
+    "client_ms": 787.2320769999988,
+    "server_ms": 720.6418575,
+    "rows_read": 4308992.0,
+    "bytes_read": 1294470358.0,
+    "repeats": 6
+  },
+  "typed/coverage/day": {
+    "client_ms": 338.40848550016744,
+    "server_ms": 272.953323,
+    "rows_read": 1777563.0,
+    "bytes_read": 89982972.0,
+    "repeats": 6
+  },
+  "projection/coverage/hour": {
+    "client_ms": 104.60147050002888,
+    "server_ms": 38.8141505,
+    "rows_read": 237569.0,
+    "bytes_read": 10491092.0,
+    "repeats": 6
+  },
+  "typed/metadata_join/day": {
+    "client_ms": 1696.8105165001361,
+    "server_ms": 1628.5587584999998,
+    "rows_read": 17266154.0,
+    "bytes_read": 1637579604.0,
+    "repeats": 6
+  },
+  "raw/ab_assignments/hour": {
+    "client_ms": 475.8818919999612,
+    "server_ms": 383.0204415,
+    "rows_read": 13711369.0,
+    "bytes_read": 383074352.0,
+    "repeats": 6
+  },
+  "typed/ab_assignments/hour": {
+    "client_ms": 85.06493899994894,
+    "server_ms": 18.4043225,
+    "rows_read": 98304.0,
+    "bytes_read": 7171672.0,
+    "repeats": 6
+  },
+  "raw/tab/day": {
+    "client_ms": 1143.4081765000883,
+    "server_ms": 1073.303002,
+    "rows_read": 13711369.0,
+    "bytes_read": 1389940744.0,
+    "repeats": 6
+  },
+  "raw/post_paths/day": {
+    "client_ms": 1108.1792745001167,
+    "server_ms": 1022.5295094999999,
+    "rows_read": 13711369.0,
+    "bytes_read": 1557734172.0,
+    "repeats": 6
+  },
+  "projection/tab/day": {
+    "client_ms": 1085.3263799997421,
+    "server_ms": 973.1682920000001,
+    "rows_read": 4308992.0,
+    "bytes_read": 1261554887.0,
+    "repeats": 6
+  },
+  "typed/ua_bot/hour": {
+    "client_ms": 85.75349749980887,
+    "server_ms": 19.76113,
+    "rows_read": 98304.0,
+    "bytes_read": 5494256.0,
+    "repeats": 6
+  },
+  "typed/user/hour": {
+    "client_ms": 76.09145850028654,
+    "server_ms": 9.8013455,
+    "rows_read": 98304.0,
+    "bytes_read": 2265499.0,
+    "repeats": 6
+  },
+  "minmax/event_counts/day": {
+    "client_ms": 357.57644049999726,
+    "server_ms": 228.5215815,
+    "rows_read": 4150013.0,
+    "bytes_read": 172104425.0,
+    "repeats": 6
+  },
+  "projection/feature_counts/hour": {
+    "client_ms": 133.14221799987536,
+    "server_ms": 67.16722250000001,
+    "rows_read": 237568.0,
+    "bytes_read": 59495426.0,
+    "repeats": 6
+  },
+  "raw/coverage/day": {
+    "client_ms": 692.3184194999976,
+    "server_ms": 619.3258615,
+    "rows_read": 13711370.0,
+    "bytes_read": 426351685.0,
+    "repeats": 6
+  },
+  "minmax/metadata_join/day": {
+    "client_ms": 4280.091906000052,
+    "server_ms": 4213.282745,
+    "rows_read": 22011395.0,
+    "bytes_read": 7682958945.0,
+    "repeats": 6
+  },
+  "minmax/ssr_association/day": {
+    "client_ms": 1222.9715285000111,
+    "server_ms": 1105.3751285,
+    "rows_read": 12450040.0,
+    "bytes_read": 1625813313.0,
+    "repeats": 6
+  },
+  "typed/traffic_day/hour": {
+    "client_ms": 83.09546450004746,
+    "server_ms": 17.103825,
+    "rows_read": 98304.0,
+    "bytes_read": 6302549.0,
+    "repeats": 6
+  },
+  "projection/traffic_hour/day": {
+    "client_ms": 832.7051385001596,
+    "server_ms": 764.55188,
+    "rows_read": 4308992.0,
+    "bytes_read": 1325284556.0,
+    "repeats": 6
+  },
+  "typed/session/hour": {
+    "client_ms": 77.25461500012898,
+    "server_ms": 10.792603,
+    "rows_read": 98304.0,
+    "bytes_read": 3335737.0,
+    "repeats": 6
+  },
+  "typed/ab_assignments/day": {
+    "client_ms": 217.1604054999534,
+    "server_ms": 146.7177695,
+    "rows_read": 1777562.0,
+    "bytes_read": 136456336.0,
+    "repeats": 6
+  },
+  "typed/session/day": {
+    "client_ms": 100.7737410000118,
+    "server_ms": 34.830228000000005,
+    "rows_read": 1777562.0,
+    "bytes_read": 46954965.0,
+    "repeats": 6
+  },
+  "typed/tab/hour": {
+    "client_ms": 75.34596350001266,
+    "server_ms": 8.8436935,
+    "rows_read": 98304.0,
+    "bytes_read": 2883345.0,
+    "repeats": 6
+  },
+  "minmax/feature_counts/hour": {
+    "client_ms": 205.29741350014774,
+    "server_ms": 139.0104365,
+    "rows_read": 3863293.0,
+    "bytes_read": 146721170.0,
+    "repeats": 6
+  },
+  "minmax/session/hour": {
+    "client_ms": 235.006327000292,
+    "server_ms": 167.574645,
+    "rows_read": 3863293.0,
+    "bytes_read": 144404071.0,
+    "repeats": 6
+  },
+  "projection/post_paths/hour": {
+    "client_ms": 134.47944950007695,
+    "server_ms": 68.526474,
+    "rows_read": 237568.0,
+    "bytes_read": 62680454.0,
+    "repeats": 6
+  },
+  "projection/ua_bot/hour": {
+    "client_ms": 139.36829350018343,
+    "server_ms": 71.9902405,
+    "rows_read": 237568.0,
+    "bytes_read": 59495426.0,
+    "repeats": 6
+  },
+  "minmax/ab_assignments/hour": {
+    "client_ms": 208.08488649981882,
+    "server_ms": 139.8806775,
+    "rows_read": 3863293.0,
+    "bytes_read": 146721170.0,
+    "repeats": 6
+  },
+  "projection/session/day": {
+    "client_ms": 1019.0804695000679,
+    "server_ms": 951.6683820000001,
+    "rows_read": 4308992.0,
+    "bytes_read": 1263538103.0,
+    "repeats": 6
+  },
+  "raw/post_paths/hour": {
+    "client_ms": 492.5585225000759,
+    "server_ms": 424.8443525,
+    "rows_read": 13711369.0,
+    "bytes_read": 396339930.0,
+    "repeats": 6
+  },
+  "projection/feature_funnel/day": {
+    "client_ms": 1293.1147809999857,
+    "server_ms": 1227.3761395000001,
+    "rows_read": 8617985.0,
+    "bytes_read": 1750366038.0,
+    "repeats": 6
+  },
+  "raw/user/hour": {
+    "client_ms": 504.1569359998448,
+    "server_ms": 424.944478,
+    "rows_read": 13711369.0,
+    "bytes_read": 384452798.0,
+    "repeats": 6
+  },
+  "projection/post_paths/day": {
+    "client_ms": 971.1399970001366,
+    "server_ms": 902.4456585,
+    "rows_read": 4308992.0,
+    "bytes_read": 1441963864.0,
+    "repeats": 6
+  },
+  "typed/ab_outcome/day": {
+    "client_ms": 428.67925499990633,
+    "server_ms": 358.8755775,
+    "rows_read": 3555124.0,
+    "bytes_read": 272264273.0,
+    "repeats": 6
+  },
+  "minmax/ab_outcome/day": {
+    "client_ms": 1586.8633455002055,
+    "server_ms": 1518.449699,
+    "rows_read": 8300026.0,
+    "bytes_read": 2639943340.0,
+    "repeats": 6
+  },
+  "raw/coverage/hour": {
+    "client_ms": 443.9304735001315,
+    "server_ms": 350.432675,
+    "rows_read": 13711370.0,
+    "bytes_read": 333881019.0,
+    "repeats": 6
+  },
+  "typed/post_paths/hour": {
+    "client_ms": 87.34346500023094,
+    "server_ms": 21.742721500000002,
+    "rows_read": 98304.0,
+    "bytes_read": 8565870.0,
+    "repeats": 6
+  },
+  "typed/event_counts/day": {
+    "client_ms": 201.62229099992146,
+    "server_ms": 131.41792,
+    "rows_read": 1777562.0,
+    "bytes_read": 73984913.0,
+    "repeats": 6
+  },
+  "projection/ab_assignments/day": {
+    "client_ms": 807.637196000087,
+    "server_ms": 736.3948344999999,
+    "rows_read": 4308992.0,
+    "bytes_read": 1323976401.0,
+    "repeats": 6
+  },
+  "typed/ssr_association/hour": {
+    "client_ms": 90.13736099996095,
+    "server_ms": 23.450836000000002,
+    "rows_read": 196609.0,
+    "bytes_read": 4110100.0,
+    "repeats": 6
+  },
+  "typed/traffic_hour/day": {
+    "client_ms": 205.59154850002415,
+    "server_ms": 139.2836545,
+    "rows_read": 1777562.0,
+    "bytes_read": 120144218.0,
+    "repeats": 6
+  },
+  "projection/ssr_association/day": {
+    "client_ms": 1349.318439499939,
+    "server_ms": 1281.133604,
+    "rows_read": 12926977.0,
+    "bytes_read": 1648125193.0,
+    "repeats": 6
+  },
+  "typed/event_counts/hour": {
+    "client_ms": 84.37989200024276,
+    "server_ms": 17.838305000000002,
+    "rows_read": 98304.0,
+    "bytes_read": 3818081.0,
+    "repeats": 6
+  },
+  "minmax/feature_counts/day": {
+    "client_ms": 721.104918500032,
+    "server_ms": 653.9189915,
+    "rows_read": 4150013.0,
+    "bytes_read": 1276294481.0,
+    "repeats": 6
+  },
+  "minmax/ab_outcome/hour": {
+    "client_ms": 406.1955795000358,
+    "server_ms": 338.295612,
+    "rows_read": 7726586.0,
+    "bytes_read": 294912499.0,
+    "repeats": 6
+  },
+  "minmax/feature_funnel/day": {
+    "client_ms": 1171.39124549999,
+    "server_ms": 1103.6751195,
+    "rows_read": 8300027.0,
+    "bytes_read": 1740651223.0,
+    "repeats": 6
+  },
+  "typed/metadata_join/hour": {
+    "client_ms": 905.6874019997849,
+    "server_ms": 839.10256,
+    "rows_read": 12228380.0,
+    "bytes_read": 835516658.0,
+    "repeats": 6
+  },
+  "projection/ab_assignments/hour": {
+    "client_ms": 135.18819200021426,
+    "server_ms": 68.87166500000001,
+    "rows_read": 237568.0,
+    "bytes_read": 59495426.0,
+    "repeats": 6
+  },
+  "raw/traffic_hour/hour": {
+    "client_ms": 447.0469505001802,
+    "server_ms": 379.10182050000003,
+    "rows_read": 13711369.0,
+    "bytes_read": 383074352.0,
+    "repeats": 6
+  },
+  "projection/traffic_day/day": {
+    "client_ms": 825.4004039999927,
+    "server_ms": 754.6923175,
+    "rows_read": 4308992.0,
+    "bytes_read": 1325284556.0,
+    "repeats": 6
+  },
+  "projection/tab/hour": {
+    "client_ms": 133.32238149996556,
+    "server_ms": 66.2566845,
+    "rows_read": 237568.0,
+    "bytes_read": 58320589.0,
+    "repeats": 6
+  },
+  "typed/traffic_day/day": {
+    "client_ms": 207.07221149996258,
+    "server_ms": 141.2767025,
+    "rows_read": 1777562.0,
+    "bytes_read": 120144218.0,
+    "repeats": 6
+  },
+  "raw/ab_assignments/day": {
+    "client_ms": 910.3884995001863,
+    "server_ms": 841.1864025,
+    "rows_read": 13711369.0,
+    "bytes_read": 1449119451.0,
+    "repeats": 6
+  },
+  "raw/ssr_association/hour": {
+    "client_ms": 1026.6632974999084,
+    "server_ms": 923.641738,
+    "rows_read": 41134108.0,
+    "bytes_read": 833649468.0,
+    "repeats": 6
+  },
+  "minmax/user/hour": {
+    "client_ms": 241.7276365001726,
+    "server_ms": 175.036192,
+    "rows_read": 3863293.0,
+    "bytes_read": 144404071.0,
+    "repeats": 6
+  },
+  "minmax/feature_funnel/hour": {
+    "client_ms": 445.23394400016514,
+    "server_ms": 340.6866595,
+    "rows_read": 7726587.0,
+    "bytes_read": 260703120.0,
+    "repeats": 6
+  },
+  "projection/user/hour": {
+    "client_ms": 140.91474299993934,
+    "server_ms": 73.12942699999999,
+    "rows_read": 237568.0,
+    "bytes_read": 60303805.0,
+    "repeats": 6
+  },
+  "minmax/user/day": {
+    "client_ms": 972.4554685001294,
+    "server_ms": 903.6379340000001,
+    "rows_read": 4150013.0,
+    "bytes_read": 1257479595.0,
+    "repeats": 6
+  },
+  "raw/ua_bot/day": {
+    "client_ms": 945.1088400001026,
+    "server_ms": 877.5079430000001,
+    "rows_read": 13711369.0,
+    "bytes_read": 1449119451.0,
+    "repeats": 6
+  },
+  "raw/user/day": {
+    "client_ms": 1232.827772500059,
+    "server_ms": 1085.40227,
+    "rows_read": 13711369.0,
+    "bytes_read": 1416355303.0,
+    "repeats": 6
+  },
+  "projection/metadata_join/day": {
+    "client_ms": 4359.328993999952,
+    "server_ms": 4291.0288975,
+    "rows_read": 22329353.0,
+    "bytes_read": 7726674280.0,
+    "repeats": 6
+  },
+  "raw/ab_outcome/day": {
+    "client_ms": 1935.9180560002187,
+    "server_ms": 1867.9098585000002,
+    "rows_read": 27422738.0,
+    "bytes_read": 2928311546.0,
+    "repeats": 6
+  },
+  "minmax/coverage/hour": {
+    "client_ms": 189.8849680001149,
+    "server_ms": 122.0391325,
+    "rows_read": 3863294.0,
+    "bytes_read": 97677128.0,
+    "repeats": 6
+  },
+  "projection/event_counts/hour": {
+    "client_ms": 130.13896600000407,
+    "server_ms": 32.813272,
+    "rows_read": 237568.0,
+    "bytes_read": 8869075.0,
+    "repeats": 6
+  },
+  "minmax/ua_bot/hour": {
+    "client_ms": 206.4068945001054,
+    "server_ms": 140.9455815,
+    "rows_read": 3863293.0,
+    "bytes_read": 146721170.0,
+    "repeats": 6
+  },
+  "raw/event_counts/day": {
+    "client_ms": 602.754106500015,
+    "server_ms": 465.926476,
+    "rows_read": 13711369.0,
+    "bytes_read": 396091607.0,
+    "repeats": 6
+  },
+  "typed/ua_bot/day": {
+    "client_ms": 226.6661999999542,
+    "server_ms": 158.0139085,
+    "rows_read": 1777562.0,
+    "bytes_read": 98660222.0,
+    "repeats": 6
+  },
+  "projection/ua_bot/day": {
+    "client_ms": 825.5381600001783,
+    "server_ms": 755.545399,
+    "rows_read": 4308992.0,
+    "bytes_read": 1323976401.0,
+    "repeats": 6
+  }
+}

@@ -1,0 +1,2175 @@
+{
+  "date": "2026-09-10T21:10:07.870521+00:00",
+  "timeout_seconds": 15,
+  "warmups": 1,
+  "repeats": 3,
+  "postgres_version": "PostgreSQL 15.17 on x86_64-pc-linux-gnu, compiled by x86_64-pc-linux-gnu-gcc (GCC) 12.4.0, 64-bit",
+  "clickhouse_version": "26.2.1.641",
+  "cases": {
+    "ab_outcome/hour": {
+      "postgres": {
+        "attempts": [
+          {
+            "status": "complete",
+            "elapsed_ms": 6196.502622995467,
+            "rows": 2,
+            "sha256": "73673c1d30925e80ec76409684b427da0b226607d567a1cbdf559f0819fb1bae",
+            "statistics": {},
+            "warmup": true
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 537.2391940036323,
+            "rows": 2,
+            "sha256": "73673c1d30925e80ec76409684b427da0b226607d567a1cbdf559f0819fb1bae",
+            "statistics": {},
+            "warmup": false
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 375.4959539946867,
+            "rows": 2,
+            "sha256": "73673c1d30925e80ec76409684b427da0b226607d567a1cbdf559f0819fb1bae",
+            "statistics": {},
+            "warmup": false
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 404.18154699727893,
+            "rows": 2,
+            "sha256": "73673c1d30925e80ec76409684b427da0b226607d567a1cbdf559f0819fb1bae",
+            "statistics": {},
+            "warmup": false
+          }
+        ],
+        "aggregate_rows": [
+          [
+            "hour",
+            "control",
+            3493,
+            160
+          ],
+          [
+            "hour",
+            "welcomeBox",
+            3230,
+            184
+          ]
+        ]
+      },
+      "clickhouse": {
+        "attempts": [
+          {
+            "status": "timeout",
+            "elapsed_ms": 15230.743569001788,
+            "error_type": "HTTPError",
+            "warmup": true
+          }
+        ]
+      },
+      "matching_results": false
+    },
+    "feature_counts/day": {
+      "postgres": {
+        "attempts": [
+          {
+            "status": "complete",
+            "elapsed_ms": 13896.014814999944,
+            "rows": 2,
+            "sha256": "a9952c206e705acf33bbcfe7164b992b4d8c3af11ace4c0a069f39f2826896ab",
+            "statistics": {},
+            "warmup": true
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 116.5637300000526,
+            "rows": 2,
+            "sha256": "a9952c206e705acf33bbcfe7164b992b4d8c3af11ace4c0a069f39f2826896ab",
+            "statistics": {},
+            "warmup": false
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 109.62368699983926,
+            "rows": 2,
+            "sha256": "a9952c206e705acf33bbcfe7164b992b4d8c3af11ace4c0a069f39f2826896ab",
+            "statistics": {},
+            "warmup": false
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 415.2060429987614,
+            "rows": 2,
+            "sha256": "a9952c206e705acf33bbcfe7164b992b4d8c3af11ace4c0a069f39f2826896ab",
+            "statistics": {},
+            "warmup": false
+          }
+        ],
+        "aggregate_rows": [
+          [
+            "day",
+            "ultraFeedItemExpanded",
+            267,
+            92
+          ],
+          [
+            "day",
+            "ultraFeedItemViewed",
+            41558,
+            559
+          ]
+        ]
+      },
+      "clickhouse": {
+        "attempts": [
+          {
+            "status": "timeout",
+            "elapsed_ms": 15416.069047001656,
+            "error_type": "HTTPError",
+            "warmup": true
+          }
+        ]
+      },
+      "matching_results": false
+    },
+    "session/hour": {
+      "postgres": {
+        "attempts": [
+          {
+            "status": "complete",
+            "elapsed_ms": 408.80830899550347,
+            "rows": 14,
+            "sha256": "64a51e66f13519de1a436987dd6bbe14c909cef37eace269ce3385659a03a96b",
+            "statistics": {},
+            "warmup": true
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 237.47861300216755,
+            "rows": 14,
+            "sha256": "64a51e66f13519de1a436987dd6bbe14c909cef37eace269ce3385659a03a96b",
+            "statistics": {},
+            "warmup": false
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 147.596294998948,
+            "rows": 14,
+            "sha256": "64a51e66f13519de1a436987dd6bbe14c909cef37eace269ce3385659a03a96b",
+            "statistics": {},
+            "warmup": false
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 148.79049500450492,
+            "rows": 14,
+            "sha256": "64a51e66f13519de1a436987dd6bbe14c909cef37eace269ce3385659a03a96b",
+            "statistics": {},
+            "warmup": false
+          }
+        ],
+        "aggregate_rows": [
+          [
+            "hour",
+            "beforeUnloadFired",
+            3
+          ],
+          [
+            "hour",
+            "hoverEventTriggered",
+            17
+          ],
+          [
+            "hour",
+            "idlenessDetection",
+            4
+          ],
+          [
+            "hour",
+            "inViewEvent",
+            13
+          ],
+          [
+            "hour",
+            "linkClicked",
+            1
+          ],
+          [
+            "hour",
+            "navigate",
+            1
+          ],
+          [
+            "hour",
+            "pageLoadFinished",
+            2
+          ],
+          [
+            "hour",
+            "pageVisibilityChange",
+            5
+          ],
+          [
+            "hour",
+            "postListMounted",
+            4
+          ],
+          [
+            "hour",
+            "spotlightItemMounted",
+            4
+          ],
+          [
+            "hour",
+            "tabStarted",
+            2
+          ],
+          [
+            "hour",
+            "timerEvent",
+            13
+          ],
+          [
+            "hour",
+            "type3.player-loaded",
+            1
+          ],
+          [
+            "hour",
+            "vote",
+            1
+          ]
+        ]
+      },
+      "clickhouse": {
+        "attempts": [
+          {
+            "status": "timeout",
+            "elapsed_ms": 15256.711464004184,
+            "error_type": "HTTPError",
+            "warmup": true
+          }
+        ]
+      },
+      "matching_results": false
+    },
+    "coverage/day": {
+      "postgres": {
+        "attempts": [
+          {
+            "status": "timeout",
+            "elapsed_ms": 15155.353943999216,
+            "error_type": "QueryCanceled",
+            "warmup": true
+          }
+        ]
+      },
+      "clickhouse": {
+        "attempts": [
+          {
+            "status": "timeout",
+            "elapsed_ms": 15372.453362004308,
+            "error_type": "HTTPError",
+            "warmup": true
+          }
+        ]
+      },
+      "matching_results": false
+    },
+    "traffic_hour/day": {
+      "postgres": {
+        "attempts": [
+          {
+            "status": "timeout",
+            "elapsed_ms": 15064.569399000902,
+            "error_type": "QueryCanceled",
+            "warmup": true
+          }
+        ]
+      },
+      "clickhouse": {
+        "attempts": [
+          {
+            "status": "timeout",
+            "elapsed_ms": 15378.54539899854,
+            "error_type": "HTTPError",
+            "warmup": true
+          }
+        ]
+      },
+      "matching_results": false
+    },
+    "user/hour": {
+      "postgres": {
+        "attempts": [
+          {
+            "status": "complete",
+            "elapsed_ms": 136.5848779969383,
+            "rows": 15,
+            "sha256": "b85ec68669495aa44dfcd7a88933f29a19f0e718c04013c403462d3b492b2afe",
+            "statistics": {},
+            "warmup": true
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 145.88974099751795,
+            "rows": 15,
+            "sha256": "b85ec68669495aa44dfcd7a88933f29a19f0e718c04013c403462d3b492b2afe",
+            "statistics": {},
+            "warmup": false
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 164.2396160023054,
+            "rows": 15,
+            "sha256": "b85ec68669495aa44dfcd7a88933f29a19f0e718c04013c403462d3b492b2afe",
+            "statistics": {},
+            "warmup": false
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 142.42289499816252,
+            "rows": 15,
+            "sha256": "b85ec68669495aa44dfcd7a88933f29a19f0e718c04013c403462d3b492b2afe",
+            "statistics": {},
+            "warmup": false
+          }
+        ],
+        "aggregate_rows": [
+          [
+            "hour",
+            "beforeUnloadFired",
+            3
+          ],
+          [
+            "hour",
+            "hoverEventTriggered",
+            17
+          ],
+          [
+            "hour",
+            "idlenessDetection",
+            4
+          ],
+          [
+            "hour",
+            "inViewEvent",
+            13
+          ],
+          [
+            "hour",
+            "linkClicked",
+            1
+          ],
+          [
+            "hour",
+            "navigate",
+            1
+          ],
+          [
+            "hour",
+            "pageLoadFinished",
+            2
+          ],
+          [
+            "hour",
+            "pageVisibilityChange",
+            5
+          ],
+          [
+            "hour",
+            "postListMounted",
+            4
+          ],
+          [
+            "hour",
+            "spotlightItemMounted",
+            4
+          ],
+          [
+            "hour",
+            "tabStarted",
+            2
+          ],
+          [
+            "hour",
+            "timerEvent",
+            13
+          ],
+          [
+            "hour",
+            "type3.player-loaded",
+            1
+          ],
+          [
+            "hour",
+            "ultraFeedPerformance",
+            2
+          ],
+          [
+            "hour",
+            "vote",
+            1
+          ]
+        ]
+      },
+      "clickhouse": {
+        "attempts": [
+          {
+            "status": "timeout",
+            "elapsed_ms": 15226.88019299676,
+            "error_type": "HTTPError",
+            "warmup": true
+          }
+        ]
+      },
+      "matching_results": false
+    },
+    "metadata_join/hour": {
+      "postgres": {
+        "attempts": [
+          {
+            "status": "timeout",
+            "elapsed_ms": 15153.288862005866,
+            "error_type": "QueryCanceled",
+            "warmup": true
+          }
+        ]
+      },
+      "clickhouse": {
+        "attempts": [
+          {
+            "status": "timeout",
+            "elapsed_ms": 15293.09023800306,
+            "error_type": "HTTPError",
+            "warmup": true
+          }
+        ]
+      },
+      "matching_results": false
+    },
+    "user/day": {
+      "postgres": {
+        "attempts": [
+          {
+            "status": "timeout",
+            "elapsed_ms": 15075.082012997882,
+            "error_type": "QueryCanceled",
+            "warmup": true
+          }
+        ]
+      },
+      "clickhouse": {
+        "attempts": [
+          {
+            "status": "timeout",
+            "elapsed_ms": 15288.963708000665,
+            "error_type": "HTTPError",
+            "warmup": true
+          }
+        ]
+      },
+      "matching_results": false
+    },
+    "traffic_hour/hour": {
+      "postgres": {
+        "attempts": [
+          {
+            "status": "complete",
+            "elapsed_ms": 100.76502199808601,
+            "rows": 2,
+            "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+            "statistics": {},
+            "warmup": true
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 82.66279700183077,
+            "rows": 2,
+            "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+            "statistics": {},
+            "warmup": false
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 76.28925800236175,
+            "rows": 2,
+            "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+            "statistics": {},
+            "warmup": false
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 78.480985997885,
+            "rows": 2,
+            "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+            "statistics": {},
+            "warmup": false
+          }
+        ],
+        "aggregate_rows": [
+          [
+            "hour",
+            "2026-09-07T00:00:00",
+            "navigate",
+            1066,
+            340
+          ],
+          [
+            "hour",
+            "2026-09-07T00:00:00",
+            "pageLoadFinished",
+            2345,
+            1868
+          ]
+        ]
+      },
+      "clickhouse": {
+        "attempts": [
+          {
+            "status": "timeout",
+            "elapsed_ms": 15204.8447989946,
+            "error_type": "HTTPError",
+            "warmup": true
+          }
+        ]
+      },
+      "matching_results": false
+    },
+    "feature_counts/hour": {
+      "postgres": {
+        "attempts": [
+          {
+            "status": "complete",
+            "elapsed_ms": 67.6927259992226,
+            "rows": 2,
+            "sha256": "f036c158e3225bc942193d7ecadeb15de3686b283769e723d2ffe02508a7eb7c",
+            "statistics": {},
+            "warmup": true
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 67.7763230050914,
+            "rows": 2,
+            "sha256": "f036c158e3225bc942193d7ecadeb15de3686b283769e723d2ffe02508a7eb7c",
+            "statistics": {},
+            "warmup": false
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 65.9426389975124,
+            "rows": 2,
+            "sha256": "f036c158e3225bc942193d7ecadeb15de3686b283769e723d2ffe02508a7eb7c",
+            "statistics": {},
+            "warmup": false
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 67.73588700161781,
+            "rows": 2,
+            "sha256": "f036c158e3225bc942193d7ecadeb15de3686b283769e723d2ffe02508a7eb7c",
+            "statistics": {},
+            "warmup": false
+          }
+        ],
+        "aggregate_rows": [
+          [
+            "hour",
+            "ultraFeedItemExpanded",
+            19,
+            12
+          ],
+          [
+            "hour",
+            "ultraFeedItemViewed",
+            1415,
+            47
+          ]
+        ]
+      },
+      "clickhouse": {
+        "attempts": [
+          {
+            "status": "timeout",
+            "elapsed_ms": 15302.709629999299,
+            "error_type": "HTTPError",
+            "warmup": true
+          }
+        ]
+      },
+      "matching_results": false
+    },
+    "feature_funnel/hour": {
+      "postgres": {
+        "attempts": [
+          {
+            "status": "complete",
+            "elapsed_ms": 351.90442799648736,
+            "rows": 1,
+            "sha256": "9a50bad58aefd6a83bc4381b113e5626cb279524fd4853ee279130ba08605aa5",
+            "statistics": {},
+            "warmup": true
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 349.3632499958039,
+            "rows": 1,
+            "sha256": "9a50bad58aefd6a83bc4381b113e5626cb279524fd4853ee279130ba08605aa5",
+            "statistics": {},
+            "warmup": false
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 340.94272799848113,
+            "rows": 1,
+            "sha256": "9a50bad58aefd6a83bc4381b113e5626cb279524fd4853ee279130ba08605aa5",
+            "statistics": {},
+            "warmup": false
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 361.88552899693605,
+            "rows": 1,
+            "sha256": "9a50bad58aefd6a83bc4381b113e5626cb279524fd4853ee279130ba08605aa5",
+            "statistics": {},
+            "warmup": false
+          }
+        ],
+        "aggregate_rows": [
+          [
+            "hour",
+            530,
+            19
+          ]
+        ]
+      },
+      "clickhouse": {
+        "attempts": [
+          {
+            "status": "timeout",
+            "elapsed_ms": 15332.482917001471,
+            "error_type": "HTTPError",
+            "warmup": true
+          }
+        ]
+      },
+      "matching_results": false
+    },
+    "event_counts/day": {
+      "postgres": {
+        "attempts": [
+          {
+            "status": "timeout",
+            "elapsed_ms": 15068.492218997562,
+            "error_type": "QueryCanceled",
+            "warmup": true
+          }
+        ]
+      },
+      "clickhouse": {
+        "attempts": [
+          {
+            "status": "timeout",
+            "elapsed_ms": 15407.2045790017,
+            "error_type": "HTTPError",
+            "warmup": true
+          }
+        ]
+      },
+      "matching_results": false
+    },
+    "event_counts/hour": {
+      "postgres": {
+        "attempts": [
+          {
+            "status": "complete",
+            "elapsed_ms": 161.24036900146166,
+            "rows": 84,
+            "sha256": "b22a9dc774add8b3433caf72865b04661011254e67d58b839a285c39abdbfa46",
+            "statistics": {},
+            "warmup": true
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 141.49244199506938,
+            "rows": 84,
+            "sha256": "b22a9dc774add8b3433caf72865b04661011254e67d58b839a285c39abdbfa46",
+            "statistics": {},
+            "warmup": false
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 141.43263999721967,
+            "rows": 84,
+            "sha256": "b22a9dc774add8b3433caf72865b04661011254e67d58b839a285c39abdbfa46",
+            "statistics": {},
+            "warmup": false
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 143.58362500206567,
+            "rows": 84,
+            "sha256": "b22a9dc774add8b3433caf72865b04661011254e67d58b839a285c39abdbfa46",
+            "statistics": {},
+            "warmup": false
+          }
+        ],
+        "aggregate_rows": [
+          [
+            "hour",
+            "type3.reached-minute",
+            9
+          ],
+          [
+            "hour",
+            "loadMoreClicked",
+            91
+          ],
+          [
+            "hour",
+            "timerEvent",
+            18418
+          ],
+          [
+            "hour",
+            "prefersDarkModeChange",
+            110
+          ],
+          [
+            "hour",
+            "type3.continued-listening",
+            80
+          ],
+          [
+            "hour",
+            "wrappedSuccessCallbackFinished",
+            12
+          ],
+          [
+            "hour",
+            "messageSent",
+            2
+          ],
+          [
+            "hour",
+            "ultraFeedItemExpanded",
+            19
+          ],
+          [
+            "hour",
+            "subscribedFeedPerformance",
+            2
+          ],
+          [
+            "hour",
+            "loginButtonClicked",
+            5
+          ],
+          [
+            "hour",
+            "clickInsidePodcastPlayer",
+            4
+          ],
+          [
+            "hour",
+            "reactionToggled",
+            8
+          ],
+          [
+            "hour",
+            "idlenessDetection",
+            5415
+          ],
+          [
+            "hour",
+            "tripleDotClick",
+            20
+          ],
+          [
+            "hour",
+            "type3.error",
+            7
+          ],
+          [
+            "hour",
+            "ultraFeedItemsRanked",
+            10
+          ],
+          [
+            "hour",
+            "toggleSettings",
+            2
+          ],
+          [
+            "hour",
+            "ultraFeedDuplicateAfterSample",
+            47
+          ],
+          [
+            "hour",
+            "dialogBox",
+            53
+          ],
+          [
+            "hour",
+            "sessionStarted",
+            6379
+          ],
+          [
+            "hour",
+            "ultraFeedReplyIconClicked",
+            4
+          ],
+          [
+            "hour",
+            "navigate",
+            1066
+          ],
+          [
+            "hour",
+            "linkClicked",
+            1219
+          ],
+          [
+            "hour",
+            "pageLoadFinished",
+            2345
+          ],
+          [
+            "hour",
+            "reactPaletteSearchKeysLogged",
+            1
+          ],
+          [
+            "hour",
+            "singeLineCommentClicked",
+            218
+          ],
+          [
+            "hour",
+            "bookmarkToggle",
+            1
+          ],
+          [
+            "hour",
+            "searchResultSelected",
+            17
+          ],
+          [
+            "hour",
+            "ultraFeedCommentItemExpanded",
+            25
+          ],
+          [
+            "hour",
+            "postListMounted",
+            1174
+          ],
+          [
+            "hour",
+            "subscribeButtonsClicked",
+            1
+          ],
+          [
+            "hour",
+            "selfUpvoteComment",
+            12
+          ],
+          [
+            "hour",
+            "homeNavClicked",
+            3
+          ],
+          [
+            "hour",
+            "type3.play",
+            8
+          ],
+          [
+            "hour",
+            "ultraFeedThreadPostExpanded",
+            3
+          ],
+          [
+            "hour",
+            "notificationItemClick",
+            30
+          ],
+          [
+            "hour",
+            "type3.player-loaded",
+            1911
+          ],
+          [
+            "hour",
+            "ultraFeedCompressedCommentsClicked",
+            5
+          ],
+          [
+            "hour",
+            "postItemMounted",
+            1350
+          ],
+          [
+            "hour",
+            "axisVote",
+            26
+          ],
+          [
+            "hour",
+            "karmaNotifierToggle",
+            20
+          ],
+          [
+            "hour",
+            "recentDiscussionItemLongViewed",
+            4
+          ],
+          [
+            "hour",
+            "readMoreClicked",
+            22
+          ],
+          [
+            "hour",
+            "ultraFeedReplyArrowClicked",
+            4
+          ],
+          [
+            "hour",
+            "pageVisibilityChange",
+            14051
+          ],
+          [
+            "hour",
+            "inViewEvent",
+            10894
+          ],
+          [
+            "hour",
+            "quickTakesSectionExpanded",
+            1
+          ],
+          [
+            "hour",
+            "shortformItemExpanded",
+            253
+          ],
+          [
+            "hour",
+            "notificationsIconToggle",
+            40
+          ],
+          [
+            "hour",
+            "recentDiscussionItemViewed",
+            13
+          ],
+          [
+            "hour",
+            "searchToggle",
+            28
+          ],
+          [
+            "hour",
+            "postFeedSwitched",
+            24
+          ],
+          [
+            "hour",
+            "commentFormFocusChanged",
+            509
+          ],
+          [
+            "hour",
+            "subscribeClicked",
+            1
+          ],
+          [
+            "hour",
+            "type3.reached-percentage",
+            8
+          ],
+          [
+            "hour",
+            "libraryNavClicked",
+            1
+          ],
+          [
+            "hour",
+            "ultraFeedPerformance",
+            552
+          ],
+          [
+            "hour",
+            "beforeUnloadFired",
+            919
+          ],
+          [
+            "hour",
+            "tabStarted",
+            6723
+          ],
+          [
+            "hour",
+            "allPostsNavClicked",
+            22
+          ],
+          [
+            "hour",
+            "tagFilterModified",
+            4
+          ],
+          [
+            "hour",
+            "hoverEventTriggered",
+            5584
+          ],
+          [
+            "hour",
+            "bestoflesswrongNavClicked",
+            5
+          ],
+          [
+            "hour",
+            "vote",
+            79
+          ],
+          [
+            "hour",
+            "initiateConversation",
+            1
+          ],
+          [
+            "hour",
+            "type3.viewed-chapters",
+            1
+          ],
+          [
+            "hour",
+            "commentRateLimitHit",
+            1
+          ],
+          [
+            "hour",
+            "commentMenuClicked",
+            50
+          ],
+          [
+            "hour",
+            "wrappedSubmitCallbackStarted",
+            13
+          ],
+          [
+            "hour",
+            "search",
+            47
+          ],
+          [
+            "hour",
+            "type3.seek-to-chapter",
+            1
+          ],
+          [
+            "hour",
+            "type3.completed-episode",
+            1
+          ],
+          [
+            "hour",
+            "navigationBarToggle",
+            78
+          ],
+          [
+            "hour",
+            "filterSettingsClicked",
+            3
+          ],
+          [
+            "hour",
+            "postsBottomBarClicked",
+            9
+          ],
+          [
+            "hour",
+            "codexNavClicked",
+            1
+          ],
+          [
+            "hour",
+            "rateLimitExceeded",
+            212
+          ],
+          [
+            "hour",
+            "conceptsNavClicked",
+            5
+          ],
+          [
+            "hour",
+            "commentExpanded",
+            426
+          ],
+          [
+            "hour",
+            "spotlightItemMounted",
+            1308
+          ],
+          [
+            "hour",
+            "subscribeClick",
+            1
+          ],
+          [
+            "hour",
+            "reactPaletteStateChanged",
+            8
+          ],
+          [
+            "hour",
+            "ultraFeedItemViewed",
+            1415
+          ],
+          [
+            "hour",
+            "pingbacksListMounted",
+            3225
+          ]
+        ]
+      },
+      "clickhouse": {
+        "attempts": [
+          {
+            "status": "timeout",
+            "elapsed_ms": 15252.839763998054,
+            "error_type": "HTTPError",
+            "warmup": true
+          }
+        ]
+      },
+      "matching_results": false
+    },
+    "ua_bot/day": {
+      "postgres": {
+        "attempts": [
+          {
+            "status": "timeout",
+            "elapsed_ms": 15064.870374997554,
+            "error_type": "QueryCanceled",
+            "warmup": true
+          }
+        ]
+      },
+      "clickhouse": {
+        "attempts": [
+          {
+            "status": "timeout",
+            "elapsed_ms": 15203.463557001669,
+            "error_type": "HTTPError",
+            "warmup": true
+          }
+        ]
+      },
+      "matching_results": false
+    },
+    "ab_assignments/day": {
+      "postgres": {
+        "attempts": [
+          {
+            "status": "complete",
+            "elapsed_ms": 3991.6124700030196,
+            "rows": 2,
+            "sha256": "e1aa1a0abc069153d9d03bce019cbbc78232e7f99c84e77ea12f99470c729c5c",
+            "statistics": {},
+            "warmup": true
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 545.4892579946318,
+            "rows": 2,
+            "sha256": "e1aa1a0abc069153d9d03bce019cbbc78232e7f99c84e77ea12f99470c729c5c",
+            "statistics": {},
+            "warmup": false
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 702.7377790000173,
+            "rows": 2,
+            "sha256": "e1aa1a0abc069153d9d03bce019cbbc78232e7f99c84e77ea12f99470c729c5c",
+            "statistics": {},
+            "warmup": false
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 1139.3261150005856,
+            "rows": 2,
+            "sha256": "e1aa1a0abc069153d9d03bce019cbbc78232e7f99c84e77ea12f99470c729c5c",
+            "statistics": {},
+            "warmup": false
+          }
+        ],
+        "aggregate_rows": [
+          [
+            "day",
+            "control",
+            40948,
+            29576
+          ],
+          [
+            "day",
+            "welcomeBox",
+            40274,
+            29534
+          ]
+        ]
+      },
+      "clickhouse": {
+        "attempts": [
+          {
+            "status": "timeout",
+            "elapsed_ms": 15218.231323997315,
+            "error_type": "HTTPError",
+            "warmup": true
+          }
+        ]
+      },
+      "matching_results": false
+    },
+    "post_paths/hour": {
+      "postgres": {
+        "attempts": [
+          {
+            "status": "complete",
+            "elapsed_ms": 212.80001300328877,
+            "rows": 3,
+            "sha256": "082e8b4ac912fde63791bcba0ddb793d54732b010fed15b8ee55ac1b13c3ef6e",
+            "statistics": {},
+            "warmup": true
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 104.61136599769816,
+            "rows": 3,
+            "sha256": "082e8b4ac912fde63791bcba0ddb793d54732b010fed15b8ee55ac1b13c3ef6e",
+            "statistics": {},
+            "warmup": false
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 106.0326239967253,
+            "rows": 3,
+            "sha256": "082e8b4ac912fde63791bcba0ddb793d54732b010fed15b8ee55ac1b13c3ef6e",
+            "statistics": {},
+            "warmup": false
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 104.19997999997577,
+            "rows": 3,
+            "sha256": "082e8b4ac912fde63791bcba0ddb793d54732b010fed15b8ee55ac1b13c3ef6e",
+            "statistics": {},
+            "warmup": false
+          }
+        ],
+        "aggregate_rows": [
+          [
+            "hour",
+            "navigate",
+            532
+          ],
+          [
+            "hour",
+            "pageLoadFinished",
+            1840
+          ],
+          [
+            "hour",
+            "timerEvent",
+            14165
+          ]
+        ]
+      },
+      "clickhouse": {
+        "attempts": [
+          {
+            "status": "timeout",
+            "elapsed_ms": 15205.457422001928,
+            "error_type": "HTTPError",
+            "warmup": true
+          }
+        ]
+      },
+      "matching_results": false
+    },
+    "session/day": {
+      "postgres": {
+        "attempts": [
+          {
+            "status": "complete",
+            "elapsed_ms": 5960.22672199615,
+            "rows": 14,
+            "sha256": "c0981a5ca21be314872b9d27e14b95e613e6a6b8884b18e90f9281f5ca7e7c8e",
+            "statistics": {},
+            "warmup": true
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 1096.8236140033696,
+            "rows": 14,
+            "sha256": "c0981a5ca21be314872b9d27e14b95e613e6a6b8884b18e90f9281f5ca7e7c8e",
+            "statistics": {},
+            "warmup": false
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 1043.4004190028645,
+            "rows": 14,
+            "sha256": "c0981a5ca21be314872b9d27e14b95e613e6a6b8884b18e90f9281f5ca7e7c8e",
+            "statistics": {},
+            "warmup": false
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 1032.5244999985443,
+            "rows": 14,
+            "sha256": "c0981a5ca21be314872b9d27e14b95e613e6a6b8884b18e90f9281f5ca7e7c8e",
+            "statistics": {},
+            "warmup": false
+          }
+        ],
+        "aggregate_rows": [
+          [
+            "day",
+            "beforeUnloadFired",
+            3
+          ],
+          [
+            "day",
+            "hoverEventTriggered",
+            17
+          ],
+          [
+            "day",
+            "idlenessDetection",
+            4
+          ],
+          [
+            "day",
+            "inViewEvent",
+            13
+          ],
+          [
+            "day",
+            "linkClicked",
+            1
+          ],
+          [
+            "day",
+            "navigate",
+            1
+          ],
+          [
+            "day",
+            "pageLoadFinished",
+            2
+          ],
+          [
+            "day",
+            "pageVisibilityChange",
+            5
+          ],
+          [
+            "day",
+            "postListMounted",
+            4
+          ],
+          [
+            "day",
+            "spotlightItemMounted",
+            4
+          ],
+          [
+            "day",
+            "tabStarted",
+            2
+          ],
+          [
+            "day",
+            "timerEvent",
+            13
+          ],
+          [
+            "day",
+            "type3.player-loaded",
+            1
+          ],
+          [
+            "day",
+            "vote",
+            1
+          ]
+        ]
+      },
+      "clickhouse": {
+        "attempts": [
+          {
+            "status": "timeout",
+            "elapsed_ms": 15211.217124997347,
+            "error_type": "HTTPError",
+            "warmup": true
+          }
+        ]
+      },
+      "matching_results": false
+    },
+    "ua_bot/hour": {
+      "postgres": {
+        "attempts": [
+          {
+            "status": "complete",
+            "elapsed_ms": 379.4698209967464,
+            "rows": 2,
+            "sha256": "b101114684346ba2afd7d722da4069d21cf3ab198ebccb961ff58444c7f66ac5",
+            "statistics": {},
+            "warmup": true
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 285.24007499800064,
+            "rows": 2,
+            "sha256": "b101114684346ba2afd7d722da4069d21cf3ab198ebccb961ff58444c7f66ac5",
+            "statistics": {},
+            "warmup": false
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 283.80585400009295,
+            "rows": 2,
+            "sha256": "b101114684346ba2afd7d722da4069d21cf3ab198ebccb961ff58444c7f66ac5",
+            "statistics": {},
+            "warmup": false
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 238.87994700635318,
+            "rows": 2,
+            "sha256": "b101114684346ba2afd7d722da4069d21cf3ab198ebccb961ff58444c7f66ac5",
+            "statistics": {},
+            "warmup": false
+          }
+        ],
+        "aggregate_rows": [
+          [
+            "hour",
+            "bot_like",
+            99
+          ],
+          [
+            "hour",
+            "not_matched",
+            6624
+          ]
+        ]
+      },
+      "clickhouse": {
+        "attempts": [
+          {
+            "status": "timeout",
+            "elapsed_ms": 15343.167861996335,
+            "error_type": "HTTPError",
+            "warmup": true
+          }
+        ]
+      },
+      "matching_results": false
+    },
+    "ab_outcome/day": {
+      "postgres": {
+        "attempts": [
+          {
+            "status": "complete",
+            "elapsed_ms": 11435.619973999565,
+            "rows": 2,
+            "sha256": "fae9b27041d0b8652e7989c5586f369a2de1f327aa5acbb1235191c47e6dd6fd",
+            "statistics": {},
+            "warmup": true
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 8766.10103600251,
+            "rows": 2,
+            "sha256": "fae9b27041d0b8652e7989c5586f369a2de1f327aa5acbb1235191c47e6dd6fd",
+            "statistics": {},
+            "warmup": false
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 7003.071320003073,
+            "rows": 2,
+            "sha256": "fae9b27041d0b8652e7989c5586f369a2de1f327aa5acbb1235191c47e6dd6fd",
+            "statistics": {},
+            "warmup": false
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 8486.73167599918,
+            "rows": 2,
+            "sha256": "fae9b27041d0b8652e7989c5586f369a2de1f327aa5acbb1235191c47e6dd6fd",
+            "statistics": {},
+            "warmup": false
+          }
+        ],
+        "aggregate_rows": [
+          [
+            "day",
+            "control",
+            40943,
+            4780
+          ],
+          [
+            "day",
+            "welcomeBox",
+            40266,
+            4895
+          ]
+        ]
+      },
+      "clickhouse": {
+        "attempts": [
+          {
+            "status": "timeout",
+            "elapsed_ms": 15219.231724004203,
+            "error_type": "HTTPError",
+            "warmup": true
+          }
+        ]
+      },
+      "matching_results": false
+    },
+    "ab_assignments/hour": {
+      "postgres": {
+        "attempts": [
+          {
+            "status": "complete",
+            "elapsed_ms": 98.19498500291957,
+            "rows": 2,
+            "sha256": "a641fc5ed34701f5f3ae8411a8dd05bc970ec5a702f61e8cc71da653378c3066",
+            "statistics": {},
+            "warmup": true
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 209.84602599492064,
+            "rows": 2,
+            "sha256": "a641fc5ed34701f5f3ae8411a8dd05bc970ec5a702f61e8cc71da653378c3066",
+            "statistics": {},
+            "warmup": false
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 206.4391070016427,
+            "rows": 2,
+            "sha256": "a641fc5ed34701f5f3ae8411a8dd05bc970ec5a702f61e8cc71da653378c3066",
+            "statistics": {},
+            "warmup": false
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 145.577276001859,
+            "rows": 2,
+            "sha256": "a641fc5ed34701f5f3ae8411a8dd05bc970ec5a702f61e8cc71da653378c3066",
+            "statistics": {},
+            "warmup": false
+          }
+        ],
+        "aggregate_rows": [
+          [
+            "hour",
+            "control",
+            3493,
+            3119
+          ],
+          [
+            "hour",
+            "welcomeBox",
+            3230,
+            2992
+          ]
+        ]
+      },
+      "clickhouse": {
+        "attempts": [
+          {
+            "status": "timeout",
+            "elapsed_ms": 15296.788976003882,
+            "error_type": "HTTPError",
+            "warmup": true
+          }
+        ]
+      },
+      "matching_results": false
+    },
+    "feature_funnel/day": {
+      "postgres": {
+        "attempts": [
+          {
+            "status": "complete",
+            "elapsed_ms": 7359.5232169973315,
+            "rows": 1,
+            "sha256": "2390c7ea934ef0f92db174200eee4439f28b32c85045abb47963608a1aa7ffd1",
+            "statistics": {},
+            "warmup": true
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 7496.430697996402,
+            "rows": 1,
+            "sha256": "2390c7ea934ef0f92db174200eee4439f28b32c85045abb47963608a1aa7ffd1",
+            "statistics": {},
+            "warmup": false
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 5928.37461399904,
+            "rows": 1,
+            "sha256": "2390c7ea934ef0f92db174200eee4439f28b32c85045abb47963608a1aa7ffd1",
+            "statistics": {},
+            "warmup": false
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 8545.034079004836,
+            "rows": 1,
+            "sha256": "2390c7ea934ef0f92db174200eee4439f28b32c85045abb47963608a1aa7ffd1",
+            "statistics": {},
+            "warmup": false
+          }
+        ],
+        "aggregate_rows": [
+          [
+            "day",
+            11383,
+            266
+          ]
+        ]
+      },
+      "clickhouse": {
+        "attempts": [
+          {
+            "status": "timeout",
+            "elapsed_ms": 15225.073519999569,
+            "error_type": "HTTPError",
+            "warmup": true
+          }
+        ]
+      },
+      "matching_results": false
+    },
+    "metadata_join/day": {
+      "postgres": {
+        "attempts": [
+          {
+            "status": "timeout",
+            "elapsed_ms": 15382.328861000133,
+            "error_type": "QueryCanceled",
+            "warmup": true
+          }
+        ]
+      },
+      "clickhouse": {
+        "attempts": [
+          {
+            "status": "timeout",
+            "elapsed_ms": 15277.590446996328,
+            "error_type": "HTTPError",
+            "warmup": true
+          }
+        ]
+      },
+      "matching_results": false
+    },
+    "post_paths/day": {
+      "postgres": {
+        "attempts": [
+          {
+            "status": "complete",
+            "elapsed_ms": 3997.6288300022134,
+            "rows": 3,
+            "sha256": "f7af06d8fba2f2929254f2962cf2c839bfd62fbbddf8a33591df37c558cbeba5",
+            "statistics": {},
+            "warmup": true
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 1028.409031998308,
+            "rows": 3,
+            "sha256": "f7af06d8fba2f2929254f2962cf2c839bfd62fbbddf8a33591df37c558cbeba5",
+            "statistics": {},
+            "warmup": false
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 1001.9091349968221,
+            "rows": 3,
+            "sha256": "f7af06d8fba2f2929254f2962cf2c839bfd62fbbddf8a33591df37c558cbeba5",
+            "statistics": {},
+            "warmup": false
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 1357.4164599995129,
+            "rows": 3,
+            "sha256": "f7af06d8fba2f2929254f2962cf2c839bfd62fbbddf8a33591df37c558cbeba5",
+            "statistics": {},
+            "warmup": false
+          }
+        ],
+        "aggregate_rows": [
+          [
+            "day",
+            "navigate",
+            14355
+          ],
+          [
+            "day",
+            "pageLoadFinished",
+            26883
+          ],
+          [
+            "day",
+            "timerEvent",
+            343674
+          ]
+        ]
+      },
+      "clickhouse": {
+        "attempts": [
+          {
+            "status": "timeout",
+            "elapsed_ms": 15211.037594002846,
+            "error_type": "HTTPError",
+            "warmup": true
+          }
+        ]
+      },
+      "matching_results": false
+    },
+    "tab/hour": {
+      "postgres": {
+        "attempts": [
+          {
+            "status": "complete",
+            "elapsed_ms": 83.30224300152622,
+            "rows": 5,
+            "sha256": "af48594ac1ed81333d929a94cc5e33556c54fc9b2a74b9442b80456b447ca868",
+            "statistics": {},
+            "warmup": true
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 76.85625500016613,
+            "rows": 5,
+            "sha256": "af48594ac1ed81333d929a94cc5e33556c54fc9b2a74b9442b80456b447ca868",
+            "statistics": {},
+            "warmup": false
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 79.45671400375431,
+            "rows": 5,
+            "sha256": "af48594ac1ed81333d929a94cc5e33556c54fc9b2a74b9442b80456b447ca868",
+            "statistics": {},
+            "warmup": false
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 72.85071800288279,
+            "rows": 5,
+            "sha256": "af48594ac1ed81333d929a94cc5e33556c54fc9b2a74b9442b80456b447ca868",
+            "statistics": {},
+            "warmup": false
+          }
+        ],
+        "aggregate_rows": [
+          [
+            "hour",
+            "beforeUnloadFired",
+            1
+          ],
+          [
+            "hour",
+            "idlenessDetection",
+            4
+          ],
+          [
+            "hour",
+            "inViewEvent",
+            4
+          ],
+          [
+            "hour",
+            "pageVisibilityChange",
+            2
+          ],
+          [
+            "hour",
+            "timerEvent",
+            4
+          ]
+        ]
+      },
+      "clickhouse": {
+        "attempts": [
+          {
+            "status": "timeout",
+            "elapsed_ms": 15218.897671999002,
+            "error_type": "HTTPError",
+            "warmup": true
+          }
+        ]
+      },
+      "matching_results": false
+    },
+    "coverage/hour": {
+      "postgres": {
+        "attempts": [
+          {
+            "status": "complete",
+            "elapsed_ms": 205.38543300062884,
+            "rows": 1,
+            "sha256": "95446539ca8f47b83a10c46a252019dd039a432ace70583ee8df2ac2ce2b60a9",
+            "statistics": {},
+            "warmup": true
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 168.69062399928225,
+            "rows": 1,
+            "sha256": "95446539ca8f47b83a10c46a252019dd039a432ace70583ee8df2ac2ce2b60a9",
+            "statistics": {},
+            "warmup": false
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 262.7269310032716,
+            "rows": 1,
+            "sha256": "95446539ca8f47b83a10c46a252019dd039a432ace70583ee8df2ac2ce2b60a9",
+            "statistics": {},
+            "warmup": false
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 162.93670600134647,
+            "rows": 1,
+            "sha256": "95446539ca8f47b83a10c46a252019dd039a432ace70583ee8df2ac2ce2b60a9",
+            "statistics": {},
+            "warmup": false
+          }
+        ],
+        "aggregate_rows": [
+          [
+            "hour",
+            86679,
+            84
+          ]
+        ]
+      },
+      "clickhouse": {
+        "attempts": [
+          {
+            "status": "timeout",
+            "elapsed_ms": 15268.03784599906,
+            "error_type": "HTTPError",
+            "warmup": true
+          }
+        ]
+      },
+      "matching_results": false
+    },
+    "traffic_day/day": {
+      "postgres": {
+        "attempts": [
+          {
+            "status": "complete",
+            "elapsed_ms": 349.7262309974758,
+            "rows": 2,
+            "sha256": "2c4935bd3058807de03a8d5a109a0551699e5ec1b0c42204871baadb2ea836c7",
+            "statistics": {},
+            "warmup": true
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 392.0864509927924,
+            "rows": 2,
+            "sha256": "2c4935bd3058807de03a8d5a109a0551699e5ec1b0c42204871baadb2ea836c7",
+            "statistics": {},
+            "warmup": false
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 348.1686590021127,
+            "rows": 2,
+            "sha256": "2c4935bd3058807de03a8d5a109a0551699e5ec1b0c42204871baadb2ea836c7",
+            "statistics": {},
+            "warmup": false
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 353.3873499982292,
+            "rows": 2,
+            "sha256": "2c4935bd3058807de03a8d5a109a0551699e5ec1b0c42204871baadb2ea836c7",
+            "statistics": {},
+            "warmup": false
+          }
+        ],
+        "aggregate_rows": [
+          [
+            "day",
+            "2026-09-07T00:00:00",
+            "navigate",
+            30145,
+            5718
+          ],
+          [
+            "day",
+            "2026-09-07T00:00:00",
+            "pageLoadFinished",
+            40258,
+            23634
+          ]
+        ]
+      },
+      "clickhouse": {
+        "attempts": [
+          {
+            "status": "timeout",
+            "elapsed_ms": 15247.228573003667,
+            "error_type": "HTTPError",
+            "warmup": true
+          }
+        ]
+      },
+      "matching_results": false
+    },
+    "ssr_association/hour": {
+      "postgres": {
+        "attempts": [
+          {
+            "status": "timeout",
+            "elapsed_ms": 15198.406576004345,
+            "error_type": "QueryCanceled",
+            "warmup": true
+          }
+        ]
+      },
+      "clickhouse": {
+        "attempts": [
+          {
+            "status": "timeout",
+            "elapsed_ms": 15216.63593500125,
+            "error_type": "HTTPError",
+            "warmup": true
+          }
+        ]
+      },
+      "matching_results": false
+    },
+    "traffic_day/hour": {
+      "postgres": {
+        "attempts": [
+          {
+            "status": "complete",
+            "elapsed_ms": 125.61926300259074,
+            "rows": 2,
+            "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+            "statistics": {},
+            "warmup": true
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 100.15466299955733,
+            "rows": 2,
+            "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+            "statistics": {},
+            "warmup": false
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 106.82649700174807,
+            "rows": 2,
+            "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+            "statistics": {},
+            "warmup": false
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 97.56611699413043,
+            "rows": 2,
+            "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+            "statistics": {},
+            "warmup": false
+          }
+        ],
+        "aggregate_rows": [
+          [
+            "hour",
+            "2026-09-07T00:00:00",
+            "navigate",
+            1066,
+            340
+          ],
+          [
+            "hour",
+            "2026-09-07T00:00:00",
+            "pageLoadFinished",
+            2345,
+            1868
+          ]
+        ]
+      },
+      "clickhouse": {
+        "attempts": [
+          {
+            "status": "timeout",
+            "elapsed_ms": 15254.934286997013,
+            "error_type": "HTTPError",
+            "warmup": true
+          }
+        ]
+      },
+      "matching_results": false
+    },
+    "ssr_association/day": {
+      "postgres": {
+        "attempts": [
+          {
+            "status": "timeout",
+            "elapsed_ms": 15344.271754001966,
+            "error_type": "QueryCanceled",
+            "warmup": true
+          }
+        ]
+      },
+      "clickhouse": {
+        "attempts": [
+          {
+            "status": "timeout",
+            "elapsed_ms": 15204.216247999284,
+            "error_type": "HTTPError",
+            "warmup": true
+          }
+        ]
+      },
+      "matching_results": false
+    },
+    "tab/day": {
+      "postgres": {
+        "attempts": [
+          {
+            "status": "complete",
+            "elapsed_ms": 236.92519599717343,
+            "rows": 5,
+            "sha256": "45e66867cd8ca9baaf0b5e88755a8f8687f30604da5bdb4c2682bdf9eae5ddf3",
+            "statistics": {},
+            "warmup": true
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 230.22841499914648,
+            "rows": 5,
+            "sha256": "45e66867cd8ca9baaf0b5e88755a8f8687f30604da5bdb4c2682bdf9eae5ddf3",
+            "statistics": {},
+            "warmup": false
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 227.58961300132796,
+            "rows": 5,
+            "sha256": "45e66867cd8ca9baaf0b5e88755a8f8687f30604da5bdb4c2682bdf9eae5ddf3",
+            "statistics": {},
+            "warmup": false
+          },
+          {
+            "status": "complete",
+            "elapsed_ms": 461.03577100438997,
+            "rows": 5,
+            "sha256": "45e66867cd8ca9baaf0b5e88755a8f8687f30604da5bdb4c2682bdf9eae5ddf3",
+            "statistics": {},
+            "warmup": false
+          }
+        ],
+        "aggregate_rows": [
+          [
+            "day",
+            "beforeUnloadFired",
+            1
+          ],
+          [
+            "day",
+            "idlenessDetection",
+            4
+          ],
+          [
+            "day",
+            "inViewEvent",
+            4
+          ],
+          [
+            "day",
+            "pageVisibilityChange",
+            2
+          ],
+          [
+            "day",
+            "timerEvent",
+            4
+          ]
+        ]
+      },
+      "clickhouse": {
+        "attempts": [
+          {
+            "status": "timeout",
+            "elapsed_ms": 15218.508748002932,
+            "error_type": "HTTPError",
+            "warmup": true
+          }
+        ]
+      },
+      "matching_results": false
+    }
+  },
+  "sources_sha256": {
+    "run.py": "4124a41c5483e202c8f164379cc868109659f10c54383f97ad20e1e9029be305",
+    "check.py": "eb239963295c8eac76358a5279c471f3ea532a7d953b743a386dc2471e61f193",
+    "queries.py": "91f30e229bbddb4f52a38fbf2d4e8c8c72f91a2831cd77496159576f5840140d",
+    "runner.py": "36e9c8eddcd4c8758ba5dfca8081b6ba61907861c6adaae4d190a1d6dedc9a11"
+  },
+  "validation": {
+    "raw_normalization_fixtures": "passed on PostgreSQL and ClickHouse",
+    "workload_fixtures": "all 15 cases on each engine matched canonical DuckDB fixture",
+    "database_writes": false
+  },
+  "layout": {
+    "clickhouse": {
+      "table": "default.public_raw",
+      "engine": "SharedMergeTree",
+      "sorting_key": "",
+      "rows": 2315652132,
+      "total_bytes": 135946797737,
+      "primary_key": "",
+      "partition_key": "",
+      "serving_node_cpu_quota": 2,
+      "serving_node_memory_bytes": 8589934592,
+      "max_threads": 2
+    },
+    "postgres": {
+      "table": "public.raw",
+      "layout": "existing raw JSONB table and indexes, unchanged"
+    }
+  },
+  "timing": "client execute plus complete fetch; includes HTTPS setup for ClickHouse, excludes SQL connection setup for PostgreSQL; result hashing excluded",
+  "snapshot_warning": "One-time ClickHouse import and live PostgreSQL are not a shared frozen MVCC snapshot. Aggregate hashes compared only for completed cases.",
+  "interpretation": "Initial 15-second-budget pass, not a warmed cross-engine comparison: every ClickHouse warmup timed out, so no ClickHouse measured repetitions occurred. See investigation evidence for extended warmup and successful repeats.",
+  "follow_up_evidence": "2026-09-10-investigation.json"
+}

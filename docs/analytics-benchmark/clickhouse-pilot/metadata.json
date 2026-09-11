@@ -1,0 +1,203 @@
+{
+  "version": {
+    "observation": {
+      "status": "complete",
+      "query_id": "pilot-81c4e10d-ecdb-4b41-b3f6-135351d32be4",
+      "elapsed_ms": 3172.288566000134,
+      "rows": 1,
+      "sha256": "fe35f313b67cd13faeb8d0f403858a8ca7f243a310b405ec6674f969e8c5a782",
+      "statistics": {
+        "elapsed": "0.001209142",
+        "rows_read": 1,
+        "bytes_read": 1
+      }
+    },
+    "rows": [
+      [
+        "26.2.1.641"
+      ]
+    ]
+  },
+  "grants": {
+    "observation": {
+      "status": "complete",
+      "query_id": "pilot-52f76202-b69a-4ff5-ab5a-08b465e29232",
+      "elapsed_ms": 66.51409500000227,
+      "rows": 1,
+      "sha256": "15da876f5e9cc7a0f37be432397a84f2ed8ff8d13d6a72e24a4306cb26a063f3",
+      "statistics": {
+        "elapsed": "0.000673831",
+        "rows_read": 1,
+        "bytes_read": 55
+      }
+    },
+    "rows": [
+      [
+        "GRANT default_role TO default WITH ADMIN OPTION"
+      ]
+    ]
+  },
+  "source": {
+    "observation": {
+      "status": "complete",
+      "query_id": "pilot-74f3d990-05eb-48a5-b0f6-22ad299fca97",
+      "elapsed_ms": 66.57584300000963,
+      "rows": 1,
+      "sha256": "e5b04cb2a398f511b813ea9a73842c27c0c7e40d1475626344fc275b1a675c6a",
+      "statistics": {
+        "elapsed": "0.000711904",
+        "rows_read": 1,
+        "bytes_read": 413
+      }
+    },
+    "rows": [
+      [
+        "CREATE TABLE default.public_raw\n(\n    `environment` String,\n    `event_type` String,\n    `timestamp` DateTime64(6),\n    `event` String,\n    `id` Nullable(Int64),\n    `_peerdb_synced_at` DateTime64(9) DEFAULT now64(),\n    `_peerdb_is_deleted` UInt8,\n    `_peerdb_version` UInt64\n)\nENGINE = SharedMergeTree('/clickhouse/tables/{uuid}/{shard}', '{replica}')\nORDER BY tuple()\nSETTINGS index_granularity = 8192"
+      ]
+    ]
+  },
+  "disks": {
+    "observation": {
+      "status": "complete",
+      "query_id": "pilot-4533fe05-11ac-4d8d-93e9-a8236998eb8d",
+      "elapsed_ms": 66.6427889998431,
+      "rows": 14,
+      "sha256": "21b750da1de45da5a7ca638f641f22c8d4b32316013f7f18900054e06e706558",
+      "statistics": {
+        "elapsed": "0.001397995",
+        "rows_read": 14,
+        "bytes_read": 2896
+      }
+    },
+    "rows": [
+      [
+        "__tmp_internal_175917481274520749186286233449932469595",
+        18446744073709551615,
+        18446744073709551615
+      ],
+      [
+        "__tmp_internal_233863684496528845618444514801052283858",
+        18446744073709551615,
+        18446744073709551615
+      ],
+      [
+        "__tmp_internal_234472408552932374020787250392090415971",
+        18446744073709551615,
+        18446744073709551615
+      ],
+      [
+        "__tmp_internal_267792627793846087182120710129300968464",
+        18446744073709551615,
+        18446744073709551615
+      ],
+      [
+        "__tmp_internal_295534349734538180206540778995580558508",
+        18446744073709551615,
+        18446744073709551615
+      ],
+      [
+        "default",
+        106758647808,
+        27453145088
+      ],
+      [
+        "diskPlainRewritableForSystemTables",
+        18446744073709551615,
+        18446744073709551615
+      ],
+      [
+        "diskPlainRewritableForSystemTablesWithCache",
+        18446744073709551615,
+        18446744073709551615
+      ],
+      [
+        "s3WithKeeperDisk",
+        18446744073709551615,
+        18446744073709551615
+      ],
+      [
+        "s3WithKeeperDiskWithCache",
+        18446744073709551615,
+        18446744073709551615
+      ],
+      [
+        "s3WithKeeperSystemDisk",
+        18446744073709551615,
+        18446744073709551615
+      ],
+      [
+        "s3disk",
+        18446744073709551615,
+        18446744073709551615
+      ],
+      [
+        "s3diskForSampleData",
+        18446744073709551615,
+        18446744073709551615
+      ],
+      [
+        "s3diskWithCache",
+        18446744073709551615,
+        18446744073709551615
+      ]
+    ]
+  },
+  "source_parts": {
+    "observation": {
+      "status": "complete",
+      "query_id": "pilot-929585a6-d9cd-4afd-adc7-86ad6b7ce832",
+      "elapsed_ms": 68.67883400013852,
+      "rows": 1,
+      "sha256": "0aa888061d030959b6047b073d85c258eb0c4a65bb0bd5e98f5c95846cd2f6b9",
+      "statistics": {
+        "elapsed": "0.002745675",
+        "rows_read": 17,
+        "bytes_read": 850
+      }
+    },
+    "rows": [
+      [
+        17,
+        2315652132,
+        135946797737
+      ]
+    ]
+  },
+  "running": {
+    "observation": {
+      "status": "complete",
+      "query_id": "pilot-8913f225-0235-43ed-8ecf-dea7c15f1d94",
+      "elapsed_ms": 67.27455200007171,
+      "rows": 1,
+      "sha256": "eac8d41a03008284bf81047ebaa132deb6ed25a144be4bb04258da917f49c5ff",
+      "statistics": {
+        "elapsed": "0.002201897",
+        "rows_read": 3,
+        "bytes_read": 11718
+      }
+    },
+    "rows": [
+      [
+        "pilot-8913f225-0235-43ed-8ecf-dea7c15f1d94",
+        "0.001143",
+        0,
+        3311917
+      ]
+    ]
+  },
+  "tables": {
+    "observation": {
+      "status": "complete",
+      "query_id": "pilot-6507eebc-3e31-4877-a640-344341793148",
+      "elapsed_ms": 67.79796800014992,
+      "rows": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "statistics": {
+        "elapsed": "0.001668548",
+        "rows_read": 0,
+        "bytes_read": 0
+      }
+    },
+    "rows": []
+  }
+}
