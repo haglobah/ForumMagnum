@@ -1,0 +1,1525 @@
+{
+  "direct_controls": {
+    "timestamp_only_count": {
+      "rows": [
+        [
+          187100
+        ]
+      ],
+      "statistics": {
+        "elapsed": "98.926924697",
+        "rows_read": 2315652132,
+        "bytes_read": 18525217056
+      },
+      "elapsed_ms": 99166.99309400428,
+      "sha256": "6787ae32d0ef7c08ea096a8804ade0fc5dcddd15578e5d879a4b23f2d3df24bd"
+    },
+    "direct_event_counts": {
+      "rows": [
+        [
+          "hour",
+          "navigate",
+          1066
+        ],
+        [
+          "hour",
+          "search",
+          47
+        ],
+        [
+          "hour",
+          "axisVote",
+          26
+        ],
+        [
+          "hour",
+          "vote",
+          79
+        ],
+        [
+          "hour",
+          "postFeedSwitched",
+          24
+        ],
+        [
+          "hour",
+          "readMoreClicked",
+          22
+        ],
+        [
+          "hour",
+          "timerEvent",
+          18418
+        ],
+        [
+          "hour",
+          "sessionStarted",
+          6379
+        ],
+        [
+          "hour",
+          "postItemMounted",
+          1350
+        ],
+        [
+          "hour",
+          "type3.error",
+          7
+        ],
+        [
+          "hour",
+          "subscribeClicked",
+          1
+        ],
+        [
+          "hour",
+          "postListMounted",
+          1174
+        ],
+        [
+          "hour",
+          "inViewEvent",
+          10894
+        ],
+        [
+          "hour",
+          "loadMoreClicked",
+          91
+        ],
+        [
+          "hour",
+          "messageSent",
+          2
+        ],
+        [
+          "hour",
+          "reactionToggled",
+          8
+        ],
+        [
+          "hour",
+          "tripleDotClick",
+          20
+        ],
+        [
+          "hour",
+          "homeNavClicked",
+          3
+        ],
+        [
+          "hour",
+          "subscribeClick",
+          1
+        ],
+        [
+          "hour",
+          "codexNavClicked",
+          1
+        ],
+        [
+          "hour",
+          "dialogBox",
+          53
+        ],
+        [
+          "hour",
+          "bookmarkToggle",
+          1
+        ],
+        [
+          "hour",
+          "type3.play",
+          8
+        ],
+        [
+          "hour",
+          "linkClicked",
+          1219
+        ],
+        [
+          "hour",
+          "tabStarted",
+          6723
+        ],
+        [
+          "hour",
+          "pageLoadFinished",
+          2345
+        ],
+        [
+          "hour",
+          "commentExpanded",
+          426
+        ],
+        [
+          "hour",
+          "toggleSettings",
+          2
+        ],
+        [
+          "hour",
+          "searchToggle",
+          28
+        ],
+        [
+          "hour",
+          "karmaNotifierToggle",
+          20
+        ],
+        [
+          "hour",
+          "type3.player-loaded",
+          1911
+        ],
+        [
+          "hour",
+          "postsBottomBarClicked",
+          9
+        ],
+        [
+          "hour",
+          "reactPaletteStateChanged",
+          8
+        ],
+        [
+          "hour",
+          "selfUpvoteComment",
+          12
+        ],
+        [
+          "hour",
+          "commentRateLimitHit",
+          1
+        ],
+        [
+          "hour",
+          "conceptsNavClicked",
+          5
+        ],
+        [
+          "hour",
+          "searchResultSelected",
+          17
+        ],
+        [
+          "hour",
+          "spotlightItemMounted",
+          1308
+        ],
+        [
+          "hour",
+          "type3.completed-episode",
+          1
+        ],
+        [
+          "hour",
+          "ultraFeedItemExpanded",
+          19
+        ],
+        [
+          "hour",
+          "commentMenuClicked",
+          50
+        ],
+        [
+          "hour",
+          "filterSettingsClicked",
+          3
+        ],
+        [
+          "hour",
+          "shortformItemExpanded",
+          253
+        ],
+        [
+          "hour",
+          "initiateConversation",
+          1
+        ],
+        [
+          "hour",
+          "notificationsIconToggle",
+          40
+        ],
+        [
+          "hour",
+          "ultraFeedItemsRanked",
+          10
+        ],
+        [
+          "hour",
+          "type3.reached-minute",
+          9
+        ],
+        [
+          "hour",
+          "ultraFeedItemViewed",
+          1415
+        ],
+        [
+          "hour",
+          "pageVisibilityChange",
+          14051
+        ],
+        [
+          "hour",
+          "subscribeButtonsClicked",
+          1
+        ],
+        [
+          "hour",
+          "clickInsidePodcastPlayer",
+          4
+        ],
+        [
+          "hour",
+          "singeLineCommentClicked",
+          218
+        ],
+        [
+          "hour",
+          "type3.reached-percentage",
+          8
+        ],
+        [
+          "hour",
+          "loginButtonClicked",
+          5
+        ],
+        [
+          "hour",
+          "navigationBarToggle",
+          78
+        ],
+        [
+          "hour",
+          "type3.viewed-chapters",
+          1
+        ],
+        [
+          "hour",
+          "beforeUnloadFired",
+          919
+        ],
+        [
+          "hour",
+          "libraryNavClicked",
+          1
+        ],
+        [
+          "hour",
+          "rateLimitExceeded",
+          212
+        ],
+        [
+          "hour",
+          "commentFormFocusChanged",
+          509
+        ],
+        [
+          "hour",
+          "notificationItemClick",
+          30
+        ],
+        [
+          "hour",
+          "idlenessDetection",
+          5415
+        ],
+        [
+          "hour",
+          "prefersDarkModeChange",
+          110
+        ],
+        [
+          "hour",
+          "type3.seek-to-chapter",
+          1
+        ],
+        [
+          "hour",
+          "pingbacksListMounted",
+          3225
+        ],
+        [
+          "hour",
+          "allPostsNavClicked",
+          22
+        ],
+        [
+          "hour",
+          "hoverEventTriggered",
+          5584
+        ],
+        [
+          "hour",
+          "ultraFeedPerformance",
+          552
+        ],
+        [
+          "hour",
+          "tagFilterModified",
+          4
+        ],
+        [
+          "hour",
+          "recentDiscussionItemViewed",
+          13
+        ],
+        [
+          "hour",
+          "wrappedSuccessCallbackFinished",
+          12
+        ],
+        [
+          "hour",
+          "ultraFeedCompressedCommentsClicked",
+          5
+        ],
+        [
+          "hour",
+          "ultraFeedReplyArrowClicked",
+          4
+        ],
+        [
+          "hour",
+          "recentDiscussionItemLongViewed",
+          4
+        ],
+        [
+          "hour",
+          "wrappedSubmitCallbackStarted",
+          13
+        ],
+        [
+          "hour",
+          "reactPaletteSearchKeysLogged",
+          1
+        ],
+        [
+          "hour",
+          "ultraFeedDuplicateAfterSample",
+          47
+        ],
+        [
+          "hour",
+          "subscribedFeedPerformance",
+          2
+        ],
+        [
+          "hour",
+          "quickTakesSectionExpanded",
+          1
+        ],
+        [
+          "hour",
+          "bestoflesswrongNavClicked",
+          5
+        ],
+        [
+          "hour",
+          "ultraFeedReplyIconClicked",
+          4
+        ],
+        [
+          "hour",
+          "type3.continued-listening",
+          80
+        ],
+        [
+          "hour",
+          "ultraFeedThreadPostExpanded",
+          3
+        ],
+        [
+          "hour",
+          "ultraFeedCommentItemExpanded",
+          25
+        ]
+      ],
+      "statistics": {
+        "elapsed": "73.686222292",
+        "rows_read": 2315652132,
+        "bytes_read": 56296269956
+      },
+      "elapsed_ms": 73892.06930599903,
+      "sha256": "b22a9dc774add8b3433caf72865b04661011254e67d58b839a285c39abdbfa46",
+      "matches_postgres": true
+    },
+    "adapter_plan": {
+      "rows": [
+        [
+          "Expression ((Project names + Projection))"
+        ],
+        [
+          "  Aggregating"
+        ],
+        [
+          "    Expression ((Before GROUP BY + (Change column names to column identifiers + (Project names + Projection))))"
+        ],
+        [
+          "      Expression ((WHERE + (Change column names to column identifiers + (Project names + (Projection + Change column names to column identifiers)))))"
+        ],
+        [
+          "        ReadFromMergeTree (default.public_raw)"
+        ]
+      ],
+      "statistics": {
+        "elapsed": "0.005109298",
+        "rows_read": 5,
+        "bytes_read": 400
+      },
+      "elapsed_ms": 232.72032599925296,
+      "sha256": "0ca6bad19c37e7ff34591f57c0905ba14589ceb0a225c7a1cbe2e71ade07acad"
+    },
+    "clusters": {
+      "rows": [
+        [
+          "default",
+          1,
+          1,
+          1
+        ],
+        [
+          "all_groups.default",
+          1,
+          1,
+          1
+        ]
+      ],
+      "statistics": {
+        "elapsed": "0.001839898",
+        "rows_read": 2,
+        "bytes_read": 57
+      },
+      "elapsed_ms": 218.38212600414408,
+      "sha256": "2ac825fc1fe53e5b860b5bab1603578651f26a584baff621e9ba7c1706269365"
+    }
+  },
+  "cache_controls": {
+    "repeat_timestamp_count": {
+      "status": "timeout",
+      "client_elapsed_ms": 15273.840903000008,
+      "error_type": "HTTPError"
+    },
+    "repeat_direct_event_counts": {
+      "status": "complete",
+      "client_elapsed_ms": 267.45411299999944,
+      "stats": {
+        "elapsed": "0.06534826",
+        "rows_read": 1277952,
+        "bytes_read": 53680413
+      },
+      "sha256": "b22a9dc774add8b3433caf72865b04661011254e67d58b839a285c39abdbfa46",
+      "matches_postgres": true
+    },
+    "explicit_prewhere_event_counts": {
+      "status": "timeout",
+      "client_elapsed_ms": 15236.653149000005,
+      "error_type": "HTTPError"
+    },
+    "repeat_adapter_event_counts": {
+      "status": "timeout",
+      "client_elapsed_ms": 15222.537474999996,
+      "error_type": "HTTPError"
+    }
+  },
+  "cache_isolation": {
+    "direct_cache_on": {
+      "query_id": "d413ef47-1fb5-4297-9da2-a5a05a3b3f75",
+      "timeout_seconds": 15,
+      "condition_cache": 1,
+      "status": "complete",
+      "client_elapsed_ms": 285.0054230000012,
+      "statistics": {
+        "elapsed": "0.062606157",
+        "rows_read": 1261568,
+        "bytes_read": 52991521
+      },
+      "sha256": "b22a9dc774add8b3433caf72865b04661011254e67d58b839a285c39abdbfa46",
+      "matches_postgres": true
+    },
+    "direct_cache_off": {
+      "query_id": "eb1af9d3-9382-4442-ac6f-991fb3606ea9",
+      "timeout_seconds": 15,
+      "condition_cache": 0,
+      "status": "timeout",
+      "client_elapsed_ms": 15205.458022999977,
+      "error_type": "HTTPError"
+    },
+    "adapter_full": {
+      "query_id": "0c227de0-a1e7-47f5-becb-84fb51ebdef3",
+      "timeout_seconds": 120,
+      "condition_cache": 1,
+      "status": "complete",
+      "client_elapsed_ms": 38273.41585100001,
+      "statistics": {
+        "elapsed": "38.069816202",
+        "rows_read": 1324992332,
+        "bytes_read": 32267777197
+      },
+      "sha256": "b22a9dc774add8b3433caf72865b04661011254e67d58b839a285c39abdbfa46",
+      "matches_postgres": true
+    },
+    "adapter_repeat_1": {
+      "query_id": "aef2255a-55a5-4c02-b953-14932712b16b",
+      "timeout_seconds": 15,
+      "condition_cache": 1,
+      "status": "complete",
+      "client_elapsed_ms": 262.1531419999883,
+      "statistics": {
+        "elapsed": "0.060613524",
+        "rows_read": 1277952,
+        "bytes_read": 53680413
+      },
+      "sha256": "b22a9dc774add8b3433caf72865b04661011254e67d58b839a285c39abdbfa46",
+      "matches_postgres": true
+    },
+    "adapter_repeat_2": {
+      "query_id": "8fe644a0-75ed-4ef7-9781-ba083d8dc750",
+      "timeout_seconds": 15,
+      "condition_cache": 1,
+      "status": "complete",
+      "client_elapsed_ms": 270.17364799999655,
+      "statistics": {
+        "elapsed": "0.065293719",
+        "rows_read": 1261568,
+        "bytes_read": 52991521
+      },
+      "sha256": "b22a9dc774add8b3433caf72865b04661011254e67d58b839a285c39abdbfa46",
+      "matches_postgres": true
+    },
+    "adapter_repeat_3": {
+      "query_id": "eea7fd26-8efe-4d72-88e9-39b4acc9d6e4",
+      "timeout_seconds": 15,
+      "condition_cache": 1,
+      "status": "complete",
+      "client_elapsed_ms": 259.0871060000097,
+      "statistics": {
+        "elapsed": "0.059171267",
+        "rows_read": 1245184,
+        "bytes_read": 52590770
+      },
+      "sha256": "b22a9dc774add8b3433caf72865b04661011254e67d58b839a285c39abdbfa46",
+      "matches_postgres": true
+    }
+  },
+  "cache_query_metrics": [
+    {
+      "query_id": "d413ef47-1fb5-4297-9da2-a5a05a3b3f75",
+      "type": "QueryFinish",
+      "exception_code": 0,
+      "query_duration_ms": 63,
+      "read_rows": 1261568,
+      "read_bytes": 52991521,
+      "ProfileEvents['QueryConditionCacheHits']": 17,
+      "ProfileEvents['QueryConditionCacheMisses']": 1,
+      "ProfileEvents['OSCPUVirtualTimeMicroseconds']": 119163,
+      "ProfileEvents['CachedReadBufferReadFromCacheBytes']": 5802065,
+      "ProfileEvents['CachedReadBufferReadFromSourceBytes']": 0
+    },
+    {
+      "query_id": "eb1af9d3-9382-4442-ac6f-991fb3606ea9",
+      "type": "ExceptionWhileProcessing",
+      "exception_code": 159,
+      "query_duration_ms": 15000,
+      "read_rows": 521461760,
+      "read_bytes": 12640140539,
+      "ProfileEvents['QueryConditionCacheHits']": 0,
+      "ProfileEvents['QueryConditionCacheMisses']": 0,
+      "ProfileEvents['OSCPUVirtualTimeMicroseconds']": 27431368,
+      "ProfileEvents['CachedReadBufferReadFromCacheBytes']": 2297358169,
+      "ProfileEvents['CachedReadBufferReadFromSourceBytes']": 0
+    },
+    {
+      "query_id": "0c227de0-a1e7-47f5-becb-84fb51ebdef3",
+      "type": "QueryFinish",
+      "exception_code": 0,
+      "query_duration_ms": 38070,
+      "read_rows": 1324992332,
+      "read_bytes": 32267777197,
+      "ProfileEvents['QueryConditionCacheHits']": 3,
+      "ProfileEvents['QueryConditionCacheMisses']": 31,
+      "ProfileEvents['OSCPUVirtualTimeMicroseconds']": 68582443,
+      "ProfileEvents['CachedReadBufferReadFromCacheBytes']": 4533872010,
+      "ProfileEvents['CachedReadBufferReadFromSourceBytes']": 74802906
+    },
+    {
+      "query_id": "aef2255a-55a5-4c02-b953-14932712b16b",
+      "type": "QueryFinish",
+      "exception_code": 0,
+      "query_duration_ms": 61,
+      "read_rows": 1277952,
+      "read_bytes": 53680413,
+      "ProfileEvents['QueryConditionCacheHits']": 17,
+      "ProfileEvents['QueryConditionCacheMisses']": 1,
+      "ProfileEvents['OSCPUVirtualTimeMicroseconds']": 118331,
+      "ProfileEvents['CachedReadBufferReadFromCacheBytes']": 5871541,
+      "ProfileEvents['CachedReadBufferReadFromSourceBytes']": 0
+    },
+    {
+      "query_id": "8fe644a0-75ed-4ef7-9781-ba083d8dc750",
+      "type": "QueryFinish",
+      "exception_code": 0,
+      "query_duration_ms": 66,
+      "read_rows": 1261568,
+      "read_bytes": 52991521,
+      "ProfileEvents['QueryConditionCacheHits']": 17,
+      "ProfileEvents['QueryConditionCacheMisses']": 1,
+      "ProfileEvents['OSCPUVirtualTimeMicroseconds']": 121479,
+      "ProfileEvents['CachedReadBufferReadFromCacheBytes']": 5802065,
+      "ProfileEvents['CachedReadBufferReadFromSourceBytes']": 0
+    },
+    {
+      "query_id": "eea7fd26-8efe-4d72-88e9-39b4acc9d6e4",
+      "type": "QueryFinish",
+      "exception_code": 0,
+      "query_duration_ms": 60,
+      "read_rows": 1245184,
+      "read_bytes": 52590770,
+      "ProfileEvents['QueryConditionCacheHits']": 17,
+      "ProfileEvents['QueryConditionCacheMisses']": 1,
+      "ProfileEvents['OSCPUVirtualTimeMicroseconds']": 113806,
+      "ProfileEvents['CachedReadBufferReadFromCacheBytes']": 5733651,
+      "ProfileEvents['CachedReadBufferReadFromSourceBytes']": 0
+    }
+  ],
+  "initial_diagnostics": {
+    "pruning_plan": [
+      [
+        "Expression ((Project names + Projection))"
+      ],
+      [
+        "  Aggregating"
+      ],
+      [
+        "    Expression (Before GROUP BY)"
+      ],
+      [
+        "      Expression ((WHERE + Change column names to column identifiers))"
+      ],
+      [
+        "        ReadFromMergeTree (default.public_raw)"
+      ]
+    ],
+    "table_layout": [
+      [
+        "public_raw",
+        "SharedMergeTree",
+        "",
+        "",
+        "",
+        2315652132,
+        135946797737
+      ]
+    ],
+    "query_metrics": [
+      [
+        "ExceptionWhileProcessing",
+        15001,
+        106422272,
+        4319005528,
+        401426877,
+        159,
+        565358,
+        106422272
+      ],
+      [
+        "ExceptionWhileProcessing",
+        15198,
+        237322240,
+        7731041216,
+        387620300,
+        159,
+        282679,
+        237322240
+      ],
+      [
+        "ExceptionWhileProcessing",
+        15024,
+        238354432,
+        5767874994,
+        382282032,
+        159,
+        282679,
+        238354432
+      ],
+      [
+        "ExceptionWhileProcessing",
+        15031,
+        335888384,
+        8135140340,
+        353731906,
+        159,
+        282679,
+        335888384
+      ],
+      [
+        "ExceptionWhileProcessing",
+        15006,
+        255213568,
+        10352100541,
+        387709074,
+        159,
+        282679,
+        255213568
+      ],
+      [
+        "ExceptionWhileProcessing",
+        15022,
+        379314176,
+        9188621455,
+        382287008,
+        159,
+        282679,
+        379314176
+      ],
+      [
+        "ExceptionWhileProcessing",
+        15072,
+        297345024,
+        7249648877,
+        382344338,
+        159,
+        848037,
+        297345024
+      ],
+      [
+        "ExceptionWhileProcessing",
+        15060,
+        406347776,
+        9845467607,
+        382285776,
+        159,
+        282679,
+        406347776
+      ],
+      [
+        "ExceptionWhileProcessing",
+        15000,
+        252837888,
+        10252492960,
+        387709074,
+        159,
+        282679,
+        252837888
+      ],
+      [
+        "ExceptionWhileProcessing",
+        15000,
+        319021056,
+        10405454090,
+        383333461,
+        159,
+        282679,
+        319021056
+      ],
+      [
+        "ExceptionWhileProcessing",
+        15126,
+        331915264,
+        10828605680,
+        399618810,
+        159,
+        565358,
+        331915264
+      ],
+      [
+        "ExceptionWhileProcessing",
+        15192,
+        443064320,
+        10737424959,
+        361210239,
+        159,
+        282679,
+        443064320
+      ],
+      [
+        "ExceptionWhileProcessing",
+        15031,
+        473899008,
+        11484727929,
+        361204207,
+        159,
+        282679,
+        473899008
+      ],
+      [
+        "ExceptionWhileProcessing",
+        15001,
+        265322496,
+        10762191111,
+        388021210,
+        159,
+        282679,
+        265322496
+      ],
+      [
+        "ExceptionWhileProcessing",
+        15000,
+        175079424,
+        7163098324,
+        387602619,
+        159,
+        250347,
+        175079424
+      ],
+      [
+        "ExceptionWhileProcessing",
+        15000,
+        239034368,
+        9693569481,
+        382502313,
+        159,
+        282679,
+        239034368
+      ],
+      [
+        "ExceptionWhileProcessing",
+        15000,
+        466067456,
+        11294588080,
+        382285664,
+        159,
+        282679,
+        466067456
+      ],
+      [
+        "ExceptionWhileProcessing",
+        15008,
+        247439360,
+        10036029400,
+        388015210,
+        159,
+        282679,
+        247439360
+      ],
+      [
+        "ExceptionWhileProcessing",
+        15000,
+        286179328,
+        11614027172,
+        398310775,
+        159,
+        565358,
+        286179328
+      ],
+      [
+        "ExceptionWhileProcessing",
+        15064,
+        229875712,
+        9402817540,
+        389512624,
+        159,
+        252536,
+        229875712
+      ],
+      [
+        "ExceptionWhileProcessing",
+        15001,
+        350969856,
+        11454770020,
+        399624858,
+        159,
+        565358,
+        350969856
+      ],
+      [
+        "ExceptionWhileProcessing",
+        15000,
+        410583040,
+        10034996995,
+        384286622,
+        159,
+        848037,
+        410583040
+      ],
+      [
+        "ExceptionWhileProcessing",
+        15003,
+        240476160,
+        9754060613,
+        382502297,
+        159,
+        282679,
+        240476160
+      ],
+      [
+        "ExceptionWhileProcessing",
+        15004,
+        436592640,
+        10580327780,
+        382279728,
+        159,
+        282679,
+        436592640
+      ],
+      [
+        "ExceptionWhileProcessing",
+        15061,
+        498655232,
+        12085978826,
+        349692957,
+        159,
+        282679,
+        498655232
+      ],
+      [
+        "ExceptionWhileProcessing",
+        15044,
+        241770496,
+        9896498346,
+        387646649,
+        159,
+        251616,
+        241770496
+      ],
+      [
+        "ExceptionWhileProcessing",
+        15000,
+        479248384,
+        11735703995,
+        405449174,
+        159,
+        848037,
+        479248384
+      ],
+      [
+        "ExceptionWhileProcessing",
+        15049,
+        249667584,
+        10221761506,
+        389521843,
+        159,
+        251910,
+        249667584
+      ],
+      [
+        "ExceptionWhileProcessing",
+        15000,
+        482246656,
+        11810756088,
+        405455206,
+        159,
+        848037,
+        482246656
+      ]
+    ]
+  },
+  "investigation": {
+    "settings": {
+      "rows": [
+        [
+          "allow_experimental_analyzer",
+          "1",
+          0
+        ],
+        [
+          "enable_analyzer",
+          "1",
+          0
+        ],
+        [
+          "enable_filesystem_cache",
+          "1",
+          1
+        ],
+        [
+          "max_download_threads",
+          "4",
+          0
+        ],
+        [
+          "max_execution_time",
+          "15",
+          1
+        ],
+        [
+          "max_memory_usage",
+          "0",
+          0
+        ],
+        [
+          "max_read_buffer_size",
+          "1048576",
+          0
+        ],
+        [
+          "max_streams_to_max_threads_ratio",
+          "1",
+          0
+        ],
+        [
+          "max_threads",
+          "2",
+          1
+        ],
+        [
+          "optimize_move_to_prewhere",
+          "1",
+          0
+        ],
+        [
+          "use_query_cache",
+          "0",
+          0
+        ],
+        [
+          "use_query_condition_cache",
+          "1",
+          0
+        ]
+      ],
+      "stats": {
+        "elapsed": "0.004286563",
+        "rows_read": 1534,
+        "bytes_read": 561090
+      },
+      "client_elapsed_ms": 241.35732500144513
+    },
+    "parts": {
+      "rows": [
+        [
+          17,
+          2315652132,
+          282696,
+          135946797737,
+          "2026-09-09 19:59:55",
+          "2026-09-10 01:44:43"
+        ]
+      ],
+      "stats": {
+        "elapsed": "0.002999964",
+        "rows_read": 17,
+        "bytes_read": 1054
+      },
+      "client_elapsed_ms": 213.9247089944547
+    },
+    "table_ddl": {
+      "rows": [
+        [
+          "CREATE TABLE default.public_raw\n(\n    `environment` String,\n    `event_type` String,\n    `timestamp` DateTime64(6),\n    `event` String,\n    `id` Nullable(Int64),\n    `_peerdb_synced_at` DateTime64(9) DEFAULT now64(),\n    `_peerdb_is_deleted` UInt8,\n    `_peerdb_version` UInt64\n)\nENGINE = SharedMergeTree('/clickhouse/tables/{uuid}/{shard}', '{replica}')\nORDER BY tuple()\nSETTINGS index_granularity = 8192"
+        ]
+      ],
+      "stats": {
+        "elapsed": "0.000791083",
+        "rows_read": 1,
+        "bytes_read": 413
+      },
+      "client_elapsed_ms": 204.58680899901083
+    },
+    "simple_count": {
+      "rows": [
+        [
+          2315652132
+        ]
+      ],
+      "stats": {
+        "elapsed": "0.001617003",
+        "rows_read": 1,
+        "bytes_read": 16
+      },
+      "client_elapsed_ms": 210.11637600167887
+    },
+    "plan": {
+      "rows": [
+        [
+          "Expression ((Project names + Projection))"
+        ],
+        [
+          "Actions: INPUT :: 0 -> count() UInt64 : 0"
+        ],
+        [
+          "         INPUT : 1 -> __table1.event_type String : 1"
+        ],
+        [
+          "         ALIAS __table1.event_type :: 1 -> event_type String : 2"
+        ],
+        [
+          "Positions: 2 0"
+        ],
+        [
+          "  Aggregating"
+        ],
+        [
+          "  Keys: __table1.event_type"
+        ],
+        [
+          "  Aggregates:"
+        ],
+        [
+          "      count()"
+        ],
+        [
+          "        Function: count() \u2192 UInt64"
+        ],
+        [
+          "        Arguments: none"
+        ],
+        [
+          "  Skip merging: 0"
+        ],
+        [
+          "    Expression (Before GROUP BY)"
+        ],
+        [
+          "    Actions: INPUT :: 0 -> __table1.event_type String : 0"
+        ],
+        [
+          "    Positions: 0"
+        ],
+        [
+          "      Expression ((WHERE + Change column names to column identifiers))"
+        ],
+        [
+          "      Actions: INPUT : 0 -> event_type String : 0"
+        ],
+        [
+          "               ALIAS event_type :: 0 -> __table1.event_type String : 1"
+        ],
+        [
+          "      Positions: 1"
+        ],
+        [
+          "        ReadFromMergeTree (default.public_raw)"
+        ],
+        [
+          "        ReadType: Default"
+        ],
+        [
+          "        Parts: 17"
+        ],
+        [
+          "        Granules: 282679"
+        ],
+        [
+          "        Prewhere info"
+        ],
+        [
+          "        Need filter: 1"
+        ],
+        [
+          "          Prewhere filter"
+        ],
+        [
+          "          Prewhere filter column: and(equals(__table1.environment, 'lesswrong.com'_String), greaterOrEquals(__table1.timestamp, _CAST('1788739200'_DateTime64(6, 'UTC'), 'DateTime64(6, 'UTC')'_String)), less(__table1.timestamp, _CAST('1788742800'_DateTime64(6, 'UTC'), 'DateTime64(6, 'UTC')'_String))) (removed)"
+        ],
+        [
+          "          Actions: INPUT : 0 -> environment String : 0"
+        ],
+        [
+          "                   INPUT : 1 -> timestamp DateTime64(6) : 1"
+        ],
+        [
+          "                   COLUMN Const(String) -> 'lesswrong.com'_String String : 2"
+        ],
+        [
+          "                   COLUMN Const(DateTime64) -> _CAST('1788739200'_DateTime64(6, 'UTC'), 'DateTime64(6, 'UTC')'_String) DateTime64(6, 'UTC') : 3"
+        ],
+        [
+          "                   COLUMN Const(DateTime64) -> _CAST('1788742800'_DateTime64(6, 'UTC'), 'DateTime64(6, 'UTC')'_String) DateTime64(6, 'UTC') : 4"
+        ],
+        [
+          "                   FUNCTION equals(environment :: 0, 'lesswrong.com'_String :: 2) -> equals(__table1.environment, 'lesswrong.com'_String) UInt8 : 5"
+        ],
+        [
+          "                   FUNCTION greaterOrEquals(timestamp : 1, _CAST('1788739200'_DateTime64(6, 'UTC'), 'DateTime64(6, 'UTC')'_String) :: 3) -> greaterOrEquals(__table1.timestamp, _CAST('1788739200'_DateTime64(6, 'UTC'), 'DateTime64(6, 'UTC')'_... UInt8 : 2"
+        ],
+        [
+          "                   FUNCTION less(timestamp :: 1, _CAST('1788742800'_DateTime64(6, 'UTC'), 'DateTime64(6, 'UTC')'_String) :: 4) -> less(__table1.timestamp, _CAST('1788742800'_DateTime64(6, 'UTC'), 'DateTime64(6, 'UTC')'_String)) UInt8 : 3"
+        ],
+        [
+          "                   FUNCTION and(equals(__table1.environment, 'lesswrong.com'_String) :: 5, greaterOrEquals(__table1.timestamp, _CAST('1788739200'_DateTime64(6, 'UTC'), 'DateTime64(6, 'UTC')'_... :: 2, less(__table1.timestamp, _CAST('1788742800'_DateTime64(6, 'UTC'), 'DateTime64(6, 'UTC')'_String)) :: 3) -> and(equals(__table1.environment, 'lesswrong.com'_String), greaterOrEquals(__table1.timestamp, _CAST(... UInt8 : 4"
+        ],
+        [
+          "          Positions: 4"
+        ]
+      ],
+      "stats": {
+        "elapsed": "0.002961218",
+        "rows_read": 37,
+        "bytes_read": 3007
+      },
+      "client_elapsed_ms": 206.24078500259202
+    },
+    "profile_events": {
+      "rows": [
+        [
+          15000,
+          420978688,
+          10201769968,
+          24803035,
+          23699984,
+          1103839,
+          60001836,
+          1851024015,
+          1869559047,
+          0,
+          0,
+          17,
+          17,
+          282679,
+          99
+        ],
+        [
+          15000,
+          482246656,
+          11810756088,
+          27753272,
+          26681383,
+          1072749,
+          59969499,
+          2880823245,
+          2903978839,
+          0,
+          0,
+          51,
+          51,
+          848037,
+          105
+        ],
+        [
+          15049,
+          249667584,
+          10221761506,
+          27005764,
+          26277555,
+          729054,
+          60585484,
+          1620862209,
+          1632826267,
+          6291456,
+          5,
+          17,
+          18,
+          251910,
+          148
+        ],
+        [
+          15000,
+          479248384,
+          11735703995,
+          27498182,
+          26472276,
+          1026725,
+          59970022,
+          2862382068,
+          2885359650,
+          0,
+          0,
+          51,
+          51,
+          848037,
+          107
+        ],
+        [
+          15044,
+          241770496,
+          9896498346,
+          26103930,
+          25292938,
+          811832,
+          61198214,
+          1570333094,
+          1582029019,
+          9437184,
+          9,
+          17,
+          18,
+          251616,
+          151
+        ]
+      ],
+      "stats": {
+        "elapsed": "0.010560229",
+        "rows_read": 3665,
+        "bytes_read": 3768759
+      },
+      "client_elapsed_ms": 213.6705150041962
+    },
+    "processes": {
+      "rows": [
+        [
+          0,
+          0
+        ]
+      ],
+      "stats": {
+        "elapsed": "0.002305394",
+        "rows_read": 1,
+        "bytes_read": 4989
+      },
+      "client_elapsed_ms": 203.25653700274415
+    }
+  },
+  "resources": {
+    "cpu_memory": [
+      [
+        "CGroupMaxCPU",
+        2
+      ],
+      [
+        "CGroupMemoryTotal",
+        8589934592
+      ],
+      [
+        "CGroupMemoryUsed",
+        2206887112
+      ],
+      [
+        "MemoryResident",
+        2800623616
+      ]
+    ],
+    "thread_settings": [
+      [
+        "max_bytes_to_read",
+        "0",
+        0,
+        null,
+        null,
+        1
+      ],
+      [
+        "max_execution_time",
+        "15",
+        1,
+        null,
+        null,
+        1
+      ],
+      [
+        "max_insert_threads",
+        "1",
+        1,
+        null,
+        null,
+        1
+      ],
+      [
+        "max_memory_usage",
+        "0",
+        0,
+        null,
+        null,
+        1
+      ],
+      [
+        "max_rows_to_read",
+        "0",
+        0,
+        null,
+        null,
+        1
+      ],
+      [
+        "max_streams_for_merge_tree_reading",
+        "0",
+        0,
+        null,
+        null,
+        1
+      ],
+      [
+        "max_threads",
+        "2",
+        1,
+        null,
+        null,
+        1
+      ],
+      [
+        "max_threads_for_indexes",
+        "0",
+        0,
+        null,
+        null,
+        1
+      ]
+    ],
+    "column_sizes": [
+      [
+        "_peerdb_is_deleted",
+        "UInt8",
+        33900,
+        4595184
+      ],
+      [
+        "_peerdb_synced_at",
+        "DateTime64(9)",
+        14411392,
+        18502597640
+      ],
+      [
+        "_peerdb_version",
+        "UInt64",
+        33900,
+        4595184
+      ],
+      [
+        "environment",
+        "String",
+        1208607767,
+        49265829400
+      ],
+      [
+        "event",
+        "String",
+        118467436807,
+        771959036803
+      ],
+      [
+        "event_type",
+        "String",
+        4774631409,
+        50176199069
+      ],
+      [
+        "id",
+        "Nullable(Int64)",
+        3671482487,
+        20815422345
+      ],
+      [
+        "timestamp",
+        "DateTime64(6)",
+        7581885587,
+        18502597640
+      ]
+    ]
+  },
+  "import_table_mapping": {
+    "sourceSchemaName": "public",
+    "sourceTable": "raw",
+    "targetTable": "public_raw",
+    "excludedColumns": [],
+    "sortingKeys": [],
+    "useCustomSortingKey": false,
+    "partitionByExpr": "",
+    "partitionKey": "",
+    "tableEngine": "MergeTree"
+  },
+  "initial_query_metric_columns": [
+    "type",
+    "query_duration_ms",
+    "read_rows",
+    "read_bytes",
+    "memory_usage",
+    "exception_code",
+    "selected_marks",
+    "selected_rows"
+  ],
+  "source_hashes": {
+    "cache_controls.py": "71efcdaa466ee5616940ca2117010d6b4ff7c0d5ee269280ce2dbd4229be7ce2",
+    "investigate.py": "263099192403f85cadbe83cb97566b7336b32ff5bf35021418b6d6fadb00029b",
+    "cache_isolation.py": "8c7894bf9676dce4c6d89caf630e5fddf07761649c6f8b13a90ee366b435a1f5",
+    "direct_controls.py": "8d61bc4f57d1978d61f3bf507620d0a795fd78cf9476fe22a97ba54eab9aec83",
+    "check.py": "eb239963295c8eac76358a5279c471f3ea532a7d953b743a386dc2471e61f193",
+    "run.py": "4124a41c5483e202c8f164379cc868109659f10c54383f97ad20e1e9029be305",
+    "extended.py": "07ba2e8261dbe406722446bcf3205e52359714d71a468ffefc9a80708926eb85",
+    "diagnose.py": "41c547d4ebf7ee8ca3f9d2548a03bbf686099ef56de34776c56922b46da7f683",
+    "publish.py": "2313dd6827adb005f4462e87f08c1f399175f865ba822faf3800e840d115551f",
+    "finalize.py": "2b71a885d39fdfd38266ca12497269bfd605476aa109e8ca0ca0395f6b6170c1"
+  },
+  "scope": "Read-only diagnostics; no table, index, schema, global settings or service sizing changes. Final active-query check found zero other queries."
+}

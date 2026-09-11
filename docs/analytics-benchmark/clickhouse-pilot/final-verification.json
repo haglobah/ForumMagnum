@@ -1,0 +1,239 @@
+{
+  "source": {
+    "observation": {
+      "status": "complete",
+      "query_id": "pilot-8ffe0f09-b60c-4ce6-8c90-30dea1b83055",
+      "elapsed_ms": 215.15964699938195,
+      "rows": 1,
+      "sha256": "e5b04cb2a398f511b813ea9a73842c27c0c7e40d1475626344fc275b1a675c6a",
+      "statistics": {
+        "elapsed": "0.000771332",
+        "rows_read": 1,
+        "bytes_read": 413
+      }
+    },
+    "rows": [
+      [
+        "CREATE TABLE default.public_raw\n(\n    `environment` String,\n    `event_type` String,\n    `timestamp` DateTime64(6),\n    `event` String,\n    `id` Nullable(Int64),\n    `_peerdb_synced_at` DateTime64(9) DEFAULT now64(),\n    `_peerdb_is_deleted` UInt8,\n    `_peerdb_version` UInt64\n)\nENGINE = SharedMergeTree('/clickhouse/tables/{uuid}/{shard}', '{replica}')\nORDER BY tuple()\nSETTINGS index_granularity = 8192"
+      ]
+    ]
+  },
+  "source_parts": {
+    "observation": {
+      "status": "complete",
+      "query_id": "pilot-4dd02469-cf4d-480c-94fb-09697427fd16",
+      "elapsed_ms": 68.72371600002225,
+      "rows": 1,
+      "sha256": "0aa888061d030959b6047b073d85c258eb0c4a65bb0bd5e98f5c95846cd2f6b9",
+      "statistics": {
+        "elapsed": "0.002894271",
+        "rows_read": 17,
+        "bytes_read": 850
+      }
+    },
+    "rows": [
+      [
+        17,
+        2315652132,
+        135946797737
+      ]
+    ]
+  },
+  "pilot_parts": {
+    "observation": {
+      "status": "complete",
+      "query_id": "pilot-45d748d1-8e4f-429d-960c-ee6fa95f418c",
+      "elapsed_ms": 68.78666299962788,
+      "rows": 12,
+      "sha256": "1b11240f7795deea0fa0daaf47e10d498aa22782a25cb8565f70a60cea34a5fc",
+      "statistics": {
+        "elapsed": "0.002684958",
+        "rows_read": 48,
+        "bytes_read": 2877
+      }
+    },
+    "rows": [
+      [
+        "hourly_rollup",
+        17437,
+        20323164,
+        1
+      ],
+      [
+        "hourly_rollup_fine",
+        17437,
+        25323574,
+        1
+      ],
+      [
+        "metadata_compact",
+        575129,
+        17068594,
+        1
+      ],
+      [
+        "minmax",
+        13711369,
+        650871350,
+        5
+      ],
+      [
+        "projection",
+        13711369,
+        694635275,
+        5
+      ],
+      [
+        "raw",
+        13711369,
+        647932914,
+        5
+      ],
+      [
+        "typed",
+        13711369,
+        220469912,
+        7
+      ],
+      [
+        "typed_event",
+        13711369,
+        289438706,
+        6
+      ],
+      [
+        "typed_fixture",
+        27,
+        3015,
+        2
+      ],
+      [
+        "typed_session",
+        13711369,
+        292078945,
+        5
+      ],
+      [
+        "typed_tab",
+        13711369,
+        290763610,
+        5
+      ],
+      [
+        "typed_user",
+        13711369,
+        266213298,
+        5
+      ]
+    ]
+  },
+  "mutations": {
+    "observation": {
+      "status": "complete",
+      "query_id": "pilot-5e68500d-60a0-422a-bbce-508f2fb09625",
+      "elapsed_ms": 67.94541199997184,
+      "rows": 12,
+      "sha256": "def344d706787173d9f2e6b148bda6c74c0af26b55e66bd284c3ffe16e329f2b",
+      "statistics": {
+        "elapsed": "0.002391956",
+        "rows_read": 12,
+        "bytes_read": 2807
+      }
+    },
+    "rows": [
+      [
+        "minmax",
+        "0000000000",
+        1,
+        0
+      ],
+      [
+        "minmax",
+        "0000000001",
+        1,
+        0
+      ],
+      [
+        "projection",
+        "0000000000",
+        1,
+        0
+      ],
+      [
+        "projection",
+        "0000000001",
+        1,
+        0
+      ],
+      [
+        "typed_event",
+        "0000000000",
+        1,
+        0
+      ],
+      [
+        "typed_event",
+        "0000000001",
+        1,
+        0
+      ],
+      [
+        "typed_session",
+        "0000000000",
+        1,
+        0
+      ],
+      [
+        "typed_session",
+        "0000000001",
+        1,
+        0
+      ],
+      [
+        "typed_tab",
+        "0000000000",
+        1,
+        0
+      ],
+      [
+        "typed_tab",
+        "0000000001",
+        1,
+        0
+      ],
+      [
+        "typed_user",
+        "0000000000",
+        1,
+        0
+      ],
+      [
+        "typed_user",
+        "0000000001",
+        1,
+        0
+      ]
+    ]
+  },
+  "running": {
+    "observation": {
+      "status": "complete",
+      "query_id": "pilot-4ace4114-7da4-4282-94c4-acdc9a33417e",
+      "elapsed_ms": 67.74514599965187,
+      "rows": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "statistics": {
+        "elapsed": "0.002464312",
+        "rows_read": 1,
+        "bytes_read": 5110
+      }
+    },
+    "rows": []
+  },
+  "source_ddl_unchanged": true,
+  "source_part_totals_unchanged": true,
+  "journal_entries": 40,
+  "all_build_entries_complete": true,
+  "no_active_benchmark_queries": true,
+  "all_pilot_mutations_done": true
+}

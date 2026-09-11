@@ -1,0 +1,16 @@
+{
+  "unit_tests": 10,
+  "unit_tests_passed": true,
+  "python_compilation_passed": true,
+  "scanned_text_files": 53,
+  "private_value_matches": 0,
+  "whitespace_issues": 0,
+  "postgres_requests": 0,
+  "benchmark_requests": 2616,
+  "exact_raw_matches": 2616,
+  "saved_pg_matches": 1192,
+  "novel_raw_references": 60,
+  "expected_rollup_rejections": 3,
+  "retained_active_part_bytes": 3415122357,
+  "required_work_remaining": false
+}

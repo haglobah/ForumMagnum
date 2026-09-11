@@ -1,0 +1,13 @@
+{
+  "status": "complete",
+  "query_id": "pilot-3ce7b954-77f7-4d46-ae3f-2c2a59550ba2",
+  "elapsed_ms": 227.99639599998045,
+  "rows": 5,
+  "sha256": "46a9a3a43828319693bf6015f767de5665a1e5172106b53cf4cde38d16d562dd",
+  "statistics": {
+    "elapsed": "0.00933401",
+    "rows_read": 5,
+    "bytes_read": 5
+  },
+  "matches_expected": true
+}

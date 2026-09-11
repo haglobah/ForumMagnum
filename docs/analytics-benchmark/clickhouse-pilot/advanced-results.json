@@ -1,0 +1,5025 @@
+{
+  "settings": {
+    "result_cache": false,
+    "condition_cache": false,
+    "max_threads": 2
+  },
+  "cases": {
+    "event/ab_assignments/hour": [
+      {
+        "status": "complete",
+        "query_id": "pilot-4b2466a2-8f7f-4e61-b537-d09596ae81c2",
+        "elapsed_ms": 543.6520630000814,
+        "rows": 2,
+        "sha256": "a641fc5ed34701f5f3ae8411a8dd05bc970ec5a702f61e8cc71da653378c3066",
+        "statistics": {
+          "elapsed": "0.313880046",
+          "rows_read": 106496,
+          "bytes_read": 7377228
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-9400fd3b-ecf0-45a8-afb7-a60aa3beb4bb",
+        "elapsed_ms": 89.94823700004417,
+        "rows": 2,
+        "sha256": "a641fc5ed34701f5f3ae8411a8dd05bc970ec5a702f61e8cc71da653378c3066",
+        "statistics": {
+          "elapsed": "0.023055073",
+          "rows_read": 106496,
+          "bytes_read": 7377228
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-89a6a291-1930-407c-bae1-965603b45e0c",
+        "elapsed_ms": 90.47284500002206,
+        "rows": 2,
+        "sha256": "a641fc5ed34701f5f3ae8411a8dd05bc970ec5a702f61e8cc71da653378c3066",
+        "statistics": {
+          "elapsed": "0.02389474",
+          "rows_read": 106496,
+          "bytes_read": 7377228
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-c57ae61c-4512-4de7-9a31-535ccb755e90",
+        "elapsed_ms": 91.330631999881,
+        "rows": 2,
+        "sha256": "a641fc5ed34701f5f3ae8411a8dd05bc970ec5a702f61e8cc71da653378c3066",
+        "statistics": {
+          "elapsed": "0.024334702",
+          "rows_read": 106496,
+          "bytes_read": 7377228
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "baseline/feature_counts/day": [
+      {
+        "status": "complete",
+        "query_id": "pilot-d5fa30ea-b8f5-45f9-8cc7-af26b2079065",
+        "elapsed_ms": 193.0616010004087,
+        "rows": 2,
+        "sha256": "a9952c206e705acf33bbcfe7164b992b4d8c3af11ace4c0a069f39f2826896ab",
+        "statistics": {
+          "elapsed": "0.121906905",
+          "rows_read": 1777562,
+          "bytes_read": 100360247
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-ac4544e5-1df4-4a94-a0fc-2e76ee11d04f",
+        "elapsed_ms": 187.77017100001103,
+        "rows": 2,
+        "sha256": "a9952c206e705acf33bbcfe7164b992b4d8c3af11ace4c0a069f39f2826896ab",
+        "statistics": {
+          "elapsed": "0.121042091",
+          "rows_read": 1777562,
+          "bytes_read": 100360247
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-b3ae2de5-b6f9-45b5-8ef2-cf5240535221",
+        "elapsed_ms": 197.0549679999749,
+        "rows": 2,
+        "sha256": "a9952c206e705acf33bbcfe7164b992b4d8c3af11ace4c0a069f39f2826896ab",
+        "statistics": {
+          "elapsed": "0.130842599",
+          "rows_read": 1777562,
+          "bytes_read": 100360247
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-0792f353-3c80-4438-a7bc-a97fe52fd8e1",
+        "elapsed_ms": 210.37050899985843,
+        "rows": 2,
+        "sha256": "a9952c206e705acf33bbcfe7164b992b4d8c3af11ace4c0a069f39f2826896ab",
+        "statistics": {
+          "elapsed": "0.143706293",
+          "rows_read": 1777562,
+          "bytes_read": 100360247
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "event/ab_outcome/hour": [
+      {
+        "status": "complete",
+        "query_id": "pilot-19df304b-cfcb-4c2e-b1e2-0746b32bfd53",
+        "elapsed_ms": 355.0926140001138,
+        "rows": 2,
+        "sha256": "73673c1d30925e80ec76409684b427da0b226607d567a1cbdf559f0819fb1bae",
+        "statistics": {
+          "elapsed": "0.288912184",
+          "rows_read": 212992,
+          "bytes_read": 15100769
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-c72f7675-5cec-49a0-b525-2d6328c5e5a6",
+        "elapsed_ms": 108.3365260001301,
+        "rows": 2,
+        "sha256": "73673c1d30925e80ec76409684b427da0b226607d567a1cbdf559f0819fb1bae",
+        "statistics": {
+          "elapsed": "0.041881579",
+          "rows_read": 212992,
+          "bytes_read": 15100769
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-eab51894-bc01-4968-8623-7c2e9a186aba",
+        "elapsed_ms": 107.62238100005561,
+        "rows": 2,
+        "sha256": "73673c1d30925e80ec76409684b427da0b226607d567a1cbdf559f0819fb1bae",
+        "statistics": {
+          "elapsed": "0.040982498",
+          "rows_read": 212992,
+          "bytes_read": 15100769
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-f9d7f75c-5243-4180-a553-a0956a511560",
+        "elapsed_ms": 107.07054900012736,
+        "rows": 2,
+        "sha256": "73673c1d30925e80ec76409684b427da0b226607d567a1cbdf559f0819fb1bae",
+        "statistics": {
+          "elapsed": "0.040128506",
+          "rows_read": 212992,
+          "bytes_read": 15100769
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "event/traffic_hour/hour": [
+      {
+        "status": "complete",
+        "query_id": "pilot-ed3a74ad-9512-47b4-9d6f-d180871775af",
+        "elapsed_ms": 85.65144800013513,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.018785778",
+          "rows_read": 106496,
+          "bytes_read": 6508105
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-9c52185f-af56-400b-afe4-ea5ee036f7ef",
+        "elapsed_ms": 86.25737200009098,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.01938757",
+          "rows_read": 106496,
+          "bytes_read": 6508105
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-cc52d75a-8770-4c56-8224-b41ca0361d03",
+        "elapsed_ms": 86.82119800005239,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.019579846",
+          "rows_read": 106496,
+          "bytes_read": 6508105
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-30efc76e-eedc-4ecf-8b2b-daf15aa27086",
+        "elapsed_ms": 84.4880100003138,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.017848541",
+          "rows_read": 106496,
+          "bytes_read": 6508105
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "event/tab/day": [
+      {
+        "status": "complete",
+        "query_id": "pilot-e8209245-61b5-468a-8c46-15f97167a538",
+        "elapsed_ms": 97.94819300032032,
+        "rows": 5,
+        "sha256": "45e66867cd8ca9baaf0b5e88755a8f8687f30604da5bdb4c2682bdf9eae5ddf3",
+        "statistics": {
+          "elapsed": "0.031259436",
+          "rows_read": 1787046,
+          "bytes_read": 46513418
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-d36a2ec6-21a4-4df9-a9aa-9ce19a491a35",
+        "elapsed_ms": 98.81597599996894,
+        "rows": 5,
+        "sha256": "45e66867cd8ca9baaf0b5e88755a8f8687f30604da5bdb4c2682bdf9eae5ddf3",
+        "statistics": {
+          "elapsed": "0.032569867",
+          "rows_read": 1787046,
+          "bytes_read": 46513418
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-214c79a7-0b3b-4a0f-b50d-1cb1755876c6",
+        "elapsed_ms": 98.5607880002135,
+        "rows": 5,
+        "sha256": "45e66867cd8ca9baaf0b5e88755a8f8687f30604da5bdb4c2682bdf9eae5ddf3",
+        "statistics": {
+          "elapsed": "0.031278641",
+          "rows_read": 1787046,
+          "bytes_read": 46513418
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-368a6b32-a57f-46cc-b200-2ec28468efc5",
+        "elapsed_ms": 97.42816699963441,
+        "rows": 5,
+        "sha256": "45e66867cd8ca9baaf0b5e88755a8f8687f30604da5bdb4c2682bdf9eae5ddf3",
+        "statistics": {
+          "elapsed": "0.030841419",
+          "rows_read": 1787046,
+          "bytes_read": 46513418
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "baseline/event_counts/day": [
+      {
+        "status": "complete",
+        "query_id": "pilot-63c3a33b-e380-497e-97b4-306b9042eec1",
+        "elapsed_ms": 265.0063170003705,
+        "rows": 134,
+        "sha256": "827bfcf8c18f45074cea6d155a0e1e66fc9028a7b28d060d95411dadc1174f6a",
+        "statistics": {
+          "elapsed": "0.130384816",
+          "rows_read": 1777562,
+          "bytes_read": 73984913
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-90521d00-2406-452e-9d87-ab664da8a242",
+        "elapsed_ms": 197.51270100005058,
+        "rows": 134,
+        "sha256": "827bfcf8c18f45074cea6d155a0e1e66fc9028a7b28d060d95411dadc1174f6a",
+        "statistics": {
+          "elapsed": "0.127690814",
+          "rows_read": 1777562,
+          "bytes_read": 73984913
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-ff69c0f3-909c-4f6d-be95-b90552b9c868",
+        "elapsed_ms": 199.0245390002201,
+        "rows": 134,
+        "sha256": "827bfcf8c18f45074cea6d155a0e1e66fc9028a7b28d060d95411dadc1174f6a",
+        "statistics": {
+          "elapsed": "0.131705923",
+          "rows_read": 1777562,
+          "bytes_read": 73984913
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-033d2128-7af6-4706-a9a2-81d085fd43e4",
+        "elapsed_ms": 197.4611770001502,
+        "rows": 134,
+        "sha256": "827bfcf8c18f45074cea6d155a0e1e66fc9028a7b28d060d95411dadc1174f6a",
+        "statistics": {
+          "elapsed": "0.131131066",
+          "rows_read": 1777562,
+          "bytes_read": 73984913
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      }
+    ],
+    "baseline/ssr_association/hour": [
+      {
+        "status": "complete",
+        "query_id": "pilot-75c2d888-25dc-422e-99a8-21ee0e3e763e",
+        "elapsed_ms": 90.08169600019755,
+        "rows": 1,
+        "sha256": "043404e41264570f9b1de2542266f97a55de3167cf03be2de418c48c7109a3ee",
+        "statistics": {
+          "elapsed": "0.022675824",
+          "rows_read": 196609,
+          "bytes_read": 4110100
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-c3157f83-c0f1-4e39-99b1-8530228d49f0",
+        "elapsed_ms": 89.57073800002036,
+        "rows": 1,
+        "sha256": "043404e41264570f9b1de2542266f97a55de3167cf03be2de418c48c7109a3ee",
+        "statistics": {
+          "elapsed": "0.023129883",
+          "rows_read": 196609,
+          "bytes_read": 4110100
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-eb9d7f5a-85a4-4c1c-9ac7-cb73df79c846",
+        "elapsed_ms": 89.7184450000168,
+        "rows": 1,
+        "sha256": "043404e41264570f9b1de2542266f97a55de3167cf03be2de418c48c7109a3ee",
+        "statistics": {
+          "elapsed": "0.023166915",
+          "rows_read": 196609,
+          "bytes_read": 4110100
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-cc61273f-7b21-44a8-9824-bddbbf441858",
+        "elapsed_ms": 88.32200200004081,
+        "rows": 1,
+        "sha256": "043404e41264570f9b1de2542266f97a55de3167cf03be2de418c48c7109a3ee",
+        "statistics": {
+          "elapsed": "0.021823961",
+          "rows_read": 196609,
+          "bytes_read": 4110100
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      }
+    ],
+    "event/post_paths/hour": [
+      {
+        "status": "complete",
+        "query_id": "pilot-e1378bba-bb41-4988-9f19-0e7bff281c97",
+        "elapsed_ms": 279.8673960000997,
+        "rows": 3,
+        "sha256": "082e8b4ac912fde63791bcba0ddb793d54732b010fed15b8ee55ac1b13c3ef6e",
+        "statistics": {
+          "elapsed": "0.213636415",
+          "rows_read": 106496,
+          "bytes_read": 9207394
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-936b6c22-5afc-4355-abb8-1f2470d47e0b",
+        "elapsed_ms": 92.4731420000171,
+        "rows": 3,
+        "sha256": "082e8b4ac912fde63791bcba0ddb793d54732b010fed15b8ee55ac1b13c3ef6e",
+        "statistics": {
+          "elapsed": "0.025354854",
+          "rows_read": 106496,
+          "bytes_read": 9207394
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-4e05ec76-2a25-4722-911f-aae70a0ba93c",
+        "elapsed_ms": 90.77610600024855,
+        "rows": 3,
+        "sha256": "082e8b4ac912fde63791bcba0ddb793d54732b010fed15b8ee55ac1b13c3ef6e",
+        "statistics": {
+          "elapsed": "0.024366083",
+          "rows_read": 106496,
+          "bytes_read": 9207394
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-f6ac5ed5-af3e-45f7-a760-48adbfd852ab",
+        "elapsed_ms": 88.78049899976759,
+        "rows": 3,
+        "sha256": "082e8b4ac912fde63791bcba0ddb793d54732b010fed15b8ee55ac1b13c3ef6e",
+        "statistics": {
+          "elapsed": "0.021838053",
+          "rows_read": 106496,
+          "bytes_read": 9207394
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "baseline/feature_counts/hour": [
+      {
+        "status": "complete",
+        "query_id": "pilot-1260aebf-7385-484d-b05a-355f3e1727c1",
+        "elapsed_ms": 81.43292300019311,
+        "rows": 2,
+        "sha256": "f036c158e3225bc942193d7ecadeb15de3686b283769e723d2ffe02508a7eb7c",
+        "statistics": {
+          "elapsed": "0.01473617",
+          "rows_read": 98304,
+          "bytes_read": 5220805
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-36dec7af-9745-44da-9b30-fc88689c7ece",
+        "elapsed_ms": 82.37654999993538,
+        "rows": 2,
+        "sha256": "f036c158e3225bc942193d7ecadeb15de3686b283769e723d2ffe02508a7eb7c",
+        "statistics": {
+          "elapsed": "0.014490309",
+          "rows_read": 98304,
+          "bytes_read": 5220805
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-23349b50-c973-41e1-9c89-28c1933f2a1b",
+        "elapsed_ms": 81.58178299981955,
+        "rows": 2,
+        "sha256": "f036c158e3225bc942193d7ecadeb15de3686b283769e723d2ffe02508a7eb7c",
+        "statistics": {
+          "elapsed": "0.015579928",
+          "rows_read": 98304,
+          "bytes_read": 5220805
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-969cadc8-8f28-4e54-ab05-48ffcb52f63c",
+        "elapsed_ms": 81.97734299983495,
+        "rows": 2,
+        "sha256": "f036c158e3225bc942193d7ecadeb15de3686b283769e723d2ffe02508a7eb7c",
+        "statistics": {
+          "elapsed": "0.016145478",
+          "rows_read": 98304,
+          "bytes_read": 5220805
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "baseline/post_paths/hour": [
+      {
+        "status": "complete",
+        "query_id": "pilot-32a6a4c3-db61-434a-918f-6c29688586bf",
+        "elapsed_ms": 91.19959599956928,
+        "rows": 3,
+        "sha256": "082e8b4ac912fde63791bcba0ddb793d54732b010fed15b8ee55ac1b13c3ef6e",
+        "statistics": {
+          "elapsed": "0.024075408",
+          "rows_read": 98304,
+          "bytes_read": 8565870
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-1a208129-6910-40f0-9a14-17bdd8d9d6a5",
+        "elapsed_ms": 85.40053200022157,
+        "rows": 3,
+        "sha256": "082e8b4ac912fde63791bcba0ddb793d54732b010fed15b8ee55ac1b13c3ef6e",
+        "statistics": {
+          "elapsed": "0.019248654",
+          "rows_read": 98304,
+          "bytes_read": 8565870
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-19cd9e7f-6d9e-4d81-8086-9632201f323f",
+        "elapsed_ms": 87.8206020001926,
+        "rows": 3,
+        "sha256": "082e8b4ac912fde63791bcba0ddb793d54732b010fed15b8ee55ac1b13c3ef6e",
+        "statistics": {
+          "elapsed": "0.021618681",
+          "rows_read": 98304,
+          "bytes_read": 8565870
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-289a6b01-33e2-4c37-b218-e8b27ddc7ded",
+        "elapsed_ms": 87.9779150000104,
+        "rows": 3,
+        "sha256": "082e8b4ac912fde63791bcba0ddb793d54732b010fed15b8ee55ac1b13c3ef6e",
+        "statistics": {
+          "elapsed": "0.021297479",
+          "rows_read": 98304,
+          "bytes_read": 8565870
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "event/ab_assignments/day": [
+      {
+        "status": "complete",
+        "query_id": "pilot-06f3b024-b833-479b-80b8-ed5abd7035fa",
+        "elapsed_ms": 239.03253500020583,
+        "rows": 2,
+        "sha256": "e1aa1a0abc069153d9d03bce019cbbc78232e7f99c84e77ea12f99470c729c5c",
+        "statistics": {
+          "elapsed": "0.171987426",
+          "rows_read": 1787046,
+          "bytes_read": 137144166
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-2a16c476-8dcc-405b-96e4-8de2f96ccdb2",
+        "elapsed_ms": 196.82107900007395,
+        "rows": 2,
+        "sha256": "e1aa1a0abc069153d9d03bce019cbbc78232e7f99c84e77ea12f99470c729c5c",
+        "statistics": {
+          "elapsed": "0.130156563",
+          "rows_read": 1787046,
+          "bytes_read": 137144166
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-db6ad88d-743e-49b4-8285-e8a757190866",
+        "elapsed_ms": 195.79810000004727,
+        "rows": 2,
+        "sha256": "e1aa1a0abc069153d9d03bce019cbbc78232e7f99c84e77ea12f99470c729c5c",
+        "statistics": {
+          "elapsed": "0.129191716",
+          "rows_read": 1787046,
+          "bytes_read": 137144166
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-ccecd77d-1b2b-47ef-b177-934a762fb8db",
+        "elapsed_ms": 195.26195800017376,
+        "rows": 2,
+        "sha256": "e1aa1a0abc069153d9d03bce019cbbc78232e7f99c84e77ea12f99470c729c5c",
+        "statistics": {
+          "elapsed": "0.128987736",
+          "rows_read": 1787046,
+          "bytes_read": 137144166
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "baseline/ab_assignments/day": [
+      {
+        "status": "complete",
+        "query_id": "pilot-f6fc54c3-b22e-4ce8-9676-e9c04d3ef88e",
+        "elapsed_ms": 211.20742799985237,
+        "rows": 2,
+        "sha256": "e1aa1a0abc069153d9d03bce019cbbc78232e7f99c84e77ea12f99470c729c5c",
+        "statistics": {
+          "elapsed": "0.144947324",
+          "rows_read": 1777562,
+          "bytes_read": 136456336
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-e52f175a-2a9a-4fab-8114-a53021eabc05",
+        "elapsed_ms": 212.30592599977172,
+        "rows": 2,
+        "sha256": "e1aa1a0abc069153d9d03bce019cbbc78232e7f99c84e77ea12f99470c729c5c",
+        "statistics": {
+          "elapsed": "0.145631573",
+          "rows_read": 1777562,
+          "bytes_read": 136456336
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-b011ab76-538e-464f-8829-65f23c0eebfb",
+        "elapsed_ms": 207.62323100007052,
+        "rows": 2,
+        "sha256": "e1aa1a0abc069153d9d03bce019cbbc78232e7f99c84e77ea12f99470c729c5c",
+        "statistics": {
+          "elapsed": "0.141450752",
+          "rows_read": 1777562,
+          "bytes_read": 136456336
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-dc5e7295-860e-45b9-bad5-ef3846cf523e",
+        "elapsed_ms": 209.53876100020352,
+        "rows": 2,
+        "sha256": "e1aa1a0abc069153d9d03bce019cbbc78232e7f99c84e77ea12f99470c729c5c",
+        "statistics": {
+          "elapsed": "0.142358998",
+          "rows_read": 1777562,
+          "bytes_read": 136456336
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "baseline/ssr_association/day": [
+      {
+        "status": "complete",
+        "query_id": "pilot-a0c9e81c-39ed-4da5-a6ec-37aa144078fc",
+        "elapsed_ms": 178.70341600018946,
+        "rows": 1,
+        "sha256": "7210d1c5a5e2d236e4b1c93989ec944873a17f181e0100557dfbd65ae6f288bf",
+        "statistics": {
+          "elapsed": "0.112240374",
+          "rows_read": 3555125,
+          "bytes_read": 76733868
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-9299ef56-7b25-49d3-9a39-0570a8d0a78a",
+        "elapsed_ms": 178.91174500027773,
+        "rows": 1,
+        "sha256": "7210d1c5a5e2d236e4b1c93989ec944873a17f181e0100557dfbd65ae6f288bf",
+        "statistics": {
+          "elapsed": "0.111962647",
+          "rows_read": 3555125,
+          "bytes_read": 76733868
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-41803d2f-5be6-42a4-aa9c-f3c3e45e07db",
+        "elapsed_ms": 179.30235899984837,
+        "rows": 1,
+        "sha256": "7210d1c5a5e2d236e4b1c93989ec944873a17f181e0100557dfbd65ae6f288bf",
+        "statistics": {
+          "elapsed": "0.113289104",
+          "rows_read": 3555125,
+          "bytes_read": 76733868
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-7d24856a-4c4f-4897-8db8-608e3a61f1f5",
+        "elapsed_ms": 178.74627199989845,
+        "rows": 1,
+        "sha256": "7210d1c5a5e2d236e4b1c93989ec944873a17f181e0100557dfbd65ae6f288bf",
+        "statistics": {
+          "elapsed": "0.112583695",
+          "rows_read": 3555125,
+          "bytes_read": 76733868
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      }
+    ],
+    "session/session/day": [
+      {
+        "status": "complete",
+        "query_id": "pilot-976d357d-ab3d-4e96-9f66-194d6a66db43",
+        "elapsed_ms": 504.9029100000553,
+        "rows": 14,
+        "sha256": "c0981a5ca21be314872b9d27e14b95e613e6a6b8884b18e90f9281f5ca7e7c8e",
+        "statistics": {
+          "elapsed": "0.438398512",
+          "rows_read": 1236890,
+          "bytes_read": 28616129
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-e9104847-6e3c-4f65-b870-3d2cfc4ce633",
+        "elapsed_ms": 92.68698500000028,
+        "rows": 14,
+        "sha256": "c0981a5ca21be314872b9d27e14b95e613e6a6b8884b18e90f9281f5ca7e7c8e",
+        "statistics": {
+          "elapsed": "0.02519375",
+          "rows_read": 1236890,
+          "bytes_read": 28616129
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-bb94f13e-b120-4aaa-b6c4-cba1f71a1506",
+        "elapsed_ms": 91.8245510001725,
+        "rows": 14,
+        "sha256": "c0981a5ca21be314872b9d27e14b95e613e6a6b8884b18e90f9281f5ca7e7c8e",
+        "statistics": {
+          "elapsed": "0.024847781",
+          "rows_read": 1236890,
+          "bytes_read": 28616129
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-a98bced5-2442-4a75-8642-c53ebb2fe3e9",
+        "elapsed_ms": 91.89797899989571,
+        "rows": 14,
+        "sha256": "c0981a5ca21be314872b9d27e14b95e613e6a6b8884b18e90f9281f5ca7e7c8e",
+        "statistics": {
+          "elapsed": "0.025506686",
+          "rows_read": 1236890,
+          "bytes_read": 28616129
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "event/ua_bot/day": [
+      {
+        "status": "complete",
+        "query_id": "pilot-1221b2ae-a395-4e5f-9a7c-3e85576fc325",
+        "elapsed_ms": 276.3667230001374,
+        "rows": 2,
+        "sha256": "ec1fdf13d8a73cd0065de210a91806304b8cc408c3e242b3464b52d1b34fc1e2",
+        "statistics": {
+          "elapsed": "0.208338263",
+          "rows_read": 1787046,
+          "bytes_read": 99414533
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-e3bb2e46-39a8-4cef-9e98-5797fbf4aa0d",
+        "elapsed_ms": 190.9370299999864,
+        "rows": 2,
+        "sha256": "ec1fdf13d8a73cd0065de210a91806304b8cc408c3e242b3464b52d1b34fc1e2",
+        "statistics": {
+          "elapsed": "0.123534983",
+          "rows_read": 1787046,
+          "bytes_read": 99414533
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-18f723ea-4f5d-4183-88c1-714ca651fa65",
+        "elapsed_ms": 185.4943309999726,
+        "rows": 2,
+        "sha256": "ec1fdf13d8a73cd0065de210a91806304b8cc408c3e242b3464b52d1b34fc1e2",
+        "statistics": {
+          "elapsed": "0.118598759",
+          "rows_read": 1787046,
+          "bytes_read": 99414533
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-fbaacd22-3245-49c9-8010-3bc381e5c829",
+        "elapsed_ms": 183.68811900018045,
+        "rows": 2,
+        "sha256": "ec1fdf13d8a73cd0065de210a91806304b8cc408c3e242b3464b52d1b34fc1e2",
+        "statistics": {
+          "elapsed": "0.116838728",
+          "rows_read": 1787046,
+          "bytes_read": 99414533
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      }
+    ],
+    "event/coverage/hour": [
+      {
+        "status": "complete",
+        "query_id": "pilot-f70ea2d7-f990-4414-8db5-57dd788ff8d0",
+        "elapsed_ms": 88.30896600011329,
+        "rows": 1,
+        "sha256": "95446539ca8f47b83a10c46a252019dd039a432ace70583ee8df2ac2ce2b60a9",
+        "statistics": {
+          "elapsed": "0.021581951",
+          "rows_read": 106497,
+          "bytes_read": 4694626
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-ad650bbc-74f1-45dd-8f45-81e7d8a279c2",
+        "elapsed_ms": 87.15530500012392,
+        "rows": 1,
+        "sha256": "95446539ca8f47b83a10c46a252019dd039a432ace70583ee8df2ac2ce2b60a9",
+        "statistics": {
+          "elapsed": "0.021425324",
+          "rows_read": 106497,
+          "bytes_read": 4694626
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-f84d8c14-e315-4496-917d-5fc7d2b478e5",
+        "elapsed_ms": 89.07446000011987,
+        "rows": 1,
+        "sha256": "95446539ca8f47b83a10c46a252019dd039a432ace70583ee8df2ac2ce2b60a9",
+        "statistics": {
+          "elapsed": "0.022427843",
+          "rows_read": 106497,
+          "bytes_read": 4694626
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-ad808dc7-c83e-45cf-9fa9-2a4e59117abb",
+        "elapsed_ms": 89.73225399995499,
+        "rows": 1,
+        "sha256": "95446539ca8f47b83a10c46a252019dd039a432ace70583ee8df2ac2ce2b60a9",
+        "statistics": {
+          "elapsed": "0.021839878",
+          "rows_read": 106497,
+          "bytes_read": 4694626
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "baseline/tab/day": [
+      {
+        "status": "complete",
+        "query_id": "pilot-0f59ca3b-af04-4a5b-9a66-03523b7d17f6",
+        "elapsed_ms": 100.79725600007805,
+        "rows": 5,
+        "sha256": "45e66867cd8ca9baaf0b5e88755a8f8687f30604da5bdb4c2682bdf9eae5ddf3",
+        "statistics": {
+          "elapsed": "0.031921749",
+          "rows_read": 1777562,
+          "bytes_read": 46269384
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-f5666367-7ae0-4991-a6b4-402a393aaed0",
+        "elapsed_ms": 102.37893700013956,
+        "rows": 5,
+        "sha256": "45e66867cd8ca9baaf0b5e88755a8f8687f30604da5bdb4c2682bdf9eae5ddf3",
+        "statistics": {
+          "elapsed": "0.032688752",
+          "rows_read": 1777562,
+          "bytes_read": 46269384
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-dc0c8220-4ec2-4252-8cdd-bf7fe4975aa8",
+        "elapsed_ms": 101.24657699998352,
+        "rows": 5,
+        "sha256": "45e66867cd8ca9baaf0b5e88755a8f8687f30604da5bdb4c2682bdf9eae5ddf3",
+        "statistics": {
+          "elapsed": "0.032840158",
+          "rows_read": 1777562,
+          "bytes_read": 46269384
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-cf34914c-6969-4198-8e9e-4604af8d4a8b",
+        "elapsed_ms": 99.39480999992156,
+        "rows": 5,
+        "sha256": "45e66867cd8ca9baaf0b5e88755a8f8687f30604da5bdb4c2682bdf9eae5ddf3",
+        "statistics": {
+          "elapsed": "0.031882204",
+          "rows_read": 1777562,
+          "bytes_read": 46269384
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "user/user/day": [
+      {
+        "status": "complete",
+        "query_id": "pilot-c8fa7f99-d03d-4ed0-b684-089e873b1417",
+        "elapsed_ms": 368.26493500029756,
+        "rows": 27,
+        "sha256": "5bd9fc3a27c716761afda49013fb6671c9c24fafe555708645d7eeae1808004e",
+        "statistics": {
+          "elapsed": "0.299505346",
+          "rows_read": 982938,
+          "bytes_read": 21573662
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-3af0df83-021d-4734-9149-d0aff5a3c8f5",
+        "elapsed_ms": 92.56244800008062,
+        "rows": 27,
+        "sha256": "5bd9fc3a27c716761afda49013fb6671c9c24fafe555708645d7eeae1808004e",
+        "statistics": {
+          "elapsed": "0.026166469",
+          "rows_read": 982938,
+          "bytes_read": 21573662
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-fde21ef2-2c3f-4139-bbba-4a226d5e2cb8",
+        "elapsed_ms": 93.380100000104,
+        "rows": 27,
+        "sha256": "5bd9fc3a27c716761afda49013fb6671c9c24fafe555708645d7eeae1808004e",
+        "statistics": {
+          "elapsed": "0.026430246",
+          "rows_read": 982938,
+          "bytes_read": 21573662
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-344bbd4a-784e-4476-80d6-bd821477c1ad",
+        "elapsed_ms": 94.24324300016451,
+        "rows": 27,
+        "sha256": "5bd9fc3a27c716761afda49013fb6671c9c24fafe555708645d7eeae1808004e",
+        "statistics": {
+          "elapsed": "0.027199951",
+          "rows_read": 982938,
+          "bytes_read": 21573662
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      }
+    ],
+    "baseline/traffic_hour/hour": [
+      {
+        "status": "complete",
+        "query_id": "pilot-12150fe3-f16f-400d-88b3-209377de8e02",
+        "elapsed_ms": 83.87274500000785,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.017360057",
+          "rows_read": 98304,
+          "bytes_read": 6302549
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-c1a5e642-5780-41d8-a4a1-1954e06b4caa",
+        "elapsed_ms": 83.96010899969042,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.016865762",
+          "rows_read": 98304,
+          "bytes_read": 6302549
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-25ecb9fe-d64a-42d2-a044-2c3d4d361f9b",
+        "elapsed_ms": 82.76272699959009,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.016522031",
+          "rows_read": 98304,
+          "bytes_read": 6302549
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-406b7cef-f920-43bb-bd1e-7f17bac55db1",
+        "elapsed_ms": 82.51704600024823,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.016317139",
+          "rows_read": 98304,
+          "bytes_read": 6302549
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "event/traffic_day/day": [
+      {
+        "status": "complete",
+        "query_id": "pilot-a3245569-2c7a-49c5-b7ce-46a0c32aa2c5",
+        "elapsed_ms": 195.94732700034,
+        "rows": 2,
+        "sha256": "2c4935bd3058807de03a8d5a109a0551699e5ec1b0c42204871baadb2ea836c7",
+        "statistics": {
+          "elapsed": "0.12759449",
+          "rows_read": 1787046,
+          "bytes_read": 120436970
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-23331ca7-ea9a-415c-bc68-b4159225bc5f",
+        "elapsed_ms": 192.57638399994903,
+        "rows": 2,
+        "sha256": "2c4935bd3058807de03a8d5a109a0551699e5ec1b0c42204871baadb2ea836c7",
+        "statistics": {
+          "elapsed": "0.125965912",
+          "rows_read": 1787046,
+          "bytes_read": 120436970
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-6321449e-b27c-4865-9a97-7b474955cecd",
+        "elapsed_ms": 193.46253599997,
+        "rows": 2,
+        "sha256": "2c4935bd3058807de03a8d5a109a0551699e5ec1b0c42204871baadb2ea836c7",
+        "statistics": {
+          "elapsed": "0.127230656",
+          "rows_read": 1787046,
+          "bytes_read": 120436970
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-4936e953-b746-48d1-90be-6781dea3f6cd",
+        "elapsed_ms": 194.13770399978603,
+        "rows": 2,
+        "sha256": "2c4935bd3058807de03a8d5a109a0551699e5ec1b0c42204871baadb2ea836c7",
+        "statistics": {
+          "elapsed": "0.127575362",
+          "rows_read": 1787046,
+          "bytes_read": 120436970
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "event/event_counts/day": [
+      {
+        "status": "complete",
+        "query_id": "pilot-42327169-dac9-4a72-99aa-c972b775f375",
+        "elapsed_ms": 187.42510499987475,
+        "rows": 134,
+        "sha256": "827bfcf8c18f45074cea6d155a0e1e66fc9028a7b28d060d95411dadc1174f6a",
+        "statistics": {
+          "elapsed": "0.118258931",
+          "rows_read": 1787046,
+          "bytes_read": 74375128
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-e2e10316-b48a-46ee-95bf-2590b8aae29f",
+        "elapsed_ms": 186.25907900013772,
+        "rows": 134,
+        "sha256": "827bfcf8c18f45074cea6d155a0e1e66fc9028a7b28d060d95411dadc1174f6a",
+        "statistics": {
+          "elapsed": "0.118627014",
+          "rows_read": 1787046,
+          "bytes_read": 74375128
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-f79c04ef-47bc-4444-9cf2-67a99ebaa92d",
+        "elapsed_ms": 184.03995600010603,
+        "rows": 134,
+        "sha256": "827bfcf8c18f45074cea6d155a0e1e66fc9028a7b28d060d95411dadc1174f6a",
+        "statistics": {
+          "elapsed": "0.11547598",
+          "rows_read": 1787046,
+          "bytes_read": 74375128
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-ae50e219-f216-4da2-98be-a16f714af58e",
+        "elapsed_ms": 184.7877889999836,
+        "rows": 134,
+        "sha256": "827bfcf8c18f45074cea6d155a0e1e66fc9028a7b28d060d95411dadc1174f6a",
+        "statistics": {
+          "elapsed": "0.11777972",
+          "rows_read": 1787046,
+          "bytes_read": 74375128
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      }
+    ],
+    "event/event_counts/hour": [
+      {
+        "status": "complete",
+        "query_id": "pilot-28606184-6d45-44b7-b908-31ac5f6b2001",
+        "elapsed_ms": 84.68027999970218,
+        "rows": 84,
+        "sha256": "b22a9dc774add8b3433caf72865b04661011254e67d58b839a285c39abdbfa46",
+        "statistics": {
+          "elapsed": "0.016858986",
+          "rows_read": 106496,
+          "bytes_read": 3883617
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-88fc6a81-71fe-43e7-9347-9dcd3c90bb57",
+        "elapsed_ms": 83.73829800029853,
+        "rows": 84,
+        "sha256": "b22a9dc774add8b3433caf72865b04661011254e67d58b839a285c39abdbfa46",
+        "statistics": {
+          "elapsed": "0.016887326",
+          "rows_read": 106496,
+          "bytes_read": 3883617
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-2491cc2c-39de-4fc0-9969-3ca63d5a99e6",
+        "elapsed_ms": 85.42297099984353,
+        "rows": 84,
+        "sha256": "b22a9dc774add8b3433caf72865b04661011254e67d58b839a285c39abdbfa46",
+        "statistics": {
+          "elapsed": "0.017060147",
+          "rows_read": 106496,
+          "bytes_read": 3883617
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-56150a1f-4e8f-4625-bba7-face8f619290",
+        "elapsed_ms": 88.27933099973961,
+        "rows": 84,
+        "sha256": "b22a9dc774add8b3433caf72865b04661011254e67d58b839a285c39abdbfa46",
+        "statistics": {
+          "elapsed": "0.020784127",
+          "rows_read": 106496,
+          "bytes_read": 3883617
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "baseline/feature_funnel/day": [
+      {
+        "status": "complete",
+        "query_id": "pilot-4f217fae-05e7-478e-bd09-213b401616d0",
+        "elapsed_ms": 309.3916839998201,
+        "rows": 1,
+        "sha256": "2390c7ea934ef0f92db174200eee4439f28b32c85045abb47963608a1aa7ffd1",
+        "statistics": {
+          "elapsed": "0.241820114",
+          "rows_read": 3555125,
+          "bytes_read": 250194292
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-cae46a47-4f94-4126-a3dc-4f0a70f8484c",
+        "elapsed_ms": 317.2864789999039,
+        "rows": 1,
+        "sha256": "2390c7ea934ef0f92db174200eee4439f28b32c85045abb47963608a1aa7ffd1",
+        "statistics": {
+          "elapsed": "0.249838503",
+          "rows_read": 3555125,
+          "bytes_read": 250194292
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-cc639c41-db58-4dfb-8d6c-229d50282c05",
+        "elapsed_ms": 312.4108179999894,
+        "rows": 1,
+        "sha256": "2390c7ea934ef0f92db174200eee4439f28b32c85045abb47963608a1aa7ffd1",
+        "statistics": {
+          "elapsed": "0.244869715",
+          "rows_read": 3555125,
+          "bytes_read": 250194292
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-03fc3f6a-1b4c-4951-a07f-82c347b76e3f",
+        "elapsed_ms": 310.25813099995503,
+        "rows": 1,
+        "sha256": "2390c7ea934ef0f92db174200eee4439f28b32c85045abb47963608a1aa7ffd1",
+        "statistics": {
+          "elapsed": "0.243833974",
+          "rows_read": 3555125,
+          "bytes_read": 250194292
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "event/post_paths/day": [
+      {
+        "status": "complete",
+        "query_id": "pilot-bfadbd69-57a6-4536-965d-b16341a18379",
+        "elapsed_ms": 223.03153299981204,
+        "rows": 3,
+        "sha256": "f7af06d8fba2f2929254f2962cf2c839bfd62fbbddf8a33591df37c558cbeba5",
+        "statistics": {
+          "elapsed": "0.156732346",
+          "rows_read": 1787046,
+          "bytes_read": 156452001
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-2c5fdbf2-f207-422c-b249-4de072bfc259",
+        "elapsed_ms": 222.7025719998892,
+        "rows": 3,
+        "sha256": "f7af06d8fba2f2929254f2962cf2c839bfd62fbbddf8a33591df37c558cbeba5",
+        "statistics": {
+          "elapsed": "0.155937896",
+          "rows_read": 1787046,
+          "bytes_read": 156452001
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-3888b690-6cdd-436d-aef6-7b90f69a9ebf",
+        "elapsed_ms": 225.624888999846,
+        "rows": 3,
+        "sha256": "f7af06d8fba2f2929254f2962cf2c839bfd62fbbddf8a33591df37c558cbeba5",
+        "statistics": {
+          "elapsed": "0.154605531",
+          "rows_read": 1787046,
+          "bytes_read": 156452001
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-8433c6bf-7d38-416b-8c5c-153d1bc5f38e",
+        "elapsed_ms": 223.0686230000174,
+        "rows": 3,
+        "sha256": "f7af06d8fba2f2929254f2962cf2c839bfd62fbbddf8a33591df37c558cbeba5",
+        "statistics": {
+          "elapsed": "0.156653423",
+          "rows_read": 1787046,
+          "bytes_read": 156452001
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "baseline/session/day": [
+      {
+        "status": "complete",
+        "query_id": "pilot-de2464e6-c74e-4912-98aa-89adeae70c32",
+        "elapsed_ms": 100.71557600031156,
+        "rows": 14,
+        "sha256": "c0981a5ca21be314872b9d27e14b95e613e6a6b8884b18e90f9281f5ca7e7c8e",
+        "statistics": {
+          "elapsed": "0.033730231",
+          "rows_read": 1777562,
+          "bytes_read": 46954965
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-d87c4974-9cd1-49c5-844a-770824aaf659",
+        "elapsed_ms": 101.30338599992683,
+        "rows": 14,
+        "sha256": "c0981a5ca21be314872b9d27e14b95e613e6a6b8884b18e90f9281f5ca7e7c8e",
+        "statistics": {
+          "elapsed": "0.0341952",
+          "rows_read": 1777562,
+          "bytes_read": 46954965
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-1a887977-4b67-4f4f-9a7a-bb47b0979539",
+        "elapsed_ms": 100.78551700007665,
+        "rows": 14,
+        "sha256": "c0981a5ca21be314872b9d27e14b95e613e6a6b8884b18e90f9281f5ca7e7c8e",
+        "statistics": {
+          "elapsed": "0.03391896",
+          "rows_read": 1777562,
+          "bytes_read": 46954965
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-af4b2e13-9843-4982-8d67-83fb71f52bb5",
+        "elapsed_ms": 100.78918299996076,
+        "rows": 14,
+        "sha256": "c0981a5ca21be314872b9d27e14b95e613e6a6b8884b18e90f9281f5ca7e7c8e",
+        "statistics": {
+          "elapsed": "0.034351549",
+          "rows_read": 1777562,
+          "bytes_read": 46954965
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "baseline/post_paths/day": [
+      {
+        "status": "complete",
+        "query_id": "pilot-0a73bedc-20f4-4036-8b6c-f2080da41eb6",
+        "elapsed_ms": 241.61999800026024,
+        "rows": 3,
+        "sha256": "f7af06d8fba2f2929254f2962cf2c839bfd62fbbddf8a33591df37c558cbeba5",
+        "statistics": {
+          "elapsed": "0.174495588",
+          "rows_read": 1777562,
+          "bytes_read": 155695909
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-4c913685-9bb5-4935-a04c-8e7d8035a206",
+        "elapsed_ms": 244.3288599997686,
+        "rows": 3,
+        "sha256": "f7af06d8fba2f2929254f2962cf2c839bfd62fbbddf8a33591df37c558cbeba5",
+        "statistics": {
+          "elapsed": "0.177464433",
+          "rows_read": 1777562,
+          "bytes_read": 155695909
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-66120864-37b6-4bf6-bc70-12fed0522742",
+        "elapsed_ms": 254.0006130002439,
+        "rows": 3,
+        "sha256": "f7af06d8fba2f2929254f2962cf2c839bfd62fbbddf8a33591df37c558cbeba5",
+        "statistics": {
+          "elapsed": "0.187379438",
+          "rows_read": 1777562,
+          "bytes_read": 155695909
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-c0ca68ae-cd54-450a-b20e-917ee7913e33",
+        "elapsed_ms": 240.90635900029156,
+        "rows": 3,
+        "sha256": "f7af06d8fba2f2929254f2962cf2c839bfd62fbbddf8a33591df37c558cbeba5",
+        "statistics": {
+          "elapsed": "0.174309759",
+          "rows_read": 1777562,
+          "bytes_read": 155695909
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "baseline/session/hour": [
+      {
+        "status": "complete",
+        "query_id": "pilot-68eaf967-7df1-456d-972e-301ec8045f22",
+        "elapsed_ms": 77.52653499983353,
+        "rows": 14,
+        "sha256": "64a51e66f13519de1a436987dd6bbe14c909cef37eace269ce3385659a03a96b",
+        "statistics": {
+          "elapsed": "0.010436243",
+          "rows_read": 98304,
+          "bytes_read": 3335737
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-20f85441-7c52-4fe4-8de2-3f94da739b40",
+        "elapsed_ms": 77.80350700022609,
+        "rows": 14,
+        "sha256": "64a51e66f13519de1a436987dd6bbe14c909cef37eace269ce3385659a03a96b",
+        "statistics": {
+          "elapsed": "0.010771268",
+          "rows_read": 98304,
+          "bytes_read": 3335737
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-32a5ee43-6b42-457a-9518-1c53a3bb8251",
+        "elapsed_ms": 77.51810600029785,
+        "rows": 14,
+        "sha256": "64a51e66f13519de1a436987dd6bbe14c909cef37eace269ce3385659a03a96b",
+        "statistics": {
+          "elapsed": "0.009580318",
+          "rows_read": 98304,
+          "bytes_read": 3335737
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-d361da2b-7dfd-493c-9b32-ad60afc4188c",
+        "elapsed_ms": 78.26813000019683,
+        "rows": 14,
+        "sha256": "64a51e66f13519de1a436987dd6bbe14c909cef37eace269ce3385659a03a96b",
+        "statistics": {
+          "elapsed": "0.010824116",
+          "rows_read": 98304,
+          "bytes_read": 3335737
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "baseline/user/hour": [
+      {
+        "status": "complete",
+        "query_id": "pilot-df41f235-d4d6-44b9-84b7-d7dc6e2e6259",
+        "elapsed_ms": 75.74096700000155,
+        "rows": 15,
+        "sha256": "b85ec68669495aa44dfcd7a88933f29a19f0e718c04013c403462d3b492b2afe",
+        "statistics": {
+          "elapsed": "0.009289127",
+          "rows_read": 98304,
+          "bytes_read": 2265499
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-2aba3ad2-de3a-4349-aee0-3e8594c7ba9e",
+        "elapsed_ms": 76.3666299999386,
+        "rows": 15,
+        "sha256": "b85ec68669495aa44dfcd7a88933f29a19f0e718c04013c403462d3b492b2afe",
+        "statistics": {
+          "elapsed": "0.009068375",
+          "rows_read": 98304,
+          "bytes_read": 2265499
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-685fa11e-d0a3-45b6-abbb-cf377a83d87e",
+        "elapsed_ms": 76.25743400012652,
+        "rows": 15,
+        "sha256": "b85ec68669495aa44dfcd7a88933f29a19f0e718c04013c403462d3b492b2afe",
+        "statistics": {
+          "elapsed": "0.009049508",
+          "rows_read": 98304,
+          "bytes_read": 2265499
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-38b59002-9441-4f01-87a2-5c2d7aa23b3f",
+        "elapsed_ms": 77.50365900028555,
+        "rows": 15,
+        "sha256": "b85ec68669495aa44dfcd7a88933f29a19f0e718c04013c403462d3b492b2afe",
+        "statistics": {
+          "elapsed": "0.008940509",
+          "rows_read": 98304,
+          "bytes_read": 2265499
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "baseline/metadata_join/hour": [
+      {
+        "status": "complete",
+        "query_id": "pilot-ace53255-229d-42bb-83d3-5d157f1a8ac9",
+        "elapsed_ms": 928.3973870001319,
+        "rows": 5,
+        "sha256": "989fbcfa0fa7038f7b4d25a2fd39c75d437afbb578d4c2a82d8b4956679e11aa",
+        "statistics": {
+          "elapsed": "0.86099981",
+          "rows_read": 12228380,
+          "bytes_read": 835516658
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-c3749d11-5ab3-40bf-8a68-f933dfe9fe1a",
+        "elapsed_ms": 947.6625549996243,
+        "rows": 5,
+        "sha256": "989fbcfa0fa7038f7b4d25a2fd39c75d437afbb578d4c2a82d8b4956679e11aa",
+        "statistics": {
+          "elapsed": "0.880644579",
+          "rows_read": 12228380,
+          "bytes_read": 835516658
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-eee83b43-a5ef-4164-a966-08f8171e0595",
+        "elapsed_ms": 954.82840700015,
+        "rows": 5,
+        "sha256": "989fbcfa0fa7038f7b4d25a2fd39c75d437afbb578d4c2a82d8b4956679e11aa",
+        "statistics": {
+          "elapsed": "0.887794693",
+          "rows_read": 12228380,
+          "bytes_read": 835516658
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-8a1a0fac-2493-4adf-a5ba-19dcf694236d",
+        "elapsed_ms": 931.150647999857,
+        "rows": 5,
+        "sha256": "989fbcfa0fa7038f7b4d25a2fd39c75d437afbb578d4c2a82d8b4956679e11aa",
+        "statistics": {
+          "elapsed": "0.863845287",
+          "rows_read": 12228380,
+          "bytes_read": 835516658
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      }
+    ],
+    "event/tab/hour": [
+      {
+        "status": "complete",
+        "query_id": "pilot-951c95c3-3308-44a7-94d0-8ba9b934311e",
+        "elapsed_ms": 78.31515499992747,
+        "rows": 5,
+        "sha256": "af48594ac1ed81333d929a94cc5e33556c54fc9b2a74b9442b80456b447ca868",
+        "statistics": {
+          "elapsed": "0.011038908",
+          "rows_read": 106496,
+          "bytes_read": 3094042
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-2acf2a30-95b7-4fe0-adcb-1fd647eed8b2",
+        "elapsed_ms": 77.36254099972939,
+        "rows": 5,
+        "sha256": "af48594ac1ed81333d929a94cc5e33556c54fc9b2a74b9442b80456b447ca868",
+        "statistics": {
+          "elapsed": "0.010342925",
+          "rows_read": 106496,
+          "bytes_read": 3094042
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-50878709-2b21-4b5f-aa87-e2f23e5acda4",
+        "elapsed_ms": 76.79576700002144,
+        "rows": 5,
+        "sha256": "af48594ac1ed81333d929a94cc5e33556c54fc9b2a74b9442b80456b447ca868",
+        "statistics": {
+          "elapsed": "0.009763783",
+          "rows_read": 106496,
+          "bytes_read": 3094042
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-01791852-6695-428c-ba14-1382f35b48d0",
+        "elapsed_ms": 77.24246399993717,
+        "rows": 5,
+        "sha256": "af48594ac1ed81333d929a94cc5e33556c54fc9b2a74b9442b80456b447ca868",
+        "statistics": {
+          "elapsed": "0.010710284",
+          "rows_read": 106496,
+          "bytes_read": 3094042
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "metadata/metadata_join/hour": [
+      {
+        "status": "complete",
+        "query_id": "pilot-6f363fec-9d4c-4d0c-8993-22c245159609",
+        "elapsed_ms": 488.4233900002073,
+        "rows": 5,
+        "sha256": "989fbcfa0fa7038f7b4d25a2fd39c75d437afbb578d4c2a82d8b4956679e11aa",
+        "statistics": {
+          "elapsed": "0.421640137",
+          "rows_read": 771737,
+          "bytes_read": 138839848
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-42775a2c-22e3-462c-b923-f8de4fe444b3",
+        "elapsed_ms": 209.64166000021578,
+        "rows": 5,
+        "sha256": "989fbcfa0fa7038f7b4d25a2fd39c75d437afbb578d4c2a82d8b4956679e11aa",
+        "statistics": {
+          "elapsed": "0.142372471",
+          "rows_read": 771737,
+          "bytes_read": 138708776
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-0c474941-bc05-4859-ad46-3a10879a5443",
+        "elapsed_ms": 206.27738700022746,
+        "rows": 5,
+        "sha256": "989fbcfa0fa7038f7b4d25a2fd39c75d437afbb578d4c2a82d8b4956679e11aa",
+        "statistics": {
+          "elapsed": "0.138756825",
+          "rows_read": 771737,
+          "bytes_read": 138708776
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-b9eebcfc-35f4-472b-889b-b7d12f57d3f4",
+        "elapsed_ms": 211.13492599988604,
+        "rows": 5,
+        "sha256": "989fbcfa0fa7038f7b4d25a2fd39c75d437afbb578d4c2a82d8b4956679e11aa",
+        "statistics": {
+          "elapsed": "0.143784359",
+          "rows_read": 771737,
+          "bytes_read": 138708776
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      }
+    ],
+    "rollup/traffic_hour/day": [
+      {
+        "status": "complete",
+        "query_id": "pilot-39e356dc-d471-497f-b359-b19e911d4a8d",
+        "elapsed_ms": 318.7613400000373,
+        "rows": 48,
+        "sha256": "985352666b51882874c43d8dba38143f810984ae4cbb806f105fd96f2448a6f7",
+        "statistics": {
+          "elapsed": "0.250272686",
+          "rows_read": 9245,
+          "bytes_read": 2381935
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-5114de9f-6715-4cab-bbc7-1451d2750052",
+        "elapsed_ms": 150.5950790001407,
+        "rows": 48,
+        "sha256": "985352666b51882874c43d8dba38143f810984ae4cbb806f105fd96f2448a6f7",
+        "statistics": {
+          "elapsed": "0.082972964",
+          "rows_read": 9245,
+          "bytes_read": 2381935
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-ad0063d5-e608-430a-b178-e64350fe9985",
+        "elapsed_ms": 151.1444779998783,
+        "rows": 48,
+        "sha256": "985352666b51882874c43d8dba38143f810984ae4cbb806f105fd96f2448a6f7",
+        "statistics": {
+          "elapsed": "0.084550135",
+          "rows_read": 9245,
+          "bytes_read": 2381935
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-f1444564-0c0a-4981-b54f-d402abf25f30",
+        "elapsed_ms": 151.15636100017582,
+        "rows": 48,
+        "sha256": "985352666b51882874c43d8dba38143f810984ae4cbb806f105fd96f2448a6f7",
+        "statistics": {
+          "elapsed": "0.082708335",
+          "rows_read": 9245,
+          "bytes_read": 2381935
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      }
+    ],
+    "event/user/hour": [
+      {
+        "status": "complete",
+        "query_id": "pilot-73638480-8c21-466f-beaa-35a291d8f10d",
+        "elapsed_ms": 305.44206200011104,
+        "rows": 15,
+        "sha256": "b85ec68669495aa44dfcd7a88933f29a19f0e718c04013c403462d3b492b2afe",
+        "statistics": {
+          "elapsed": "0.238528082",
+          "rows_read": 106496,
+          "bytes_read": 2569921
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-85e251b9-ec06-4866-82ac-8ba8cf64a966",
+        "elapsed_ms": 78.15837400039527,
+        "rows": 15,
+        "sha256": "b85ec68669495aa44dfcd7a88933f29a19f0e718c04013c403462d3b492b2afe",
+        "statistics": {
+          "elapsed": "0.010467099",
+          "rows_read": 106496,
+          "bytes_read": 2569921
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-5cce9d24-102f-4483-9595-527f0c83388d",
+        "elapsed_ms": 77.95578400009617,
+        "rows": 15,
+        "sha256": "b85ec68669495aa44dfcd7a88933f29a19f0e718c04013c403462d3b492b2afe",
+        "statistics": {
+          "elapsed": "0.010452809",
+          "rows_read": 106496,
+          "bytes_read": 2569921
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-9e2260b3-114c-4502-a42a-8e530d9339d6",
+        "elapsed_ms": 77.08929400041598,
+        "rows": 15,
+        "sha256": "b85ec68669495aa44dfcd7a88933f29a19f0e718c04013c403462d3b492b2afe",
+        "statistics": {
+          "elapsed": "0.010092639",
+          "rows_read": 106496,
+          "bytes_read": 2569921
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "tab/tab/hour": [
+      {
+        "status": "complete",
+        "query_id": "pilot-696b3eb8-f34b-4653-aade-547d2cfe08bb",
+        "elapsed_ms": 329.0564910003013,
+        "rows": 5,
+        "sha256": "af48594ac1ed81333d929a94cc5e33556c54fc9b2a74b9442b80456b447ca868",
+        "statistics": {
+          "elapsed": "0.261953929",
+          "rows_read": 106496,
+          "bytes_read": 3178151
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-43ff66b6-2f85-4942-805d-b078a4e43f14",
+        "elapsed_ms": 76.74318799990942,
+        "rows": 5,
+        "sha256": "af48594ac1ed81333d929a94cc5e33556c54fc9b2a74b9442b80456b447ca868",
+        "statistics": {
+          "elapsed": "0.010025144",
+          "rows_read": 106496,
+          "bytes_read": 3178151
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-52f63d9e-f55f-437d-baa3-572afe1f25f9",
+        "elapsed_ms": 77.34883300008732,
+        "rows": 5,
+        "sha256": "af48594ac1ed81333d929a94cc5e33556c54fc9b2a74b9442b80456b447ca868",
+        "statistics": {
+          "elapsed": "0.010335911",
+          "rows_read": 106496,
+          "bytes_read": 3178151
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-9b012adb-2d06-41ff-a2cb-5ef899cfa4d6",
+        "elapsed_ms": 75.9168189997581,
+        "rows": 5,
+        "sha256": "af48594ac1ed81333d929a94cc5e33556c54fc9b2a74b9442b80456b447ca868",
+        "statistics": {
+          "elapsed": "0.009406099",
+          "rows_read": 106496,
+          "bytes_read": 3178151
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "rollup/traffic_day/day": [
+      {
+        "status": "complete",
+        "query_id": "pilot-29547178-b99a-4d38-893f-2d39017e2838",
+        "elapsed_ms": 169.83501799995793,
+        "rows": 2,
+        "sha256": "2c4935bd3058807de03a8d5a109a0551699e5ec1b0c42204871baadb2ea836c7",
+        "statistics": {
+          "elapsed": "0.103192801",
+          "rows_read": 9245,
+          "bytes_read": 2381935
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-40fa5600-46d7-4480-b654-afa98a522651",
+        "elapsed_ms": 153.56896200000847,
+        "rows": 2,
+        "sha256": "2c4935bd3058807de03a8d5a109a0551699e5ec1b0c42204871baadb2ea836c7",
+        "statistics": {
+          "elapsed": "0.085999239",
+          "rows_read": 9245,
+          "bytes_read": 2381935
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-eaf333c6-0c9a-459a-a88b-214dfbd7e062",
+        "elapsed_ms": 157.02435299999706,
+        "rows": 2,
+        "sha256": "2c4935bd3058807de03a8d5a109a0551699e5ec1b0c42204871baadb2ea836c7",
+        "statistics": {
+          "elapsed": "0.088395133",
+          "rows_read": 9245,
+          "bytes_read": 2381935
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-cb11f33b-e9bc-469f-8bc8-33f3834e9b1b",
+        "elapsed_ms": 150.00265300022875,
+        "rows": 2,
+        "sha256": "2c4935bd3058807de03a8d5a109a0551699e5ec1b0c42204871baadb2ea836c7",
+        "statistics": {
+          "elapsed": "0.082795791",
+          "rows_read": 9245,
+          "bytes_read": 2381935
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "event/ua_bot/hour": [
+      {
+        "status": "complete",
+        "query_id": "pilot-4b8c89b5-96d3-4ba5-b2e9-ed7a2f5e6dd3",
+        "elapsed_ms": 86.56880300031844,
+        "rows": 2,
+        "sha256": "b101114684346ba2afd7d722da4069d21cf3ab198ebccb961ff58444c7f66ac5",
+        "statistics": {
+          "elapsed": "0.019597676",
+          "rows_read": 106496,
+          "bytes_read": 5699812
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-ad1730ec-633a-4803-a6d9-bc16469ceee6",
+        "elapsed_ms": 85.9805420000157,
+        "rows": 2,
+        "sha256": "b101114684346ba2afd7d722da4069d21cf3ab198ebccb961ff58444c7f66ac5",
+        "statistics": {
+          "elapsed": "0.019385462",
+          "rows_read": 106496,
+          "bytes_read": 5699812
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-0dc83f21-5435-447c-bfc8-c7b48ccf92dd",
+        "elapsed_ms": 85.85191900010614,
+        "rows": 2,
+        "sha256": "b101114684346ba2afd7d722da4069d21cf3ab198ebccb961ff58444c7f66ac5",
+        "statistics": {
+          "elapsed": "0.019165887",
+          "rows_read": 106496,
+          "bytes_read": 5699812
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-cde9d19d-93df-4897-a4aa-980e24b8a66f",
+        "elapsed_ms": 87.63095499989504,
+        "rows": 2,
+        "sha256": "b101114684346ba2afd7d722da4069d21cf3ab198ebccb961ff58444c7f66ac5",
+        "statistics": {
+          "elapsed": "0.021496691",
+          "rows_read": 106496,
+          "bytes_read": 5699812
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "funnel/feature_funnel/day": [
+      {
+        "status": "complete",
+        "query_id": "pilot-03dc4618-a134-4bff-abfa-66be3328ff75",
+        "elapsed_ms": 263.1936239999959,
+        "rows": 1,
+        "sha256": "2390c7ea934ef0f92db174200eee4439f28b32c85045abb47963608a1aa7ffd1",
+        "statistics": {
+          "elapsed": "0.197016157",
+          "rows_read": 1777563,
+          "bytes_read": 192865586
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-513bc5df-97e3-46a8-a85b-bfd7b013b9d2",
+        "elapsed_ms": 258.944641999733,
+        "rows": 1,
+        "sha256": "2390c7ea934ef0f92db174200eee4439f28b32c85045abb47963608a1aa7ffd1",
+        "statistics": {
+          "elapsed": "0.19265085",
+          "rows_read": 1777563,
+          "bytes_read": 192865586
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-d21738a3-e87f-4e70-beae-b3cc48b96914",
+        "elapsed_ms": 275.1421319999281,
+        "rows": 1,
+        "sha256": "2390c7ea934ef0f92db174200eee4439f28b32c85045abb47963608a1aa7ffd1",
+        "statistics": {
+          "elapsed": "0.209021843",
+          "rows_read": 1777563,
+          "bytes_read": 192865586
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-277569a6-1705-4791-839c-ed61db2c3855",
+        "elapsed_ms": 366.782496000269,
+        "rows": 1,
+        "sha256": "2390c7ea934ef0f92db174200eee4439f28b32c85045abb47963608a1aa7ffd1",
+        "statistics": {
+          "elapsed": "0.299623326",
+          "rows_read": 1777563,
+          "bytes_read": 192865586
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "event/user/day": [
+      {
+        "status": "complete",
+        "query_id": "pilot-de4277e6-41cc-466c-9c9d-549ae058234b",
+        "elapsed_ms": 107.68690899976718,
+        "rows": 27,
+        "sha256": "5bd9fc3a27c716761afda49013fb6671c9c24fafe555708645d7eeae1808004e",
+        "statistics": {
+          "elapsed": "0.038294447",
+          "rows_read": 1787046,
+          "bytes_read": 35285093
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-ae42fc2e-380a-48a3-b10d-8913775d323a",
+        "elapsed_ms": 107.30413200008115,
+        "rows": 27,
+        "sha256": "5bd9fc3a27c716761afda49013fb6671c9c24fafe555708645d7eeae1808004e",
+        "statistics": {
+          "elapsed": "0.038945154",
+          "rows_read": 1787046,
+          "bytes_read": 35285093
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-b2ef742b-95d1-4067-8f91-55f27fc22ff8",
+        "elapsed_ms": 107.69231699987358,
+        "rows": 27,
+        "sha256": "5bd9fc3a27c716761afda49013fb6671c9c24fafe555708645d7eeae1808004e",
+        "statistics": {
+          "elapsed": "0.040242684",
+          "rows_read": 1787046,
+          "bytes_read": 35285093
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-77e044e9-c49a-44a7-8a29-a7b50e11f6b4",
+        "elapsed_ms": 106.73576499993942,
+        "rows": 27,
+        "sha256": "5bd9fc3a27c716761afda49013fb6671c9c24fafe555708645d7eeae1808004e",
+        "statistics": {
+          "elapsed": "0.039586259",
+          "rows_read": 1787046,
+          "bytes_read": 35285093
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      }
+    ],
+    "baseline/traffic_day/hour": [
+      {
+        "status": "complete",
+        "query_id": "pilot-3f428651-4852-4d20-8852-2344ff6d25c4",
+        "elapsed_ms": 84.68301399989286,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.016634076",
+          "rows_read": 98304,
+          "bytes_read": 6302549
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-052b53be-c490-4a19-a957-078666470028",
+        "elapsed_ms": 83.75675899969792,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.016415714",
+          "rows_read": 98304,
+          "bytes_read": 6302549
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-5d29c5fe-7e08-40d2-b73b-96cdebda96e2",
+        "elapsed_ms": 85.0881629999094,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.017774521",
+          "rows_read": 98304,
+          "bytes_read": 6302549
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-6c39e615-06dc-4f44-9f4a-08851767c366",
+        "elapsed_ms": 84.62166999970577,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.018269585",
+          "rows_read": 98304,
+          "bytes_read": 6302549
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "event/traffic_hour/day": [
+      {
+        "status": "complete",
+        "query_id": "pilot-906b9a83-6091-4f12-8396-75cddabb8af4",
+        "elapsed_ms": 273.36456500006534,
+        "rows": 48,
+        "sha256": "985352666b51882874c43d8dba38143f810984ae4cbb806f105fd96f2448a6f7",
+        "statistics": {
+          "elapsed": "0.206348395",
+          "rows_read": 1787046,
+          "bytes_read": 120436970
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-6a1c882b-d912-470b-9ecf-c040c419cb79",
+        "elapsed_ms": 243.78942499970435,
+        "rows": 48,
+        "sha256": "985352666b51882874c43d8dba38143f810984ae4cbb806f105fd96f2448a6f7",
+        "statistics": {
+          "elapsed": "0.144996385",
+          "rows_read": 1787046,
+          "bytes_read": 120436970
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-692cf311-0e4d-480b-b0ae-99d0e576183c",
+        "elapsed_ms": 195.28794500001823,
+        "rows": 48,
+        "sha256": "985352666b51882874c43d8dba38143f810984ae4cbb806f105fd96f2448a6f7",
+        "statistics": {
+          "elapsed": "0.128176387",
+          "rows_read": 1787046,
+          "bytes_read": 120436970
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-acff4c4c-b2d5-4d06-a16c-156f6a9a5402",
+        "elapsed_ms": 191.3604450001003,
+        "rows": 48,
+        "sha256": "985352666b51882874c43d8dba38143f810984ae4cbb806f105fd96f2448a6f7",
+        "statistics": {
+          "elapsed": "0.124439441",
+          "rows_read": 1787046,
+          "bytes_read": 120436970
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      }
+    ],
+    "event/ab_outcome/day": [
+      {
+        "status": "complete",
+        "query_id": "pilot-280c3b24-4875-4498-bcb9-48943fd0f2e3",
+        "elapsed_ms": 379.2551089995868,
+        "rows": 2,
+        "sha256": "fae9b27041d0b8652e7989c5586f369a2de1f327aa5acbb1235191c47e6dd6fd",
+        "statistics": {
+          "elapsed": "0.312065634",
+          "rows_read": 3574092,
+          "bytes_read": 273340904
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-059b2aac-b9c5-4e3c-965e-24dab7ca8bbb",
+        "elapsed_ms": 402.4323679996087,
+        "rows": 2,
+        "sha256": "fae9b27041d0b8652e7989c5586f369a2de1f327aa5acbb1235191c47e6dd6fd",
+        "statistics": {
+          "elapsed": "0.33475096",
+          "rows_read": 3574092,
+          "bytes_read": 273340904
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-c8896db3-0a27-46ca-beb4-9f20b32195e4",
+        "elapsed_ms": 389.74866499984273,
+        "rows": 2,
+        "sha256": "fae9b27041d0b8652e7989c5586f369a2de1f327aa5acbb1235191c47e6dd6fd",
+        "statistics": {
+          "elapsed": "0.323212512",
+          "rows_read": 3574092,
+          "bytes_read": 273340904
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-4ba7c312-d4d4-448e-9e15-380a60256681",
+        "elapsed_ms": 379.64869600000384,
+        "rows": 2,
+        "sha256": "fae9b27041d0b8652e7989c5586f369a2de1f327aa5acbb1235191c47e6dd6fd",
+        "statistics": {
+          "elapsed": "0.309791786",
+          "rows_read": 3574092,
+          "bytes_read": 273340904
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "event/ssr_association/day": [
+      {
+        "status": "complete",
+        "query_id": "pilot-6fe9e504-b787-4214-ac08-8736006a6cf7",
+        "elapsed_ms": 534.183960000064,
+        "rows": 1,
+        "sha256": "7210d1c5a5e2d236e4b1c93989ec944873a17f181e0100557dfbd65ae6f288bf",
+        "statistics": {
+          "elapsed": "0.341382087",
+          "rows_read": 5361139,
+          "bytes_read": 271749439
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-5971120f-7a91-4012-8525-4e09d8807552",
+        "elapsed_ms": 340.422154999942,
+        "rows": 1,
+        "sha256": "7210d1c5a5e2d236e4b1c93989ec944873a17f181e0100557dfbd65ae6f288bf",
+        "statistics": {
+          "elapsed": "0.27338965",
+          "rows_read": 5361139,
+          "bytes_read": 271749439
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-39c6c9f7-9a19-45a0-8a0d-c913c77d6f51",
+        "elapsed_ms": 349.7522289999324,
+        "rows": 1,
+        "sha256": "7210d1c5a5e2d236e4b1c93989ec944873a17f181e0100557dfbd65ae6f288bf",
+        "statistics": {
+          "elapsed": "0.280456101",
+          "rows_read": 5361139,
+          "bytes_read": 271749439
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-5ff2832e-bbd7-4b9c-9911-06275e4fb4b1",
+        "elapsed_ms": 338.4734500000377,
+        "rows": 1,
+        "sha256": "7210d1c5a5e2d236e4b1c93989ec944873a17f181e0100557dfbd65ae6f288bf",
+        "statistics": {
+          "elapsed": "0.268998202",
+          "rows_read": 5361139,
+          "bytes_read": 271749439
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      }
+    ],
+    "event/feature_counts/day": [
+      {
+        "status": "complete",
+        "query_id": "pilot-ba6c7ebf-ef19-4a62-8f77-5310b7ca19a0",
+        "elapsed_ms": 179.54038000016226,
+        "rows": 2,
+        "sha256": "a9952c206e705acf33bbcfe7164b992b4d8c3af11ace4c0a069f39f2826896ab",
+        "statistics": {
+          "elapsed": "0.110201191",
+          "rows_read": 1787046,
+          "bytes_read": 100636133
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-54e10fb5-8e80-4a2b-b3fc-2667dea4628d",
+        "elapsed_ms": 176.68465799988553,
+        "rows": 2,
+        "sha256": "a9952c206e705acf33bbcfe7164b992b4d8c3af11ace4c0a069f39f2826896ab",
+        "statistics": {
+          "elapsed": "0.108390191",
+          "rows_read": 1787046,
+          "bytes_read": 100636133
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-8a4ca8e5-5125-4a27-b8fe-951a21090849",
+        "elapsed_ms": 187.49006799998824,
+        "rows": 2,
+        "sha256": "a9952c206e705acf33bbcfe7164b992b4d8c3af11ace4c0a069f39f2826896ab",
+        "statistics": {
+          "elapsed": "0.121524129",
+          "rows_read": 1787046,
+          "bytes_read": 100636133
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-242e4e87-cad6-4a03-b76a-54a2f8c4ff6f",
+        "elapsed_ms": 181.13005299983342,
+        "rows": 2,
+        "sha256": "a9952c206e705acf33bbcfe7164b992b4d8c3af11ace4c0a069f39f2826896ab",
+        "statistics": {
+          "elapsed": "0.110113246",
+          "rows_read": 1787046,
+          "bytes_read": 100636133
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "baseline/ab_outcome/hour": [
+      {
+        "status": "complete",
+        "query_id": "pilot-da5c10a6-55c0-4a7d-bf31-824654cf62d9",
+        "elapsed_ms": 105.24263799970868,
+        "rows": 2,
+        "sha256": "73673c1d30925e80ec76409684b427da0b226607d567a1cbdf559f0819fb1bae",
+        "statistics": {
+          "elapsed": "0.038990381",
+          "rows_read": 196608,
+          "bytes_read": 14478960
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-af23c093-648c-467b-9c3c-1952f7da3f13",
+        "elapsed_ms": 104.66581799983032,
+        "rows": 2,
+        "sha256": "73673c1d30925e80ec76409684b427da0b226607d567a1cbdf559f0819fb1bae",
+        "statistics": {
+          "elapsed": "0.038041047",
+          "rows_read": 196608,
+          "bytes_read": 14478960
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-cad90283-29ee-47b9-9bdc-bd346637388b",
+        "elapsed_ms": 105.62554500029364,
+        "rows": 2,
+        "sha256": "73673c1d30925e80ec76409684b427da0b226607d567a1cbdf559f0819fb1bae",
+        "statistics": {
+          "elapsed": "0.038107605",
+          "rows_read": 196608,
+          "bytes_read": 14478960
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-be411ed1-da89-49f6-bad5-916d2334172f",
+        "elapsed_ms": 105.33849800003736,
+        "rows": 2,
+        "sha256": "73673c1d30925e80ec76409684b427da0b226607d567a1cbdf559f0819fb1bae",
+        "statistics": {
+          "elapsed": "0.038050841",
+          "rows_read": 196608,
+          "bytes_read": 14478960
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "baseline/ua_bot/hour": [
+      {
+        "status": "complete",
+        "query_id": "pilot-a779d891-28b7-46aa-8634-6a21995276fa",
+        "elapsed_ms": 85.67901400010669,
+        "rows": 2,
+        "sha256": "b101114684346ba2afd7d722da4069d21cf3ab198ebccb961ff58444c7f66ac5",
+        "statistics": {
+          "elapsed": "0.019276011",
+          "rows_read": 98304,
+          "bytes_read": 5494256
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-b64d6f63-13d4-474c-a035-91e55434e626",
+        "elapsed_ms": 84.28204599977107,
+        "rows": 2,
+        "sha256": "b101114684346ba2afd7d722da4069d21cf3ab198ebccb961ff58444c7f66ac5",
+        "statistics": {
+          "elapsed": "0.017500412",
+          "rows_read": 98304,
+          "bytes_read": 5494256
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-1bfab1e9-a29b-4bea-85c1-5436ff1cbd81",
+        "elapsed_ms": 82.82466300033775,
+        "rows": 2,
+        "sha256": "b101114684346ba2afd7d722da4069d21cf3ab198ebccb961ff58444c7f66ac5",
+        "statistics": {
+          "elapsed": "0.016582925",
+          "rows_read": 98304,
+          "bytes_read": 5494256
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-08c7eeec-43ea-44f6-9ab8-b59727875f50",
+        "elapsed_ms": 86.26824600014515,
+        "rows": 2,
+        "sha256": "b101114684346ba2afd7d722da4069d21cf3ab198ebccb961ff58444c7f66ac5",
+        "statistics": {
+          "elapsed": "0.01952348",
+          "rows_read": 98304,
+          "bytes_read": 5494256
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "event/ssr_association/hour": [
+      {
+        "status": "complete",
+        "query_id": "pilot-2c39c66e-755f-4068-9395-df3204436b14",
+        "elapsed_ms": 93.49862699991718,
+        "rows": 1,
+        "sha256": "043404e41264570f9b1de2542266f97a55de3167cf03be2de418c48c7109a3ee",
+        "statistics": {
+          "elapsed": "0.027624647",
+          "rows_read": 212993,
+          "bytes_read": 4315656
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-0a52aa99-cee6-43a5-bfc1-8ec95da4a7c1",
+        "elapsed_ms": 94.11085399960939,
+        "rows": 1,
+        "sha256": "043404e41264570f9b1de2542266f97a55de3167cf03be2de418c48c7109a3ee",
+        "statistics": {
+          "elapsed": "0.02762115",
+          "rows_read": 212993,
+          "bytes_read": 4315656
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-a54f4c7c-b7e2-4254-ac3e-f40bd3da774a",
+        "elapsed_ms": 93.56129300022076,
+        "rows": 1,
+        "sha256": "043404e41264570f9b1de2542266f97a55de3167cf03be2de418c48c7109a3ee",
+        "statistics": {
+          "elapsed": "0.026863695",
+          "rows_read": 212993,
+          "bytes_read": 4315656
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-d630881b-0389-4304-91db-160af7f711be",
+        "elapsed_ms": 94.98663599970314,
+        "rows": 1,
+        "sha256": "043404e41264570f9b1de2542266f97a55de3167cf03be2de418c48c7109a3ee",
+        "statistics": {
+          "elapsed": "0.027270341",
+          "rows_read": 212993,
+          "bytes_read": 4315656
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      }
+    ],
+    "baseline/event_counts/hour": [
+      {
+        "status": "complete",
+        "query_id": "pilot-8b772c77-2955-4877-b680-b73a049b21da",
+        "elapsed_ms": 84.26305700004377,
+        "rows": 84,
+        "sha256": "b22a9dc774add8b3433caf72865b04661011254e67d58b839a285c39abdbfa46",
+        "statistics": {
+          "elapsed": "0.017653887",
+          "rows_read": 98304,
+          "bytes_read": 3818081
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-292ef50e-762f-4017-a043-3b1be1f7b36f",
+        "elapsed_ms": 85.7061930000782,
+        "rows": 84,
+        "sha256": "b22a9dc774add8b3433caf72865b04661011254e67d58b839a285c39abdbfa46",
+        "statistics": {
+          "elapsed": "0.015779086",
+          "rows_read": 98304,
+          "bytes_read": 3818081
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-a9e3b6e0-101d-4b8a-a65a-f2adfa8c7349",
+        "elapsed_ms": 82.96289100007925,
+        "rows": 84,
+        "sha256": "b22a9dc774add8b3433caf72865b04661011254e67d58b839a285c39abdbfa46",
+        "statistics": {
+          "elapsed": "0.01582242",
+          "rows_read": 98304,
+          "bytes_read": 3818081
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-9204f701-bac5-42e4-8249-fca79c5bc153",
+        "elapsed_ms": 81.87191500019253,
+        "rows": 84,
+        "sha256": "b22a9dc774add8b3433caf72865b04661011254e67d58b839a285c39abdbfa46",
+        "statistics": {
+          "elapsed": "0.014982016",
+          "rows_read": 98304,
+          "bytes_read": 3818081
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "rollup/event_counts/day": [
+      {
+        "status": "complete",
+        "query_id": "pilot-d3fb5459-ad2e-4c3e-ae33-71ff6703f778",
+        "elapsed_ms": 71.24315500004741,
+        "rows": 134,
+        "sha256": "827bfcf8c18f45074cea6d155a0e1e66fc9028a7b28d060d95411dadc1174f6a",
+        "statistics": {
+          "elapsed": "0.004714294",
+          "rows_read": 9245,
+          "bytes_read": 532935
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-00cd8c1e-a761-4ade-912a-5d93fbafdf09",
+        "elapsed_ms": 71.65616899965244,
+        "rows": 134,
+        "sha256": "827bfcf8c18f45074cea6d155a0e1e66fc9028a7b28d060d95411dadc1174f6a",
+        "statistics": {
+          "elapsed": "0.00485981",
+          "rows_read": 9245,
+          "bytes_read": 532935
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-b1ce2003-4960-4d6a-ae6a-4b82a806d456",
+        "elapsed_ms": 71.46873099964068,
+        "rows": 134,
+        "sha256": "827bfcf8c18f45074cea6d155a0e1e66fc9028a7b28d060d95411dadc1174f6a",
+        "statistics": {
+          "elapsed": "0.004741822",
+          "rows_read": 9245,
+          "bytes_read": 532935
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-3a9236ee-d63a-41d3-b881-9ff450f50720",
+        "elapsed_ms": 72.32470799999646,
+        "rows": 134,
+        "sha256": "827bfcf8c18f45074cea6d155a0e1e66fc9028a7b28d060d95411dadc1174f6a",
+        "statistics": {
+          "elapsed": "0.004785851",
+          "rows_read": 9245,
+          "bytes_read": 532935
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      }
+    ],
+    "user/user/hour": [
+      {
+        "status": "complete",
+        "query_id": "pilot-09fa772b-5c5d-459b-bc4c-aab1b406acad",
+        "elapsed_ms": 77.19306300032258,
+        "rows": 15,
+        "sha256": "b85ec68669495aa44dfcd7a88933f29a19f0e718c04013c403462d3b492b2afe",
+        "statistics": {
+          "elapsed": "0.01062299",
+          "rows_read": 106496,
+          "bytes_read": 2396735
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-59d14481-628a-46b2-87fa-9ab82a29e130",
+        "elapsed_ms": 77.7033899998969,
+        "rows": 15,
+        "sha256": "b85ec68669495aa44dfcd7a88933f29a19f0e718c04013c403462d3b492b2afe",
+        "statistics": {
+          "elapsed": "0.010121647",
+          "rows_read": 106496,
+          "bytes_read": 2396735
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-d14e0e2b-4767-4483-b369-3de600765320",
+        "elapsed_ms": 76.19393000004493,
+        "rows": 15,
+        "sha256": "b85ec68669495aa44dfcd7a88933f29a19f0e718c04013c403462d3b492b2afe",
+        "statistics": {
+          "elapsed": "0.010144695",
+          "rows_read": 106496,
+          "bytes_read": 2396735
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-2b595903-6675-494e-be31-2a6f545cf00e",
+        "elapsed_ms": 76.28822700007731,
+        "rows": 15,
+        "sha256": "b85ec68669495aa44dfcd7a88933f29a19f0e718c04013c403462d3b492b2afe",
+        "statistics": {
+          "elapsed": "0.010176745",
+          "rows_read": 106496,
+          "bytes_read": 2396735
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "event/feature_funnel/hour": [
+      {
+        "status": "complete",
+        "query_id": "pilot-b9e7cc7a-e638-48a6-8b9b-e1439b8b6b35",
+        "elapsed_ms": 265.68379099990125,
+        "rows": 1,
+        "sha256": "9a50bad58aefd6a83bc4381b113e5626cb279524fd4853ee279130ba08605aa5",
+        "statistics": {
+          "elapsed": "0.195652662",
+          "rows_read": 212993,
+          "bytes_read": 16949087
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-8c761058-68b4-46fc-829d-17486c8c9c47",
+        "elapsed_ms": 106.32553599998573,
+        "rows": 1,
+        "sha256": "9a50bad58aefd6a83bc4381b113e5626cb279524fd4853ee279130ba08605aa5",
+        "statistics": {
+          "elapsed": "0.03984172",
+          "rows_read": 212993,
+          "bytes_read": 16949087
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-9ace9fc3-58ff-46af-8a35-c1792841c8f8",
+        "elapsed_ms": 106.44351599967194,
+        "rows": 1,
+        "sha256": "9a50bad58aefd6a83bc4381b113e5626cb279524fd4853ee279130ba08605aa5",
+        "statistics": {
+          "elapsed": "0.039704879",
+          "rows_read": 212993,
+          "bytes_read": 16949087
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-bc77e83d-01ce-4365-9d6e-2dc66f0d3122",
+        "elapsed_ms": 108.9830279997841,
+        "rows": 1,
+        "sha256": "9a50bad58aefd6a83bc4381b113e5626cb279524fd4853ee279130ba08605aa5",
+        "statistics": {
+          "elapsed": "0.042119384",
+          "rows_read": 212993,
+          "bytes_read": 16949087
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "rollup/event_counts/hour": [
+      {
+        "status": "complete",
+        "query_id": "pilot-c4577140-9bc6-4818-97ff-5114f934cf17",
+        "elapsed_ms": 71.20913199969436,
+        "rows": 84,
+        "sha256": "b22a9dc774add8b3433caf72865b04661011254e67d58b839a285c39abdbfa46",
+        "statistics": {
+          "elapsed": "0.004565723",
+          "rows_read": 9245,
+          "bytes_read": 532935
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-0191bc56-e0c3-449e-8587-ff1e87da1c7f",
+        "elapsed_ms": 74.23909099998127,
+        "rows": 84,
+        "sha256": "b22a9dc774add8b3433caf72865b04661011254e67d58b839a285c39abdbfa46",
+        "statistics": {
+          "elapsed": "0.004551999",
+          "rows_read": 9245,
+          "bytes_read": 532935
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-42dda02c-7487-4af1-8935-98bde37893f3",
+        "elapsed_ms": 72.47247099985543,
+        "rows": 84,
+        "sha256": "b22a9dc774add8b3433caf72865b04661011254e67d58b839a285c39abdbfa46",
+        "statistics": {
+          "elapsed": "0.004723953",
+          "rows_read": 9245,
+          "bytes_read": 532935
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-efeeebc7-4942-47db-a5d6-700f93e3ed08",
+        "elapsed_ms": 71.4657729999999,
+        "rows": 84,
+        "sha256": "b22a9dc774add8b3433caf72865b04661011254e67d58b839a285c39abdbfa46",
+        "statistics": {
+          "elapsed": "0.004316813",
+          "rows_read": 9245,
+          "bytes_read": 532935
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "event/session/hour": [
+      {
+        "status": "complete",
+        "query_id": "pilot-f0d99904-0929-4db2-bce9-e97a5739048e",
+        "elapsed_ms": 277.685066000231,
+        "rows": 14,
+        "sha256": "64a51e66f13519de1a436987dd6bbe14c909cef37eace269ce3385659a03a96b",
+        "statistics": {
+          "elapsed": "0.210801522",
+          "rows_read": 106496,
+          "bytes_read": 3786253
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-65ba523c-ff07-486d-8378-0f9f7f46bac8",
+        "elapsed_ms": 78.08938900006979,
+        "rows": 14,
+        "sha256": "64a51e66f13519de1a436987dd6bbe14c909cef37eace269ce3385659a03a96b",
+        "statistics": {
+          "elapsed": "0.010955468",
+          "rows_read": 106496,
+          "bytes_read": 3786253
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-2242b409-415a-4985-a0e4-3707c3db42cb",
+        "elapsed_ms": 77.78769199967428,
+        "rows": 14,
+        "sha256": "64a51e66f13519de1a436987dd6bbe14c909cef37eace269ce3385659a03a96b",
+        "statistics": {
+          "elapsed": "0.011323703",
+          "rows_read": 106496,
+          "bytes_read": 3786253
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-a7e667fd-bac0-4046-a513-98191ea0a9ae",
+        "elapsed_ms": 78.9917609999975,
+        "rows": 14,
+        "sha256": "64a51e66f13519de1a436987dd6bbe14c909cef37eace269ce3385659a03a96b",
+        "statistics": {
+          "elapsed": "0.011901884",
+          "rows_read": 106496,
+          "bytes_read": 3786253
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "event/metadata_join/hour": [
+      {
+        "status": "complete",
+        "query_id": "pilot-44403442-4461-486f-8cc9-54113d58ce26",
+        "elapsed_ms": 993.2089100002486,
+        "rows": 5,
+        "sha256": "989fbcfa0fa7038f7b4d25a2fd39c75d437afbb578d4c2a82d8b4956679e11aa",
+        "statistics": {
+          "elapsed": "0.926570518",
+          "rows_read": 12243811,
+          "bytes_read": 840352353
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-ed895665-006d-44c3-80c3-bc6f1bf6e7f5",
+        "elapsed_ms": 930.8913590002703,
+        "rows": 5,
+        "sha256": "989fbcfa0fa7038f7b4d25a2fd39c75d437afbb578d4c2a82d8b4956679e11aa",
+        "statistics": {
+          "elapsed": "0.838350259",
+          "rows_read": 12243811,
+          "bytes_read": 840352353
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-91b18d92-5e14-43c6-b75e-3e90fe156a81",
+        "elapsed_ms": 952.7881620001608,
+        "rows": 5,
+        "sha256": "989fbcfa0fa7038f7b4d25a2fd39c75d437afbb578d4c2a82d8b4956679e11aa",
+        "statistics": {
+          "elapsed": "0.884637752",
+          "rows_read": 12243811,
+          "bytes_read": 840352353
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-a2fc651a-ea0c-44c5-a842-b889b0465f4d",
+        "elapsed_ms": 917.3585129997264,
+        "rows": 5,
+        "sha256": "989fbcfa0fa7038f7b4d25a2fd39c75d437afbb578d4c2a82d8b4956679e11aa",
+        "statistics": {
+          "elapsed": "0.847452063",
+          "rows_read": 12243811,
+          "bytes_read": 840352353
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      }
+    ],
+    "baseline/tab/hour": [
+      {
+        "status": "complete",
+        "query_id": "pilot-aedf54ea-4c39-48fd-9cf7-3755556ce8fd",
+        "elapsed_ms": 73.73716299980515,
+        "rows": 5,
+        "sha256": "af48594ac1ed81333d929a94cc5e33556c54fc9b2a74b9442b80456b447ca868",
+        "statistics": {
+          "elapsed": "0.007970803",
+          "rows_read": 98304,
+          "bytes_read": 2883345
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-4d13a3c5-5ce8-463f-ac63-1b17e3344c3a",
+        "elapsed_ms": 75.44754099990314,
+        "rows": 5,
+        "sha256": "af48594ac1ed81333d929a94cc5e33556c54fc9b2a74b9442b80456b447ca868",
+        "statistics": {
+          "elapsed": "0.008205985",
+          "rows_read": 98304,
+          "bytes_read": 2883345
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-3d1bd823-01f4-417c-82f8-3c4a434cb236",
+        "elapsed_ms": 74.5772489999581,
+        "rows": 5,
+        "sha256": "af48594ac1ed81333d929a94cc5e33556c54fc9b2a74b9442b80456b447ca868",
+        "statistics": {
+          "elapsed": "0.008289029",
+          "rows_read": 98304,
+          "bytes_read": 2883345
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-ec3ee1c1-e8e2-4ed5-bacb-02b9f2fa07ad",
+        "elapsed_ms": 74.30551900006321,
+        "rows": 5,
+        "sha256": "af48594ac1ed81333d929a94cc5e33556c54fc9b2a74b9442b80456b447ca868",
+        "statistics": {
+          "elapsed": "0.008197778",
+          "rows_read": 98304,
+          "bytes_read": 2883345
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "baseline/coverage/day": [
+      {
+        "status": "complete",
+        "query_id": "pilot-645b16e1-0fcf-4ec2-b2f4-927520a1a15a",
+        "elapsed_ms": 361.180050999792,
+        "rows": 1,
+        "sha256": "64d22c985d3cf2b7596de73c357302f25c8de83f18066efb7dcbd36c31b664a5",
+        "statistics": {
+          "elapsed": "0.294041239",
+          "rows_read": 1777563,
+          "bytes_read": 89982972
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-309f6965-3bdb-4fb7-97c3-8455fe3ca6f9",
+        "elapsed_ms": 337.6606029996765,
+        "rows": 1,
+        "sha256": "64d22c985d3cf2b7596de73c357302f25c8de83f18066efb7dcbd36c31b664a5",
+        "statistics": {
+          "elapsed": "0.26785569",
+          "rows_read": 1777563,
+          "bytes_read": 89982972
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-c560bb43-3606-43dc-b695-a64cdd0f4891",
+        "elapsed_ms": 352.0144539998,
+        "rows": 1,
+        "sha256": "64d22c985d3cf2b7596de73c357302f25c8de83f18066efb7dcbd36c31b664a5",
+        "statistics": {
+          "elapsed": "0.260335558",
+          "rows_read": 1777563,
+          "bytes_read": 89982972
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-052a9da6-4a13-4a26-9627-21665c698fb0",
+        "elapsed_ms": 347.7097289996891,
+        "rows": 1,
+        "sha256": "64d22c985d3cf2b7596de73c357302f25c8de83f18066efb7dcbd36c31b664a5",
+        "statistics": {
+          "elapsed": "0.280737821",
+          "rows_read": 1777563,
+          "bytes_read": 89982972
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      }
+    ],
+    "event/session/day": [
+      {
+        "status": "complete",
+        "query_id": "pilot-d32f29c0-53a6-409c-9c6b-205f694f5f93",
+        "elapsed_ms": 97.75652899998022,
+        "rows": 14,
+        "sha256": "c0981a5ca21be314872b9d27e14b95e613e6a6b8884b18e90f9281f5ca7e7c8e",
+        "statistics": {
+          "elapsed": "0.030712351",
+          "rows_read": 1787046,
+          "bytes_read": 47439022
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-bde72f6d-a199-4b97-8a8a-b1c86e13dc9e",
+        "elapsed_ms": 98.27611299988348,
+        "rows": 14,
+        "sha256": "c0981a5ca21be314872b9d27e14b95e613e6a6b8884b18e90f9281f5ca7e7c8e",
+        "statistics": {
+          "elapsed": "0.031249133",
+          "rows_read": 1787046,
+          "bytes_read": 47439022
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-73168d6e-1f6b-4323-bc7d-6f5808a333b4",
+        "elapsed_ms": 98.11908600022434,
+        "rows": 14,
+        "sha256": "c0981a5ca21be314872b9d27e14b95e613e6a6b8884b18e90f9281f5ca7e7c8e",
+        "statistics": {
+          "elapsed": "0.030741471",
+          "rows_read": 1787046,
+          "bytes_read": 47439022
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-3047d103-28d1-45bb-97bd-a0c7b7df8665",
+        "elapsed_ms": 96.63708900006895,
+        "rows": 14,
+        "sha256": "c0981a5ca21be314872b9d27e14b95e613e6a6b8884b18e90f9281f5ca7e7c8e",
+        "statistics": {
+          "elapsed": "0.029767344",
+          "rows_read": 1787046,
+          "bytes_read": 47439022
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "baseline/feature_funnel/hour": [
+      {
+        "status": "complete",
+        "query_id": "pilot-0a2d1797-e4da-407a-b857-ac9d8b192161",
+        "elapsed_ms": 103.46319700011009,
+        "rows": 1,
+        "sha256": "9a50bad58aefd6a83bc4381b113e5626cb279524fd4853ee279130ba08605aa5",
+        "statistics": {
+          "elapsed": "0.035096932",
+          "rows_read": 196609,
+          "bytes_read": 15298260
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-18a692a8-2adb-4e38-85b3-b6b77c62ded2",
+        "elapsed_ms": 99.90428500032067,
+        "rows": 1,
+        "sha256": "9a50bad58aefd6a83bc4381b113e5626cb279524fd4853ee279130ba08605aa5",
+        "statistics": {
+          "elapsed": "0.03344218",
+          "rows_read": 196609,
+          "bytes_read": 15298260
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-22339e90-e8a1-4a32-b67b-c5a77af8d597",
+        "elapsed_ms": 100.51723700007642,
+        "rows": 1,
+        "sha256": "9a50bad58aefd6a83bc4381b113e5626cb279524fd4853ee279130ba08605aa5",
+        "statistics": {
+          "elapsed": "0.034514269",
+          "rows_read": 196609,
+          "bytes_read": 15298260
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-1fb1cc0b-afa2-4c77-ace6-b4f3c153c3e9",
+        "elapsed_ms": 101.4459629996054,
+        "rows": 1,
+        "sha256": "9a50bad58aefd6a83bc4381b113e5626cb279524fd4853ee279130ba08605aa5",
+        "statistics": {
+          "elapsed": "0.035280968",
+          "rows_read": 196609,
+          "bytes_read": 15298260
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "event/metadata_join/day": [
+      {
+        "status": "complete",
+        "query_id": "pilot-91e2278b-826b-4cd6-a8e4-6aa05fd50703",
+        "elapsed_ms": 1723.561993000203,
+        "rows": 5,
+        "sha256": "896b952bdf184fb4fa2b45efff64c62531d3116127f55b03566bdb9310232cc6",
+        "statistics": {
+          "elapsed": "1.656836428",
+          "rows_read": 17285461,
+          "bytes_read": 1639282665
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-d37b31b3-f861-4264-abec-2c310a476593",
+        "elapsed_ms": 1724.8754810002538,
+        "rows": 5,
+        "sha256": "896b952bdf184fb4fa2b45efff64c62531d3116127f55b03566bdb9310232cc6",
+        "statistics": {
+          "elapsed": "1.657652806",
+          "rows_read": 17285461,
+          "bytes_read": 1639282665
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-961b5e74-ff12-48b7-a74d-2c35e27fc1cc",
+        "elapsed_ms": 1835.8407790001365,
+        "rows": 5,
+        "sha256": "896b952bdf184fb4fa2b45efff64c62531d3116127f55b03566bdb9310232cc6",
+        "statistics": {
+          "elapsed": "1.670289941",
+          "rows_read": 17285461,
+          "bytes_read": 1639282665
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-ddf0efae-cd62-48e5-b9b3-c0a226980ce6",
+        "elapsed_ms": 1738.077199000145,
+        "rows": 5,
+        "sha256": "896b952bdf184fb4fa2b45efff64c62531d3116127f55b03566bdb9310232cc6",
+        "statistics": {
+          "elapsed": "1.669997534",
+          "rows_read": 17285461,
+          "bytes_read": 1639282665
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      }
+    ],
+    "event/traffic_day/hour": [
+      {
+        "status": "complete",
+        "query_id": "pilot-80e0f229-abd7-4513-bcdf-30953ecd65cc",
+        "elapsed_ms": 86.474477000138,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.019991599",
+          "rows_read": 106496,
+          "bytes_read": 6508105
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-4f46bb0f-6d59-479f-8811-fd58040289ab",
+        "elapsed_ms": 86.71003000017663,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.020358444",
+          "rows_read": 106496,
+          "bytes_read": 6508105
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-f5b863c5-ea6d-4bbc-a673-03359747db97",
+        "elapsed_ms": 84.40990600001896,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.018070945",
+          "rows_read": 106496,
+          "bytes_read": 6508105
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-5a3c66fb-d236-4f88-b81a-41d54d9f9f26",
+        "elapsed_ms": 86.2359790003211,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.020047357",
+          "rows_read": 106496,
+          "bytes_read": 6508105
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "rollup/traffic_day/hour": [
+      {
+        "status": "complete",
+        "query_id": "pilot-221434bc-41ba-4d2b-adb8-2edb9316a2d9",
+        "elapsed_ms": 141.90930099994148,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.075500756",
+          "rows_read": 9245,
+          "bytes_read": 2381935
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-a97a4d40-e5b4-4d4e-9d09-fde68de7e192",
+        "elapsed_ms": 150.8972569999969,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.084500323",
+          "rows_read": 9245,
+          "bytes_read": 2381935
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-1b87dcee-f5a6-4397-a0cc-7d300d37ec38",
+        "elapsed_ms": 150.2615459999106,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.083369771",
+          "rows_read": 9245,
+          "bytes_read": 2381935
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-ef1c1177-50a6-406b-a9ba-174762694469",
+        "elapsed_ms": 155.98201399961908,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.086247918",
+          "rows_read": 9245,
+          "bytes_read": 2381935
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "baseline/ua_bot/day": [
+      {
+        "status": "complete",
+        "query_id": "pilot-f404bbaf-c95b-46d6-8bed-6f0ea7f0af72",
+        "elapsed_ms": 215.13065799990727,
+        "rows": 2,
+        "sha256": "ec1fdf13d8a73cd0065de210a91806304b8cc408c3e242b3464b52d1b34fc1e2",
+        "statistics": {
+          "elapsed": "0.14515238",
+          "rows_read": 1777562,
+          "bytes_read": 98660222
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-57afe8c3-c498-42b2-a553-4bb822efbbf3",
+        "elapsed_ms": 212.63825400001224,
+        "rows": 2,
+        "sha256": "ec1fdf13d8a73cd0065de210a91806304b8cc408c3e242b3464b52d1b34fc1e2",
+        "statistics": {
+          "elapsed": "0.145194514",
+          "rows_read": 1777562,
+          "bytes_read": 98660222
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-01c2cd0b-f362-4fc8-8a03-bf7b890ec38c",
+        "elapsed_ms": 213.40404100010346,
+        "rows": 2,
+        "sha256": "ec1fdf13d8a73cd0065de210a91806304b8cc408c3e242b3464b52d1b34fc1e2",
+        "statistics": {
+          "elapsed": "0.14522077",
+          "rows_read": 1777562,
+          "bytes_read": 98660222
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-99a73e43-5aa2-4c47-af4f-fb1cb1b394fe",
+        "elapsed_ms": 214.16378700041605,
+        "rows": 2,
+        "sha256": "ec1fdf13d8a73cd0065de210a91806304b8cc408c3e242b3464b52d1b34fc1e2",
+        "statistics": {
+          "elapsed": "0.14449789",
+          "rows_read": 1777562,
+          "bytes_read": 98660222
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      }
+    ],
+    "baseline/user/day": [
+      {
+        "status": "complete",
+        "query_id": "pilot-74e91a9c-150a-4ef6-a57a-8893aa52c5e3",
+        "elapsed_ms": 109.36821900031646,
+        "rows": 27,
+        "sha256": "5bd9fc3a27c716761afda49013fb6671c9c24fafe555708645d7eeae1808004e",
+        "statistics": {
+          "elapsed": "0.043027733",
+          "rows_read": 1777562,
+          "bytes_read": 32992435
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-b9c8bac3-c3a4-4f7e-9a02-10c2370be3a5",
+        "elapsed_ms": 109.23255499983497,
+        "rows": 27,
+        "sha256": "5bd9fc3a27c716761afda49013fb6671c9c24fafe555708645d7eeae1808004e",
+        "statistics": {
+          "elapsed": "0.042433222",
+          "rows_read": 1777562,
+          "bytes_read": 32992435
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-24cc3cb0-03a8-48bd-970d-bbb5a3b94e67",
+        "elapsed_ms": 107.19521200007875,
+        "rows": 27,
+        "sha256": "5bd9fc3a27c716761afda49013fb6671c9c24fafe555708645d7eeae1808004e",
+        "statistics": {
+          "elapsed": "0.04082277",
+          "rows_read": 1777562,
+          "bytes_read": 32992435
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-6f92487c-f49f-4c43-b3cd-50e86aa466f3",
+        "elapsed_ms": 107.94472900033725,
+        "rows": 27,
+        "sha256": "5bd9fc3a27c716761afda49013fb6671c9c24fafe555708645d7eeae1808004e",
+        "statistics": {
+          "elapsed": "0.041718123",
+          "rows_read": 1777562,
+          "bytes_read": 32992435
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      }
+    ],
+    "baseline/ab_assignments/hour": [
+      {
+        "status": "complete",
+        "query_id": "pilot-0f6f68b2-6308-4d2b-a121-77f690f4a78c",
+        "elapsed_ms": 85.58042300001034,
+        "rows": 2,
+        "sha256": "a641fc5ed34701f5f3ae8411a8dd05bc970ec5a702f61e8cc71da653378c3066",
+        "statistics": {
+          "elapsed": "0.017396584",
+          "rows_read": 98304,
+          "bytes_read": 7171672
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-47ee8e89-3481-4edb-beb4-dc5326870367",
+        "elapsed_ms": 85.56294099980732,
+        "rows": 2,
+        "sha256": "a641fc5ed34701f5f3ae8411a8dd05bc970ec5a702f61e8cc71da653378c3066",
+        "statistics": {
+          "elapsed": "0.01878056",
+          "rows_read": 98304,
+          "bytes_read": 7171672
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-8eecb9a6-fb7a-4668-a756-645a638797ec",
+        "elapsed_ms": 85.81505399979505,
+        "rows": 2,
+        "sha256": "a641fc5ed34701f5f3ae8411a8dd05bc970ec5a702f61e8cc71da653378c3066",
+        "statistics": {
+          "elapsed": "0.019311516",
+          "rows_read": 98304,
+          "bytes_read": 7171672
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-6c51f00f-323b-47e0-b9b7-b3bbd9b21f37",
+        "elapsed_ms": 86.5704210000331,
+        "rows": 2,
+        "sha256": "a641fc5ed34701f5f3ae8411a8dd05bc970ec5a702f61e8cc71da653378c3066",
+        "statistics": {
+          "elapsed": "0.019672739",
+          "rows_read": 98304,
+          "bytes_read": 7171672
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "rollup/traffic_hour/hour": [
+      {
+        "status": "complete",
+        "query_id": "pilot-886c7458-dfdb-4a57-932a-4a07c8496e8a",
+        "elapsed_ms": 154.90949500008355,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.083542385",
+          "rows_read": 9245,
+          "bytes_read": 2381935
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-d2ced44a-d45b-4334-8f09-0c442b7ca0d1",
+        "elapsed_ms": 152.84049399997457,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.086033008",
+          "rows_read": 9245,
+          "bytes_read": 2381935
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-261c23bb-52a4-4997-8913-0c78824b9ef3",
+        "elapsed_ms": 154.32419800026764,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.083753029",
+          "rows_read": 9245,
+          "bytes_read": 2381935
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-f7eb29e0-f667-4a4e-8221-0fcfe72a4f3b",
+        "elapsed_ms": 145.38477299993247,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.078545011",
+          "rows_read": 9245,
+          "bytes_read": 2381935
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "baseline/ab_outcome/day": [
+      {
+        "status": "complete",
+        "query_id": "pilot-c6aa98c0-1375-4740-acb8-231c52c84a16",
+        "elapsed_ms": 424.0087839998523,
+        "rows": 2,
+        "sha256": "fae9b27041d0b8652e7989c5586f369a2de1f327aa5acbb1235191c47e6dd6fd",
+        "statistics": {
+          "elapsed": "0.35376239",
+          "rows_read": 3555124,
+          "bytes_read": 272264273
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-a7fbff29-3b53-4412-ba7e-a3476851dca4",
+        "elapsed_ms": 517.934361999778,
+        "rows": 2,
+        "sha256": "fae9b27041d0b8652e7989c5586f369a2de1f327aa5acbb1235191c47e6dd6fd",
+        "statistics": {
+          "elapsed": "0.362442916",
+          "rows_read": 3555124,
+          "bytes_read": 272264273
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-500fd7d4-4e5c-4ba7-99e7-39636f4938ba",
+        "elapsed_ms": 423.88463099996443,
+        "rows": 2,
+        "sha256": "fae9b27041d0b8652e7989c5586f369a2de1f327aa5acbb1235191c47e6dd6fd",
+        "statistics": {
+          "elapsed": "0.355244531",
+          "rows_read": 3555124,
+          "bytes_read": 272264273
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-588cd023-6523-43e4-a949-b8376523d5ae",
+        "elapsed_ms": 421.4458129999912,
+        "rows": 2,
+        "sha256": "fae9b27041d0b8652e7989c5586f369a2de1f327aa5acbb1235191c47e6dd6fd",
+        "statistics": {
+          "elapsed": "0.354667918",
+          "rows_read": 3555124,
+          "bytes_read": 272264273
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "baseline/metadata_join/day": [
+      {
+        "status": "complete",
+        "query_id": "pilot-77305780-310a-4348-b7ed-e4c68e506c72",
+        "elapsed_ms": 1735.5321970003388,
+        "rows": 5,
+        "sha256": "896b952bdf184fb4fa2b45efff64c62531d3116127f55b03566bdb9310232cc6",
+        "statistics": {
+          "elapsed": "1.664627887",
+          "rows_read": 17266154,
+          "bytes_read": 1637579604
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-069304f1-151d-4dda-a439-c554e9c9057a",
+        "elapsed_ms": 1989.3750739997813,
+        "rows": 5,
+        "sha256": "896b952bdf184fb4fa2b45efff64c62531d3116127f55b03566bdb9310232cc6",
+        "statistics": {
+          "elapsed": "1.919342687",
+          "rows_read": 17266154,
+          "bytes_read": 1637579604
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-3ffff612-0178-496c-8ebc-2386c9af2526",
+        "elapsed_ms": 2429.0757129997473,
+        "rows": 5,
+        "sha256": "896b952bdf184fb4fa2b45efff64c62531d3116127f55b03566bdb9310232cc6",
+        "statistics": {
+          "elapsed": "2.357771308",
+          "rows_read": 17266154,
+          "bytes_read": 1637579604
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-1ffdee64-a36b-4059-a933-168dff0c9a15",
+        "elapsed_ms": 2002.6219920000585,
+        "rows": 5,
+        "sha256": "896b952bdf184fb4fa2b45efff64c62531d3116127f55b03566bdb9310232cc6",
+        "statistics": {
+          "elapsed": "1.934515175",
+          "rows_read": 17266154,
+          "bytes_read": 1637579604
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      }
+    ],
+    "baseline/coverage/hour": [
+      {
+        "status": "complete",
+        "query_id": "pilot-b853c68d-a1a9-4ad1-a847-bdfc70f10734",
+        "elapsed_ms": 87.63041699967289,
+        "rows": 1,
+        "sha256": "95446539ca8f47b83a10c46a252019dd039a432ace70583ee8df2ac2ce2b60a9",
+        "statistics": {
+          "elapsed": "0.02123933",
+          "rows_read": 98305,
+          "bytes_read": 4629090
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-56f77cc5-a5d4-4140-989f-923b7ed99d89",
+        "elapsed_ms": 89.52937999993082,
+        "rows": 1,
+        "sha256": "95446539ca8f47b83a10c46a252019dd039a432ace70583ee8df2ac2ce2b60a9",
+        "statistics": {
+          "elapsed": "0.023400449",
+          "rows_read": 98305,
+          "bytes_read": 4629090
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-df3eee38-8e8a-47bc-b3ee-3fb19376ab4a",
+        "elapsed_ms": 88.9452540000093,
+        "rows": 1,
+        "sha256": "95446539ca8f47b83a10c46a252019dd039a432ace70583ee8df2ac2ce2b60a9",
+        "statistics": {
+          "elapsed": "0.022527855",
+          "rows_read": 98305,
+          "bytes_read": 4629090
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-edaacaef-f487-4403-a0eb-dba03139b95c",
+        "elapsed_ms": 91.2284279997948,
+        "rows": 1,
+        "sha256": "95446539ca8f47b83a10c46a252019dd039a432ace70583ee8df2ac2ce2b60a9",
+        "statistics": {
+          "elapsed": "0.023949897",
+          "rows_read": 98305,
+          "bytes_read": 4629090
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "tab/tab/day": [
+      {
+        "status": "complete",
+        "query_id": "pilot-4418feca-2ce2-40f1-acca-735e8b29f924",
+        "elapsed_ms": 305.51070399997116,
+        "rows": 5,
+        "sha256": "45e66867cd8ca9baaf0b5e88755a8f8687f30604da5bdb4c2682bdf9eae5ddf3",
+        "statistics": {
+          "elapsed": "0.235709964",
+          "rows_read": 1261466,
+          "bytes_read": 28902396
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-47e30364-4648-4d86-b6af-cf510de43733",
+        "elapsed_ms": 91.67295799989006,
+        "rows": 5,
+        "sha256": "45e66867cd8ca9baaf0b5e88755a8f8687f30604da5bdb4c2682bdf9eae5ddf3",
+        "statistics": {
+          "elapsed": "0.025153715",
+          "rows_read": 1261466,
+          "bytes_read": 28902396
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-ba5a4049-e3d1-4af7-8a72-25138176fd8c",
+        "elapsed_ms": 91.18876999991699,
+        "rows": 5,
+        "sha256": "45e66867cd8ca9baaf0b5e88755a8f8687f30604da5bdb4c2682bdf9eae5ddf3",
+        "statistics": {
+          "elapsed": "0.024820615",
+          "rows_read": 1261466,
+          "bytes_read": 28902396
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-e567b9fb-43f4-42e3-8722-efdc99d52228",
+        "elapsed_ms": 91.24175800025114,
+        "rows": 5,
+        "sha256": "45e66867cd8ca9baaf0b5e88755a8f8687f30604da5bdb4c2682bdf9eae5ddf3",
+        "statistics": {
+          "elapsed": "0.024644899",
+          "rows_read": 1261466,
+          "bytes_read": 28902396
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "baseline/traffic_hour/day": [
+      {
+        "status": "complete",
+        "query_id": "pilot-1db3586e-abbc-4f03-97aa-7bd99657a906",
+        "elapsed_ms": 220.29103300019415,
+        "rows": 48,
+        "sha256": "985352666b51882874c43d8dba38143f810984ae4cbb806f105fd96f2448a6f7",
+        "statistics": {
+          "elapsed": "0.152943101",
+          "rows_read": 1777562,
+          "bytes_read": 120144218
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-3dd55960-efc9-4188-9407-faa3f0abc436",
+        "elapsed_ms": 204.9093990003712,
+        "rows": 48,
+        "sha256": "985352666b51882874c43d8dba38143f810984ae4cbb806f105fd96f2448a6f7",
+        "statistics": {
+          "elapsed": "0.137738738",
+          "rows_read": 1777562,
+          "bytes_read": 120144218
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-077dcb8a-ceb7-4a03-bc2d-0bbac1a7241e",
+        "elapsed_ms": 224.1394920001767,
+        "rows": 48,
+        "sha256": "985352666b51882874c43d8dba38143f810984ae4cbb806f105fd96f2448a6f7",
+        "statistics": {
+          "elapsed": "0.15651786",
+          "rows_read": 1777562,
+          "bytes_read": 120144218
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-aefbdcc6-821d-4334-95ed-b8b70fb9a80e",
+        "elapsed_ms": 257.92652899963286,
+        "rows": 48,
+        "sha256": "985352666b51882874c43d8dba38143f810984ae4cbb806f105fd96f2448a6f7",
+        "statistics": {
+          "elapsed": "0.191173711",
+          "rows_read": 1777562,
+          "bytes_read": 120144218
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      }
+    ],
+    "session/session/hour": [
+      {
+        "status": "complete",
+        "query_id": "pilot-862b7745-f35b-4b60-97df-3c01d10985a0",
+        "elapsed_ms": 82.51058099995134,
+        "rows": 14,
+        "sha256": "64a51e66f13519de1a436987dd6bbe14c909cef37eace269ce3385659a03a96b",
+        "statistics": {
+          "elapsed": "0.016359603",
+          "rows_read": 106496,
+          "bytes_read": 3406848
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-f9c1528c-15e3-461e-a8bc-ed874c521f6d",
+        "elapsed_ms": 77.26748300001418,
+        "rows": 14,
+        "sha256": "64a51e66f13519de1a436987dd6bbe14c909cef37eace269ce3385659a03a96b",
+        "statistics": {
+          "elapsed": "0.010930863",
+          "rows_read": 106496,
+          "bytes_read": 3406848
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-9f201a9e-2d23-4cfb-93a6-c6df7e11f751",
+        "elapsed_ms": 77.82652199966833,
+        "rows": 14,
+        "sha256": "64a51e66f13519de1a436987dd6bbe14c909cef37eace269ce3385659a03a96b",
+        "statistics": {
+          "elapsed": "0.011110065",
+          "rows_read": 106496,
+          "bytes_read": 3406848
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-1643f2b6-3489-4313-a01a-dc3961a34c51",
+        "elapsed_ms": 78.09574800012342,
+        "rows": 14,
+        "sha256": "64a51e66f13519de1a436987dd6bbe14c909cef37eace269ce3385659a03a96b",
+        "statistics": {
+          "elapsed": "0.011135122",
+          "rows_read": 106496,
+          "bytes_read": 3406848
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "metadata/metadata_join/day": [
+      {
+        "status": "complete",
+        "query_id": "pilot-ee09c5e3-0b8a-4c49-a2c7-f1a79f7efbf1",
+        "elapsed_ms": 680.5981540001085,
+        "rows": 5,
+        "sha256": "896b952bdf184fb4fa2b45efff64c62531d3116127f55b03566bdb9310232cc6",
+        "statistics": {
+          "elapsed": "0.613014359",
+          "rows_read": 4130253,
+          "bytes_read": 396077182
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-b11d5e0d-bb1f-4726-8f7d-02be799c906e",
+        "elapsed_ms": 638.7421570002516,
+        "rows": 5,
+        "sha256": "896b952bdf184fb4fa2b45efff64c62531d3116127f55b03566bdb9310232cc6",
+        "statistics": {
+          "elapsed": "0.571334782",
+          "rows_read": 4130253,
+          "bytes_read": 395958470
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-4a80c399-9e39-4a21-9a97-fbac33532709",
+        "elapsed_ms": 625.8637680002721,
+        "rows": 5,
+        "sha256": "896b952bdf184fb4fa2b45efff64c62531d3116127f55b03566bdb9310232cc6",
+        "statistics": {
+          "elapsed": "0.557782894",
+          "rows_read": 4130253,
+          "bytes_read": 395958470
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-63c53e61-e814-4d08-9f97-65bc34010346",
+        "elapsed_ms": 679.5834710001145,
+        "rows": 5,
+        "sha256": "896b952bdf184fb4fa2b45efff64c62531d3116127f55b03566bdb9310232cc6",
+        "statistics": {
+          "elapsed": "0.562661111",
+          "rows_read": 4130253,
+          "bytes_read": 395958470
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      }
+    ],
+    "baseline/traffic_day/day": [
+      {
+        "status": "complete",
+        "query_id": "pilot-7b653682-fb9a-4891-aa20-89d1d2c49b21",
+        "elapsed_ms": 210.02969699975438,
+        "rows": 2,
+        "sha256": "2c4935bd3058807de03a8d5a109a0551699e5ec1b0c42204871baadb2ea836c7",
+        "statistics": {
+          "elapsed": "0.143877758",
+          "rows_read": 1777562,
+          "bytes_read": 120144218
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-1b29b654-0c44-4b79-b444-fc0a3fcbc7bf",
+        "elapsed_ms": 208.95364699981656,
+        "rows": 2,
+        "sha256": "2c4935bd3058807de03a8d5a109a0551699e5ec1b0c42204871baadb2ea836c7",
+        "statistics": {
+          "elapsed": "0.137755018",
+          "rows_read": 1777562,
+          "bytes_read": 120144218
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-d5fdd0c6-d9fd-449f-aa5e-c6750ec7909c",
+        "elapsed_ms": 207.63640499990288,
+        "rows": 2,
+        "sha256": "2c4935bd3058807de03a8d5a109a0551699e5ec1b0c42204871baadb2ea836c7",
+        "statistics": {
+          "elapsed": "0.140992634",
+          "rows_read": 1777562,
+          "bytes_read": 120144218
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-a3cf0a28-4c1f-42f9-b165-66d2bdd7bda4",
+        "elapsed_ms": 206.37237599976288,
+        "rows": 2,
+        "sha256": "2c4935bd3058807de03a8d5a109a0551699e5ec1b0c42204871baadb2ea836c7",
+        "statistics": {
+          "elapsed": "0.140068497",
+          "rows_read": 1777562,
+          "bytes_read": 120144218
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "event/coverage/day": [
+      {
+        "status": "complete",
+        "query_id": "pilot-812ee831-9395-4747-9511-aaba5a17d13e",
+        "elapsed_ms": 293.7612559999252,
+        "rows": 1,
+        "sha256": "64d22c985d3cf2b7596de73c357302f25c8de83f18066efb7dcbd36c31b664a5",
+        "statistics": {
+          "elapsed": "0.226960907",
+          "rows_read": 1787047,
+          "bytes_read": 90458543
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-69e303b3-2f01-4214-9a83-151511aa3e2c",
+        "elapsed_ms": 313.9351469999383,
+        "rows": 1,
+        "sha256": "64d22c985d3cf2b7596de73c357302f25c8de83f18066efb7dcbd36c31b664a5",
+        "statistics": {
+          "elapsed": "0.246962234",
+          "rows_read": 1787047,
+          "bytes_read": 90458543
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-e509d23a-5290-4d66-a745-544392794310",
+        "elapsed_ms": 319.15905400001066,
+        "rows": 1,
+        "sha256": "64d22c985d3cf2b7596de73c357302f25c8de83f18066efb7dcbd36c31b664a5",
+        "statistics": {
+          "elapsed": "0.252326461",
+          "rows_read": 1787047,
+          "bytes_read": 90458543
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-b49f292f-b30f-496a-95b0-b1df1d933f4f",
+        "elapsed_ms": 321.2273960002676,
+        "rows": 1,
+        "sha256": "64d22c985d3cf2b7596de73c357302f25c8de83f18066efb7dcbd36c31b664a5",
+        "statistics": {
+          "elapsed": "0.254155988",
+          "rows_read": 1787047,
+          "bytes_read": 90458543
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      }
+    ],
+    "event/feature_counts/hour": [
+      {
+        "status": "complete",
+        "query_id": "pilot-10db0d0d-58d8-4b4a-a200-250787141a6f",
+        "elapsed_ms": 84.38600999988921,
+        "rows": 2,
+        "sha256": "f036c158e3225bc942193d7ecadeb15de3686b283769e723d2ffe02508a7eb7c",
+        "statistics": {
+          "elapsed": "0.01721589",
+          "rows_read": 106496,
+          "bytes_read": 5426361
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-18725da8-9268-4878-a135-4623b49847e9",
+        "elapsed_ms": 85.88624499998332,
+        "rows": 2,
+        "sha256": "f036c158e3225bc942193d7ecadeb15de3686b283769e723d2ffe02508a7eb7c",
+        "statistics": {
+          "elapsed": "0.019458458",
+          "rows_read": 106496,
+          "bytes_read": 5426361
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-35fc39d9-40a1-464f-a607-39c5ce04ee13",
+        "elapsed_ms": 84.72031800010882,
+        "rows": 2,
+        "sha256": "f036c158e3225bc942193d7ecadeb15de3686b283769e723d2ffe02508a7eb7c",
+        "statistics": {
+          "elapsed": "0.01804286",
+          "rows_read": 106496,
+          "bytes_read": 5426361
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-bc07b628-3691-4003-aa6a-ea710194d279",
+        "elapsed_ms": 86.61385199957294,
+        "rows": 2,
+        "sha256": "f036c158e3225bc942193d7ecadeb15de3686b283769e723d2ffe02508a7eb7c",
+        "statistics": {
+          "elapsed": "0.019571616",
+          "rows_read": 106496,
+          "bytes_read": 5426361
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "event/feature_funnel/day": [
+      {
+        "status": "complete",
+        "query_id": "pilot-0e95733f-0995-4d1d-b3e6-fefc76babe90",
+        "elapsed_ms": 323.3530860002247,
+        "rows": 1,
+        "sha256": "2390c7ea934ef0f92db174200eee4439f28b32c85045abb47963608a1aa7ffd1",
+        "statistics": {
+          "elapsed": "0.25214012",
+          "rows_read": 3574093,
+          "bytes_read": 279158473
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-7aed6ff4-6f73-4765-bcee-d4a664a617ee",
+        "elapsed_ms": 341.83676700013166,
+        "rows": 1,
+        "sha256": "2390c7ea934ef0f92db174200eee4439f28b32c85045abb47963608a1aa7ffd1",
+        "statistics": {
+          "elapsed": "0.269957501",
+          "rows_read": 3574093,
+          "bytes_read": 279158473
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-fcc652e6-286b-4a79-8244-758290deb816",
+        "elapsed_ms": 319.91483299998436,
+        "rows": 1,
+        "sha256": "2390c7ea934ef0f92db174200eee4439f28b32c85045abb47963608a1aa7ffd1",
+        "statistics": {
+          "elapsed": "0.251064455",
+          "rows_read": 3574093,
+          "bytes_read": 279158473
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-e9409b90-1d0c-4d6d-8824-38e35d47b494",
+        "elapsed_ms": 321.93547799988664,
+        "rows": 1,
+        "sha256": "2390c7ea934ef0f92db174200eee4439f28b32c85045abb47963608a1aa7ffd1",
+        "statistics": {
+          "elapsed": "0.252606681",
+          "rows_read": 3574093,
+          "bytes_read": 279158473
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "funnel/feature_funnel/hour": [
+      {
+        "status": "complete",
+        "query_id": "pilot-d1f2ecd1-d232-4183-8c4e-27aaf0349cbb",
+        "elapsed_ms": 94.4546799996715,
+        "rows": 1,
+        "sha256": "9a50bad58aefd6a83bc4381b113e5626cb279524fd4853ee279130ba08605aa5",
+        "statistics": {
+          "elapsed": "0.024109455",
+          "rows_read": 98305,
+          "bytes_read": 10209126
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-ef5f6acb-1f68-406b-9307-19fb8e4d37ee",
+        "elapsed_ms": 90.10515699992538,
+        "rows": 1,
+        "sha256": "9a50bad58aefd6a83bc4381b113e5626cb279524fd4853ee279130ba08605aa5",
+        "statistics": {
+          "elapsed": "0.023447613",
+          "rows_read": 98305,
+          "bytes_read": 10209126
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-502c8757-9167-4651-9165-16f6d0a3de8e",
+        "elapsed_ms": 90.84455300035188,
+        "rows": 1,
+        "sha256": "9a50bad58aefd6a83bc4381b113e5626cb279524fd4853ee279130ba08605aa5",
+        "statistics": {
+          "elapsed": "0.023814606",
+          "rows_read": 98305,
+          "bytes_read": 10209126
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-304f66a4-2b8d-48c2-b785-0af3b0149ccf",
+        "elapsed_ms": 90.96885700000712,
+        "rows": 1,
+        "sha256": "9a50bad58aefd6a83bc4381b113e5626cb279524fd4853ee279130ba08605aa5",
+        "statistics": {
+          "elapsed": "0.024297533",
+          "rows_read": 98305,
+          "bytes_read": 10209126
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ]
+  }
+}

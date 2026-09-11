@@ -1,0 +1,1455 @@
+{
+  "settings": {
+    "result_cache": false,
+    "condition_cache": false,
+    "max_threads": 2
+  },
+  "cases": {
+    "baseline/traffic_hour/hour": [
+      {
+        "status": "complete",
+        "query_id": "pilot-aae4e87d-bc51-4a4d-9707-facff57c42f6",
+        "elapsed_ms": 248.57814999995753,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.018601842",
+          "rows_read": 98304,
+          "bytes_read": 6302549
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-8d69d625-a25c-4bd3-bd5d-acd8aecf1e75",
+        "elapsed_ms": 86.4665040003274,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.018385025",
+          "rows_read": 98304,
+          "bytes_read": 6302549
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-89d2098b-ff65-4b87-94c0-0097eaf9b6e8",
+        "elapsed_ms": 84.79909200013935,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.017689678",
+          "rows_read": 98304,
+          "bytes_read": 6302549
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-63f5acba-c7af-493f-bcb9-a19ce3f902b4",
+        "elapsed_ms": 84.65745700004845,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.017731133",
+          "rows_read": 98304,
+          "bytes_read": 6302549
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "baseline/traffic_hour/day": [
+      {
+        "status": "complete",
+        "query_id": "pilot-02d4b092-916f-43d1-9c70-eb0e6445308b",
+        "elapsed_ms": 206.29571399967972,
+        "rows": 48,
+        "sha256": "985352666b51882874c43d8dba38143f810984ae4cbb806f105fd96f2448a6f7",
+        "statistics": {
+          "elapsed": "0.139083213",
+          "rows_read": 1777562,
+          "bytes_read": 120144218
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-77f8461e-5d22-4dbc-baa7-07b20e1ec5db",
+        "elapsed_ms": 209.79286200008573,
+        "rows": 48,
+        "sha256": "985352666b51882874c43d8dba38143f810984ae4cbb806f105fd96f2448a6f7",
+        "statistics": {
+          "elapsed": "0.141892392",
+          "rows_read": 1777562,
+          "bytes_read": 120144218
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-1bd31711-2942-4fc7-b797-68e63baf1e99",
+        "elapsed_ms": 217.00771799987706,
+        "rows": 48,
+        "sha256": "985352666b51882874c43d8dba38143f810984ae4cbb806f105fd96f2448a6f7",
+        "statistics": {
+          "elapsed": "0.149692218",
+          "rows_read": 1777562,
+          "bytes_read": 120144218
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-7e1c77a9-dd02-4719-ad0d-c069b19b8c73",
+        "elapsed_ms": 208.08293999971283,
+        "rows": 48,
+        "sha256": "985352666b51882874c43d8dba38143f810984ae4cbb806f105fd96f2448a6f7",
+        "statistics": {
+          "elapsed": "0.140803378",
+          "rows_read": 1777562,
+          "bytes_read": 120144218
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      }
+    ],
+    "baseline/event_counts/hour": [
+      {
+        "status": "complete",
+        "query_id": "pilot-9f06a3cf-1c85-4257-99ef-7e08aa368cf3",
+        "elapsed_ms": 85.07978900024682,
+        "rows": 84,
+        "sha256": "b22a9dc774add8b3433caf72865b04661011254e67d58b839a285c39abdbfa46",
+        "statistics": {
+          "elapsed": "0.01797462",
+          "rows_read": 98304,
+          "bytes_read": 3818081
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-c413f2a1-99ee-4af9-8179-78addf6175c5",
+        "elapsed_ms": 85.64837899984923,
+        "rows": 84,
+        "sha256": "b22a9dc774add8b3433caf72865b04661011254e67d58b839a285c39abdbfa46",
+        "statistics": {
+          "elapsed": "0.017996411",
+          "rows_read": 98304,
+          "bytes_read": 3818081
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-1e55b0b2-fd1c-4ba0-952d-ff88fae83450",
+        "elapsed_ms": 84.82762799985721,
+        "rows": 84,
+        "sha256": "b22a9dc774add8b3433caf72865b04661011254e67d58b839a285c39abdbfa46",
+        "statistics": {
+          "elapsed": "0.017674386",
+          "rows_read": 98304,
+          "bytes_read": 3818081
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-02c06f70-34a6-463b-af51-61697e5cb109",
+        "elapsed_ms": 86.25607400017543,
+        "rows": 84,
+        "sha256": "b22a9dc774add8b3433caf72865b04661011254e67d58b839a285c39abdbfa46",
+        "statistics": {
+          "elapsed": "0.018102062",
+          "rows_read": 98304,
+          "bytes_read": 3818081
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "rollup_fine/traffic_hour/day": [
+      {
+        "status": "complete",
+        "query_id": "pilot-b18947d1-350a-49b5-a3a9-a802796223ba",
+        "elapsed_ms": 81.65341399990211,
+        "rows": 48,
+        "sha256": "985352666b51882874c43d8dba38143f810984ae4cbb806f105fd96f2448a6f7",
+        "statistics": {
+          "elapsed": "0.013634046",
+          "rows_read": 2269,
+          "bytes_read": 579882
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-58e15e0e-6f88-45f1-a118-667ae13f196c",
+        "elapsed_ms": 85.89140300000508,
+        "rows": 48,
+        "sha256": "985352666b51882874c43d8dba38143f810984ae4cbb806f105fd96f2448a6f7",
+        "statistics": {
+          "elapsed": "0.015094428",
+          "rows_read": 2269,
+          "bytes_read": 579882
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-41ef9b9d-6810-43a7-ab68-a15b102e1d51",
+        "elapsed_ms": 84.07770800022263,
+        "rows": 48,
+        "sha256": "985352666b51882874c43d8dba38143f810984ae4cbb806f105fd96f2448a6f7",
+        "statistics": {
+          "elapsed": "0.015461277",
+          "rows_read": 2269,
+          "bytes_read": 579882
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-ebc96170-70db-48c6-94fe-3ff2f65dbc05",
+        "elapsed_ms": 83.26260900003035,
+        "rows": 48,
+        "sha256": "985352666b51882874c43d8dba38143f810984ae4cbb806f105fd96f2448a6f7",
+        "statistics": {
+          "elapsed": "0.01602728",
+          "rows_read": 2269,
+          "bytes_read": 579882
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      }
+    ],
+    "rollup_fine/traffic_day/hour": [
+      {
+        "status": "complete",
+        "query_id": "pilot-da6b8a67-c6cf-4863-9dbe-560c97ba1791",
+        "elapsed_ms": 73.19016000019474,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.006653422",
+          "rows_read": 128,
+          "bytes_read": 32776
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-e9237804-730d-4265-a332-dc7cb47675e7",
+        "elapsed_ms": 73.61533299990697,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.006996934",
+          "rows_read": 128,
+          "bytes_read": 32776
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-cd206717-c968-48a5-8f17-475bf9bbf74d",
+        "elapsed_ms": 73.60022400007438,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.006833133",
+          "rows_read": 128,
+          "bytes_read": 32776
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-722cfc58-8ecb-4532-9241-a00fba7a0b59",
+        "elapsed_ms": 74.84824599987405,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.006958478",
+          "rows_read": 128,
+          "bytes_read": 32776
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "rollup/event_counts/day": [
+      {
+        "status": "complete",
+        "query_id": "pilot-5c978562-5df8-45f5-912c-ad1ba96b68ed",
+        "elapsed_ms": 72.79754699993646,
+        "rows": 134,
+        "sha256": "827bfcf8c18f45074cea6d155a0e1e66fc9028a7b28d060d95411dadc1174f6a",
+        "statistics": {
+          "elapsed": "0.005267031",
+          "rows_read": 9245,
+          "bytes_read": 532935
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-d1fd5226-bbc2-4e58-b735-f41eef51d4f7",
+        "elapsed_ms": 73.08928199972797,
+        "rows": 134,
+        "sha256": "827bfcf8c18f45074cea6d155a0e1e66fc9028a7b28d060d95411dadc1174f6a",
+        "statistics": {
+          "elapsed": "0.004857963",
+          "rows_read": 9245,
+          "bytes_read": 532935
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-e7b4fc2c-3f35-47c5-bcd0-8cd5ea4c8852",
+        "elapsed_ms": 72.23212199960471,
+        "rows": 134,
+        "sha256": "827bfcf8c18f45074cea6d155a0e1e66fc9028a7b28d060d95411dadc1174f6a",
+        "statistics": {
+          "elapsed": "0.004842243",
+          "rows_read": 9245,
+          "bytes_read": 532935
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-1e453a43-069b-46bb-b01e-2d96e071528f",
+        "elapsed_ms": 75.59794500002681,
+        "rows": 134,
+        "sha256": "827bfcf8c18f45074cea6d155a0e1e66fc9028a7b28d060d95411dadc1174f6a",
+        "statistics": {
+          "elapsed": "0.005376864",
+          "rows_read": 9245,
+          "bytes_read": 532935
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      }
+    ],
+    "rollup/traffic_hour/hour": [
+      {
+        "status": "complete",
+        "query_id": "pilot-19e6207e-e026-40de-9e3e-3f37558b7b78",
+        "elapsed_ms": 155.00057899998865,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.087128986",
+          "rows_read": 9245,
+          "bytes_read": 2381935
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-e44e63c9-ca97-4985-81e3-9eb68ee4900f",
+        "elapsed_ms": 129.73262300010902,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.0624294",
+          "rows_read": 9245,
+          "bytes_read": 2381935
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-10c40073-653a-4f97-9672-c997d68926bb",
+        "elapsed_ms": 155.33152500029246,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.087627461",
+          "rows_read": 9245,
+          "bytes_read": 2381935
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-e64d2ba5-141a-4a97-bb0a-d2862759092e",
+        "elapsed_ms": 153.90618499986886,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.086054985",
+          "rows_read": 9245,
+          "bytes_read": 2381935
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "rollup_fine/event_counts/hour": [
+      {
+        "status": "complete",
+        "query_id": "pilot-6aa414bd-0e11-48b6-ae24-0c74b0834cff",
+        "elapsed_ms": 72.20843000004606,
+        "rows": 84,
+        "sha256": "b22a9dc774add8b3433caf72865b04661011254e67d58b839a285c39abdbfa46",
+        "statistics": {
+          "elapsed": "0.004332755",
+          "rows_read": 128,
+          "bytes_read": 7176
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-811756aa-ec76-4b89-998f-41046165e5fe",
+        "elapsed_ms": 71.97690900011366,
+        "rows": 84,
+        "sha256": "b22a9dc774add8b3433caf72865b04661011254e67d58b839a285c39abdbfa46",
+        "statistics": {
+          "elapsed": "0.004197871",
+          "rows_read": 128,
+          "bytes_read": 7176
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-949ad2e9-f95d-41e7-a49e-a4c05c8a0126",
+        "elapsed_ms": 72.11195199988651,
+        "rows": 84,
+        "sha256": "b22a9dc774add8b3433caf72865b04661011254e67d58b839a285c39abdbfa46",
+        "statistics": {
+          "elapsed": "0.00439749",
+          "rows_read": 128,
+          "bytes_read": 7176
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-1875a244-f8f1-4ac9-be1d-975c74403dea",
+        "elapsed_ms": 72.09673099987413,
+        "rows": 84,
+        "sha256": "b22a9dc774add8b3433caf72865b04661011254e67d58b839a285c39abdbfa46",
+        "statistics": {
+          "elapsed": "0.004259097",
+          "rows_read": 128,
+          "bytes_read": 7176
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "rollup_fine/event_counts/day": [
+      {
+        "status": "complete",
+        "query_id": "pilot-d0a18dc4-8ff3-4fac-924d-e99949cc8f8c",
+        "elapsed_ms": 73.7595489999876,
+        "rows": 134,
+        "sha256": "827bfcf8c18f45074cea6d155a0e1e66fc9028a7b28d060d95411dadc1174f6a",
+        "statistics": {
+          "elapsed": "0.006220043",
+          "rows_read": 2269,
+          "bytes_read": 126082
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-9ab736aa-28e6-49c7-951b-a03b158cba50",
+        "elapsed_ms": 72.5459730001603,
+        "rows": 134,
+        "sha256": "827bfcf8c18f45074cea6d155a0e1e66fc9028a7b28d060d95411dadc1174f6a",
+        "statistics": {
+          "elapsed": "0.00545031",
+          "rows_read": 2269,
+          "bytes_read": 126082
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-24ae7e23-5a18-45b5-8cc2-6ffc417170b0",
+        "elapsed_ms": 72.27345500041338,
+        "rows": 134,
+        "sha256": "827bfcf8c18f45074cea6d155a0e1e66fc9028a7b28d060d95411dadc1174f6a",
+        "statistics": {
+          "elapsed": "0.00536282",
+          "rows_read": 2269,
+          "bytes_read": 126082
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-2a728177-91ef-44c0-9cae-ac155deb78b5",
+        "elapsed_ms": 72.41213700035587,
+        "rows": 134,
+        "sha256": "827bfcf8c18f45074cea6d155a0e1e66fc9028a7b28d060d95411dadc1174f6a",
+        "statistics": {
+          "elapsed": "0.005546192",
+          "rows_read": 2269,
+          "bytes_read": 126082
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      }
+    ],
+    "rollup/traffic_hour/day": [
+      {
+        "status": "complete",
+        "query_id": "pilot-867bb640-ee48-4e75-b867-a4f89f45bffb",
+        "elapsed_ms": 152.43761400006406,
+        "rows": 48,
+        "sha256": "985352666b51882874c43d8dba38143f810984ae4cbb806f105fd96f2448a6f7",
+        "statistics": {
+          "elapsed": "0.084926387",
+          "rows_read": 9245,
+          "bytes_read": 2381935
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-e147ea45-f5ed-4647-8cf4-146702d6903a",
+        "elapsed_ms": 147.70820600006118,
+        "rows": 48,
+        "sha256": "985352666b51882874c43d8dba38143f810984ae4cbb806f105fd96f2448a6f7",
+        "statistics": {
+          "elapsed": "0.080211721",
+          "rows_read": 9245,
+          "bytes_read": 2381935
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-b9c78798-b5c5-4f22-999d-59b3c3386980",
+        "elapsed_ms": 128.3416070000385,
+        "rows": 48,
+        "sha256": "985352666b51882874c43d8dba38143f810984ae4cbb806f105fd96f2448a6f7",
+        "statistics": {
+          "elapsed": "0.061114149",
+          "rows_read": 9245,
+          "bytes_read": 2381935
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-005922fa-267c-4083-ab21-81e3e50ae097",
+        "elapsed_ms": 128.32134800009953,
+        "rows": 48,
+        "sha256": "985352666b51882874c43d8dba38143f810984ae4cbb806f105fd96f2448a6f7",
+        "statistics": {
+          "elapsed": "0.061133198",
+          "rows_read": 9245,
+          "bytes_read": 2381935
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      }
+    ],
+    "baseline/traffic_day/hour": [
+      {
+        "status": "complete",
+        "query_id": "pilot-dc22d8cc-9000-4791-8298-394106007747",
+        "elapsed_ms": 83.72326100015925,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.016680745",
+          "rows_read": 98304,
+          "bytes_read": 6302549
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-70c861dd-017d-4b78-8abb-249a095499c2",
+        "elapsed_ms": 84.43663300022308,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.017762134",
+          "rows_read": 98304,
+          "bytes_read": 6302549
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-a2e2d60d-9c67-45a3-bba4-9d8b30987727",
+        "elapsed_ms": 84.16716800002177,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.016928261",
+          "rows_read": 98304,
+          "bytes_read": 6302549
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-61f03d7b-4771-4e52-a1c7-8661341e1120",
+        "elapsed_ms": 86.5684219998002,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.01807509",
+          "rows_read": 98304,
+          "bytes_read": 6302549
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "baseline/event_counts/day": [
+      {
+        "status": "complete",
+        "query_id": "pilot-27706dc0-aaca-4ade-a074-9ad3682225fd",
+        "elapsed_ms": 202.5792489998821,
+        "rows": 134,
+        "sha256": "827bfcf8c18f45074cea6d155a0e1e66fc9028a7b28d060d95411dadc1174f6a",
+        "statistics": {
+          "elapsed": "0.133043421",
+          "rows_read": 1777562,
+          "bytes_read": 73984913
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-d41ff57e-5a05-46ec-8993-300d83f9556a",
+        "elapsed_ms": 205.00412399997003,
+        "rows": 134,
+        "sha256": "827bfcf8c18f45074cea6d155a0e1e66fc9028a7b28d060d95411dadc1174f6a",
+        "statistics": {
+          "elapsed": "0.133479779",
+          "rows_read": 1777562,
+          "bytes_read": 73984913
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-9c3a8e73-62d7-4370-9235-d70a9ed521d6",
+        "elapsed_ms": 199.72203399993305,
+        "rows": 134,
+        "sha256": "827bfcf8c18f45074cea6d155a0e1e66fc9028a7b28d060d95411dadc1174f6a",
+        "statistics": {
+          "elapsed": "0.131618633",
+          "rows_read": 1777562,
+          "bytes_read": 73984913
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-969e80f5-706b-4665-bab7-982a103ad9de",
+        "elapsed_ms": 196.5084969997406,
+        "rows": 134,
+        "sha256": "827bfcf8c18f45074cea6d155a0e1e66fc9028a7b28d060d95411dadc1174f6a",
+        "statistics": {
+          "elapsed": "0.128272377",
+          "rows_read": 1777562,
+          "bytes_read": 73984913
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": null
+      }
+    ],
+    "baseline/traffic_day/day": [
+      {
+        "status": "complete",
+        "query_id": "pilot-4facd213-9c35-4292-8008-f6f2348b10ef",
+        "elapsed_ms": 209.2082849999315,
+        "rows": 2,
+        "sha256": "2c4935bd3058807de03a8d5a109a0551699e5ec1b0c42204871baadb2ea836c7",
+        "statistics": {
+          "elapsed": "0.142221555",
+          "rows_read": 1777562,
+          "bytes_read": 120144218
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-e1222735-aab5-4a17-9d07-846713820116",
+        "elapsed_ms": 206.15230300018084,
+        "rows": 2,
+        "sha256": "2c4935bd3058807de03a8d5a109a0551699e5ec1b0c42204871baadb2ea836c7",
+        "statistics": {
+          "elapsed": "0.138313837",
+          "rows_read": 1777562,
+          "bytes_read": 120144218
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-8948344e-f6e3-4b64-8596-35d146ddd2cf",
+        "elapsed_ms": 210.39405200008332,
+        "rows": 2,
+        "sha256": "2c4935bd3058807de03a8d5a109a0551699e5ec1b0c42204871baadb2ea836c7",
+        "statistics": {
+          "elapsed": "0.1408518",
+          "rows_read": 1777562,
+          "bytes_read": 120144218
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-23fc86ef-281b-41ba-839a-46b5fecd4ffc",
+        "elapsed_ms": 207.02601499988305,
+        "rows": 2,
+        "sha256": "2c4935bd3058807de03a8d5a109a0551699e5ec1b0c42204871baadb2ea836c7",
+        "statistics": {
+          "elapsed": "0.13912373",
+          "rows_read": 1777562,
+          "bytes_read": 120144218
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "rollup/event_counts/hour": [
+      {
+        "status": "complete",
+        "query_id": "pilot-5b107800-c1d7-490b-9ab6-a1be295b6507",
+        "elapsed_ms": 72.73003799991784,
+        "rows": 84,
+        "sha256": "b22a9dc774add8b3433caf72865b04661011254e67d58b839a285c39abdbfa46",
+        "statistics": {
+          "elapsed": "0.005275803",
+          "rows_read": 9245,
+          "bytes_read": 532935
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-bdf75473-704b-4522-b47a-7eaf0d87041d",
+        "elapsed_ms": 72.75099900016357,
+        "rows": 84,
+        "sha256": "b22a9dc774add8b3433caf72865b04661011254e67d58b839a285c39abdbfa46",
+        "statistics": {
+          "elapsed": "0.005382514",
+          "rows_read": 9245,
+          "bytes_read": 532935
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-46444453-720b-41ad-8057-170f39f0175e",
+        "elapsed_ms": 71.83407600041392,
+        "rows": 84,
+        "sha256": "b22a9dc774add8b3433caf72865b04661011254e67d58b839a285c39abdbfa46",
+        "statistics": {
+          "elapsed": "0.004896671",
+          "rows_read": 9245,
+          "bytes_read": 532935
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-43882ea9-92bd-4bbf-9080-dc0ff0ac8e23",
+        "elapsed_ms": 73.31657500026267,
+        "rows": 84,
+        "sha256": "b22a9dc774add8b3433caf72865b04661011254e67d58b839a285c39abdbfa46",
+        "statistics": {
+          "elapsed": "0.005675406",
+          "rows_read": 9245,
+          "bytes_read": 532935
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "rollup_fine/traffic_day/day": [
+      {
+        "status": "complete",
+        "query_id": "pilot-0fbc8cdd-33da-4e55-99d1-e80c9ad92a89",
+        "elapsed_ms": 85.26818700011063,
+        "rows": 2,
+        "sha256": "2c4935bd3058807de03a8d5a109a0551699e5ec1b0c42204871baadb2ea836c7",
+        "statistics": {
+          "elapsed": "0.016713685",
+          "rows_read": 2269,
+          "bytes_read": 579882
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-1006f013-f0f6-4915-ad99-78970025c22c",
+        "elapsed_ms": 88.9876500000355,
+        "rows": 2,
+        "sha256": "2c4935bd3058807de03a8d5a109a0551699e5ec1b0c42204871baadb2ea836c7",
+        "statistics": {
+          "elapsed": "0.020624451",
+          "rows_read": 2269,
+          "bytes_read": 579882
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-938a8e65-67fb-4ff8-b4fa-36bea23ff44f",
+        "elapsed_ms": 82.76104600008694,
+        "rows": 2,
+        "sha256": "2c4935bd3058807de03a8d5a109a0551699e5ec1b0c42204871baadb2ea836c7",
+        "statistics": {
+          "elapsed": "0.015443049",
+          "rows_read": 2269,
+          "bytes_read": 579882
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-3c1d69e1-2105-4dd5-8e81-c81700d152b2",
+        "elapsed_ms": 80.78216400008387,
+        "rows": 2,
+        "sha256": "2c4935bd3058807de03a8d5a109a0551699e5ec1b0c42204871baadb2ea836c7",
+        "statistics": {
+          "elapsed": "0.014027667",
+          "rows_read": 2269,
+          "bytes_read": 579882
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "rollup/traffic_day/hour": [
+      {
+        "status": "complete",
+        "query_id": "pilot-9339fe7d-1384-41eb-a8e5-c0f58f5a93f9",
+        "elapsed_ms": 152.73555400017358,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.086048347",
+          "rows_read": 9245,
+          "bytes_read": 2381935
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-a29866b6-3417-45ea-b908-7549c1764129",
+        "elapsed_ms": 153.92656599988186,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.086537964",
+          "rows_read": 9245,
+          "bytes_read": 2381935
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-2803ef24-3ffb-4217-899f-d530e491c24b",
+        "elapsed_ms": 154.14298199993937,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.086741899",
+          "rows_read": 9245,
+          "bytes_read": 2381935
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-f9402c2f-cf65-49a4-ad20-425b768a1011",
+        "elapsed_ms": 131.99789200007217,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.064823971",
+          "rows_read": 9245,
+          "bytes_read": 2381935
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "rollup/traffic_day/day": [
+      {
+        "status": "complete",
+        "query_id": "pilot-5f468bcb-3962-458f-af90-1c931be9fe1d",
+        "elapsed_ms": 154.23782400011987,
+        "rows": 2,
+        "sha256": "2c4935bd3058807de03a8d5a109a0551699e5ec1b0c42204871baadb2ea836c7",
+        "statistics": {
+          "elapsed": "0.086649737",
+          "rows_read": 9245,
+          "bytes_read": 2381935
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-c5dd97bd-be94-49d8-b2f4-7914b60039ca",
+        "elapsed_ms": 147.65864199989664,
+        "rows": 2,
+        "sha256": "2c4935bd3058807de03a8d5a109a0551699e5ec1b0c42204871baadb2ea836c7",
+        "statistics": {
+          "elapsed": "0.080292851",
+          "rows_read": 9245,
+          "bytes_read": 2381935
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-2e022fb0-9111-4147-8a30-26e4ee8ce5b4",
+        "elapsed_ms": 131.43246099980388,
+        "rows": 2,
+        "sha256": "2c4935bd3058807de03a8d5a109a0551699e5ec1b0c42204871baadb2ea836c7",
+        "statistics": {
+          "elapsed": "0.064319348",
+          "rows_read": 9245,
+          "bytes_read": 2381935
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-230a35f0-4227-4df4-bca2-98e113cedbb5",
+        "elapsed_ms": 156.06553800034817,
+        "rows": 2,
+        "sha256": "2c4935bd3058807de03a8d5a109a0551699e5ec1b0c42204871baadb2ea836c7",
+        "statistics": {
+          "elapsed": "0.089091082",
+          "rows_read": 9245,
+          "bytes_read": 2381935
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ],
+    "rollup_fine/traffic_hour/hour": [
+      {
+        "status": "complete",
+        "query_id": "pilot-76d52129-c9bc-4bbc-a0b7-68146b2b0fae",
+        "elapsed_ms": 75.41984800036516,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.007316184",
+          "rows_read": 128,
+          "bytes_read": 32776
+        },
+        "repeat": 0,
+        "warmup": true,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-b4ff560e-3f95-47e5-881a-3643c4723daf",
+        "elapsed_ms": 74.05798399986452,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.007062004",
+          "rows_read": 128,
+          "bytes_read": 32776
+        },
+        "repeat": 1,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-4220932c-30df-4941-862f-c57f43249041",
+        "elapsed_ms": 73.49214999976539,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.006958182",
+          "rows_read": 128,
+          "bytes_read": 32776
+        },
+        "repeat": 2,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      },
+      {
+        "status": "complete",
+        "query_id": "pilot-d7d31e65-b7a3-43b5-8218-15d51136b9c2",
+        "elapsed_ms": 74.18689699989045,
+        "rows": 2,
+        "sha256": "cfcc36a7acaa2d6d1e2e3375293e50470f1397a5c213ef31f440e5d64ad5bfb1",
+        "statistics": {
+          "elapsed": "0.00741647",
+          "rows_read": 128,
+          "bytes_read": 32776
+        },
+        "repeat": 3,
+        "warmup": false,
+        "matches_raw_baseline": true,
+        "matches_saved_postgres": true
+      }
+    ]
+  },
+  "plans": {
+    "rollup/hour": {
+      "observation": {
+        "status": "complete",
+        "query_id": "pilot-05ce751b-cff2-443a-bfe1-79fe2f59e241",
+        "elapsed_ms": 69.67722799981857,
+        "rows": 16,
+        "sha256": "f31ad022a9a9a6db2f5e6083d8cab88379a6d5c87673afc4653de3dfa72be1f8",
+        "statistics": {
+          "elapsed": "0.003223939",
+          "rows_read": 16,
+          "bytes_read": 782
+        }
+      },
+      "rows": [
+        [
+          "Expression ((Project names + Projection))"
+        ],
+        [
+          "  Aggregating"
+        ],
+        [
+          "    Expression (Before GROUP BY)"
+        ],
+        [
+          "      Expression ((WHERE + Change column names to column identifiers))"
+        ],
+        [
+          "        ReadFromMergeTree (benchmark_20260910.hourly_rollup)"
+        ],
+        [
+          "        Indexes:"
+        ],
+        [
+          "          PrimaryKey"
+        ],
+        [
+          "            Keys:"
+        ],
+        [
+          "              environment"
+        ],
+        [
+          "              hour"
+        ],
+        [
+          "              event_type"
+        ],
+        [
+          "            Condition: and((event_type in 2-element set), and((_CAST(hour) in (-Inf, '1788742800')), and((_CAST(hour) in ['1788739200', +Inf)), (environment in ['[REDACTED]', '[REDACTED]']))))"
+        ],
+        [
+          "            Parts: 1/1"
+        ],
+        [
+          "            Granules: 1/2"
+        ],
+        [
+          "            Search Algorithm: generic exclusion search"
+        ],
+        [
+          "          Ranges: 1"
+        ]
+      ]
+    },
+    "rollup/day": {
+      "observation": {
+        "status": "complete",
+        "query_id": "pilot-f0161501-4bf7-4100-8d46-737ce83a163f",
+        "elapsed_ms": 69.8329100000592,
+        "rows": 16,
+        "sha256": "55640dcf5796e335c169be26f74e27249640afaa847463a2680190732d58cb1d",
+        "statistics": {
+          "elapsed": "0.003280385",
+          "rows_read": 16,
+          "bytes_read": 782
+        }
+      },
+      "rows": [
+        [
+          "Expression ((Project names + Projection))"
+        ],
+        [
+          "  Aggregating"
+        ],
+        [
+          "    Expression (Before GROUP BY)"
+        ],
+        [
+          "      Expression ((WHERE + Change column names to column identifiers))"
+        ],
+        [
+          "        ReadFromMergeTree (benchmark_20260910.hourly_rollup)"
+        ],
+        [
+          "        Indexes:"
+        ],
+        [
+          "          PrimaryKey"
+        ],
+        [
+          "            Keys:"
+        ],
+        [
+          "              environment"
+        ],
+        [
+          "              hour"
+        ],
+        [
+          "              event_type"
+        ],
+        [
+          "            Condition: and((event_type in 2-element set), and((_CAST(hour) in (-Inf, '1788825600')), and((_CAST(hour) in ['1788739200', +Inf)), (environment in ['[REDACTED]', '[REDACTED]']))))"
+        ],
+        [
+          "            Parts: 1/1"
+        ],
+        [
+          "            Granules: 1/2"
+        ],
+        [
+          "            Search Algorithm: generic exclusion search"
+        ],
+        [
+          "          Ranges: 1"
+        ]
+      ]
+    },
+    "rollup_fine/hour": {
+      "observation": {
+        "status": "complete",
+        "query_id": "pilot-982f303b-2b1e-4839-9656-57fc706152ea",
+        "elapsed_ms": 70.69550900041577,
+        "rows": 16,
+        "sha256": "5ca5e7c96aa15b39bc7d1795381fd445afb2686fe2fcc1e9d290351ac74ffc15",
+        "statistics": {
+          "elapsed": "0.003481307",
+          "rows_read": 16,
+          "bytes_read": 789
+        }
+      },
+      "rows": [
+        [
+          "Expression ((Project names + Projection))"
+        ],
+        [
+          "  Aggregating"
+        ],
+        [
+          "    Expression (Before GROUP BY)"
+        ],
+        [
+          "      Expression ((WHERE + Change column names to column identifiers))"
+        ],
+        [
+          "        ReadFromMergeTree (benchmark_20260910.hourly_rollup_fine)"
+        ],
+        [
+          "        Indexes:"
+        ],
+        [
+          "          PrimaryKey"
+        ],
+        [
+          "            Keys:"
+        ],
+        [
+          "              environment"
+        ],
+        [
+          "              hour"
+        ],
+        [
+          "              event_type"
+        ],
+        [
+          "            Condition: and((event_type in 2-element set), and((_CAST(hour) in (-Inf, '1788742800')), and((_CAST(hour) in ['1788739200', +Inf)), (environment in ['[REDACTED]', '[REDACTED]']))))"
+        ],
+        [
+          "            Parts: 1/1"
+        ],
+        [
+          "            Granules: 2/272"
+        ],
+        [
+          "            Search Algorithm: generic exclusion search"
+        ],
+        [
+          "          Ranges: 1"
+        ]
+      ]
+    },
+    "rollup_fine/day": {
+      "observation": {
+        "status": "complete",
+        "query_id": "pilot-2a6e022b-f7c8-42b4-b514-2f2d8c47ca06",
+        "elapsed_ms": 70.4897149998942,
+        "rows": 16,
+        "sha256": "b789d21eec3d07680b1d950f94dabbc1f09b25716d3e294feda33b5e417a725d",
+        "statistics": {
+          "elapsed": "0.003610055",
+          "rows_read": 16,
+          "bytes_read": 790
+        }
+      },
+      "rows": [
+        [
+          "Expression ((Project names + Projection))"
+        ],
+        [
+          "  Aggregating"
+        ],
+        [
+          "    Expression (Before GROUP BY)"
+        ],
+        [
+          "      Expression ((WHERE + Change column names to column identifiers))"
+        ],
+        [
+          "        ReadFromMergeTree (benchmark_20260910.hourly_rollup_fine)"
+        ],
+        [
+          "        Indexes:"
+        ],
+        [
+          "          PrimaryKey"
+        ],
+        [
+          "            Keys:"
+        ],
+        [
+          "              environment"
+        ],
+        [
+          "              hour"
+        ],
+        [
+          "              event_type"
+        ],
+        [
+          "            Condition: and((event_type in 2-element set), and((_CAST(hour) in (-Inf, '1788825600')), and((_CAST(hour) in ['1788739200', +Inf)), (environment in ['[REDACTED]', '[REDACTED]']))))"
+        ],
+        [
+          "            Parts: 1/1"
+        ],
+        [
+          "            Granules: 35/272"
+        ],
+        [
+          "            Search Algorithm: generic exclusion search"
+        ],
+        [
+          "          Ranges: 1"
+        ]
+      ]
+    }
+  }
+}
