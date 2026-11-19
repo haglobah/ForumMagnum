@@ -1,0 +1,39 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>04 · How Much Time Do You Have? — Library prototype</title>
+<link rel="stylesheet" href="../../shared/base.css">
+<link rel="stylesheet" href="style.css">
+</head><body>
+<lw-header design="04 · How Much Time Do You Have?"></lw-header>
+<main class="page">
+  <details class="design-note" open>
+    <summary>Design note</summary>
+    <p>Today's Library never says how long anything is, though its works run from a 20-minute sequence to a 40-hour novel, so you can't tell what you could actually finish. This page starts from the one constraint every reader has, their time, and turns it into a concrete plan of real posts and minutes. It trades away browsing by topic, author and history: the catalogue only shows up as a length axis.</p>
+  </details>
+
+  <section class="hero">
+    <h1 class="question">How much time do you have?</h1>
+    <div class="presets" id="presets" role="group" aria-label="Time budget"></div>
+    <div class="fine">
+      <label for="slider" class="fine-label">or exactly</label>
+      <input type="range" id="slider" min="0" max="1000" step="1" aria-label="Reading time budget">
+      <output id="budget-out" for="slider"></output>
+    </div>
+    <div class="moods" id="moods" role="group" aria-label="Mood"></div>
+  </section>
+
+  <section class="plan" id="plan" aria-live="polite"></section>
+
+  <section class="alts" id="alts"></section>
+
+  <section class="axis-section">
+    <h2 class="section-title">The whole Library, by length</h2>
+    <p class="axis-caption meta" id="axis-caption"></p>
+    <div class="axis-wrap" id="axis-wrap">
+      <svg id="axis" role="img" aria-label="Every sequence in the Library plotted by reading time"></svg>
+      <div class="tip" id="tip" hidden></div>
+    </div>
+    <p class="axis-help meta">Drag along the axis to set your time. Click a dot to plan around that work. Gold rings: contains Best of LessWrong winners.</p>
+  </section>
+</main>
+<script type="module" src="app.js"></script>
+</body></html>

@@ -1,0 +1,62 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>08 · Two Decades of Sequences — Library prototype</title>
+<link rel="stylesheet" href="../../shared/base.css">
+<link rel="stylesheet" href="timeline.css">
+</head><body>
+<lw-header design="08 · Two Decades of Sequences"></lw-header>
+<main class="page">
+  <aside class="dnote" id="dnote">
+    <button class="dnote-x" aria-label="Dismiss design note" title="Dismiss">×</button>
+    <b>Design note.</b> Today's Library shows a sequence from 2008 and one from 2025 as identical tiles, so a reader can't tell a timeless foundation from a period piece, and the history of LessWrong's thinking is invisible. This design puts every sequence on one time axis, with the eras named, so <i>when</i> something was written becomes part of what it is. It trades away a clear "start here" and browsing by cover art: the timeline answers "what was this place thinking, and when?", not "what should I read first?".
+  </aside>
+
+  <header class="intro">
+    <h1 class="page-title">Two decades of sequences</h1>
+    <p class="lede" id="lede">Every sequence in the Library, placed where its posts were written.</p>
+  </header>
+
+  <div class="controls ui" role="toolbar" aria-label="Filter the timeline">
+    <div class="topics" id="topics" role="group" aria-label="Topic"></div>
+    <div class="seg" id="kinds" role="group" aria-label="Which sequences">
+      <button data-kind="all" aria-pressed="true">All</button>
+      <button data-kind="curated" aria-pressed="false">Curated &amp; core</button>
+      <button data-kind="community" aria-pressed="false">Community</button>
+    </div>
+  </div>
+
+  <section class="chart card" id="chart" aria-label="Timeline of the Library's sequences">
+    <div class="overview" id="overviewWrap">
+      <div class="ov-head ui"><span>Posts written per year, by topic <span class="muted ov-hint">· drag across it to zoom into a period</span></span>
+        <span class="zoom"><button id="zoomOut" title="Zoom out" aria-label="Zoom out">−</button><button id="zoomIn" title="Zoom in" aria-label="Zoom in">+</button><button id="zoomReset">All years</button></span></div>
+      <svg id="ov" aria-hidden="true"></svg>
+    </div>
+    <div class="tlwrap" id="tlwrap">
+      <div class="eras-overlay" id="eraLabels"></div>
+      <svg id="tl" role="img" aria-label="Each sequence is a bar from its first to its last post, grouped by topic; gold dots are Best of LessWrong winners. The same sequences are listed year by year below."></svg>
+      <div class="hovercard" id="card" hidden></div>
+    </div>
+  </section>
+  <div class="legend ui" id="legend">
+    <span><i class="lg-bar"></i> where most of a sequence's posts fall</span>
+    <span><i class="lg-whisker"></i> its first to last post</span>
+    <span><i class="lg-dot"></i> Best of LessWrong winner</span>
+    <span><i class="lg-op"></i> stronger colour: higher median karma</span>
+    <span class="muted hint-h">Hover a bar for details · drag or ⌘/Ctrl-scroll to pan and zoom</span>
+  </div>
+
+  <h2 class="section-title">Five eras</h2>
+  <div class="eras" id="eras"></div>
+
+  <h2 class="section-title">How the topic mix shifted</h2>
+  <div class="insight card" id="insight">
+    <svg id="mix" aria-hidden="true"></svg>
+    <div class="insight-text" id="insightText"></div>
+  </div>
+
+  <h2 class="section-title" id="yearsTitle">Year by year</h2>
+  <div class="rangebar ui" id="rangebar" hidden></div>
+  <div class="years" id="years"></div>
+  <p class="foot meta">Dates are the posts' publication dates on LessWrong (posts imported from Overcoming Bias, Slate Star Codex and elsewhere keep their original dates). A sequence's topic is the most common core tag among its posts; for the few without one, a closely related tag. Snapshot of lesswrong.com, <span id="snap"></span>.</p>
+</main>
+<script type="module" src="timeline.js"></script>
+</body></html>

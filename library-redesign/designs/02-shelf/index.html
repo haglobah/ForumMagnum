@@ -1,0 +1,33 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>02 · The Shelf — Library prototype</title>
+<link rel="stylesheet" href="../../shared/base.css">
+<link rel="stylesheet" href="shelf.css">
+</head><body>
+<lw-header design="02 · The Shelf"></lw-header>
+<main class="page shelf-page">
+  <aside class="design-note" id="note">
+    <button class="note-x" aria-label="Dismiss the design note">×</button>
+    <b>Design note.</b> Today's Library shows every sequence as the same image tile, so a two-post sequence looks exactly like a thirty-hour book, and its subjects blur into one long grid. Here every work stands as a spine: thickness is reading time, colour and shelf are the topic, gold marks review winners, older bindings have faded. You see the size of a work and the shape of the library at a glance; the trade is the cover art (now inside the pulled-out book) and titles that run vertically and are slower to scan.
+  </aside>
+
+  <h1 class="page-title">The Library</h1>
+  <p class="lede">Every sequence on LessWrong, shelved by subject. A spine's thickness is how long it takes to read; pull one out to see what's inside.</p>
+
+  <section class="glance" id="glance" aria-label="The library at a glance"></section>
+
+  <div class="toolbar" id="toolbar">
+    <div class="sorts" role="group" aria-label="Arrange the shelves">
+      <span class="tb-label">Arrange by</span>
+      <button class="pill" data-sort="shelf" aria-pressed="true">Librarian's order</button>
+      <button class="pill" data-sort="length" aria-pressed="false">Length</button>
+      <button class="pill" data-sort="year" aria-pressed="false">Year</button>
+      <button class="pill" data-sort="karma" aria-pressed="false">Karma</button>
+    </div>
+    <div class="legend" id="legend" aria-hidden="true"></div>
+  </div>
+
+  <div id="shelves"></div>
+  <div id="tip" class="tip" role="tooltip" hidden></div>
+</main>
+<script type="module" src="shelf.js"></script>
+</body></html>

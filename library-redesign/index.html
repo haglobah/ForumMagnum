@@ -18,7 +18,6 @@
   .design .n { font: 600 13px var(--ui); color: var(--primary-dark); letter-spacing: .05em; }
   .design h3 { font: 400 22px/1.2 var(--display); margin: 2px 0 6px; }
   .design p { margin: 0; font-size: 15px; color: var(--muted); }
-  .design.missing { opacity: .45; pointer-events: none; }
   .note { font: 14px/1.45 var(--ui); color: var(--muted); max-width: 78ch; }
 </style>
 </head><body>
@@ -82,8 +81,7 @@
   ];
   const el = document.getElementById("designs");
   for (const [slug, title, text] of designs) {
-    const ok = (await fetch(`designs/${slug}/`, { method: "HEAD" })).ok;
-    el.insertAdjacentHTML("beforeend", `<a class="design card${ok ? "" : " missing"}" href="designs/${slug}/">
+    el.insertAdjacentHTML("beforeend", `<a class="design card" href="designs/${slug}/">
       <div class="n">${slug.slice(0, 2)}</div><h3>${title}</h3><p>${text}</p></a>`);
   }
   const raw = await (await fetch("data/library.json")).json();

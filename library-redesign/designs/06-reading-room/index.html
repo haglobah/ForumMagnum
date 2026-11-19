@@ -1,0 +1,32 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>06 · Your Reading Room — Library prototype</title>
+<link rel="stylesheet" href="../../shared/base.css">
+<link rel="stylesheet" href="./style.css">
+</head><body>
+<lw-header design="06 · Your Reading Room"></lw-header>
+<main class="page">
+  <aside class="design-note" id="note">
+    <button class="note-x" data-act="note" aria-label="Hide the design note">×</button>
+    <b>Design note.</b> Today's Library knows what a signed-in reader has read, yet shows everyone the same five tiles and a catalogue. This design makes it a shelf you return to: where you left off, what is in progress, what you saved, what you finished, and what to read because of it. It trades away browsing and editorial showcase: the full catalogue is a plain list at the bottom, and a new reader is given one clear start rather than many.
+  </aside>
+  <div class="viewing" role="group" aria-label="Viewing as">
+    <span class="viewing-label">Viewing as</span>
+    <button class="seg-btn" data-act="new" id="as-new">a new reader</button>
+    <button class="seg-btn" data-act="demo" id="as-demo">a returning reader <span class="muted">(demo history)</span></button>
+    <span class="viewing-hint" id="viewing-hint"></span>
+  </div>
+  <div id="shelf" aria-live="polite"><p class="meta">Loading your shelf…</p></div>
+  <section id="library-wrap">
+    <div class="lib-head">
+      <h2 class="section-title">The whole Library</h2>
+      <div class="lib-tools">
+        <div class="filters" id="filters"></div>
+        <input type="search" id="q" placeholder="Search titles and authors" aria-label="Search the Library">
+      </div>
+    </div>
+    <div id="library"></div>
+  </section>
+</main>
+<div class="toast" id="toast" role="status" hidden></div>
+<script type="module" src="./app.js"></script>
+</body></html>

@@ -1,0 +1,45 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>09 · Atlas — Library prototype</title>
+<link rel="stylesheet" href="../../shared/base.css">
+<link rel="stylesheet" href="atlas.css">
+</head><body>
+<lw-header design="09 · Atlas"></lw-header>
+<main class="page atlas-page">
+  <aside class="design-note" id="note">
+    <button class="note-x" aria-label="Hide the design note" title="Hide">×</button>
+    <b>Design note.</b> Today's Library shows its works as equal tiles in curation order, so nothing tells you that
+    AI alignment is the largest part of it, that one novel is a fifth of the canon, or where the long works are.
+    The Atlas draws the whole Library at once: area is reading time, depth of colour is median karma, gold marks
+    Best of LessWrong winners, and you zoom from topic to work to single post. It trades away reading order and
+    guidance: it shows the shape of the Library, not where to start. (The Highlights and Best of LessWrong are left
+    out as works, since they repeat posts that are already on the map.)
+  </aside>
+  <header class="atlas-head">
+    <h1 class="page-title">The Library, at a glance</h1>
+    <p class="lede" id="lede">&nbsp;</p>
+  </header>
+  <div class="toolbar ui">
+    <nav class="crumbs" id="crumbs" aria-label="Where you are"></nav>
+    <div class="controls">
+      <div class="seg" role="group" aria-label="Area shows" id="metric">
+        <span class="seg-l">Area</span>
+        <button data-v="time" aria-pressed="true">Reading time</button>
+        <button data-v="posts">Posts</button>
+        <button data-v="karma">Karma</button>
+      </div>
+      <div class="seg" role="group" aria-label="Which sequences" id="scope">
+        <span class="seg-l">Show</span>
+        <button data-v="core" aria-pressed="true">Curated &amp; core</button>
+        <button data-v="all">+ Community</button>
+      </div>
+    </div>
+  </div>
+  <div class="atlas">
+    <div class="map" id="map" tabindex="0" aria-label="Treemap of the Library"></div>
+    <aside class="panel" id="panel" aria-live="polite"></aside>
+  </div>
+  <p class="foot ui">Data: a snapshot of lesswrong.com, <span id="fetched"></span>. Topic = a sequence's most frequent core tag
+    (AI split by its strategy and forecasting tags; mostly-fiction sequences under Fiction). Colour = median karma of the posts inside.</p>
+</main>
+<script type="module" src="atlas.js"></script>
+</body></html>

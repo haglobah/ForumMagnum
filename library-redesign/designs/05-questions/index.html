@@ -1,0 +1,32 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>05 · Start With a Question — Library prototype</title>
+<link rel="stylesheet" href="../../shared/base.css">
+<link rel="stylesheet" href="style.css">
+</head><body>
+<lw-header design="05 · Start With a Question"></lw-header>
+<main class="page">
+  <aside class="design-note" id="note">
+    <button class="note-x" aria-label="Dismiss design note">×</button>
+    <b>Design note.</b> Today’s Library is indexed by titles like “Embedded Agency” or “Immoral Mazes”, which mean nothing until you have read them, and it gives no hint of where to start. This page indexes the Library by the questions people arrive with. Each one leads to two to five hand-picked answers (a whole sequence, a single chapter or a single post) and then to one sequence to go deeper. The cost is coverage and neutrality: an editor chose the questions, they reach only 66 of the 300-odd sequences, and the search box has to catch everything else.
+  </aside>
+
+  <section class="hero">
+    <div class="kicker">The Library</div>
+    <h1 class="page-title">What do you want to know?</h1>
+    <p class="lede">LessWrong has <span id="n-seq">300</span> sequences and thousands of essays, but most people arrive with a question, not a title. Pick a question and you get the few places worth starting, each with a line on why, and a longer sequence for when you want more.</p>
+    <form class="ask" id="ask" role="search" autocomplete="off">
+      <label for="ask-input">Ask your own question</label>
+      <div class="ask-row">
+        <input id="ask-input" type="search" placeholder="e.g. how do I stop procrastinating?" enterkeyhint="search">
+        <button type="submit">Find</button>
+      </div>
+    </form>
+  </section>
+
+  <div class="layout">
+    <nav class="questions" id="questions" aria-label="Questions"></nav>
+    <aside class="side" id="side"><div class="panel" id="panel" aria-live="polite"></div></aside>
+  </div>
+</main>
+<script type="module" src="app.js"></script>
+</body></html>

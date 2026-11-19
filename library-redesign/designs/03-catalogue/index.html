@@ -1,0 +1,64 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>03 · The Catalogue — Library prototype</title>
+<link rel="stylesheet" href="../../shared/base.css">
+<link rel="stylesheet" href="catalogue.css">
+</head><body>
+<lw-header design="03 · The Catalogue"></lw-header>
+<main class="page cat-page">
+  <aside class="design-note" id="note">
+    <button class="note-x" aria-label="Hide note" title="Hide note">×</button>
+    <b>Design note.</b> Today's Library is a wall of image tiles: no length, no topic, no date, no quality signal, no search, and 271 community sequences behind "Load more". The Catalogue treats the Library as a finder for people who know roughly what they want: every work in one dense list, filterable by topic, length, era, source and review winners, with each table of contents one keystroke away. It trades away the sense of a curated starting point and the pleasure of browsing pictures.
+  </aside>
+
+  <header class="cat-head">
+    <div>
+      <h1 class="page-title">The Library</h1>
+      <p class="cat-sub" id="sub">Every sequence, book and collection on LessWrong.</p>
+    </div>
+  </header>
+
+  <div class="toolbar">
+    <label class="search">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M13 13l4.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <input id="q" type="search" placeholder="Search titles, descriptions, posts and tags" autocomplete="off" spellcheck="false">
+      <kbd class="slash">/</kbd>
+    </label>
+    <button class="filters-btn" id="filtersBtn" type="button">Filters <span id="filtersCount"></span></button>
+    <label class="sort">
+      <span>Sort</span>
+      <select id="sort">
+        <option value="match">Best match</option>
+        <option value="editor">Editor's order</option>
+        <option value="loved">Most loved</option>
+        <option value="long">Longest</option>
+        <option value="short">Shortest</option>
+        <option value="new">Newest</option>
+        <option value="old">Oldest</option>
+      </select>
+    </label>
+  </div>
+
+  <div class="cat-body">
+    <div class="sheet-backdrop" id="backdrop"></div>
+    <nav class="facets" id="facets" aria-label="Filters">
+      <div class="sheet-head"><span>Filters</span><button type="button" id="sheetClose" aria-label="Close">×</button></div>
+      <div id="facetBody"></div>
+      <div class="sheet-foot"><button type="button" class="clear-link" id="sheetClear">Clear all</button><button type="button" class="show-btn" id="sheetShow">Show results</button></div>
+    </nav>
+    <section class="results" aria-live="polite">
+      <div class="status" id="status"></div>
+      <div class="colhead" id="colhead">
+        <span class="c-work">Work</span>
+        <span class="c-topics">Topics</span>
+        <button class="c-len" data-sort="long">Length</button>
+        <button class="c-years" data-sort="old">Written</button>
+        <button class="c-karma" data-sort="loved" title="Median karma of its posts">Karma</button>
+        <span class="c-win" title="Best of LessWrong review winners among its posts">Winners</span>
+      </div>
+      <ol class="rows" id="rows"></ol>
+      <p class="keys" id="keys"><kbd>/</kbd> search · <kbd>j</kbd> <kbd>k</kbd> move · <kbd>enter</kbd> open contents · <kbd>o</kbd> read on LessWrong · <kbd>esc</kbd> back</p>
+    </section>
+  </div>
+</main>
+<script type="module" src="catalogue.js"></script>
+</body></html>

@@ -1,0 +1,49 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>01 · Reading Paths — Library prototype</title>
+<link rel="stylesheet" href="../../shared/base.css">
+<link rel="stylesheet" href="paths.css">
+</head><body>
+<lw-header design="01 · Reading Paths"></lw-header>
+<main class="page">
+  <aside class="design-note" id="note">
+    <button class="note-x" aria-label="Dismiss note" title="Dismiss">×</button>
+    <b>Design note.</b> Today's Library opens with five equal "Core Reading" tiles and a flat grid: no "start here", no "then what". This design replaces both with six curated reading paths drawn as a transit map, so a newcomer sees a first stop and every reader sees where each sequence leads. It trades away neutrality: the map is an editorial opinion about order, and sequences not on a line drop to a compact index below.
+  </aside>
+
+  <header class="intro">
+    <h1 class="page-title">The Library</h1>
+    <p class="lede">Six reading paths through LessWrong's long-form writing. Each stop is a sequence, sized in posts and hours; where lines cross, you can change. <b>New here? Board at the <a href="#" data-open="highlights">Sequences Highlights</a>.</b></p>
+    <div class="tools ui">
+      <button class="pill" id="demo" aria-pressed="false">Show a sample reader's progress</button>
+      <span class="meta" id="progress-sum"></span>
+    </div>
+  </header>
+
+  <section class="map-wrap" id="map-wrap" aria-label="Reading paths map">
+    <svg id="map" role="img" aria-label="Transit map of reading paths"></svg>
+    <div class="pop card" id="pop" hidden></div>
+  </section>
+
+  <section class="lines" id="lines" aria-label="The paths"></section>
+
+  <section class="phone" id="phone" aria-label="Reading paths">
+    <div class="chips" id="chips" role="tablist"></div>
+    <div id="vline"></div>
+  </section>
+
+  <section class="index" id="index">
+    <h2 class="section-title">Everything else in the Library</h2>
+    <p class="meta index-lede">The map is a selection. Everything else is here: the full collections, the remaining curated sequences and the best community sequences, ranked by the median karma of their posts.</p>
+    <div class="collections" id="collections"></div>
+    <div class="index-tools ui">
+      <input type="search" id="q" placeholder="Filter by title, author or topic…" aria-label="Filter sequences">
+    </div>
+    <div class="index-cols">
+      <div><h3 class="col-title">More curated sequences</h3><div id="curated"></div></div>
+      <div><h3 class="col-title">The best community sequences</h3><div id="community"></div>
+        <button class="pill more" id="more"></button></div>
+    </div>
+  </section>
+</main>
+<script type="module" src="app.js"></script>
+</body></html>

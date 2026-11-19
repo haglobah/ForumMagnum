@@ -1,0 +1,33 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>10 · The Librarian's Desk — Library prototype</title>
+<link rel="stylesheet" href="../../shared/base.css">
+<link rel="stylesheet" href="desk.css">
+</head><body>
+<lw-header design="10 · The Librarian's Desk"></lw-header>
+<main class="page desk">
+  <aside class="design-note" id="note">
+    <button class="note-x" aria-label="Dismiss design note" title="Dismiss">×</button>
+    <b>Design note.</b> Today's Library has no voice and buries its 271 community sequences behind “Load more” with no sign of which are good.
+    This page reads like an issue of a magazine: one work featured and introduced by a librarian, an honest reading order for the core books, a short staff shelf, and a ranked board of community work with a score you can inspect.
+    It trades breadth and browsing (no filters, no full catalogue on the page) for a point of view, and the featured work needs a human to choose and write it each season.
+  </aside>
+
+  <header class="masthead">
+    <div class="mast-rule ui"><span>LessWrong</span><span id="edition"></span><span>Long-form reading</span></div>
+    <h1 class="mast-title">The Library</h1>
+    <p class="mast-deck">Sequences are LessWrong's books: posts written to be read in order, building one idea on another. Each season the librarians pick one to put on the desk, keep a short shelf of favourites, and let the community's own votes rank the rest.</p>
+    <nav class="mast-index ui" aria-label="In this issue">
+      <a href="#desk">From the Desk</a><a href="#start">Start here</a><a href="#shelf">Staff shelf</a><a href="#board">Earned its place</a><a href="#new">New on the shelves</a>
+    </nav>
+  </header>
+
+  <section id="desk" class="feature" aria-labelledby="feature-title"></section>
+  <section id="start" class="start" aria-labelledby="start-title"></section>
+  <section id="shelf" class="shelf" aria-labelledby="shelf-title"></section>
+  <section id="board" class="board" aria-labelledby="board-title"></section>
+  <section id="new" class="fresh" aria-labelledby="new-title"></section>
+  <footer class="colophon ui" id="colophon"></footer>
+</main>
+<div class="why-pop" id="why" role="tooltip" hidden></div>
+<script type="module" src="desk.js"></script>
+</body></html>
