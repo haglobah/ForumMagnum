@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Library redesign · prototypes</title>
+<link rel="stylesheet" href="shared/base.css">
+<style>
+  .page { max-width: 980px; }
+  .lede { font-size: 19px; max-width: 70ch; }
+  h2 { font: 400 28px/1.2 var(--display); margin: 44px 0 10px; }
+  ol.findings, ul.purpose { padding-left: 22px; max-width: 78ch; }
+  ol.findings li, ul.purpose li { margin: 0 0 10px; }
+  ol.findings b, ul.purpose b { font-weight: 600; }
+  table.cmp { border-collapse: collapse; width: 100%; font: 15px/1.4 var(--ui); background: var(--panel); box-shadow: var(--shadow); }
+  table.cmp th, table.cmp td { text-align: left; vertical-align: top; padding: 9px 12px; border-bottom: 1px solid var(--line); }
+  table.cmp th { font-weight: 600; background: rgba(0,0,0,.03); }
+  table.cmp td:first-child { color: var(--muted); white-space: nowrap; }
+  .designs { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 14px; margin-top: 14px; }
+  .design { display: block; padding: 16px 18px; }
+  .design .n { font: 600 13px var(--ui); color: var(--primary-dark); letter-spacing: .05em; }
+  .design h3 { font: 400 22px/1.2 var(--display); margin: 2px 0 6px; }
+  .design p { margin: 0; font-size: 15px; color: var(--muted); }
+  .design.missing { opacity: .45; pointer-events: none; }
+  .note { font: 14px/1.45 var(--ui); color: var(--muted); max-width: 78ch; }
+</style>
+</head><body>
+<header class="lw-header"><span class="logo">LessWrong</span><span class="crumb">Library redesign</span><span class="spacer"></span><span class="proto"><a href="https://www.lesswrong.com/library" target="_blank">die Seite heute ↗</a></span></header>
+<main class="page">
+  <h1 class="page-title">Die Library, neu gedacht</h1>
+  <p class="lede">Zehn Prototypen für <a href="https://www.lesswrong.com/library" style="color:var(--primary-dark)">lesswrong.com/library</a>, alle auf echten Daten: ein Snapshot der öffentlichen GraphQL-API (<span class="ui" id="fetched"></span>, 42 kuratierte und 271 Community-Sequenzen samt Kapiteln und Posts, 339 Review-Gewinner). Lesefortschritt ist simuliert (localStorage), weil die API ausgeloggt keinen hat.</p>
+
+  <h2>Was an der Seite heute nicht gut ist</h2>
+  <ol class="findings">
+    <li><b>Keine Orientierung.</b> Die Seite beginnt mit „THE LIBRARY“ und dann fünf Kacheln. Kein Satz dazu, was die Library ist, für wen sie ist oder wo man anfangen soll.</li>
+    <li><b>„Core Reading“ stellt Ungleiches gleich.</b> Die Highlights sind eine Teilmenge von Rationality: A-Z, stehen aber als gleichrangige Alternative daneben, ohne „fang hier an“. HPMOR ist Fiktion, die Codex sind Essays eines anderen Autors. Best of LessWrong ist gar kein Buch, sondern ein Ranking einzelner Posts. Fünf gleich große Karten mit Werbetext füllen fast zwei Bildschirmhöhen.</li>
+    <li><b>Doppelungen.</b> Vier der 42 kuratierten Sequenzen sind die ersten Bände genau dieser Sammlungen (Predictably Wrong, Thinking Better on Purpose, The Methods of Rationality, Argument and Analysis). Sie stehen also zweimal auf der Seite, einmal als Sammlung und einmal als Kachel im Raster.</li>
+    <li><b>Das Raster sagt fast nichts.</b> Eine Kachel zeigt Bild, Titel (in Kapitälchen, schwer zu überfliegen) und Autor. Es fehlen Umfang (zwischen 1 und 46 Posts, Median 1,7 h, bis über 10 h), Thema, Entstehungszeit, Qualitätssignal und was drinsteht. Die Bilder sind Stimmung, keine Information.</li>
+    <li><b>Die Reihenfolge ist opak.</b> Die kuratierten Sequenzen sind nach <code>curatedOrder</code> sortiert, also ungefähr danach, wann sie kuratiert wurden. So steht <i>Infra-Bayesianism</i> neben <i>Intro to Naturalism</i> und <i>Luna Lovegood</i>. Gruppiert wird nicht, filtern, sortieren oder suchen kann man auch nicht.</li>
+    <li><b>Die Themen sind schief und unsichtbar.</b> AI ist der größte Block (über ein Drittel der Kern-Tags in den kuratierten, fast die Hälfte in den Community-Sequenzen). Wer Rationality oder Praktisches sucht, muss sich trotzdem durch Alignment-Forschung scrollen, und umgekehrt.</li>
+    <li><b>Community-Sequenzen ohne Kuratierung.</b> 271 Stück, gezeigt werden 12 plus „Load more“ ohne Qualitätssignal. 37 haben höchstens zwei Posts. Die Hälfte hat einen Median-Karma unter 27, das Viertel oben liegt über 50. 39 Review-Gewinner stecken in Community-Sequenzen, man sieht es ihnen nur nicht an.</li>
+    <li><b>Kein persönlicher Zustand.</b> Die Library weiß, was man gelesen hat (<code>readPostsCount</code>), macht daraus aber kein „weiterlesen“, kein „angefangen“ und kein „fertig“. Für Wiederkehrende ist sie ein Katalog statt ein Regal.</li>
+    <li><b>Keine Zeitangaben.</b> Sequenzen von 2009 und 2025 sehen gleich aus. Man kann nicht erkennen, was zeitlos ist und was ein Zeitdokument (<i>2021 MIRI Conversations</i>).</li>
+    <li><b>Kein Blick hinein.</b> Um zu sehen, welche Kapitel und Posts eine Sequenz hat und wie stark sie sind, muss man sie öffnen. Vergleichen ist Klickarbeit.</li>
+    <li><b>Lesen und Schreiben vermischt.</b> „New Sequence“ steht in der Überschrift der Community-Sequenzen, als Hauptaktion einer Leseseite.</li>
+  </ol>
+
+  <h2>Wozu die Library da sein sollte</h2>
+  <ul class="purpose">
+    <li><b>Ein Einstieg mit Richtung.</b> Für Neue: ein klarer erster Schritt und ein Weg danach, statt fünf gleichrangiger Angebote.</li>
+    <li><b>Das Zuhause des langen Lesens.</b> Sequenzen sind Werke: geordnet, aufeinander aufbauend, mehrere Stunden lang. Die Library hilft bei der Entscheidung, auf welches man sich einlässt, also nach Umfang, Thema, Schwierigkeit und Qualität.</li>
+    <li><b>Ein Regal, zu dem man zurückkehrt.</b> Was ich angefangen habe, was als Nächstes kommt, was ich fertig habe.</li>
+    <li><b>Der Kanon und seine Ränder.</b> Die zentralen Werke sichtbar machen und gute Community-Sequenzen nach oben bringen, ohne dass sie im „Load more“ verschwinden.</li>
+    <li><b>Eine Landkarte des Wissens.</b> Wie die Themen zusammenhängen, was worauf aufbaut, und wie sich LessWrong-Denken über die Zeit entwickelt hat.</li>
+  </ul>
+
+  <h2>Library gegen Best of LessWrong</h2>
+  <table class="cmp">
+    <tr><th></th><th>Library</th><th>Best of LessWrong</th></tr>
+    <tr><td>Einheit</td><td>Werke: Sequenzen, Bücher, Sammlungen. Geordnet, mit Kapiteln.</td><td>Einzelne Essays, jeder für sich lesbar.</td></tr>
+    <tr><td>Wer wählt aus</td><td>Moderatoren (kuratiert) oder Autoren selbst (Community)</td><td>Die Community, per jährlichem Review und Abstimmung</td></tr>
+    <tr><td>Was es verspricht</td><td>Tiefe: ein Gedankengebäude der Reihe nach aufbauen</td><td>Breite: das Wertvollste, das man verpasst haben könnte</td></tr>
+    <tr><td>Einsatz des Lesers</td><td>Stunden bis Wochen, Fortschritt zählt</td><td>Eine Sitzung, ein Post</td></tr>
+    <tr><td>Ordnung</td><td>Reihenfolge, Voraussetzungen, Pfade</td><td>Jahr, Kategorie, Rang</td></tr>
+    <tr><td>Die Frage dahinter</td><td>„Worauf lasse ich mich als Nächstes ein, und wo war ich?“</td><td>„Was hat sich über die Zeit bewährt?“</td></tr>
+  </table>
+  <p class="note">Daraus folgt: Best of LessWrong gehört nicht als „Buch“ in die Core-Reading-Reihe. Die Review-Ergebnisse sind aber ein starkes Qualitätssignal <i>für</i> die Library: 75 Gewinner stecken in Sequenzen. Eine Sequenz mit drei Gewinnern verdient es, das zu zeigen, und ein Gewinner ist oft die beste Tür in seine Sequenz hinein.</p>
+
+  <h2>Zehn Entwürfe</h2>
+  <p class="note">Jeder Entwurf nimmt einen anderen Aspekt von oben ernst. Die Entwürfe ergänzen sich, man muss nicht einen wählen: eine echte neue Seite wäre wohl eine Kombination aus zwei, drei davon.</p>
+  <div class="designs" id="designs"></div>
+</main>
+<script type="module">
+  const designs = [
+    ["01-paths", "Reading Paths", "Kuratierte Lesepfade als Linien über alle Sequenzen (Grundlagen → Praxis → Alignment …), mit Stationen und Abzweigungen. Für Einsteiger: was zuerst, was danach."],
+    ["02-shelf", "The Shelf", "Ein echtes Regal: Buchrücken, Dicke = Umfang, Farbe = Thema, Alter = Patina. Herausziehen zeigt das Inhaltsverzeichnis. Stöbern statt Katalog."],
+    ["03-catalogue", "The Catalogue", "Dichte, sortier- und filterbare Liste mit Facetten (Thema, Länge, Jahrzehnt, Review-Gewinner) und aufklappbaren Inhaltsverzeichnissen. Für Leute, die etwas Bestimmtes suchen."],
+    ["04-time", "How Much Time Do You Have?", "Auswahl nach Zeitbudget: 20 Minuten, ein Abend, ein Wochenende, ein Monat. Schlägt passende Sequenzen oder Kapitel vor und zeigt einen Leseplan."],
+    ["05-questions", "Start With a Question", "Die Library nach Fragen statt nach Titeln geordnet („Wie ändere ich gut meine Meinung?“, „Warum könnte AI gefährlich sein?“), jede Frage führt zu Kapiteln und Posts."],
+    ["06-reading-room", "Your Reading Room", "Die Library als persönliches Regal: weiterlesen, angefangen, fertig, und Vorschläge aus dem, was man gelesen hat. Fortschritt simuliert."],
+    ["07-tasting", "Tasting Menu", "Jede Sequenz durch ihren stärksten Post vorgestellt (Karma, Review-Gewinn). Erst probieren, dann auf das ganze Werk einlassen."],
+    ["08-timeline", "Two Decades of Sequences", "Alle Sequenzen auf einer Zeitachse von 2006 bis heute, mit Epochen. Zeigt, wie sich der Kanon entwickelt hat, und macht Datierung sichtbar."],
+    ["09-atlas", "Atlas", "Die Gestalt der Library: Treemap nach Thema, Fläche = Lesezeit, Farbintensität = Qualität. Klick zoomt in ein Thema und seine Sequenzen."],
+    ["10-editorial", "The Librarian's Desk", "Redaktionelle Startseite: ein ausführlich vorgestelltes Werk, Empfehlungen der Moderatoren, und eine Rangliste der Community-Sequenzen, die sich ihren Platz verdient haben."],
+  ];
+  const el = document.getElementById("designs");
+  for (const [slug, title, text] of designs) {
+    const ok = (await fetch(`designs/${slug}/`, { method: "HEAD" })).ok;
+    el.insertAdjacentHTML("beforeend", `<a class="design card${ok ? "" : " missing"}" href="designs/${slug}/">
+      <div class="n">${slug.slice(0, 2)}</div><h3>${title}</h3><p>${text}</p></a>`);
+  }
+  const raw = await (await fetch("data/library.json")).json();
+  document.getElementById("fetched").textContent = "Stand " + new Date(raw.fetchedAt).toLocaleDateString("de");
+</script>
+</body></html>

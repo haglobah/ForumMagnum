@@ -1,0 +1,52 @@
+/* LessWrong's look, near enough for prototypes. The real site sets warnock-pro
+   and Gill Sans from Typekit (locked to its domain); ET Book is public. */
+@font-face { font-family: ETBookRoman; src: url("https://res.cloudinary.com/lesswrong-2-0/raw/upload/v1723063815/et-book-roman-line-figures_tvofzs.woff") format("woff"); }
+
+:root {
+  --bg: #f8f4ee;            /* the site's background */
+  --panel: #fff;            /* cards, panels */
+  --fg: rgba(0,0,0,.87);
+  --muted: rgba(0,0,0,.55);
+  --faint: rgba(0,0,0,.35);
+  --line: rgba(0,0,0,.1);
+  --primary: #5f9b65;       /* LessWrong green */
+  --primary-dark: #3f7a45;
+  --winner: #c8a23a;        /* Best of LessWrong gold */
+  --serif: warnock-pro, ETBookRoman, Palatino, "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --display: ETBookRoman, warnock-pro, Palatino, Georgia, serif;
+  --ui: "Gill Sans", "Gill Sans MT", "GillSans", Calibri, "Trebuchet MS", sans-serif;
+  --shadow: 0 1px 5px rgba(0,0,0,.025), 0 1px 3px rgba(0,0,0,.06);
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.5 var(--serif); }
+a { color: inherit; text-decoration: none; }
+a:hover { opacity: .8; }
+button, input, select { font: inherit; color: inherit; }
+.ui { font-family: var(--ui); }
+.muted { color: var(--muted); }
+
+/* The site's header, so a prototype reads as part of LessWrong. */
+.lw-header { position: sticky; top: 0; z-index: 10; height: 64px; display: flex; align-items: center; gap: 18px;
+  padding: 0 24px; background: rgba(252,251,248,.97); border-bottom: 1px solid var(--line); font-family: var(--ui); }
+.lw-header .logo { font: 400 19px/1 var(--display); letter-spacing: .06em; text-transform: uppercase; }
+.lw-header .crumb { color: var(--muted); font-size: 15px; letter-spacing: .04em; text-transform: uppercase; }
+.lw-header .spacer { flex: 1; }
+.lw-header .proto { font-size: 13px; color: var(--muted); }
+.lw-header .proto a { color: var(--primary-dark); }
+
+.page { max-width: 1120px; margin: 0 auto; padding: 32px 24px 80px; }
+.page-title { font: 400 44px/1.1 var(--display); margin: 0 0 12px; }
+.section-title { font: 400 26px/1.2 var(--display); margin: 40px 0 14px; padding-top: 10px; border-top: 1px solid var(--line); }
+.card { background: var(--panel); box-shadow: var(--shadow); border-radius: 2px; }
+.meta { font: 14px/1.35 var(--ui); color: var(--muted); }
+.pill { display: inline-flex; align-items: center; gap: 4px; padding: 2px 9px; border-radius: 99px; font: 13px/1.6 var(--ui);
+  background: rgba(0,0,0,.05); color: var(--muted); border: 0; cursor: pointer; }
+.pill[aria-pressed="true"], .pill.on { background: var(--primary); color: #fff; }
+.winner-badge { color: var(--winner); font: 600 12px var(--ui); letter-spacing: .03em; }
+@media (max-width: 700px) {
+  .page { padding: 20px 14px 60px; }
+  .page-title { font-size: 34px; }
+  .lw-header { padding: 0 14px; }
+  .lw-header .crumb { display: none; }
+}
