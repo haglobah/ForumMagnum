@@ -156,10 +156,9 @@
 .look-art .cell.k-more { background: rgba(20,16,12,.32); }
 .look-art .cell.winner .m::before { content: ""; }
 
-/* read: under a white veil, dark ink, a check before the title */
+/* read: under a white veil, in dark ink */
 .cell.read::before { content: ""; position: absolute; inset: 0; background: rgba(250,247,240,.62); pointer-events: none; transition: background .3s; }
 .cell.read { color: rgba(30,24,16,.78) !important; text-shadow: none !important; }
-.cell.read .t::before { content: "✓ "; color: var(--primary-dark); }
 .look-art .cell.read:hover::before, .look-art .stage.hovering ~ .cell.read:not(:hover)::before { background: rgba(250,247,240,.78); }
 .look-art .cell.read:hover .t, .look-art .cell.read:hover .m { text-shadow: none; }
 .look-art .cell.read:hover { background: none; }
