@@ -21,7 +21,7 @@ const PRESETS = [
 ];
 const state = { sources: new Set(PRESETS[0].s), group: "topic", sort: "size", dir: "down", area: "time",
   focus: null, hover: null, selected: null,
-  expanded: null, showAll: false }; // the group opened in place (the Best of LessWrong's click on a section title), and whether all its rows show
+  expanded: null, grow: 0 }; // the group opened in place (the Best of LessWrong's click on a section title), and how many pages its "more" has added
 {
   const u = new URLSearchParams(location.search);
   if (u.get("s")) state.sources = new Set(u.get("s").split(",").filter(k => SOURCES.some(s => s.key === k)));
@@ -31,14 +31,14 @@ const state = { sources: new Set(PRESETS[0].s), group: "topic", sort: "size", di
   if (u.get("d") === "up" || u.get("o") === "oldest") state.dir = "up";
   if (AREAS[u.get("a")]) state.area = u.get("a");
   state.expanded = u.get("x") || null;
-  state.showAll = !!state.expanded && u.get("all") === "1";
+  state.grow = state.expanded ? Math.max(0, parseInt(u.get("more")) || 0) : 0;
 }
 function saveState() {
   const u = new URLSearchParams();
   u.set("s", [...state.sources].join(",")); u.set("g", state.group); u.set("o", state.sort); u.set("a", state.area);
   if (state.dir === "up") u.set("d", "up");
   if (state.expanded) u.set("x", state.expanded);
-  if (state.expanded && state.showAll) u.set("all", "1");
+  if (state.expanded && state.grow && (!state.focus || state.focus === root)) u.set("more", state.grow);
   history.replaceState(null, "", "?" + u + location.hash);
 }
 
@@ -78,16 +78,35 @@ const itemCount = n => n.kind === "root" ? n.children.reduce((a, g) => a + g.chi
 // ---------- layout ----------
 // px² below which items fold into "N more": every card gets room for a title, as on the Best of LessWrong page.
 const minCell = () => state.area === "equal" ? 105 * 105 : 96 * 84;
-function capped(parent, kids, rect) {
-  const allowed = Math.max(1, Math.floor(rect.w * rect.h / minCell()));
-  if (kids.length <= allowed) return kids;
-  const keep = kids.slice(0, allowed - 1), rest = kids.slice(allowed - 1);
-  // "N more" is one tile the size of a typical one shown (the Best of LessWrong's "show all"),
-  // not the true size of what it holds, or it would squeeze the rest into slivers.
+const STRIP = 38, HEAD = 30;
+// "N more" is one tile the size of a typical one shown (the Best of LessWrong's "show all"),
+// not the true size of what it holds, or it would squeeze the rest into slivers.
+function moreOf(parent, rest, shown) {
   const more = { id: "more:" + parent.id, kind: "more", name: `${rest.length.toLocaleString("en")} more`, children: rest, parent, hue: parent.hue, topic: parent.topic,
-    tile: keep.map(val).sort((a, b) => a - b)[Math.floor(keep.length / 2)] || 1 };
+    tile: shown.map(val).sort((a, b) => a - b)[Math.floor(shown.length / 2)] || 1 };
   nodes.set(more.id, more);
-  return [...keep, more];
+  return more;
+}
+// Lays a parent's items out page by page: the first page in rect, each "more" click (state.grow) one more page below it,
+// so the cards already shown stay where they are. Given slots (an earlier layout of the first page, already placed),
+// the first page keeps them. Answers the cells and where the last page ends.
+function paged(parent, kids, rect, grow, slots = null) {
+  const out = [];
+  let i = 0, y = rect.y;
+  for (let p = 0; p <= grow && i < kids.length; p++) {
+    const left = kids.length - i;
+    const fits = p === 0 && slots ? slots.length : Math.max(1, Math.floor(rect.w * rect.h / minCell()));
+    // A last, short page is only as tall as its cards need.
+    const h = p === 0 ? rect.h : Math.min(rect.h, Math.max(110, Math.ceil(Math.min(left, fits) * minCell() * 1.5 / rect.w)));
+    let page = kids.slice(i, i + fits), more = null;
+    if (p === grow && left > fits) { page = kids.slice(i, i + fits - 1); more = moreOf(parent, kids.slice(i + fits - 1), page); }
+    i += page.length;
+    const cells = more ? [...page, more] : page;
+    const rs = p === 0 && slots ? slots : squarify(cells.map(val), { x: rect.x, y, w: rect.w, h });
+    cells.forEach((c, j) => out.push({ node: c, rect: rs[j], role: "cell" }));
+    y += h;
+  }
+  return { out, bottom: y };
 }
 const WORK = new Set(["sequence", "collection", "chapter"]);
 // Inside a work, posts keep their reading order unless sorted by size.
@@ -96,60 +115,59 @@ function ordered(focus) {
   if (WORK.has(focus.kind) && state.sort === "size") return kids.sort((a, b) => (state.dir === "up" ? -1 : 1) * (val(b) - val(a)));
   return kids;
 }
-// One group opened in place, as the Best of LessWrong opens a section: it takes the width, the others fold to
-// their titles on the right; with equal areas its posts stand in a grid of squares, rank by rank, the last square
-// "Show all", which adds the rows (the map grows to hold them).
-const STRIP = 38, HEAD = 30, SQUARE = 120;
-function layoutExpanded(focus, open, W, H) {
-  const out = [];
-  const others = ordered(focus).filter(g => g !== open);
-  const ow = W - others.length * STRIP;
-  others.forEach((g, i) => out.push({ node: g, rect: { x: ow + i * STRIP, y: 0, w: STRIP, h: H }, role: "group", strip: true }));
-  const inner = { x: 0, y: HEAD, w: ow, h: H - HEAD };
-  out.push({ node: open, rect: { x: 0, y: 0, w: ow, h: H }, role: "group", open: true });
-  if (state.area !== "equal") {
-    const kids = capped(open, open.children, inner), kr = squarify(kids.map(val), inner);
-    kids.forEach((c, j) => out.push({ node: c, rect: kr[j], role: "cell" }));
+const innerOf = r => ({ x: r.x, y: r.y + HEAD, w: r.w, h: r.h - HEAD });
+const hasCells = r => r.w >= 30 && r.h >= HEAD + 14;
+// Answers the cells and groups, and the height they need (more than H once pages grow below).
+function layout(focus, W, H) {
+  const full = { x: 0, y: 0, w: W, h: H };
+  if (focus.kind !== "root") {
+    const { out, bottom } = paged(focus, ordered(focus), full, state.grow);
+    return { out, height: Math.max(H, bottom), pageH: H };
+  }
+  const gs = ordered(focus), rects = squarify(gs.map(val), full);
+  const open = state.expanded && gs.find(g => g.id === state.expanded);
+  if (!open) {
+    const out = [];
+    gs.forEach((g, i) => {
+      out.push({ node: g, rect: rects[i], role: "group" });
+      if (hasCells(rects[i])) out.push(...paged(g, g.children, innerOf(rects[i]), 0).out);
+    });
     return { out, height: H };
   }
-  // Columns of about SQUARE px; the rows fill the height (near-squares), or, showing all, stay square and the map grows.
-  const cols = Math.max(1, Math.round(ow / SQUARE)), cw = ow / cols;
-  const rows = Math.max(1, Math.round(inner.h / cw)), ch = state.showAll ? cw : inner.h / rows;
-  let kids = open.children;
-  const fit = cols * rows;
-  if (!state.showAll && kids.length > fit) {
-    const rest = kids.slice(fit - 1);
-    const more = { id: "more:" + open.id, kind: "more", showAll: true, name: `Show all ${kids.length}`, children: rest, parent: open, hue: open.hue, topic: open.topic, tile: 1 };
-    nodes.set(more.id, more);
-    kids = [...kids.slice(0, fit - 1), more];
-  }
-  kids.forEach((c, i) => out.push({ node: c, rect: { x: (i % cols) * cw, y: HEAD + Math.floor(i / cols) * ch, w: cw, h: ch }, role: "cell" }));
-  return { out, height: Math.max(H, HEAD + Math.ceil(kids.length / cols) * ch) };
+  return layoutOpen(gs, rects, open, W, H);
 }
-function layout(focus, W, H) {
-  const out = [], full = { x: 0, y: 0, w: W, h: H };
-  const open = focus.kind === "root" && state.expanded && focus.children.find(g => g.id === state.expanded);
-  if (open) return layoutExpanded(focus, open, W, H).out;
-  if (focus.kind === "root") {
-    const gs = ordered(focus);
-    const rects = squarify(gs.map(val), full);
-    gs.forEach((g, i) => {
-      const r = rects[i], head = HEAD;
-      out.push({ node: g, rect: r, role: "group" });
-      if (r.w < 30 || r.h < head + 14) return;
-      const inner = { x: r.x, y: r.y + head, w: r.w, h: r.h - head };
-      const kids = capped(g, g.children, inner);
-      const kr = squarify(kids.map(val), inner);
-      kids.forEach((c, j) => out.push({ node: c, rect: kr[j], role: "cell" }));
-    });
-  } else {
-    const kids = capped(focus, ordered(focus), full);
-    const kr = squarify(kids.map(val), full);
-    kids.forEach((c, j) => out.push({ node: c, rect: kr[j], role: "cell" }));
+// One section opened in place: every other one is pushed to the edge it lay towards (left and right ones fold to
+// titles on end, those above and below to title bars), and the open one grows into the room between, its cards
+// where they were, only larger; "more" then adds pages below, and the map grows to hold them.
+function layoutOpen(gs, rects, open, W, H) {
+  const O = rects[gs.indexOf(open)], sides = { left: [], right: [], top: [], bottom: [] };
+  gs.forEach((g, i) => {
+    if (g === open) return;
+    const r = rects[i];
+    const side = r.x + r.w <= O.x + .5 ? "left" : r.x >= O.x + O.w - .5 ? "right" : r.y + r.h <= O.y + .5 ? "top" : "bottom";
+    sides[side].push({ g, r });
+  });
+  sides.left.sort((a, b) => a.r.x - b.r.x || a.r.y - b.r.y); sides.right.sort((a, b) => a.r.x - b.r.x || a.r.y - b.r.y);
+  sides.top.sort((a, b) => a.r.y - b.r.y || a.r.x - b.r.x); sides.bottom.sort((a, b) => a.r.y - b.r.y || a.r.x - b.r.x);
+  const L = sides.left.length, R = sides.right.length, T = sides.top.length, B = sides.bottom.length;
+  const cx = L * STRIP, cw = W - (L + R) * STRIP;
+  const inner = { x: cx, y: T * HEAD + HEAD, w: cw, h: H - (T + B + 1) * HEAD };
+  // The first page: the cards the section showed, scaled into its new room.
+  let slots = null;
+  if (hasCells(O)) {
+    const oi = innerOf(O), first = paged(open, open.children, oi, 0).out;
+    const sx = inner.w / oi.w, sy = inner.h / oi.h;
+    slots = first.map(c => ({ x: inner.x + (c.rect.x - oi.x) * sx, y: inner.y + (c.rect.y - oi.y) * sy, w: c.rect.w * sx, h: c.rect.h * sy }));
   }
-  return out;
+  const { out: cells, bottom } = paged(open, open.children, inner, state.grow, slots);
+  const height = Math.max(H, bottom + B * HEAD), out = [];
+  sides.left.forEach(({ g }, j) => out.push({ node: g, rect: { x: j * STRIP, y: 0, w: STRIP, h: height }, role: "group", strip: true }));
+  sides.right.forEach(({ g }, j) => out.push({ node: g, rect: { x: W - (R - j) * STRIP, y: 0, w: STRIP, h: height }, role: "group", strip: true }));
+  sides.top.forEach(({ g }, j) => out.push({ node: g, rect: { x: cx, y: j * HEAD, w: cw, h: HEAD }, role: "group", bar: true }));
+  sides.bottom.forEach(({ g }, j) => out.push({ node: g, rect: { x: cx, y: height - (B - j) * HEAD, w: cw, h: HEAD }, role: "group", bar: true }));
+  out.push({ node: open, rect: { x: cx, y: T * HEAD, w: cw, h: height - (T + B) * HEAD }, role: "group", open: true }, ...cells);
+  return { out, height, pageH: inner.h };
 }
-
 // ---------- art ----------
 // The art a stage shows at rest: the group's own (a topic's or year's), else its first item's picture.
 function stageArt(n) {
@@ -167,7 +185,7 @@ const ownArt = n => n.kind === "post" ? n.winner?.art || null : n.img || null;
 const LINE = 15; // 13px at line-height normal
 function cellHTML(n, r) {
   const { w, h } = r;
-  if (n.kind === "more") return w < 40 || h < 20 ? "" : `<div class="lab more">${n.showAll ? "Show all" : esc(n.name)}</div>`;
+  if (n.kind === "more") return w < 40 || h < 20 ? "" : `<div class="lab more">${esc(n.name)}</div>`;
   const q = isQueued(n);
   const add = n.kind !== "chapter" && w > 50 && h > 46
     ? `<button class="add${q ? " on" : ""}" data-add="${esc(n.id)}" aria-label="Add to reading list">${q ? "✓" : "+"}</button>` : "";
@@ -183,24 +201,29 @@ function groupHead(n, r, { strip = false, open = false } = {}) {
   return `<div class="gh" data-id="${esc(n.id)}"><span class="gn">${esc(n.name)}</span>`
     + (open ? `<button class="gx" data-collapse aria-label="Close">×</button>` : "") + `</div>`;
 }
-function setStageArt(el, url) {
+// Grown below its first page (pageH tall), a stage's picture keeps its size and repeats below, mirrored every other
+// time, as the Best of LessWrong's grids repeat theirs; so the picture behind the first page never moves.
+function setStageArt(el, url, pageH = 0, total = 0) {
   const a = el.querySelector(":scope > .art.rest");
   const want = url ? `url("${url}")` : "";
   if (a && a.style.backgroundImage !== want) a.style.backgroundImage = want;
+  el.querySelectorAll(":scope > .art.echo").forEach(e => e.remove());
+  if (!a) return;
+  const grown = url && pageH > 0 && total > pageH + 1;
+  Object.assign(a.style, { height: grown ? `${pageH}px` : "", bottom: grown ? "auto" : "" });
+  if (!grown) return;
+  const top = a.offsetTop;
+  for (let k = 1; k * pageH < total; k++)
+    a.insertAdjacentHTML("afterend", `<div class="art echo" style="top:${top + k * pageH}px;height:${pageH}px;background-image:${want.replace(/"/g, "'")}${k % 2 ? ";transform:scaleY(-1)" : ""}"></div>`);
 }
 
 function paint(layer, focus, { morph = false, enter = false } = {}) {
   vals = new Map();
   const W = map.clientWidth;
-  // "Show all" makes the map as tall as the open group's rows; otherwise it keeps its own height.
-  const open = focus.kind === "root" && state.expanded && focus.children.find(g => g.id === state.expanded);
-  if (!(open && state.showAll)) map.style.height = "";
-  let H = map.clientHeight;
-  if (open && state.showAll) {
-    const need = layoutExpanded(focus, open, W, H).height;
-    if (need !== H) { map.style.height = `${need}px`; H = need; }
-  }
-  const items = layout(focus, W, H);
+  // Pages grown below make the map taller; otherwise it keeps its own height.
+  map.style.height = "";
+  const H = map.clientHeight, { out: items, height, pageH } = layout(focus, W, H);
+  if (height > H) map.style.height = `${height}px`;
   const old = layer._els || new Map(), els = new Map();
   layer._rects = new Map();
   const staged = focus.kind !== "root";
@@ -208,7 +231,7 @@ function paint(layer, focus, { morph = false, enter = false } = {}) {
   // A zoomed-in view is one stage: the map shows its art behind the cells.
   if (staged) {
     if (!layer.querySelector(":scope > .art")) layer.insertAdjacentHTML("afterbegin", `<div class="art rest"></div><div class="art hov"></div>`);
-    setStageArt(layer, stageArt(focus));
+    setStageArt(layer, stageArt(focus), pageH, height);
   } else layer.querySelectorAll(":scope > .art").forEach(a => a.remove());
   if (morph) { layer.classList.add("morphing"); clearTimeout(layer._mt); layer._mt = setTimeout(() => layer.classList.remove("morphing"), 750); }
   let i = 0;
@@ -222,11 +245,11 @@ function paint(layer, focus, { morph = false, enter = false } = {}) {
     Object.assign(el.style, { left: `${r.x}px`, top: `${r.y}px`, width: `${Math.max(0, r.w)}px`, height: `${Math.max(0, r.h)}px` });
     layer._rects.set(n.id, r);
     if (it.role === "group") {
-      const pic = !it.strip ? stageArt(n) : null;
-      el.className = `group stage${pic ? "" : " bare"}${it.strip ? " strip" : ""}${it.open ? " open" : ""}`;
+      const pic = !it.strip && !it.bar ? stageArt(n) : null;
+      el.className = `group stage${pic ? "" : " bare"}${it.strip ? " strip" : ""}${it.bar ? " bar" : ""}${it.open ? " open" : ""}`;
       el.style.setProperty("--hue", hueOf(n));
       if (fresh) el.innerHTML = `<div class="art rest"></div><div class="art hov"></div><div class="ghw"></div>`;
-      setStageArt(el, pic);
+      setStageArt(el, pic, it.open ? pageH : 0, r.h - HEAD);
       el.querySelector(".ghw").innerHTML = groupHead(n, r, it);
     } else {
       const own = n.kind === "post" && n.winner ? ownArt(n) : null;
@@ -274,24 +297,26 @@ function stageOf(n) {
   return g ? layer._els.get("group:" + g.id) || null : null;
 }
 
-// ---------- zooming ----------
+// ---------- opening a card ----------
+// A card opens by growing, as it is, until it fills the map (its picture with it); its own cards then come in.
+// Going back, the open view shrinks into the card it came from. Nothing is magnified.
 let layer = null, busy = false;
-const EASE = "cubic-bezier(.35,.05,.2,1)", DUR = 620;
-const camera = (r, W, H) => `translate(${-r.x * W / r.w}px, ${-r.y * H / r.h}px) scale(${W / r.w}, ${H / r.h})`;
-const shrink = (r, W, H) => `translate(${r.x}px, ${r.y}px) scale(${r.w / W}, ${r.h / H})`;
+const EASE = "cubic-bezier(.35,.05,.2,1)", DUR = 520;
 const isAncestor = (a, b) => { for (let x = parentOf(b); x; x = parentOf(x)) if (x === a) return true; return false; };
+const clipTo = (r, W, H) => `inset(${r.y}px ${Math.max(0, W - r.x - r.w)}px ${Math.max(0, H - r.y - r.h)}px ${r.x}px)`;
 
 function setFocus(next, { push = true, enter = false } = {}) {
   const prev = state.focus;
-  state.focus = next; state.selected = null; state.hover = null; hovStage = null;
+  state.focus = next; state.selected = null; state.hover = null; state.grow = 0; hovStage = null;
   if (push) history.pushState(null, "", location.search + (next === root ? "" : "#" + encodeURIComponent(next.id)));
-  const W = map.clientWidth, H = map.clientHeight;
   const neu = document.createElement("div");
+  map.appendChild(neu);
   paint(neu, next, { enter });
   const oldLayer = layer;
-  layer = neu; map.appendChild(neu);
+  layer = neu;
   renderAll();
   if (!oldLayer || !prev || matchMedia("(prefers-reduced-motion: reduce)").matches) { oldLayer?.remove(); return; }
+  const W = map.clientWidth, H = map.clientHeight;
   const down = isAncestor(prev, next), up = isAncestor(next, prev);
   let r = null;
   if (down) for (let a = next; a && !r; a = parentOf(a)) r = oldLayer._rects.get(a.id);
@@ -301,14 +326,14 @@ function setFocus(next, { push = true, enter = false } = {}) {
     oldLayer.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 300 }).onfinish = () => oldLayer.remove();
     return;
   }
-  neu.classList.add("fresh"); busy = true;
+  busy = true;
   if (down) {
-    oldLayer.animate([{ transform: "none", opacity: 1 }, { transform: camera(r, W, H), opacity: 0 }], { duration: DUR, easing: EASE, fill: "forwards" });
-    neu.animate([{ transform: shrink(r, W, H), opacity: .25 }, { transform: "none", opacity: 1 }], { duration: DUR, easing: EASE }).onfinish = done;
+    neu.classList.add("fresh");
+    neu.animate([{ clipPath: clipTo(r, W, H) }, { clipPath: clipTo({ x: 0, y: 0, w: W, h: H }, W, H) }], { duration: DUR, easing: EASE }).onfinish = done;
   } else {
-    oldLayer.style.zIndex = 2;
-    oldLayer.animate([{ transform: "none", opacity: 1 }, { transform: shrink(r, W, H), opacity: 0 }], { duration: DUR, easing: EASE, fill: "forwards" });
-    neu.animate([{ transform: camera(r, W, H), opacity: .3 }, { transform: "none", opacity: 1 }], { duration: DUR, easing: EASE }).onfinish = done;
+    map.appendChild(oldLayer); // the open view stays on top while it shrinks back into its card
+    oldLayer.animate([{ clipPath: clipTo({ x: 0, y: 0, w: W, h: H }, W, H), opacity: 1 }, { clipPath: clipTo(r, W, H), opacity: .4 }],
+      { duration: DUR, easing: EASE, fill: "forwards" }).onfinish = done;
   }
   function done() { oldLayer.remove(); neu.classList.remove("fresh"); busy = false; }
 }
@@ -316,24 +341,39 @@ const zoomOut = () => { const p = parentOf(state.focus); if (p) setFocus(p); };
 function activate(n) {
   if (n.kind === "post") { window.open(n.url, "_blank", "noopener"); return; }
   if (n.kind === "group" && state.focus === root) return expand(n.id === state.expanded ? null : n.id);
-  if (n.kind === "more" && n.showAll) return expand(state.expanded, true);
+  if (n.kind === "more") {
+    // At the top, "N more" opens its section in place; in an open section or a work, it adds the next page below.
+    if (state.focus === root && state.expanded !== n.parent.id) return expand(n.parent.id);
+    return growMore();
+  }
   if (n !== state.focus) setFocus(n);
 }
-function expand(id, showAll = false) {
-  state.expanded = id; state.showAll = !!id && showAll; state.hover = null; hovStage = null;
+function expand(id) {
+  state.expanded = id; state.grow = 0; state.hover = null; hovStage = null;
   saveState();
   paint(layer, state.focus, { morph: true });
   renderPanel();
+}
+function growMore() {
+  const before = map.clientHeight;
+  state.grow++; state.hover = null; hovStage = null;
+  saveState();
+  paint(layer, state.focus, { morph: true });
+  renderPanel();
+  // Bring the new page into view.
+  const top = map.getBoundingClientRect().top + scrollY + before - 160;
+  if (top > scrollY) scrollTo({ top, behavior: "smooth" });
 }
 
 // ---------- pointer on the map ----------
 let lastPointer = "mouse";
 const nodeAt = t => { const el = t.closest?.("[data-id]"); return el ? nodes.get(el.dataset.id) : null; };
-map.addEventListener("pointerdown", e => { lastPointer = e.pointerType; });
-let lastX = 0;
+map.addEventListener("pointerdown", e => { lastPointer = e.pointerType; lastX = e.clientX; lastY = e.clientY; });
+let lastX = 0, lastY = 0;
 map.addEventListener("pointermove", e => {
+  lastX = e.clientX; lastY = e.clientY;
   if (e.pointerType !== "mouse" || busy) return;
-  lastX = e.clientX;
+  placeCard();
   const el = e.target.closest?.(".cell"), n = el ? nodes.get(el.dataset.id) : nodeAt(e.target);
   if (n !== state.hover) { state.hover = n; stageHover(el, n); dim(n); renderPanel(); }
 });
@@ -481,7 +521,7 @@ $("#queue").addEventListener("dragend", () => {
 function renderCrumbs() {
   const path = []; for (let a = state.focus; a; a = parentOf(a)) path.unshift(a);
   const zoomed = path.length > 1;
-  crumbs.hidden = !zoomed; $("#lede").hidden = zoomed;
+  crumbs.hidden = !zoomed;
   if (!zoomed) { crumbs.innerHTML = ""; return; }
   const name = a => a === root ? "All" : a.title || a.name;
   crumbs.innerHTML = `<button class="up" title="Zoom out (Esc)">↑ Out</button>`
@@ -494,22 +534,27 @@ crumbs.addEventListener("click", e => {
   setFocus(nodes.get(b.dataset.id));
 });
 function renderLede() {
-  $("#lede").innerHTML = loadingPosts ? `<span class="loading">Loading 19,000 posts…</span>`
-    : `${plural(itemCount(root), "item")} · ${hrs(minutesOf(root))} of reading`;
+  $("#lede").innerHTML = loadingPosts ? `<span class="loading">Loading 19,000 posts…</span>` : "";
 }
-// The card: what the pointer rests on, floating over the map on the side away from it; on touch, what was tapped, with its buttons.
+// The card: what the pointer rests on, following it beside the pointer; on touch, what was tapped, with its buttons.
 let showTimer = null;
 function renderPanel() {
   const n = state.selected || (state.hover && state.hover.kind !== "root" ? state.hover : null);
   clearTimeout(showTimer);
   if (!n) { panel.classList.remove("show", "sel"); return; }
   panel.innerHTML = cardFor(n, !!state.selected);
-  const m = map.getBoundingClientRect();
-  panel.classList.toggle("left", !state.selected && lastX > m.left + m.width / 2);
   panel.classList.toggle("sel", !!state.selected);
-  panel.style.top = `${Math.max(0, 76 - m.top) + 12}px`;
+  placeCard();
   if (state.selected || panel.classList.contains("show")) panel.classList.add("show");
   else showTimer = setTimeout(() => panel.classList.add("show"), 250);
+}
+// Right of and below the pointer; left of it where the screen ends, and kept inside it from top to bottom.
+function placeCard() {
+  if (innerWidth <= 800) { panel.style.transform = ""; return; }
+  const w = panel.offsetWidth, h = panel.offsetHeight, gap = 18;
+  const x = lastX + gap + w > innerWidth - 8 ? lastX - gap - w : lastX + gap;
+  const y = Math.max(72, Math.min(lastY + gap, innerHeight - 8 - h));
+  panel.style.transform = `translate(${Math.round(x)}px, ${Math.round(y)}px)`;
 }
 function cardFor(n, buttons) {
   const kind = { group: GROUPS[state.group].label, more: "The rest", collection: "Core collection", chapter: "Chapter",
@@ -573,7 +618,7 @@ async function apply(changes, { morph = true } = {}) {
   }
   const chain = []; for (let a = state.focus; a; a = parentOf(a)) chain.push(a.id);
   rebuild();
-  if (state.expanded && !root.children.some(g => g.id === state.expanded)) { state.expanded = null; state.showAll = false; saveState(); }
+  if (state.expanded && !root.children.some(g => g.id === state.expanded)) { state.expanded = null; state.grow = 0; saveState(); }
   const keep = chain.map(id => nodes.get(id)).find(Boolean) || root;
   if (!layer) return setFocus(keep, { push: false, enter: true });
   if (keep.id !== state.focus.id) return setFocus(keep, { push: false }); // what we looked at is gone: fade to its nearest ancestor
@@ -596,13 +641,14 @@ $("#presets").addEventListener("click", e => {
   const b = e.target.closest("[data-preset]"); if (!b) return;
   const p = PRESETS.find(p => p.key === b.dataset.preset);
   if (state.focus !== root) history.replaceState(null, "", location.search);
-  apply({ sources: new Set(p.s), group: p.g, sort: p.o, dir: "down", area: p.a, focus: root, expanded: null, showAll: false });
+  apply({ sources: new Set(p.s), group: p.g, sort: p.o, dir: "down", area: p.a, focus: root, expanded: null, grow: 0 });
 });
 
 function fromHash() { const id = decodeURIComponent(location.hash.slice(1)); return id && nodes.get(id) || null; }
 addEventListener("popstate", () => { const n = fromHash() || root; if (n !== state.focus) setFocus(n, { push: false }); });
-let rt; new ResizeObserver(() => { clearTimeout(rt); rt = setTimeout(() => layer && paint(layer, state.focus), 120); }).observe(map);
-$("#fetched").textContent = new Date(lib.fetchedAt).toLocaleDateString("en", { year: "numeric", month: "long", day: "numeric" });
+// Only a change of width lays the map out anew (its height follows the layout).
+let rt, lastW = 0;
+new ResizeObserver(() => { if (map.clientWidth === lastW) return; lastW = map.clientWidth; clearTimeout(rt); rt = setTimeout(() => layer && paint(layer, state.focus), 120); }).observe(map);
 
 renderQueue();
 await apply({}, { morph: false });

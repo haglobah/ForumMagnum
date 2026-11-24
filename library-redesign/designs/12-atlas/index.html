@@ -5,13 +5,13 @@
 </head><body>
 <lw-header design="12 · Atlas, quiet"></lw-header>
 <main class="page atlas-page">
-  <section class="queue" id="queue" aria-label="Your reading list" hidden></section>
-
   <header class="atlas-head">
     <h1 class="page-title">The Library</h1>
-    <p class="lede ui" id="lede">&nbsp;</p>
+    <p class="lede ui" id="lede"></p>
     <nav class="crumbs ui" id="crumbs" aria-label="Where you are" hidden></nav>
   </header>
+
+  <section class="queue" id="queue" aria-label="Your reading list" hidden></section>
 
   <div class="toolbar ui">
     <nav class="presets" id="presets" aria-label="Views"></nav>
@@ -29,10 +29,6 @@
     <div class="map" id="map" tabindex="0" aria-label="Treemap of the selection"></div>
     <aside class="panel" id="panel" aria-live="polite"></aside>
   </div>
-  <details class="foot ui"><summary>About the data</summary>
-    <p>A snapshot of lesswrong.com, <span id="fetched"></span>. Topics are the Best of LessWrong's six
-    categories: a winner's own, else the post's core tags (AI split into strategy and technical safety by its other tags);
-    fiction and community posts go to a seventh. “Everything” is every post with 25 or more karma.</p></details>
 </main>
 <script type="module" src="atlas.js"></script>
 </body></html>

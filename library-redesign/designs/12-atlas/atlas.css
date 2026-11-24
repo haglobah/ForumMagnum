@@ -42,13 +42,13 @@
 .ghost { position: fixed; z-index: 100; pointer-events: none; transform-origin: 0 0; box-shadow: 0 6px 24px rgba(0,0,0,.25); }
 
 /* ---------- head ---------- */
-.atlas-head { display: flex; align-items: baseline; gap: 6px 20px; flex-wrap: wrap; margin-bottom: 12px; min-height: 50px; }
+.atlas-head { display: flex; align-items: baseline; gap: 6px 20px; flex-wrap: wrap; margin-bottom: 14px; }
 .atlas-head .page-title { margin: 0; }
 .lede { margin: 0; font-size: 15px; color: var(--muted); }
 .loading { animation: pulse 1.2s ease-in-out infinite; }
 @keyframes pulse { 50% { opacity: .45; } }
 .crumbs { display: flex; align-items: baseline; flex-wrap: wrap; gap: 2px; font-size: 15px; min-width: 0; }
-.crumbs[hidden], .lede[hidden] { display: none; }
+.crumbs[hidden], .lede:empty { display: none; }
 .crumbs button { border: 0; background: none; padding: 2px 4px; cursor: pointer; color: var(--muted); border-radius: 3px; }
 .crumbs button:hover { color: var(--fg); background: rgba(0,0,0,.05); }
 .crumbs .sep { color: var(--faint); padding: 0 1px; }
@@ -88,7 +88,7 @@
 /* ---------- the map, full width; the card floats over it ---------- */
 .atlas { position: relative; }
 .map { position: relative; height: clamp(540px, calc(100vh - 150px), 860px); overflow: hidden; background: var(--bg);
-  outline: none; touch-action: manipulation; user-select: none; -webkit-user-select: none; transition: height .5s ease-in-out; }
+  outline: none; touch-action: manipulation; user-select: none; -webkit-user-select: none; }
 .layer { position: absolute; inset: 0; transform-origin: 0 0; will-change: transform, opacity; }
 .layer.fresh .lab, .layer.fresh .gh > * { opacity: 0; }
 .layer .lab, .layer .gh > * { transition: opacity .25s ease .05s; }
@@ -101,7 +101,8 @@
 .art { position: absolute; inset: 0; background: center / cover no-repeat; pointer-events: none; transition: opacity .55s ease; }
 .art.hov { opacity: 0; }
 .stage.hovering > .art.hov { opacity: 1; }
-.stage.hovering > .art.rest { opacity: 0; }
+.stage.hovering > .art.rest, .stage.hovering > .art.echo { opacity: 0; }
+.art.echo { bottom: auto; }
 .group > .art { top: 30px; }
 .group { background: color-mix(in srgb, var(--hue) 75%, #1d1914); }
 
@@ -119,6 +120,8 @@
 .group.strip .ghw { height: 100%; border-left: 1px solid #fff; }
 .group.strip .gh { writing-mode: vertical-rl; transform: rotate(180deg); height: 100%; width: 100%; padding: 12px 0; justify-content: flex-end; line-height: 1; }
 .group.strip .gn { font-size: 24px; }
+.group.bar { cursor: pointer; background: var(--bg); }
+.group.bar .ghw { border-bottom: 1px solid #fff; }
 
 /* cells */
 .cell { cursor: pointer; z-index: 1; border-right: 1px solid #fff; border-bottom: 1px solid #fff;
@@ -150,9 +153,8 @@
 .cell.read .t { text-shadow: none; }
 
 /* ---------- the card: what's under the pointer ---------- */
-.panel { position: absolute; right: 12px; top: 12px; width: 300px; z-index: 20; background: var(--panel); border-radius: 2px;
+.panel { position: fixed; left: 0; top: 0; width: 300px; z-index: 20; background: var(--panel); border-radius: 2px;
   box-shadow: 0 4px 22px rgba(0,0,0,.22); overflow: hidden; pointer-events: none; opacity: 0; transition: opacity .15s; }
-.panel.left { right: auto; left: 12px; }
 .panel.show { opacity: 1; }
 .panel.sel { pointer-events: auto; }
 .panel .grab { display: none; }
@@ -168,10 +170,6 @@
 .btn.qbtn.on { border-color: var(--fg); }
 .btn:hover { opacity: .88; }
 
-.foot { font-size: 12.5px; color: var(--faint); margin-top: 12px; max-width: 100ch; }
-.foot summary { cursor: pointer; width: max-content; }
-.foot summary:hover { color: var(--muted); }
-.foot p { margin: 6px 0 0; }
 
 @media (max-width: 800px) {
   .atlas-page { padding: 12px 10px 40px; }
@@ -187,10 +185,9 @@
   .seg button { padding: 4px 8px; font-size: 13.5px; }
   .qact { opacity: 1; }
   /* the card is a sheet from the bottom, for what was tapped */
-  .panel { position: fixed; left: 0; right: 0; bottom: 0; top: auto !important; width: auto; max-height: 62svh; overflow: auto;
+  .panel { position: fixed; left: 0; right: 0; bottom: 0; top: auto; width: auto; max-height: 62svh; overflow: auto;
     border-radius: 10px 10px 0 0; box-shadow: 0 -6px 24px rgba(0,0,0,.12); transform: translateY(105%); opacity: 1;
     transition: transform .3s cubic-bezier(.3,.7,.2,1); }
-  .panel.left { left: 0; }
   .panel.show.sel { transform: none; }
   .panel .grab { display: block; width: 100%; height: 22px; border: 0; background: none; cursor: pointer; position: sticky; top: 0; z-index: 1; }
   .panel .grab::before { content: ""; display: block; width: 38px; height: 4px; border-radius: 2px; background: rgba(0,0,0,.18); margin: 8px auto; }
