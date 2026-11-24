@@ -1,0 +1,38 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>12 · Atlas, quiet — Library prototype</title>
+<link rel="stylesheet" href="../../shared/base.css">
+<link rel="stylesheet" href="atlas.css">
+</head><body>
+<lw-header design="12 · Atlas, quiet"></lw-header>
+<main class="page atlas-page">
+  <section class="queue" id="queue" aria-label="Your reading list" hidden></section>
+
+  <header class="atlas-head">
+    <h1 class="page-title">The Library</h1>
+    <p class="lede ui" id="lede">&nbsp;</p>
+    <nav class="crumbs ui" id="crumbs" aria-label="Where you are" hidden></nav>
+  </header>
+
+  <div class="toolbar ui">
+    <nav class="presets" id="presets" aria-label="Views"></nav>
+    <button class="customize" id="customize" aria-expanded="false" aria-controls="custom">Customize</button>
+  </div>
+  <div class="custom ui" id="custom" hidden>
+    <div class="sources" id="sources" role="group" aria-label="Show"></div>
+    <div class="controls">
+      <div class="seg" role="group" aria-label="Group by" id="group"><span class="seg-l">Group</span></div>
+      <div class="seg" role="group" aria-label="Sort by" id="sort"><span class="seg-l">Sort</span></div>
+    </div>
+  </div>
+
+  <div class="atlas">
+    <div class="map" id="map" tabindex="0" aria-label="Treemap of the selection"></div>
+    <aside class="panel" id="panel" aria-live="polite"></aside>
+  </div>
+  <details class="foot ui"><summary>About the data</summary>
+    <p>A snapshot of lesswrong.com, <span id="fetched"></span>. Topics are the Best of LessWrong's six
+    categories: a winner's own, else the post's core tags (AI split into strategy and technical safety by its other tags);
+    fiction and community posts go to a seventh. “Everything” is every post with 25 or more karma.</p></details>
+</main>
+<script type="module" src="atlas.js"></script>
+</body></html>
