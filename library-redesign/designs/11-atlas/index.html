@@ -1,0 +1,47 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>11 · Atlas, explorable — Library prototype</title>
+<link rel="stylesheet" href="../../shared/base.css">
+<link rel="stylesheet" href="atlas.css">
+</head><body>
+<lw-header design="11 · Atlas, explorable"></lw-header>
+<main class="page atlas-page">
+  <section class="queue" id="queue" aria-label="Your reading queue"></section>
+
+  <header class="atlas-head">
+    <h1 class="page-title">The Library</h1>
+    <p class="lede" id="lede">&nbsp;</p>
+  </header>
+
+  <nav class="presets ui" id="presets" aria-label="Views"></nav>
+
+  <div class="toolbar ui">
+    <div class="sources" id="sources" role="group" aria-label="Show"></div>
+    <div class="controls">
+      <div class="seg" role="group" aria-label="Group by" id="group"><span class="seg-l">Group</span></div>
+      <div class="seg" role="group" aria-label="Sort by" id="sort"><span class="seg-l">Sort</span></div>
+      <div class="seg" role="group" aria-label="Area is" id="area"><span class="seg-l">Area</span></div>
+      <div class="seg" role="group" aria-label="Look" id="look"><span class="seg-l">Look</span>
+        <button data-v="art">Art</button><button data-v="ink">Ink</button></div>
+    </div>
+  </div>
+
+  <div class="atlas">
+    <aside class="list" id="list" aria-label="What is shown">
+      <div class="list-head">
+        <input id="q" type="search" placeholder="Filter by title or author" autocomplete="off">
+        <div class="list-sum" id="sum"></div>
+      </div>
+      <div class="list-body" id="rows"></div>
+    </aside>
+    <div class="stagewrap">
+      <nav class="crumbs ui" id="crumbs" aria-label="Where you are"></nav>
+      <div class="map" id="map" tabindex="0" aria-label="Treemap of the selection"></div>
+    </div>
+    <aside class="panel" id="panel" aria-live="polite"></aside>
+  </div>
+  <p class="foot ui">Data: a snapshot of lesswrong.com, <span id="fetched"></span>. Topics are the Best of LessWrong's six
+    categories: a winner's own, else the post's core tags (AI split into strategy and technical safety by its other tags);
+    fiction and community posts go to a seventh. “Everything” is every post with 25 or more karma.</p>
+</main>
+<script type="module" src="atlas.js"></script>
+</body></html>

@@ -62,7 +62,7 @@
   </table>
   <p class="note">Daraus folgt: Best of LessWrong gehört nicht als „Buch“ in die Core-Reading-Reihe. Die Review-Ergebnisse sind aber ein starkes Qualitätssignal <i>für</i> die Library: 75 Gewinner stecken in Sequenzen. Eine Sequenz mit drei Gewinnern verdient es, das zu zeigen, und ein Gewinner ist oft die beste Tür in seine Sequenz hinein.</p>
 
-  <h2>Zehn Entwürfe</h2>
+  <h2>Die Entwürfe</h2>
   <p class="note">Jeder Entwurf nimmt einen anderen Aspekt von oben ernst. Die Entwürfe ergänzen sich, man muss nicht einen wählen: eine echte neue Seite wäre wohl eine Kombination aus zwei, drei davon.</p>
   <div class="designs" id="designs"></div>
 </main>
@@ -77,8 +77,10 @@
     ["07-tasting", "Tasting Menu", "Jede Sequenz durch ihren stärksten Post vorgestellt (Karma, Review-Gewinn). Erst probieren, dann auf das ganze Werk einlassen."],
     ["08-timeline", "Two Decades of Sequences", "Alle Sequenzen auf einer Zeitachse von 2006 bis heute, mit Epochen. Zeigt, wie sich der Kanon entwickelt hat, und macht Datierung sichtbar."],
     ["09-atlas", "Atlas", "Die Gestalt der Library: Treemap nach Thema, Fläche = Lesezeit, Farbintensität = Qualität. Klick zoomt in ein Thema und seine Sequenzen."],
+    ["11-atlas", "Atlas, explorable", "Der Atlas weitergedacht: alle Sequenzen, dazu wahlweise Best of LessWrong, kuratierte Posts oder alle Posts; gruppieren nach Thema, Jahr, Autor; sortieren nach Karma und Zeit; links die Auswahl als Liste, oben eine Leseliste. Best of LessWrong in seiner eigenen Kunst."],
     ["10-editorial", "The Librarian's Desk", "Redaktionelle Startseite: ein ausführlich vorgestelltes Werk, Empfehlungen der Moderatoren, und eine Rangliste der Community-Sequenzen, die sich ihren Platz verdient haben."],
   ];
+  designs.sort((a, b) => a[0].localeCompare(b[0]));
   const el = document.getElementById("designs");
   for (const [slug, title, text] of designs) {
     el.insertAdjacentHTML("beforeend", `<a class="design card" href="designs/${slug}/">
