@@ -5,7 +5,7 @@ import { squarify } from "./treemap.js";
 
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-const map = $("#map"), panel = $("#panel"), rows = $("#rows"), crumbs = $("#crumbs");
+const map = $("#map"), panel = $("#panel"), crumbs = $("#crumbs");
 
 const [lib, art] = await Promise.all([loadLibrary(), fetch("../../data/art.json").then(r => r.json())]);
 let posts = null, loadingPosts = null;
@@ -16,25 +16,26 @@ const PRESETS = [
   { key: "sequences", name: "All sequences", s: ["curatedSeq", "communitySeq", "core"], g: "topic", o: "size", a: "time" },
   { key: "bolw", name: "Best of LessWrong", s: ["bolw"], g: "topic", o: "rank", a: "equal" },
   { key: "years", name: "Best of, by year", s: ["bolw"], g: "year", o: "rank", a: "equal" },
-  { key: "curated", name: "Curated posts", s: ["curatedPosts"], g: "year", o: "newest", a: "karma" },
+  { key: "curated", name: "Curated posts", s: ["curatedPosts"], g: "year", o: "date", a: "karma" },
   { key: "everything", name: "Everything", s: ["everything", "curatedSeq", "core"], g: "topic", o: "karma", a: "karma" },
 ];
-const state = { sources: new Set(PRESETS[0].s), group: "topic", sort: "size", area: "time", look: "art", query: "",
+const state = { sources: new Set(PRESETS[0].s), group: "topic", sort: "size", dir: "down", area: "time", look: "art",
   focus: null, hover: null, selected: null };
 {
   const u = new URLSearchParams(location.search);
   if (u.get("s")) state.sources = new Set(u.get("s").split(",").filter(k => SOURCES.some(s => s.key === k)));
   if (GROUPS[u.get("g")]) state.group = u.get("g");
   if (SORTS[u.get("o")]) state.sort = u.get("o");
+  if (u.get("o") === "newest" || u.get("o") === "oldest") state.sort = "date"; // the old addresses
+  if (u.get("d") === "up" || u.get("o") === "oldest") state.dir = "up";
   if (AREAS[u.get("a")]) state.area = u.get("a");
   if (u.get("l") === "ink") state.look = "ink";
-  state.query = u.get("q") || "";
 }
 function saveState() {
   const u = new URLSearchParams();
   u.set("s", [...state.sources].join(",")); u.set("g", state.group); u.set("o", state.sort); u.set("a", state.area);
+  if (state.dir === "up") u.set("d", "up");
   if (state.look !== "art") u.set("l", state.look);
-  if (state.query) u.set("q", state.query);
   history.replaceState(null, "", "?" + u + location.hash);
 }
 
@@ -49,7 +50,7 @@ const hueOf = n => topicByKey[n.topic]?.hue || n.hue || "#6b6257";
 let root, nodes, parents;
 function rebuild() {
   const picked = select(pool, state);
-  const groups = group(picked, state.group, state.sort, state.sources, state.area);
+  const groups = group(picked, state.group, state.sort, state.sources, state.area, state.dir);
   root = { id: "root", kind: "root", name: "The selection", children: groups.map(g => ({ ...g, id: "g:" + g.key, kind: "group", children: g.items })) };
   nodes = new Map(); parents = new Map();
   (function walk(n, parent) {
@@ -89,7 +90,7 @@ const WORK = new Set(["sequence", "collection", "chapter"]);
 // Inside a work, posts keep their reading order unless sorted by size.
 function ordered(focus) {
   const kids = focus.children.filter(c => val(c) > 0);
-  if (WORK.has(focus.kind) && state.sort === "size") return kids.sort((a, b) => val(b) - val(a));
+  if (WORK.has(focus.kind) && state.sort === "size") return kids.sort((a, b) => (state.dir === "up" ? -1 : 1) * (val(b) - val(a)));
   return kids;
 }
 function layout(focus, W, H) {
@@ -300,9 +301,9 @@ map.addEventListener("pointerdown", e => { lastPointer = e.pointerType; });
 map.addEventListener("pointermove", e => {
   if (e.pointerType !== "mouse" || busy) return;
   const el = e.target.closest?.(".cell"), n = el ? nodes.get(el.dataset.id) : nodeAt(e.target);
-  if (n !== state.hover) { state.hover = n; stageHover(el, n); renderPanel(); markRow(n); }
+  if (n !== state.hover) { state.hover = n; stageHover(el, n); renderPanel(); }
 });
-map.addEventListener("pointerleave", () => { state.hover = null; stageHover(null, null); renderPanel(); markRow(null); });
+map.addEventListener("pointerleave", () => { state.hover = null; stageHover(null, null); renderPanel(); });
 map.addEventListener("click", e => {
   const add = e.target.closest("[data-add]");
   if (add) { e.stopPropagation(); toggleQueue(nodes.get(add.dataset.add), add); return; }
@@ -314,7 +315,6 @@ map.addEventListener("click", e => {
 map.addEventListener("keydown", e => { if (e.key === "Escape" || e.key === "Backspace") { e.preventDefault(); zoomOut(); } });
 document.addEventListener("keydown", e => {
   if (e.key === "Escape" && document.activeElement === document.body) zoomOut();
-  if (e.key === "/" && document.activeElement?.tagName !== "INPUT") { e.preventDefault(); $("#q").focus(); }
 });
 function select1(n) {
   state.selected = n; state.hover = null;
@@ -323,74 +323,23 @@ function select1(n) {
   renderPanel();
 }
 
-// ---------- the list on the left: what is shown, in order ----------
-const SHOW = 60;
-const expanded = new Set();
-function renderList() {
-  const f = state.focus;
-  const sections = f.kind === "root" ? f.children.map(g => ({ head: g, items: g.children })) : [{ head: null, items: f.children }];
-  const mins = sections.reduce((a, s) => a + s.items.reduce((b, c) => b + minutesOf(c), 0), 0);
-  $("#sum").innerHTML = `<b>${itemCount(f).toLocaleString("en")}</b> ${f.kind === "root" ? "selected" : "inside"} · ${plural(leaves(f).length, "post")} · ${hrs(mins)}`;
-  rows.innerHTML = sections.map(({ head, items }) => {
-    const key = head?.id || f.id, shown = expanded.has(key) ? items : items.slice(0, SHOW);
-    return (head ? `<div class="rh" style="--hue:${hueOf(head)}"><button data-zoom="${esc(head.id)}">${esc(head.name)}</button><span>${items.length.toLocaleString("en")}</span></div>` : "")
-      + shown.map(rowHTML).join("")
-      + (items.length > shown.length ? `<button class="rmore" data-expand="${esc(key)}">Show ${(items.length - shown.length).toLocaleString("en")} more</button>` : "");
-  }).join("") || `<p class="empty">Nothing matches. Turn on a source above, or clear the filter.</p>`;
-}
-function rowHTML(n) {
-  const thumb = ownArt(n);
-  const meta = n.kind === "post" ? [n.author?.name, `${n.score} karma`, `${n.minutes} min`, n.winner ? `<span class="gold">★ ${n.winner.year}</span>` : n.year]
-    : n.kind === "chapter" ? [plural(countPosts(n), "post"), hrs(minutesOf(n))]
-    : [n.author?.name, plural(n.posts, "post"), hrs(n.minutes), years(n)];
-  const q = isQueued(n);
-  return `<div class="row" data-id="${esc(n.id)}">
-    <span class="th" style="${thumb ? `background-image:url('${thumb}')` : `background:${hueOf(n)}`}"></span>
-    <span class="rt"><span class="rtt">${esc(n.title)}</span><span class="rm">${meta.filter(Boolean).map(m => String(m).startsWith("<") ? m : esc(m)).join(" · ")}</span></span>
-    ${n.kind !== "chapter" ? `<button class="add${q ? " on" : ""}" data-add="${esc(n.id)}" aria-label="Add to reading queue">${q ? "✓" : "+"}</button>` : ""}
-  </div>`;
-}
-function markRow(n) {
-  rows.querySelectorAll(".row.hl").forEach(r => r.classList.remove("hl"));
-  if (!n) return;
-  const r = rows.querySelector(`.row[data-id="${CSS.escape(n.id)}"]`);
-  r?.classList.add("hl");
-}
-rows.addEventListener("click", e => {
-  const add = e.target.closest("[data-add]");
-  if (add) { toggleQueue(nodes.get(add.dataset.add), add); return; }
-  const ex = e.target.closest("[data-expand]");
-  if (ex) { expanded.add(ex.dataset.expand); renderList(); return; }
-  const z = e.target.closest("[data-zoom]");
-  if (z) { const n = nodes.get(z.dataset.zoom); if (n) setFocus(n); return; }
-  const row = e.target.closest(".row"); if (!row) return;
-  const n = nodes.get(row.dataset.id);
-  if (n) activate(n);
-});
-rows.addEventListener("pointerover", e => {
-  const row = e.target.closest(".row");
-  layer?.querySelectorAll(".cell.hl").forEach(c => c.classList.remove("hl"));
-  if (!row) return;
-  const n = nodes.get(row.dataset.id); if (!n || n === state.hover) return;
-  state.hover = n; renderPanel();
-  // The cell, or the "more" cell it is folded into.
-  let el = layer._els.get("cell:" + n.id);
-  if (!el) for (const [k, v] of layer._els) if (k.startsWith("cell:more:") && nodes.get(k.slice(5))?.children.includes(n)) { el = v; break; }
-  if (el) { el.classList.add("hl"); stageHover(el, n); }
-});
-rows.addEventListener("pointerleave", () => { layer?.querySelectorAll(".cell.hl").forEach(c => c.classList.remove("hl")); state.hover = null; stageHover(null, null); renderPanel(); });
-
-// ---------- the reading queue ----------
+// ---------- the reading list: queue → reading → read ----------
 const QKEY = "atlas11:queue";
-let queue = JSON.parse(localStorage.getItem(QKEY) || "[]");
+const STAGES = { queue: { name: "Queue", move: "↩ Queue", empty: "Press <b>+</b> on anything in the Atlas to queue it: posts and whole sequences, in the order you'll read them." },
+  reading: { name: "Reading", move: "▸ Reading", empty: "What you've started. Hover a card above and move it here." },
+  read: { name: "Read", move: "✓ Read", empty: "What you've finished lands here." } };
+let queue = JSON.parse(localStorage.getItem(QKEY) || "[]").map(q => ({ stage: "queue", ...q }));
+let showRead = localStorage.getItem("atlas11:showRead") === "1";
 const baseId = n => n.kind === "post" ? "p:" + n.postId : n.id;
-const isQueued = n => !!n && queue.some(q => q.id === baseId(n));
+const entryOf = n => n ? queue.find(q => q.id === baseId(n)) : null;
+const isQueued = n => !!entryOf(n);
+const karmaOf = n => n.kind === "post" ? n.score : n.karma;
 function saveQueue() { localStorage.setItem(QKEY, JSON.stringify(queue)); }
 function syncAddButtons() {
   document.querySelectorAll("[data-add]").forEach(b => {
     const m = nodes.get(b.dataset.add); if (!m) return;
-    const on = isQueued(m); b.classList.toggle("on", on);
-    b.textContent = b.classList.contains("qbtn") ? (on ? "✓ In your queue" : "+ Reading queue") : on ? "✓" : "+";
+    const e = entryOf(m); b.classList.toggle("on", !!e);
+    b.textContent = b.classList.contains("qbtn") ? (e ? `✓ ${STAGES[e.stage].name === "Queue" ? "In your queue" : STAGES[e.stage].name}` : "+ Reading queue") : e ? "✓" : "+";
   });
 }
 function toggleQueue(n, from) {
@@ -398,15 +347,30 @@ function toggleQueue(n, from) {
   const id = baseId(n);
   if (queue.some(q => q.id === id)) queue = queue.filter(q => q.id !== id);
   else {
-    queue.push({ id, kind: n.kind, title: n.title, url: n.url, minutes: n.minutes, author: n.author?.name || null,
-      img: ownArt(n), hue: hueOf(n), winner: n.winner ? n.winner.year : null });
+    queue.push({ id, kind: n.kind, title: n.title, url: n.url, minutes: n.minutes, karma: karmaOf(n), author: n.author?.name || null,
+      img: ownArt(n), hue: hueOf(n), winner: n.winner ? n.winner.year : null, stage: "queue" });
     renderQueue(); fly(from, n);
   }
   saveQueue(); renderQueue(); syncAddButtons();
 }
+// Changes to the list re-render it; the cards glide from where they were (FLIP).
+function flip(change) {
+  const before = new Map([...document.querySelectorAll(".qcard")].map(c => [c.dataset.qid, c.getBoundingClientRect()]));
+  change(); saveQueue(); renderQueue(); syncAddButtons();
+  for (const c of document.querySelectorAll(".qcard")) {
+    const b = before.get(c.dataset.qid), a = c.getBoundingClientRect();
+    if (!b) { c.animate([{ opacity: 0, transform: "scale(.94)" }, { opacity: 1, transform: "none" }], { duration: 300, easing: "ease-out" }); continue; }
+    const dx = b.left - a.left, dy = b.top - a.top;
+    if (dx || dy) c.animate([{ transform: `translate(${dx}px, ${dy}px)` }, { transform: "none" }], { duration: 420, easing: "cubic-bezier(.3,.7,.2,1)" });
+  }
+}
+function moveTo(id, stage) {
+  flip(() => { const i = queue.findIndex(q => q.id === id); const [e] = queue.splice(i, 1); e.stage = stage; queue.push(e); });
+  if (stage === "read" && !showRead) $("#queue .lane[data-lane=read] .lhead")?.animate([{ transform: "scale(1)" }, { transform: "scale(1.08)" }, { transform: "scale(1)" }], { duration: 400 });
+}
 function fly(from, n) {
-  const src = (from?.closest(".cell, .row, .panel") || from)?.getBoundingClientRect();
-  const slot = $("#queue .qcard:last-child")?.getBoundingClientRect();
+  const src = (from?.closest(".cell, .panel") || from)?.getBoundingClientRect();
+  const slot = $("#queue .lane[data-lane=queue] .qcard:last-child")?.getBoundingClientRect();
   if (!src || !slot || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   const g = document.createElement("div"), img = ownArt(n);
   g.className = "ghost";
@@ -415,40 +379,56 @@ function fly(from, n) {
   const dx = slot.left - src.left, dy = slot.top - src.top;
   g.animate([{ transform: "none", opacity: .95 }, { transform: `translate(${dx}px, ${dy}px) scale(${slot.width / src.width}, ${slot.height / src.height})`, opacity: .35 }],
     { duration: 650, easing: "cubic-bezier(.5,0,.2,1)" }).onfinish = () => g.remove();
-  const card = $("#queue .qcard:last-child");
-  card?.animate([{ opacity: 0 }, { opacity: 0, offset: .8 }, { opacity: 1 }], { duration: 700 });
+  $("#queue .lane[data-lane=queue] .qcard:last-child")?.animate([{ opacity: 0 }, { opacity: 0, offset: .8 }, { opacity: 1 }], { duration: 700 });
 }
-let dragId = null;
+function cardHTML(x, i) {
+  const karma = x.karma ?? (pool.get(x.id) ? karmaOf(pool.get(x.id)) : null);
+  const meta = [x.kind === "post" ? null : x.kind === "collection" ? "Collection" : "Sequence", x.author ? esc(x.author) : null,
+    hrs(x.minutes || 0), karma != null ? `${karma.toLocaleString("en")} karma` : null, x.winner ? `<span class="gold">★ ${x.winner}</span>` : null];
+  const moves = Object.entries(STAGES).filter(([k]) => k !== x.stage).map(([k, st]) => `<button data-move="${k}">${st.move}</button>`).join("");
+  return `<div class="qcard" draggable="true" data-qid="${esc(x.id)}">
+    <a href="${esc(x.url)}" target="_blank" rel="noopener" class="qimg" style="${x.img ? `background-image:url('${esc(x.img)}')` : `background:${x.hue}`}"><span class="qn">${i + 1}</span></a>
+    <div class="qt"><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)}</a><span class="qm">${meta.filter(Boolean).join(" · ")}</span></div>
+    <div class="qact">${moves}<button class="qx" data-qx aria-label="Remove">×</button></div></div>`;
+}
 function renderQueue() {
-  const total = queue.reduce((a, x) => a + (x.minutes || 0), 0);
-  $("#queue").innerHTML = `<div class="qhead ui"><span class="ql">Reading queue</span>
-      <span class="qs">${queue.length ? `${plural(queue.length, "item")} · ${hrs(total)}` : ""}</span>
-      ${queue.length ? `<button class="qclear" data-qclear>Clear</button>` : ""}</div>
-    <div class="qcards">${queue.length ? queue.map((x, i) => `<div class="qcard" draggable="true" data-qid="${esc(x.id)}">
-        <a href="${esc(x.url)}" target="_blank" rel="noopener" class="qimg" style="${x.img ? `background-image:url('${esc(x.img)}')` : `background:${x.hue}`}"><span class="qn">${i + 1}</span></a>
-        <div class="qt"><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)}</a>
-          <span class="qm">${[x.kind === "post" ? null : x.kind === "collection" ? "Collection" : "Sequence", x.author ? esc(x.author) : null, hrs(x.minutes || 0), x.winner ? `<span class="gold">★ ${x.winner}</span>` : null].filter(Boolean).join(" · ")}</span></div>
-        <button class="qx" data-qx="${esc(x.id)}" aria-label="Remove from queue">×</button></div>`).join("")
-      : `<div class="qempty">Press <b>+</b> on anything in the Atlas or the list to queue it here: posts and whole sequences, in the order you'll read them.</div>`}</div>`;
+  $("#queue").innerHTML = Object.entries(STAGES).map(([k, st]) => {
+    const items = queue.filter(q => q.stage === k), open = k !== "read" || showRead;
+    const sum = items.length ? `${items.length} · ${hrs(items.reduce((a, x) => a + (x.minutes || 0), 0))}` : "";
+    const head = k === "read"
+      ? `<button class="lhead ui chevron" data-toggle-read aria-expanded="${open}"><span class="chev">›</span><span class="ql">${st.name}</span><span class="qs">${sum}</span></button>`
+      : `<div class="lhead ui"><span class="ql">${st.name}</span><span class="qs">${sum}</span></div>`;
+    return `<div class="lane${open ? "" : " shut"}" data-lane="${k}">${head}
+      <div class="qcards">${items.map(cardHTML).join("") || `<div class="qempty">${st.empty}</div>`}</div></div>`;
+  }).join("");
 }
 $("#queue").addEventListener("click", e => {
-  const x = e.target.closest("[data-qx]");
-  if (x) queue = queue.filter(q => q.id !== x.dataset.qx);
-  else if (e.target.closest("[data-qclear]")) queue = [];
-  else return;
-  saveQueue(); renderQueue(); syncAddButtons();
+  const card = e.target.closest(".qcard");
+  const mv = e.target.closest("[data-move]");
+  if (mv && card) { e.preventDefault(); moveTo(card.dataset.qid, mv.dataset.move); return; }
+  if (e.target.closest("[data-qx]") && card) { e.preventDefault(); flip(() => { queue = queue.filter(q => q.id !== card.dataset.qid); }); return; }
+  if (e.target.closest("[data-toggle-read]")) { showRead = !showRead; localStorage.setItem("atlas11:showRead", showRead ? "1" : ""); flip(() => {}); }
 });
-$("#queue").addEventListener("dragstart", e => { const c = e.target.closest(".qcard"); if (c) { dragId = c.dataset.qid; c.classList.add("dragging"); e.dataTransfer.effectAllowed = "move"; } });
-$("#queue").addEventListener("dragend", e => { e.target.closest(".qcard")?.classList.remove("dragging"); dragId = null; });
+// Dragging reorders a lane and moves cards between lanes (also onto the folded "Read").
+let dragEl = null;
+$("#queue").addEventListener("dragstart", e => { dragEl = e.target.closest(".qcard"); if (dragEl) { dragEl.classList.add("dragging"); e.dataTransfer.effectAllowed = "move"; } });
 $("#queue").addEventListener("dragover", e => {
-  if (!dragId) return; e.preventDefault();
-  const over = e.target.closest(".qcard"); if (!over || over.dataset.qid === dragId) return;
-  const from = queue.findIndex(q => q.id === dragId), to = queue.findIndex(q => q.id === over.dataset.qid);
-  const [m] = queue.splice(from, 1); queue.splice(to, 0, m); saveQueue();
-  // Move the card itself, so the drag goes on.
-  const cards = $("#queue .qcards"), el = cards.querySelector(`[data-qid="${CSS.escape(dragId)}"]`);
-  cards.insertBefore(el, from < to ? over.nextSibling : over);
-  cards.querySelectorAll(".qn").forEach((n, i) => n.textContent = i + 1);
+  const lane = e.target.closest(".lane"); if (!dragEl || !lane) return;
+  e.preventDefault();
+  const cards = lane.querySelector(".qcards"), over = e.target.closest(".qcard");
+  cards.querySelector(".qempty")?.remove();
+  if (over && over !== dragEl) {
+    const r = over.getBoundingClientRect();
+    cards.insertBefore(dragEl, e.clientX > r.left + r.width / 2 ? over.nextSibling : over);
+  } else if (!over && dragEl.parentElement !== cards) cards.appendChild(dragEl);
+});
+$("#queue").addEventListener("drop", e => e.preventDefault());
+$("#queue").addEventListener("dragend", () => {
+  if (!dragEl) return;
+  dragEl = null;
+  const byId = new Map(queue.map(q => [q.id, q]));
+  queue = [...document.querySelectorAll("#queue .lane")].flatMap(l => [...l.querySelectorAll(".qcard")].map(c => ({ ...byId.get(c.dataset.qid), stage: l.dataset.lane })));
+  saveQueue(); renderQueue(); syncAddButtons();
 });
 
 // ---------- crumbs, lede, panel ----------
@@ -463,11 +443,12 @@ crumbs.addEventListener("click", e => {
   if (b.classList.contains("up")) return zoomOut();
   setFocus(nodes.get(b.dataset.id));
 });
+const ORDER = { size: ["largest", "smallest"], karma: ["highest karma", "lowest karma"], date: ["newest", "oldest"], rank: ["best ranked", "lowest ranked"] };
 function renderLede() {
   const names = SOURCES.filter(s => state.sources.has(s.key)).map(s => s.name === "Best of LessWrong" ? s.name : s.name.toLowerCase());
   const list = names.length > 1 ? names.slice(0, -1).join(", ") + " and " + names.at(-1) : names[0] || "nothing";
   $("#lede").innerHTML = loadingPosts ? `<span class="loading">Loading 19,000 posts…</span>`
-    : `${itemCount(root).toLocaleString("en")} items from <b>${esc(list)}</b>, grouped by ${GROUPS[state.group].label.toLowerCase()}, sorted by ${SORTS[state.sort].label.toLowerCase()}; area is ${AREAS[state.area].label.toLowerCase()}.`;
+    : `${itemCount(root).toLocaleString("en")} items from <b>${esc(list)}</b>, grouped by ${GROUPS[state.group].label.toLowerCase()}, ${ORDER[state.sort][state.dir === "down" ? 0 : 1]} first; area is ${AREAS[state.area].label.toLowerCase()}.`;
 }
 function renderPanel() {
   const n = state.selected || state.hover || state.focus;
@@ -502,7 +483,7 @@ function renderPanel() {
     const tot = val(n) || 1;
     body = `<div class="p-h">Share of ${AREAS[state.area].label.toLowerCase()}</div><div class="bars">`
       + n.children.slice().sort((a, b) => val(b) - val(a)).map(g => `<button class="bar" data-act="zoom" data-id="${esc(g.id)}"><span class="bn">${esc(g.name)}</span><span class="bv">${Math.round(100 * val(g) / tot)}%</span><span class="track"><span class="fill" style="width:${(100 * val(g) / tot).toFixed(1)}%;background:${hueOf(g)}"></span></span></button>`).join("") + `</div>`
-      + `<p class="hint">Hover a cell to see it; click to zoom in or open a post; <b>+</b> queues it. Esc zooms out, / filters.</p>`;
+      + `<p class="hint">Hover a cell to see it; click to zoom in or open a post; <b>+</b> queues it. Esc zooms out.</p>`;
   } else {
     by = `${plural(n.children.length, "item")} · ${hrs(minutesOf(n))}`;
     body = `<div class="p-h">First in this ${n.kind === "chapter" ? "chapter" : "group"}</div><ul class="p-list">${n.children.slice(0, 10).map(li).join("")}</ul>`;
@@ -520,7 +501,7 @@ panel.addEventListener("click", e => {
   if (b?.dataset.act === "out") { zoomOut(); return; }
   if (e.target.closest(".grab") || (e.target.closest(".p-title, .p-kind") && innerWidth <= 800)) panel.classList.toggle("open");
 });
-function renderAll() { renderCrumbs(); renderPanel(); renderLede(); renderList(); renderControls(); }
+function renderAll() { renderCrumbs(); renderPanel(); renderLede(); renderControls(); }
 
 // ---------- controls ----------
 function renderControls() {
@@ -529,11 +510,13 @@ function renderControls() {
   const seg = (id, dict, key) => {
     const el = $(id), label = el.querySelector(".seg-l").outerHTML;
     const opts = Object.entries(dict).filter(([k]) => k !== "rank" || state.sources.has("bolw"));
-    el.innerHTML = label + opts.map(([k, v]) => `<button data-v="${k}" aria-pressed="${state[key] === k}">${v.label}</button>`).join("");
+    // Sorts carry their direction: a click on the active one turns it round.
+    const arrow = k => key !== "sort" ? "" : `<span class="dir${state.sort === k ? " on" : ""}">${state.sort === k && state.dir === "up" ? "↑" : "↓"}</span>`;
+    el.innerHTML = label + opts.map(([k, v]) => `<button data-v="${k}" aria-pressed="${state[key] === k}">${v.label}${arrow(k)}</button>`).join("");
   };
   seg("#group", GROUPS, "group"); seg("#sort", SORTS, "sort"); seg("#area", AREAS, "area");
   $("#look").querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === state.look));
-  const active = PRESETS.find(p => p.g === state.group && p.o === state.sort && p.a === state.area && p.s.length === state.sources.size && p.s.every(s => state.sources.has(s)));
+  const active = PRESETS.find(p => p.g === state.group && p.o === state.sort && state.dir === "down" && p.a === state.area && p.s.length === state.sources.size && p.s.every(s => state.sources.has(s)));
   $("#presets").innerHTML = `<span class="seg-l">Views</span>` + PRESETS.map(p => `<button data-preset="${p.key}" class="${active === p ? "on" : ""}">${esc(p.name)}</button>`).join("");
 }
 async function apply(changes, { morph = true } = {}) {
@@ -547,8 +530,6 @@ async function apply(changes, { morph = true } = {}) {
   }
   const chain = []; for (let a = state.focus; a; a = parentOf(a)) chain.push(a.id);
   rebuild();
-  expanded.clear();
-  rows.scrollTop = 0;
   const keep = chain.map(id => nodes.get(id)).find(Boolean) || root;
   if (!layer) return setFocus(keep, { push: false, enter: true });
   if (keep.id !== state.focus.id) return setFocus(keep, { push: false }); // what we looked at is gone: fade to its nearest ancestor
@@ -561,16 +542,18 @@ $("#sources").addEventListener("click", e => {
   const s = new Set(state.sources); s.has(b.dataset.src) ? s.delete(b.dataset.src) : s.add(b.dataset.src);
   apply({ sources: s });
 });
-for (const [id, key] of [["#group", "group"], ["#sort", "sort"], ["#area", "area"], ["#look", "look"]])
+for (const [id, key] of [["#group", "group"], ["#area", "area"], ["#look", "look"]])
   $(id).addEventListener("click", e => { const b = e.target.closest("button[data-v]"); if (b && state[key] !== b.dataset.v) apply({ [key]: b.dataset.v }); });
+$("#sort").addEventListener("click", e => {
+  const b = e.target.closest("button[data-v]"); if (!b) return;
+  apply(state.sort === b.dataset.v ? { dir: state.dir === "down" ? "up" : "down" } : { sort: b.dataset.v, dir: "down" });
+});
 $("#presets").addEventListener("click", e => {
   const b = e.target.closest("[data-preset]"); if (!b) return;
   const p = PRESETS.find(p => p.key === b.dataset.preset);
   if (state.focus !== root) history.replaceState(null, "", location.search);
-  apply({ sources: new Set(p.s), group: p.g, sort: p.o, area: p.a, look: p.key === "bolw" || p.key === "years" ? "art" : state.look, focus: root });
+  apply({ sources: new Set(p.s), group: p.g, sort: p.o, dir: "down", area: p.a, look: p.key === "bolw" || p.key === "years" ? "art" : state.look, focus: root });
 });
-let qt; $("#q").value = state.query;
-$("#q").addEventListener("input", e => { clearTimeout(qt); qt = setTimeout(() => apply({ query: e.target.value }), 160); });
 
 function fromHash() { const id = decodeURIComponent(location.hash.slice(1)); return id && nodes.get(id) || null; }
 addEventListener("popstate", () => { const n = fromHash() || root; if (n !== state.focus) setFocus(n, { push: false }); });

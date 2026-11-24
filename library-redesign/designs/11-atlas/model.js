@@ -155,8 +155,9 @@ export const flatPosts = ns => ns.flatMap(n => n.children ? flatPosts(n.children
 export const GROUPS = {
   topic: { label: "Topic" }, year: { label: "Year" }, author: { label: "Author" }, kind: { label: "Kind" }, none: { label: "None" },
 };
+// Each sort runs "down" (largest, best, newest first) or "up" (the reverse).
 export const SORTS = {
-  size: { label: "Size" }, karma: { label: "Karma" }, newest: { label: "Newest" }, oldest: { label: "Oldest" }, rank: { label: "Review rank" },
+  size: { label: "Size" }, karma: { label: "Karma" }, date: { label: "Date" }, rank: { label: "Review rank" },
 };
 export const AREAS = {
   time: { label: "Reading time", of: it => it.minutes },
@@ -177,22 +178,22 @@ export function select(items, { sources, query }) {
 }
 
 const time = d => d ? Date.parse(d) : 0;
-export function comparator(sort, area) {
+export function comparator(sort, area, dir = "down") {
   const v = AREAS[area].of;
-  return {
+  const down = {
     size: (a, b) => v(b) - v(a) || b.score - a.score,
     karma: (a, b) => b.score - a.score,
-    newest: (a, b) => time(b.lastDate || b.date) - time(a.lastDate || a.date),
-    oldest: (a, b) => time(a.date) - time(b.date),
+    date: (a, b) => time(b.lastDate || b.date) - time(a.lastDate || a.date),
     rank: (a, b) => (a.winner?.order ?? Infinity) - (b.winner?.order ?? Infinity) || (a.winner?.ranking ?? 1e9) - (b.winner?.ranking ?? 1e9) || b.score - a.score,
   }[sort];
+  return dir === "up" ? (a, b) => down(b, a) : down;
 }
 
 const KIND_GROUPS = [["bolw", "Best of LessWrong"], ["curatedPosts", "Curated posts"], ["everything", "Other posts"],
   ["core", "Core collections"], ["curatedSeq", "Curated sequences"], ["communitySeq", "Community sequences"]];
 
 // Group the picked items: [{ key, name, hue, art, items }], in the order the grouping wants.
-export function group(picked, by, sort, sources, area) {
+export function group(picked, by, sort, sources, area, dir) {
   const groups = new Map();
   const put = (key, name, extra) => { if (!groups.has(key)) groups.set(key, { key, name, items: [], ...extra }); return groups.get(key); };
   if (by === "topic") {
@@ -215,10 +216,11 @@ export function group(picked, by, sort, sources, area) {
     }
   } else put("all", "Everything selected", { hue: "#5f7f6a" }).items.push(...picked);
 
-  const cmp = comparator(sort, area);
+  const cmp = comparator(sort, area, dir);
   let out = [...groups.values()].filter(g => g.items.length);
   for (const g of out) g.items.sort(cmp);
-  if (by === "year") out.sort((a, b) => sort === "newest" ? (b.year > a.year ? 1 : -1) : (a.year > b.year ? 1 : -1));
+  // Years run with a date sort, else from the first year on.
+  if (by === "year") out.sort((a, b) => (sort === "date" && dir === "down" ? -1 : 1) * (a.year > b.year ? 1 : -1));
   if (by === "author") {
     out.sort((a, b) => b.items.length - a.items.length);
     if (out.length > 23) { // the long tail of authors in one group
