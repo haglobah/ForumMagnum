@@ -354,7 +354,7 @@ function markRow(n) {
   rows.querySelectorAll(".row.hl").forEach(r => r.classList.remove("hl"));
   if (!n) return;
   const r = rows.querySelector(`.row[data-id="${CSS.escape(n.id)}"]`);
-  if (r) { r.classList.add("hl"); if (!rows.matches(":hover")) r.scrollIntoView({ block: "nearest" }); }
+  r?.classList.add("hl");
 }
 rows.addEventListener("click", e => {
   const add = e.target.closest("[data-add]");
@@ -489,7 +489,7 @@ function renderPanel() {
   if (n.kind === "post") {
     by = [n.author?.name, n.date ? new Date(n.date).toLocaleDateString("en", { year: "numeric", month: "short" }) : null].filter(Boolean).join(" · ");
     body = `<div class="p-stats">${stat(n.score, "karma")}${stat(`${n.minutes} min`, "reading")}${stat(esc(topicByKey[n.topic]?.name || ""), "topic")}</div>`
-      + (n.winner ? `<p class="winline">Ranked #${n.winner.ranking} in the ${n.winner.year} Review</p>` : "")
+      + (n.winner ? `<p class="winline">Ranked #${n.winner.ranking + 1} in the ${n.winner.year} Review</p>` : "")
       + (n.tags?.length ? `<div class="tags">${n.tags.slice(0, 6).map(t => `<span>${esc(t)}</span>`).join("")}</div>` : "");
   } else if (n.kind === "sequence" || n.kind === "collection") {
     by = [n.author?.name, years(n)].filter(Boolean).join(" · ");

@@ -96,9 +96,10 @@
 /* + buttons */
 .add { flex: none; width: 24px; height: 24px; border-radius: 50%; border: 1px solid rgba(0,0,0,.18); background: #fff; color: var(--primary-dark);
   font: 600 15px/1 var(--ui); cursor: pointer; display: grid; place-items: center; padding: 0; opacity: 0; transition: opacity .15s, background .15s, transform .15s; }
-.row:hover .add, .row.hl .add, .add.on { opacity: 1; }
+.row:hover .add { opacity: 1; }
 .add:hover { transform: scale(1.12); background: var(--primary); color: #fff; border-color: var(--primary); }
 .add.on { background: var(--primary); color: #fff; border-color: var(--primary); }
+@media (hover: none) { .add { opacity: 1; } }
 .cell .add { position: absolute; top: 5px; right: 5px; z-index: 3; box-shadow: 0 1px 4px rgba(0,0,0,.2); }
 .cell:hover .add { opacity: 1; }
 
@@ -119,8 +120,10 @@
 .art.hov { opacity: 0; }
 .stage.hovering > .art.hov { opacity: 1; }
 .stage.hovering > .art.rest { opacity: .0; transform: scale(1.03); }
+.group > .art { top: 26px; }
 .layer.stage::after, .group::after { content: ""; position: absolute; inset: 0; pointer-events: none;
-  background: linear-gradient(180deg, rgba(20,16,12,.42) 0, rgba(20,16,12,.08) 60px, rgba(20,16,12,.05) 55%, rgba(20,16,12,.38) 100%); }
+  background: linear-gradient(180deg, rgba(20,16,12,.2) 0, rgba(20,16,12,.05) 40px, rgba(20,16,12,.05) 55%, rgba(20,16,12,.38) 100%); }
+.group::after { top: 26px; }
 .layer.stage::after { z-index: 0; }
 .look-art .group { background: color-mix(in srgb, var(--hue) 55%, #2a2620); }
 .look-art .group.bare { background: color-mix(in srgb, var(--hue) 70%, #f4efe6); }
@@ -132,7 +135,8 @@
 .gn { font-size: 13px; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; overflow: hidden; text-overflow: ellipsis; }
 .gs { margin-left: auto; opacity: .8; font-size: 12px; flex: none; }
 .gh:hover .gn { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
-.look-art .gh { color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,.55); }
+.look-art .ghw { background: color-mix(in srgb, var(--hue) 82%, #15110c); box-shadow: 0 1px 0 rgba(0,0,0,.25); }
+.look-art .gh { color: #fff; }
 .look-ink .gh { color: var(--hue); }
 
 /* cells */
@@ -226,5 +230,4 @@
   .panel.open .p-img { display: block; aspect-ratio: 16 / 6; }
   .p-body { padding: 0 16px 16px; }
   .p-title { font-size: 21px; }
-  .cell .add { opacity: 1; }
 }
