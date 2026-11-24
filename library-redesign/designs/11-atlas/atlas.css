@@ -145,16 +145,14 @@
 .cell.k-more .t { font-family: var(--ui); font-size: 13px !important; letter-spacing: .04em; }
 
 /* art look: glass over the stage, white titles, the Best of LessWrong grid lines */
-.look-art .cell { color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,.75), 0 0 14px rgba(0,0,0,.35);
-  background: linear-gradient(180deg, rgba(14,11,8,.5) 0, rgba(14,11,8,.3) 45%, rgba(14,11,8,.1) 100%);
-  box-shadow: inset 0 0 0 .5px rgba(255,255,255,.45); transition: background .3s, opacity .45s, backdrop-filter .3s; }
-/* The hovered cell keeps a shade behind its title, since the stage behind it turns into that work's own (often light) art;
-   the other cells darken a little more, so theirs stay legible over it too. */
-.look-art .cell:hover, .look-art .cell.hl, .look-art .cell.sel { box-shadow: inset 0 0 0 2px rgba(255,255,255,.9);
-  background: linear-gradient(180deg, rgba(14,11,8,.66) 0, rgba(14,11,8,.4) 55%, rgba(14,11,8,.12) 100%); }
-.look-art .cell:hover .t, .look-art .cell:hover .m { text-shadow: 0 1px 3px rgba(0,0,0,.85); }
-.look-art .stage.hovering ~ .cell:not(:hover):not(.hl) { background: linear-gradient(180deg, rgba(14,11,8,.62) 0, rgba(14,11,8,.45) 45%, rgba(14,11,8,.3) 100%); }
-.look-art .cell.k-more { background: rgba(20,16,12,.32); }
+/* One even shade over the whole picture (a shade per cell darker at its top banded the picture), dark seams between cells */
+.look-art .cell { color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,.8), 0 0 14px rgba(0,0,0,.4); background: rgba(14,11,8,.4);
+  box-shadow: inset -1px -1px 0 rgba(10,8,6,.28); transition: background .3s, opacity .45s; }
+/* The hovered cell lifts its shade so its art shows, behind a frame; while the stage shows that art, the others darken. */
+.look-art .cell:hover, .look-art .cell.hl, .look-art .cell.sel { box-shadow: inset 0 0 0 2px rgba(255,255,255,.85); background: rgba(14,11,8,.5); }
+.look-art .cell:hover .t, .look-art .cell:hover .m { text-shadow: 0 1px 3px rgba(0,0,0,.9); }
+.look-art .stage.hovering ~ .cell:not(:hover):not(.hl) { background: rgba(14,11,8,.55); }
+.look-art .cell.k-more { background: rgba(14,11,8,.55); }
 .look-art .cell.winner .m::before { content: ""; }
 
 /* read: under a white veil, in dark ink */

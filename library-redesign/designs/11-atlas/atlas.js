@@ -102,7 +102,7 @@ function layout(focus, W, H) {
       const r = rects[i], head = 26;
       out.push({ node: g, rect: r, role: "group" });
       if (r.w < 30 || r.h < head + 14) return;
-      const inner = { x: r.x + 2, y: r.y + head, w: r.w - 4, h: r.h - head - 2 };
+      const inner = { x: r.x, y: r.y + head, w: r.w, h: r.h - head };
       const kids = capped(g, g.children, inner);
       const kr = squarify(kids.map(val), inner);
       kids.forEach((c, j) => out.push({ node: c, rect: kr[j], role: "cell" }));
@@ -188,7 +188,9 @@ function paint(layer, focus, { morph = false, enter = false } = {}) {
     let el = old.get(key);
     const fresh = !el;
     if (fresh) { el = document.createElement("div"); el.dataset.id = n.id; }
-    Object.assign(el.style, { left: `${r.x + .5}px`, top: `${r.y + .5}px`, width: `${Math.max(0, r.w - 1)}px`, height: `${Math.max(0, r.h - 1)}px` });
+    // Ink cells stand apart by a hairline; art cells meet, so the picture behind them runs on unbroken.
+    const g = state.look === "art" && it.role === "cell" ? 0 : 1;
+    Object.assign(el.style, { left: `${r.x + g / 2}px`, top: `${r.y + g / 2}px`, width: `${Math.max(0, r.w - g)}px`, height: `${Math.max(0, r.h - g)}px` });
     layer._rects.set(n.id, r);
     if (it.role === "group") {
       const pic = state.look === "art" ? stageArt(n) : null;
