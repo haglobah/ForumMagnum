@@ -91,7 +91,7 @@
 /* + on a cell: glass that sits in the picture, shown on hover */
 .add { width: 22px; height: 22px; border-radius: 50%; padding: 0; display: grid; place-items: center; cursor: pointer;
   font: 400 16px/1 var(--ui); opacity: 0; transition: opacity .15s, background .15s; }
-.cell .add { position: absolute; top: 5px; right: 5px; z-index: 3; color: #fff; background: rgba(255,255,255,.14);
+.cell .add { position: absolute; bottom: 5px; right: 5px; z-index: 3; color: #fff; background: rgba(255,255,255,.14);
   border: 1px solid rgba(255,255,255,.5); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); }
 .cell .add:hover { background: rgba(255,255,255,.32); }
 .cell .add.on { background: rgba(95,155,101,.55); border-color: rgba(255,255,255,.65); font-size: 12px; }
