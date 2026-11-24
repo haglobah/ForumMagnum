@@ -20,7 +20,8 @@ const PRESETS = [
   { key: "everything", name: "Everything", s: ["everything", "curatedSeq", "core"], g: "topic", o: "karma", a: "karma" },
 ];
 const state = { sources: new Set(PRESETS[0].s), group: "topic", sort: "size", dir: "down", area: "time", look: "art",
-  focus: null, hover: null, selected: null };
+  focus: null, hover: null, selected: null,
+  expanded: null, showAll: false }; // the group opened in place (the Best of LessWrong's click on a section title), and whether all its rows show
 {
   const u = new URLSearchParams(location.search);
   if (u.get("s")) state.sources = new Set(u.get("s").split(",").filter(k => SOURCES.some(s => s.key === k)));
@@ -30,12 +31,16 @@ const state = { sources: new Set(PRESETS[0].s), group: "topic", sort: "size", di
   if (u.get("d") === "up" || u.get("o") === "oldest") state.dir = "up";
   if (AREAS[u.get("a")]) state.area = u.get("a");
   if (u.get("l") === "ink") state.look = "ink";
+  state.expanded = u.get("x") || null;
+  state.showAll = !!state.expanded && u.get("all") === "1";
 }
 function saveState() {
   const u = new URLSearchParams();
   u.set("s", [...state.sources].join(",")); u.set("g", state.group); u.set("o", state.sort); u.set("a", state.area);
   if (state.dir === "up") u.set("d", "up");
   if (state.look !== "art") u.set("l", state.look);
+  if (state.expanded) u.set("x", state.expanded);
+  if (state.expanded && state.showAll) u.set("all", "1");
   history.replaceState(null, "", "?" + u + location.hash);
 }
 
@@ -93,8 +98,40 @@ function ordered(focus) {
   if (WORK.has(focus.kind) && state.sort === "size") return kids.sort((a, b) => (state.dir === "up" ? -1 : 1) * (val(b) - val(a)));
   return kids;
 }
+// One group opened in place, as the Best of LessWrong opens a section: it takes the width, the others fold to
+// their titles on the right; with equal areas its posts stand in a grid of squares, rank by rank, the last square
+// "Show all", which adds the rows (the map grows to hold them).
+const STRIP = 38, HEAD = 26, SQUARE = 120;
+function layoutExpanded(focus, open, W, H) {
+  const out = [];
+  const others = ordered(focus).filter(g => g !== open);
+  const ow = W - others.length * STRIP;
+  others.forEach((g, i) => out.push({ node: g, rect: { x: ow + i * STRIP, y: 0, w: STRIP, h: H }, role: "group", strip: true }));
+  const inner = { x: 0, y: HEAD, w: ow, h: H - HEAD };
+  out.push({ node: open, rect: { x: 0, y: 0, w: ow, h: H }, role: "group", open: true });
+  if (state.area !== "equal") {
+    const kids = capped(open, open.children, inner), kr = squarify(kids.map(val), inner);
+    kids.forEach((c, j) => out.push({ node: c, rect: kr[j], role: "cell" }));
+    return { out, height: H };
+  }
+  // Columns of about SQUARE px; the rows fill the height (near-squares), or, showing all, stay square and the map grows.
+  const cols = Math.max(1, Math.round(ow / SQUARE)), cw = ow / cols;
+  const rows = Math.max(1, Math.round(inner.h / cw)), ch = state.showAll ? cw : inner.h / rows;
+  let kids = open.children;
+  const fit = cols * rows;
+  if (!state.showAll && kids.length > fit) {
+    const rest = kids.slice(fit - 1);
+    const more = { id: "more:" + open.id, kind: "more", showAll: true, name: `Show all ${kids.length}`, children: rest, parent: open, hue: open.hue, topic: open.topic, tile: 1 };
+    nodes.set(more.id, more);
+    kids = [...kids.slice(0, fit - 1), more];
+  }
+  kids.forEach((c, i) => out.push({ node: c, rect: { x: (i % cols) * cw, y: HEAD + Math.floor(i / cols) * ch, w: cw, h: ch }, role: "cell" }));
+  return { out, height: Math.max(H, HEAD + Math.ceil(kids.length / cols) * ch) };
+}
 function layout(focus, W, H) {
   const out = [], full = { x: 0, y: 0, w: W, h: H };
+  const open = focus.kind === "root" && state.expanded && focus.children.find(g => g.id === state.expanded);
+  if (open) return layoutExpanded(focus, open, W, H).out;
   if (focus.kind === "root") {
     const gs = ordered(focus);
     const rects = squarify(gs.map(val), full);
@@ -143,7 +180,7 @@ function cellHTML(n, r) {
   if (fs < 10.5) return "";
   const pad = fs > 18 ? 11 : 7;
   let bits;
-  if (n.kind === "more") bits = ["Show all", hrs(minutesOf(n))];
+  if (n.kind === "more") bits = n.showAll ? [`${n.children.length} more`, hrs(minutesOf(n))] : ["Show all", hrs(minutesOf(n))];
   else if (n.kind === "post") bits = [`${n.score} karma`, `${n.minutes} min`, n.winner ? `★ ${n.winner.year}` : n.year];
   else if (n.kind === "chapter") bits = [plural(countPosts(n), "post"), hrs(minutesOf(n))];
   else bits = [plural(n.posts, "post"), hrs(n.minutes), years(n)];
@@ -156,10 +193,12 @@ function cellHTML(n, r) {
     ? `<button class="add${q ? " on" : ""}" data-add="${esc(n.id)}" aria-label="Add to reading queue">${q ? "✓" : "+"}</button>` : "";
   return `<div class="lab" style="padding:${pad - 2}px ${pad}px">${kind}<div class="t" style="font-size:${fs.toFixed(1)}px;-webkit-line-clamp:${lines}">${esc(n.kind === "more" ? n.name : n.title)}</div>${meta}</div>${add}`;
 }
-function groupHead(n, r) {
+function groupHead(n, r, { strip = false, open = false } = {}) {
+  if (strip) return `<div class="gh" data-id="${esc(n.id)}" title=""><span class="gn">${esc(n.name)}</span></div>`;
   const share = Math.round(100 * val(n) / (val(root) || 1));
   const right = r.w > 170 ? `${share}% · ${n.children.length.toLocaleString("en")}` : r.w > 90 ? `${share}%` : "";
-  return `<div class="gh" data-id="${esc(n.id)}"><span class="gn">${esc(n.name)}</span><span class="gs">${right}</span></div>`;
+  return `<div class="gh" data-id="${esc(n.id)}"><span class="gn">${esc(n.name)}</span><span class="gs">${right}</span>`
+    + (open ? `<button class="gx" data-collapse aria-label="Close">×</button>` : "") + `</div>`;
 }
 function setStageArt(el, url) {
   const a = el.querySelector(":scope > .art.rest");
@@ -169,7 +208,15 @@ function setStageArt(el, url) {
 
 function paint(layer, focus, { morph = false, enter = false } = {}) {
   vals = new Map();
-  const W = map.clientWidth, H = map.clientHeight;
+  const W = map.clientWidth;
+  // "Show all" makes the map as tall as the open group's rows; otherwise it keeps its own height.
+  const open = focus.kind === "root" && state.expanded && focus.children.find(g => g.id === state.expanded);
+  if (!(open && state.showAll)) map.style.height = "";
+  let H = map.clientHeight;
+  if (open && state.showAll) {
+    const need = layoutExpanded(focus, open, W, H).height;
+    if (need !== H) { map.style.height = `${need}px`; H = need; }
+  }
   const items = layout(focus, W, H);
   const old = layer._els || new Map(), els = new Map();
   layer._rects = new Map();
@@ -193,12 +240,12 @@ function paint(layer, focus, { morph = false, enter = false } = {}) {
     Object.assign(el.style, { left: `${r.x + g / 2}px`, top: `${r.y + g / 2}px`, width: `${Math.max(0, r.w - g)}px`, height: `${Math.max(0, r.h - g)}px` });
     layer._rects.set(n.id, r);
     if (it.role === "group") {
-      const pic = state.look === "art" ? stageArt(n) : null;
-      el.className = `group stage${pic ? "" : " bare"}`;
+      const pic = state.look === "art" && !it.strip ? stageArt(n) : null;
+      el.className = `group stage${pic ? "" : " bare"}${it.strip ? " strip" : ""}${it.open ? " open" : ""}`;
       el.style.setProperty("--hue", hueOf(n));
       if (fresh) el.innerHTML = `<div class="art rest"></div><div class="art hov"></div><div class="ghw"></div>`;
       setStageArt(el, pic);
-      el.querySelector(".ghw").innerHTML = groupHead(n, r);
+      el.querySelector(".ghw").innerHTML = groupHead(n, r, it);
     } else {
       const own = n.kind === "post" && n.winner ? ownArt(n) : null;
       el.className = `cell k-${n.kind}${own ? " winner" : ""}${isRead(n) ? " read" : ""}${state.selected === n ? " sel" : ""}`;
@@ -293,7 +340,15 @@ function setFocus(next, { push = true, enter = false } = {}) {
 const zoomOut = () => { const p = parentOf(state.focus); if (p) setFocus(p); };
 function activate(n) {
   if (n.kind === "post") { window.open(n.url, "_blank", "noopener"); return; }
+  if (n.kind === "group" && state.focus === root) return expand(n.id === state.expanded ? null : n.id);
+  if (n.kind === "more" && n.showAll) return expand(state.expanded, true);
   if (n !== state.focus) setFocus(n);
+}
+function expand(id, showAll = false) {
+  state.expanded = id; state.showAll = !!id && showAll; state.hover = null; hovStage = null;
+  saveState();
+  paint(layer, state.focus, { morph: true });
+  renderPanel();
 }
 
 // ---------- pointer on the map ----------
@@ -307,6 +362,7 @@ map.addEventListener("pointermove", e => {
 });
 map.addEventListener("pointerleave", () => { state.hover = null; stageHover(null, null); renderPanel(); });
 map.addEventListener("click", e => {
+  if (e.target.closest("[data-collapse]")) { e.stopPropagation(); expand(null); return; }
   const add = e.target.closest("[data-add]");
   if (add) { e.stopPropagation(); toggleQueue(nodes.get(add.dataset.add), add); return; }
   const n = nodeAt(e.target);
@@ -314,9 +370,10 @@ map.addEventListener("click", e => {
   if (lastPointer === "touch" || lastPointer === "pen") { state.selected === n ? activate(n) : select1(n); return; }
   activate(n);
 });
-map.addEventListener("keydown", e => { if (e.key === "Escape" || e.key === "Backspace") { e.preventDefault(); zoomOut(); } });
+const back = () => state.expanded && state.focus === root ? expand(null) : zoomOut();
+map.addEventListener("keydown", e => { if (e.key === "Escape" || e.key === "Backspace") { e.preventDefault(); back(); } });
 document.addEventListener("keydown", e => {
-  if (e.key === "Escape" && document.activeElement === document.body) zoomOut();
+  if (e.key === "Escape" && document.activeElement === document.body) back();
 });
 function select1(n) {
   state.selected = n; state.hover = null;
@@ -535,6 +592,7 @@ async function apply(changes, { morph = true } = {}) {
   }
   const chain = []; for (let a = state.focus; a; a = parentOf(a)) chain.push(a.id);
   rebuild();
+  if (state.expanded && !root.children.some(g => g.id === state.expanded)) { state.expanded = null; state.showAll = false; saveState(); }
   const keep = chain.map(id => nodes.get(id)).find(Boolean) || root;
   if (!layer) return setFocus(keep, { push: false, enter: true });
   if (keep.id !== state.focus.id) return setFocus(keep, { push: false }); // what we looked at is gone: fade to its nearest ancestor
@@ -557,7 +615,7 @@ $("#presets").addEventListener("click", e => {
   const b = e.target.closest("[data-preset]"); if (!b) return;
   const p = PRESETS.find(p => p.key === b.dataset.preset);
   if (state.focus !== root) history.replaceState(null, "", location.search);
-  apply({ sources: new Set(p.s), group: p.g, sort: p.o, dir: "down", area: p.a, look: p.key === "bolw" || p.key === "years" ? "art" : state.look, focus: root });
+  apply({ sources: new Set(p.s), group: p.g, sort: p.o, dir: "down", area: p.a, look: p.key === "bolw" || p.key === "years" ? "art" : state.look, focus: root, expanded: null, showAll: false });
 });
 
 function fromHash() { const id = decodeURIComponent(location.hash.slice(1)); return id && nodes.get(id) || null; }

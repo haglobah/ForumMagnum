@@ -130,6 +130,20 @@
 .gh { display: flex; align-items: baseline; gap: 8px; padding: 0 8px; height: 26px; line-height: 26px; font-family: var(--ui); white-space: nowrap; overflow: hidden; cursor: pointer; }
 .gn { font-size: 13px; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; overflow: hidden; text-overflow: ellipsis; }
 .gs { margin-left: auto; opacity: .8; font-size: 12px; flex: none; }
+/* An open group's ×, and the folded groups: their titles standing on end, as on the Best of LessWrong page */
+.gx { margin-left: 6px; border: 0; background: rgba(255,255,255,.16); color: inherit; border-radius: 50%; width: 20px; height: 20px;
+  font: 400 15px/1 var(--ui); cursor: pointer; align-self: center; flex: none; display: grid; place-items: center; padding: 0; }
+.gx:hover { background: rgba(255,255,255,.32); }
+.group.strip { cursor: pointer; }
+.group.strip .ghw { height: 100%; }
+.group.strip .gh { writing-mode: vertical-rl; transform: rotate(180deg); height: 100%; width: 100%; padding: 12px 0; justify-content: flex-end; align-items: center; line-height: 1; }
+.group.strip .gn { font: 400 21px/1 var(--display); letter-spacing: 0; text-transform: none; }
+.look-art .group.strip { background: color-mix(in srgb, var(--hue) 82%, #15110c); }
+.look-art .group.strip .ghw { background: none; box-shadow: inset 1px 0 0 rgba(255,255,255,.18); }
+.look-art .group.strip:hover { background: color-mix(in srgb, var(--hue) 92%, #fff); }
+.look-ink .group.strip { border-top: 0; border-left: 3px solid var(--hue); }
+.map { transition: height .5s ease-in-out; }
+.cell.k-more { cursor: pointer; }
 .gh:hover .gn { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
 .look-art .ghw { background: color-mix(in srgb, var(--hue) 82%, #15110c); box-shadow: 0 1px 0 rgba(0,0,0,.25); }
 .look-art .gh { color: #fff; }
