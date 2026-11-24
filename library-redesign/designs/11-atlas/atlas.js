@@ -199,7 +199,7 @@ function paint(layer, focus, { morph = false, enter = false } = {}) {
       el.querySelector(".ghw").innerHTML = groupHead(n, r);
     } else {
       const own = n.kind === "post" && n.winner ? ownArt(n) : null;
-      el.className = `cell k-${n.kind}${own ? " winner" : ""}${state.selected === n ? " sel" : ""}`;
+      el.className = `cell k-${n.kind}${own ? " winner" : ""}${isRead(n) ? " read" : ""}${state.selected === n ? " sel" : ""}`;
       if (state.look === "ink") {
         const t = ink(n);
         el.classList.toggle("dark", t.dark || !!own);
@@ -335,7 +335,10 @@ const entryOf = n => n ? queue.find(q => q.id === baseId(n)) : null;
 const isQueued = n => !!entryOf(n);
 const karmaOf = n => n.kind === "post" ? n.score : n.karma;
 function saveQueue() { localStorage.setItem(QKEY, JSON.stringify(queue)); }
+const isRead = n => entryOf(n)?.stage === "read";
+// After the reading list changes: the + buttons, and which cells show as read.
 function syncAddButtons() {
+  layer?._els.forEach((el, key) => { if (key.startsWith("cell:")) { const m = nodes.get(el.dataset.id); if (m) el.classList.toggle("read", isRead(m)); } });
   document.querySelectorAll("[data-add]").forEach(b => {
     const m = nodes.get(b.dataset.add); if (!m) return;
     const e = entryOf(m); b.classList.toggle("on", !!e);

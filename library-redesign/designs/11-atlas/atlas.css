@@ -147,10 +147,22 @@
 /* art look: glass over the stage, white titles, the Best of LessWrong grid lines */
 .look-art .cell { color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,.6), 0 0 12px rgba(0,0,0,.25); background: rgba(20,16,12,.08);
   box-shadow: inset 0 0 0 .5px rgba(255,255,255,.45); transition: background .3s, opacity .45s, backdrop-filter .3s; }
-.look-art .cell:hover, .look-art .cell.hl, .look-art .cell.sel { background: rgba(255,255,255,0); box-shadow: inset 0 0 0 2px rgba(255,255,255,.9); }
-.look-art .stage.hovering ~ .cell:not(:hover):not(.hl) { background: rgba(20,16,12,.22); }
+/* The hovered cell keeps a shade behind its title, since the stage behind it turns into that work's own (often light) art;
+   the other cells darken a little more, so theirs stay legible over it too. */
+.look-art .cell:hover, .look-art .cell.hl, .look-art .cell.sel { box-shadow: inset 0 0 0 2px rgba(255,255,255,.9);
+  background: linear-gradient(180deg, rgba(14,11,8,.62) 0, rgba(14,11,8,.38) 55%, rgba(14,11,8,.12) 100%); }
+.look-art .cell:hover .t, .look-art .cell:hover .m { text-shadow: 0 1px 3px rgba(0,0,0,.85); }
+.look-art .stage.hovering ~ .cell:not(:hover):not(.hl) { background: rgba(20,16,12,.4); }
 .look-art .cell.k-more { background: rgba(20,16,12,.32); }
 .look-art .cell.winner .m::before { content: ""; }
+
+/* read: under a white veil, dark ink, a check before the title */
+.cell.read::before { content: ""; position: absolute; inset: 0; background: rgba(250,247,240,.62); pointer-events: none; transition: background .3s; }
+.cell.read { color: rgba(30,24,16,.78) !important; text-shadow: none !important; }
+.cell.read .t::before { content: "✓ "; color: var(--primary-dark); }
+.look-art .cell.read:hover::before, .look-art .stage.hovering ~ .cell.read:not(:hover)::before { background: rgba(250,247,240,.78); }
+.look-art .cell.read:hover .t, .look-art .cell.read:hover .m { text-shadow: none; }
+.look-art .cell.read:hover { background: none; }
 
 /* ink look */
 .look-ink .cell { border-radius: 1px; box-shadow: inset 0 0 0 1px rgba(60,40,10,.06); }
