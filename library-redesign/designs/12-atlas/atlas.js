@@ -87,22 +87,34 @@ function moreOf(parent, rest, shown) {
   nodes.set(more.id, more);
   return more;
 }
+// Cards in a rect: none smaller than a card's least room (minCell), so every one has room for its title; a small
+// item is drawn at that size, not smaller. Laid out largest first, which keeps them near square.
+function tiles(cells, rect) {
+  const area = rect.w * rect.h, raw = cells.map(val), least = Math.min(1 / cells.length, minCell() / area);
+  let v = raw;
+  for (let k = 0; k < 5; k++) { const floor = least * v.reduce((a, b) => a + b, 0); v = raw.map(x => Math.max(x, floor)); }
+  const order = v.map((x, i) => i).sort((a, b) => v[b] - v[a] || a - b);
+  const rs = squarify(order.map(i => v[i]), rect), out = new Array(cells.length);
+  order.forEach((i, k) => { out[i] = rs[k]; });
+  return out;
+}
+// An open section or a card shows about a screenful of cards: enough to choose from, few enough to read.
+const PAGE = 25;
 // Lays a parent's items out page by page: the first page in rect, each "more" click (state.grow) one more page below it,
-// so the cards already shown stay where they are. Given slots (an earlier layout of the first page, already placed),
-// the first page keeps them. Answers the cells and where the last page ends.
-function paged(parent, kids, rect, grow, slots = null) {
+// so the cards already shown stay where they are. Answers the cells and where the last page ends.
+function paged(parent, kids, rect, grow, most = Infinity) {
   const out = [];
   let i = 0, y = rect.y;
   for (let p = 0; p <= grow && i < kids.length; p++) {
     const left = kids.length - i;
-    const fits = p === 0 && slots ? slots.length : Math.max(1, Math.floor(rect.w * rect.h / minCell()));
+    const fits = Math.max(1, Math.min(most, Math.floor(rect.w * rect.h / minCell())));
     // A last, short page is only as tall as its cards need.
-    const h = p === 0 ? rect.h : Math.min(rect.h, Math.max(110, Math.ceil(Math.min(left, fits) * minCell() * 1.5 / rect.w)));
+    const h = p === 0 ? rect.h : Math.min(rect.h, Math.max(160, Math.ceil(rect.h * Math.min(left, fits) / fits)));
     let page = kids.slice(i, i + fits), more = null;
     if (p === grow && left > fits) { page = kids.slice(i, i + fits - 1); more = moreOf(parent, kids.slice(i + fits - 1), page); }
     i += page.length;
     const cells = more ? [...page, more] : page;
-    const rs = p === 0 && slots ? slots : squarify(cells.map(val), { x: rect.x, y, w: rect.w, h });
+    const rs = tiles(cells, { x: rect.x, y, w: rect.w, h });
     cells.forEach((c, j) => out.push({ node: c, rect: rs[j], role: "cell" }));
     y += h;
   }
@@ -117,14 +129,25 @@ function ordered(focus) {
 }
 const innerOf = r => ({ x: r.x, y: r.y + HEAD, w: r.w, h: r.h - HEAD });
 const hasCells = r => r.w >= 30 && r.h >= HEAD + 14;
-// Answers the cells and groups, and the height they need (more than H once pages grow below).
+// Years stand side by side from left to right, each a column as wide as its share (but never too narrow for its
+// year), their years along the top one after another.
+const COLUMN = 64;
+function columns(gs, { x, y, w, h }) {
+  const raw = gs.map(val), least = Math.min(1 / gs.length, COLUMN / w);
+  let v = raw;
+  for (let k = 0; k < 5; k++) { const floor = least * v.reduce((a, b) => a + b, 0); v = raw.map(r => Math.max(r, floor)); }
+  const t = v.reduce((a, b) => a + b, 0);
+  let xx = x;
+  return v.map(r => { const cw = w * r / t, rect = { x: xx, y, w: cw, h }; xx += cw; return rect; });
+}
+// Answers the cells and groups, the height they need (more than H once pages grow below), and a page's height.
 function layout(focus, W, H) {
   const full = { x: 0, y: 0, w: W, h: H };
   if (focus.kind !== "root") {
-    const { out, bottom } = paged(focus, ordered(focus), full, state.grow);
+    const { out, bottom } = paged(focus, ordered(focus), full, state.grow, PAGE);
     return { out, height: Math.max(H, bottom), pageH: H };
   }
-  const gs = ordered(focus), rects = squarify(gs.map(val), full);
+  const gs = ordered(focus), rects = state.group === "year" ? columns(gs, full) : squarify(gs.map(val), full);
   const open = state.expanded && gs.find(g => g.id === state.expanded);
   if (!open) {
     const out = [];
@@ -137,8 +160,8 @@ function layout(focus, W, H) {
   return layoutOpen(gs, rects, open, W, H);
 }
 // One section opened in place: every other one is pushed to the edge it lay towards (left and right ones fold to
-// titles on end, those above and below to title bars), and the open one grows into the room between, its cards
-// where they were, only larger; "more" then adds pages below, and the map grows to hold them.
+// titles on end, those above and below to title bars), and the open one takes the room between with a page of
+// cards; "more" then adds pages below, and the map grows to hold them.
 function layoutOpen(gs, rects, open, W, H) {
   const O = rects[gs.indexOf(open)], sides = { left: [], right: [], top: [], bottom: [] };
   gs.forEach((g, i) => {
@@ -152,14 +175,7 @@ function layoutOpen(gs, rects, open, W, H) {
   const L = sides.left.length, R = sides.right.length, T = sides.top.length, B = sides.bottom.length;
   const cx = L * STRIP, cw = W - (L + R) * STRIP;
   const inner = { x: cx, y: T * HEAD + HEAD, w: cw, h: H - (T + B + 1) * HEAD };
-  // The first page: the cards the section showed, scaled into its new room.
-  let slots = null;
-  if (hasCells(O)) {
-    const oi = innerOf(O), first = paged(open, open.children, oi, 0).out;
-    const sx = inner.w / oi.w, sy = inner.h / oi.h;
-    slots = first.map(c => ({ x: inner.x + (c.rect.x - oi.x) * sx, y: inner.y + (c.rect.y - oi.y) * sy, w: c.rect.w * sx, h: c.rect.h * sy }));
-  }
-  const { out: cells, bottom } = paged(open, open.children, inner, state.grow, slots);
+  const { out: cells, bottom } = paged(open, open.children, inner, state.grow, PAGE);
   const height = Math.max(H, bottom + B * HEAD), out = [];
   sides.left.forEach(({ g }, j) => out.push({ node: g, rect: { x: j * STRIP, y: 0, w: STRIP, h: height }, role: "group", strip: true }));
   sides.right.forEach(({ g }, j) => out.push({ node: g, rect: { x: W - (R - j) * STRIP, y: 0, w: STRIP, h: height }, role: "group", strip: true }));
@@ -197,7 +213,7 @@ function cellHTML(n, r) {
 }
 function groupHead(n, r, { strip = false, open = false } = {}) {
   if (strip) return `<div class="gh" data-id="${esc(n.id)}"><span class="gn">${esc(n.name)}</span></div>`;
-  if (r.w < 70 && !open) return `<div class="gh" data-id="${esc(n.id)}"></div>`;
+  if (r.w < n.name.length * 10 + 14 && !open) return `<div class="gh" data-id="${esc(n.id)}"></div>`;
   return `<div class="gh" data-id="${esc(n.id)}"><span class="gn">${esc(n.name)}</span>`
     + (open ? `<button class="gx" data-collapse aria-label="Close">×</button>` : "") + `</div>`;
 }
@@ -352,14 +368,14 @@ function expand(id) {
   state.expanded = id; state.grow = 0; state.hover = null; hovStage = null;
   saveState();
   paint(layer, state.focus, { morph: true });
-  renderPanel();
+  renderPanel(); renderList();
 }
 function growMore() {
   const before = map.clientHeight;
   state.grow++; state.hover = null; hovStage = null;
   saveState();
   paint(layer, state.focus, { morph: true });
-  renderPanel();
+  renderPanel(); renderList();
   // Bring the new page into view.
   const top = map.getBoundingClientRect().top + scrollY + before - 160;
   if (top > scrollY) scrollTo({ top, behavior: "smooth" });
@@ -388,6 +404,9 @@ function dim(n) {
     const m = nodes.get(el.dataset.id);
     el.classList.toggle("dim", !!g && !!m && m !== n && (!top || groupOf(m) === g));
   });
+  // The section the pointer is in lights its title (the open one's is lit anyway).
+  const sec = n && top ? (n.kind === "group" ? n : groupOf(n)) : null;
+  layer?._els.forEach((el, key) => { if (key.startsWith("group:")) el.classList.toggle("hot", !!sec && key === "group:" + sec.id); });
 }
 map.addEventListener("click", e => {
   if (e.target.closest("[data-collapse]")) { e.stopPropagation(); expand(null); return; }
@@ -563,9 +582,10 @@ function cardFor(n, buttons) {
   const pic = n.kind === "post" ? n.winner?.art : n.kind === "group" || n.kind === "more" ? stageArt(n) : n.banner || n.img;
   const date = n.date ? new Date(n.date).toLocaleDateString("en", { year: "numeric", month: "short" }) : null;
   const work = n.kind === "sequence" || n.kind === "collection";
-  const meta = n.kind === "post" ? [n.author?.name, date, `${n.score} karma`, `${n.minutes} min`]
-    : work ? [n.author?.name, years(n), plural(n.posts, "post"), hrs(n.minutes)]
+  const meta = n.kind === "post" ? [date, `${n.score.toLocaleString("en")} karma`, `${n.minutes} min`]
+    : work ? [years(n), plural(n.posts, "post"), hrs(n.minutes), `${n.karma.toLocaleString("en")} karma`]
     : [plural(n.children.length, "item"), hrs(minutesOf(n))];
+  const by = (n.kind === "post" || work) && n.author?.name ? `<div class="p-au">by ${esc(n.author.name)}</div>` : "";
   const actions = [];
   if (buttons) {
     if (n.kind === "post") actions.push(`<a class="btn primary" href="${esc(n.url)}" target="_blank" rel="noopener">Read ↗</a>`);
@@ -577,7 +597,7 @@ function cardFor(n, buttons) {
     }
   }
   return `${buttons ? `<button class="grab" aria-label="Close"></button>` : ""}${pic ? `<div class="p-img" style="background-image:url('${esc(pic)}')"></div>` : ""}
-    <div class="p-body"><div class="p-kind">${esc(kind)}</div><h2 class="p-title">${esc(n.title || n.name)}</h2>
+    <div class="p-body"><div class="p-kind">${esc(kind)}</div><h2 class="p-title">${esc(n.title || n.name)}</h2>${by}
     <div class="p-by">${meta.filter(Boolean).map(esc).join(" · ")}</div>
     ${work && n.description ? `<p class="p-desc">${esc(n.description)}</p>` : ""}${actions.length ? `<div class="p-actions">${actions.join("")}</div>` : ""}</div>`;
 }
@@ -589,7 +609,57 @@ panel.addEventListener("click", e => {
   if (b?.dataset.act === "zoom") { const n = nodes.get(b.dataset.id); deselect(); if (n) activate(n); return; }
   if (e.target.closest(".grab")) deselect();
 });
-function renderAll() { renderCrumbs(); renderPanel(); renderLede(); renderControls(); }
+function renderAll() { renderCrumbs(); renderPanel(); renderLede(); renderControls(); renderList(); }
+
+// ---------- the list under the map: what is in view, as LessWrong lists posts and sequences ----------
+// In a work or an open section, its items; at the top, every section with its first few.
+const listEl = $("#list");
+let listShown = 0, listOf = null;
+const LIST_STEP = 40, LIST_TOP = 6;
+function listSubject() { return state.focus !== root ? state.focus : state.expanded && nodes.get(state.expanded) || root; }
+function rowHTML(n) {
+  const date = n.date ? new Date(n.date).toLocaleDateString("en", { year: "numeric", month: "short" }) : "";
+  if (n.kind === "post") return `<a class="li li-post" href="${esc(n.url)}" target="_blank" rel="noopener" data-id="${esc(n.id)}">
+    <span class="li-karma">${n.score}</span><span class="li-title">${n.winner ? `<span class="li-star" title="Best of LessWrong ${n.winner.year}">★</span>` : ""}${esc(n.title)}</span>
+    <span class="li-meta">${[n.author?.name, date, `${n.minutes} min`].filter(Boolean).map(esc).join(" · ")}</span></a>`;
+  const work = n.kind === "sequence" || n.kind === "collection";
+  const img = work ? n.img || n.banner : null;
+  const meta = work ? [n.author?.name, plural(n.posts, "post"), hrs(n.minutes), `${n.karma.toLocaleString("en")} karma`]
+    : [plural(countPosts(n), "post"), hrs(minutesOf(n))];
+  return `<button class="li li-work" data-id="${esc(n.id)}">
+    <span class="li-img"${img ? ` style="background-image:url('${esc(img)}')"` : ""}></span>
+    <span class="li-main"><span class="li-title">${esc(n.title || n.name)}</span><span class="li-meta">${meta.filter(Boolean).map(esc).join(" · ")}</span></span></button>`;
+}
+function renderList() {
+  if (!root) return;
+  const n = listSubject() || root;
+  if (n !== listOf) { listOf = n; listShown = LIST_STEP; }
+  const count = c => plural(c.children.length, c.children.every(k => k.kind === "post") ? "post"
+    : c.children.every(k => k.kind === "sequence" || k.kind === "collection") ? "sequence" : c.children.every(k => k.kind === "chapter") ? "chapter" : "item");
+  if (n === root) {
+    listEl.innerHTML = root.children.map(g => `<div class="lgroup"><h3 class="lh"><button data-open="${esc(g.id)}">${esc(g.name)}</button><span>${count(g)}</span></h3>
+      <div class="lrows">${g.children.slice(0, LIST_TOP).map(rowHTML).join("")}</div>
+      ${g.children.length > LIST_TOP ? `<button class="lmore" data-open="${esc(g.id)}">All ${g.children.length.toLocaleString("en")} in ${esc(g.name)}</button>` : ""}</div>`).join("");
+    return;
+  }
+  const kids = ordered(n);
+  listEl.innerHTML = `<div class="lgroup"><h3 class="lh"><span class="lh-name">${esc(n.title || n.name)}</span><span>${count(n)}</span></h3>
+    <div class="lrows">${kids.slice(0, listShown).map(rowHTML).join("")}</div>
+    ${kids.length > listShown ? `<button class="lmore" data-list-more>Show ${Math.min(LIST_STEP, kids.length - listShown)} more of ${kids.length.toLocaleString("en")}</button>` : ""}</div>`;
+}
+listEl.addEventListener("click", e => {
+  const o = e.target.closest("[data-open]");
+  if (o) { expand(o.dataset.open); map.scrollIntoView({ behavior: "smooth", block: "start" }); return; }
+  if (e.target.closest("[data-list-more]")) { listShown += LIST_STEP; renderList(); return; }
+  const row = e.target.closest(".li-work");
+  if (row) { const n = nodes.get(row.dataset.id); if (n && !busy) { map.scrollIntoView({ behavior: "smooth", block: "start" }); activate(n); } }
+});
+// A row under the pointer lights its card on the map.
+listEl.addEventListener("pointerover", e => {
+  const row = e.target.closest(".li"), id = row?.dataset.id;
+  layer?._els.forEach((el, key) => { if (key.startsWith("cell:")) el.classList.toggle("hl", key === "cell:" + id); });
+});
+listEl.addEventListener("pointerleave", () => layer?.querySelectorAll(".hl").forEach(el => el.classList.remove("hl")));
 
 // ---------- controls: the views, and behind "Customize" what they are made of ----------
 function renderControls() {
