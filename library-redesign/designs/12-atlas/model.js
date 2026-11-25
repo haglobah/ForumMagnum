@@ -219,8 +219,8 @@ export function group(picked, by, sort, sources, area, dir) {
   const cmp = comparator(sort, area, dir);
   let out = [...groups.values()].filter(g => g.items.length);
   for (const g of out) g.items.sort(cmp);
-  // Years run with a date sort, else from the first year on.
-  if (by === "year") out.sort((a, b) => (sort === "date" && dir === "down" ? -1 : 1) * (a.year > b.year ? 1 : -1));
+  // Years always run from the first on, left to right (a sort orders what is inside a year).
+  if (by === "year") out.sort((a, b) => a.year > b.year ? 1 : -1);
   if (by === "author") {
     out.sort((a, b) => b.items.length - a.items.length);
     if (out.length > 23) { // the long tail of authors in one group

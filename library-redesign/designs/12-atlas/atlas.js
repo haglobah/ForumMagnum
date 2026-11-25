@@ -108,6 +108,16 @@ const PAGE = 25;
 function page(parent, kids, i, rect, most, last) {
   const left = kids.length - i;
   if (rect.w < MIN_W - .5 || rect.h < MIN_H - .5) return { cells: [], rs: [], used: 0 }; // no room for one card: the section shows its picture
+  // Equal cards stand in a grid of near-squares, as on the Best of LessWrong page, "N more" in its last square.
+  if (state.area === "equal") {
+    const cols = Math.max(1, Math.floor(rect.w / 105)), cw = rect.w / cols;
+    const rows = Math.max(1, Math.min(Math.round(rect.h / cw), Math.floor(rect.h / 105))), ch = rect.h / rows;
+    const fits = Math.min(most, cols * rows);
+    let shown = kids.slice(i, i + fits), more = null;
+    if (last && left > fits) { shown = kids.slice(i, i + fits - 1); more = moreOf(parent, kids.slice(i + fits - 1), shown); }
+    const cells = more ? [...shown, more] : shown;
+    return { cells, rs: cells.map((c, k) => ({ x: rect.x + (k % cols) * cw, y: rect.y + Math.floor(k / cols) * ch, w: cw, h: ch })), used: shown.length };
+  }
   for (let fits = Math.max(1, Math.min(most, left, Math.floor(rect.w * rect.h / minCell()))); ; fits--) {
     let shown = kids.slice(i, i + fits), more = null;
     if (last && left > fits) { shown = kids.slice(i, i + fits - 1); more = moreOf(parent, kids.slice(i + fits - 1), shown); }
@@ -151,6 +161,13 @@ function columns(gs, { x, y, w, h }) {
   let xx = x;
   return v.map(r => { const cw = w * r / t, rect = { x: xx, y, w: cw, h }; xx += cw; return rect; });
 }
+// By year, every year gets room for two columns of cards and a little space from the next; the map scrolls
+// sideways when they don't all fit, and they share out the room when they do.
+const YEAR_W = 2 * 120, YEAR_GAP = 14;
+function yearColumns(gs, W, H) {
+  const w = Math.max(YEAR_W, (W - (gs.length - 1) * YEAR_GAP) / gs.length);
+  return gs.map((g, i) => ({ x: i * (w + YEAR_GAP), y: 0, w, h: H }));
+}
 // Answers the cells and groups, the height they need (more than H once pages grow below), and a page's height.
 function layout(focus, W, H) {
   const full = { x: 0, y: 0, w: W, h: H };
@@ -158,8 +175,16 @@ function layout(focus, W, H) {
     const { out, bottom } = paged(focus, ordered(focus), full, state.grow, PAGE);
     return { out, height: Math.max(H, bottom), pageH: H };
   }
-  const gs = ordered(focus), rects = state.group === "year" ? columns(gs, full) : squarify(gs.map(val), full);
-  const open = state.expanded && gs.find(g => g.id === state.expanded);
+  const gs = ordered(focus), open = state.expanded && gs.find(g => g.id === state.expanded);
+  if (!open && state.group === "year") {
+    const rects = yearColumns(gs, W, H), out = [];
+    gs.forEach((g, i) => {
+      out.push({ node: g, rect: rects[i], role: "group" });
+      out.push(...paged(g, g.children, innerOf(rects[i]), 0).out);
+    });
+    return { out, height: H, width: rects.at(-1).x + rects.at(-1).w };
+  }
+  const rects = state.group === "year" ? columns(gs, full) : squarify(gs.map(val), full);
   if (!open) {
     const out = [];
     gs.forEach((g, i) => {
@@ -249,10 +274,15 @@ function setStageArt(el, url, pageH = 0, total = 0) {
 function paint(layer, focus, { morph = false, enter = false } = {}) {
   vals = new Map();
   const W = map.clientWidth;
-  // Pages grown below make the map taller; otherwise it keeps its own height.
+  // Pages grown below make the map taller; otherwise it keeps its own height. Years wider than the map scroll sideways
+  // (the scrollbar takes its height from the cards).
   map.style.height = "";
-  const H = map.clientHeight, { out: items, height, pageH } = layout(focus, W, H);
+  let H = map.clientHeight, laid = layout(focus, W, H);
+  if (laid.width > W + 1) { H -= map.offsetHeight - map.clientHeight || 10; laid = layout(focus, W, H); }
+  const { out: items, height, pageH, width } = laid;
   if (height > H) map.style.height = `${height}px`;
+  Object.assign(layer.style, { width: width > W + 1 ? `${width}px` : "", right: width > W + 1 ? "auto" : "" });
+  if (!(width > W + 1)) map.scrollLeft = 0;
   const old = layer._els || new Map(), els = new Map();
   layer._rects = new Map();
   const staged = focus.kind !== "root";
@@ -350,6 +380,14 @@ function setFocus(next, { push = true, enter = false } = {}) {
   let r = null;
   if (down) for (let a = next; a && !r; a = parentOf(a)) r = oldLayer._rects.get(a.id);
   else if (up) for (let a = prev; a && !r; a = parentOf(a)) r = neu._rects.get(a.id);
+  // A map scrolled sideways (years): the open view stands at the scroll's start, so the one it leaves moves with it;
+  // coming back, the map scrolls to the card it came from.
+  const sl = map.scrollLeft;
+  if (down && sl && r) { oldLayer.style.transform = `translateX(${-sl}px)`; map.scrollLeft = 0; r = { ...r, x: r.x - sl }; }
+  if (up && r && neu.style.width) {
+    const to = Math.max(0, Math.min(r.x - (W - r.w) / 2, map.scrollWidth - W));
+    map.scrollLeft = to; oldLayer.style.transform = `translateX(${map.scrollLeft}px)`; r = { ...r, x: r.x - map.scrollLeft };
+  }
   if (!r || r.w < 1 || r.h < 1) {
     neu.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 300 });
     oldLayer.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 300 }).onfinish = () => oldLayer.remove();

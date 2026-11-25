@@ -88,7 +88,7 @@
 
 /* ---------- the map, full width; the card floats over it ---------- */
 .atlas { position: relative; }
-.map { position: relative; height: clamp(540px, calc(100vh - 150px), 860px); overflow: hidden; background: var(--bg);
+.map { position: relative; height: clamp(540px, calc(100vh - 150px), 860px); overflow: hidden; overflow-x: auto; scrollbar-width: thin; background: var(--bg);
   outline: none; touch-action: manipulation; user-select: none; -webkit-user-select: none; }
 .layer { position: absolute; inset: 0; transform-origin: 0 0; will-change: transform, opacity; }
 .layer.fresh .lab, .layer.fresh .gh > * { opacity: 0; }
