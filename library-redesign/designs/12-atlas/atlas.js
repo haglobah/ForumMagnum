@@ -108,15 +108,22 @@ const PAGE = 25;
 function page(parent, kids, i, rect, most, last) {
   const left = kids.length - i;
   if (rect.w < MIN_W - .5 || rect.h < MIN_H - .5) return { cells: [], rs: [], used: 0 }; // no room for one card: the section shows its picture
-  // Equal cards stand in a grid of near-squares, as on the Best of LessWrong page, "N more" in its last square.
+  // Equal cards stand in a grid of near-squares, as on the Best of LessWrong page, "N more" in its last square. The
+  // grid is cut to the number of cards (columns and rows from their count and the room's shape), so it fills the
+  // room: with more to come it takes as many as its cells hold; a short last row shares out the width.
   if (state.area === "equal") {
-    const cols = Math.max(1, Math.floor(rect.w / 105)), cw = rect.w / cols;
-    const rows = Math.max(1, Math.min(Math.round(rect.h / cw), Math.floor(rect.h / 105))), ch = rect.h / rows;
-    const fits = Math.min(most, cols * rows);
-    let shown = kids.slice(i, i + fits), more = null;
-    if (last && left > fits) { shown = kids.slice(i, i + fits - 1); more = moreOf(parent, kids.slice(i + fits - 1), shown); }
-    const cells = more ? [...shown, more] : shown;
-    return { cells, rs: cells.map((c, k) => ({ x: rect.x + (k % cols) * cw, y: rect.y + Math.floor(k / cols) * ch, w: cw, h: ch })), used: shown.length };
+    const SQ = 105, maxC = Math.max(1, Math.floor(rect.w / SQ)), maxR = Math.max(1, Math.floor(rect.h / SQ));
+    let n = Math.min(most, left, maxC * maxR);
+    let cols = Math.min(maxC, Math.max(1, Math.round(Math.sqrt(n * rect.w / rect.h)))), rows = Math.ceil(n / cols);
+    if (rows > maxR) { rows = maxR; cols = Math.min(maxC, Math.ceil(n / rows)); }
+    if (left > n) n = Math.min(left, cols * rows); // more to come: fill every cell
+    let shown = kids.slice(i, i + n), more = null;
+    if (last && left > n) { shown = kids.slice(i, i + n - 1); more = moreOf(parent, kids.slice(i + n - 1), shown); }
+    const cells = more ? [...shown, more] : shown, ch = rect.h / Math.ceil(cells.length / cols);
+    return { cells, used: shown.length, rs: cells.map((c, k) => {
+      const row = Math.floor(k / cols), inRow = Math.min(cols, cells.length - row * cols), cw = rect.w / inRow;
+      return { x: rect.x + (k % cols) * cw, y: rect.y + row * ch, w: cw, h: ch };
+    }) };
   }
   for (let fits = Math.max(1, Math.min(most, left, Math.floor(rect.w * rect.h / minCell()))); ; fits--) {
     let shown = kids.slice(i, i + fits), more = null;
