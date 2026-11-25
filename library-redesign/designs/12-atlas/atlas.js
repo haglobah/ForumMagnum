@@ -76,8 +76,10 @@ const minutesOf = n => n.kind === "post" || n.kind === "sequence" || n.kind === 
 const itemCount = n => n.kind === "root" ? n.children.reduce((a, g) => a + g.children.length, 0) : n.children.length;
 
 // ---------- layout ----------
-// px² below which items fold into "N more": every card gets room for a title, as on the Best of LessWrong page.
-const minCell = () => state.area === "equal" ? 105 * 105 : 96 * 84;
+// A card's least room: two lines of its title, as wide as a Best of LessWrong card nearly. No card is drawn smaller;
+// what doesn't fit folds into "N more".
+const MIN_W = 96, MIN_H = 72;
+const minCell = () => state.area === "equal" ? 105 * 105 : MIN_W * MIN_H;
 const STRIP = 38, HEAD = 30;
 // "N more" is one tile the size of a typical one shown (the Best of LessWrong's "show all"),
 // not the true size of what it holds, or it would squeeze the rest into slivers.
@@ -87,36 +89,45 @@ function moreOf(parent, rest, shown) {
   nodes.set(more.id, more);
   return more;
 }
-// Cards in a rect: none smaller than a card's least room (minCell), so every one has room for its title; a small
-// item is drawn at that size, not smaller. Laid out largest first, which keeps them near square.
+// Cards in a rect (a squarified treemap): each card's area is its measure (reading time, karma or equal), floored at a
+// card's least room; laid out largest first, which keeps them near square, and "N more" last, so it takes the corner.
 function tiles(cells, rect) {
   const area = rect.w * rect.h, raw = cells.map(val), least = Math.min(1 / cells.length, minCell() / area);
   let v = raw;
   for (let k = 0; k < 5; k++) { const floor = least * v.reduce((a, b) => a + b, 0); v = raw.map(x => Math.max(x, floor)); }
-  const order = v.map((x, i) => i).sort((a, b) => v[b] - v[a] || a - b);
+  const order = v.map((x, i) => i).sort((a, b) => (cells[a].kind === "more") - (cells[b].kind === "more") || v[b] - v[a] || a - b);
   const rs = squarify(order.map(i => v[i]), rect), out = new Array(cells.length);
   order.forEach((i, k) => { out[i] = rs[k]; });
   return out;
 }
+const roomy = r => r.w >= MIN_W - .5 && r.h >= MIN_H - .5;
 // An open section or a card shows about a screenful of cards: enough to choose from, few enough to read.
 const PAGE = 25;
+// One page of a parent's items from the i-th on: as many as fit with every card at least a card's least room
+// (fewer and fewer are tried until they do), the rest in "N more" when it is the last page shown.
+function page(parent, kids, i, rect, most, last) {
+  const left = kids.length - i;
+  if (rect.w < MIN_W - .5 || rect.h < MIN_H - .5) return { cells: [], rs: [], used: 0 }; // no room for one card: the section shows its picture
+  for (let fits = Math.max(1, Math.min(most, left, Math.floor(rect.w * rect.h / minCell()))); ; fits--) {
+    let shown = kids.slice(i, i + fits), more = null;
+    if (last && left > fits) { shown = kids.slice(i, i + fits - 1); more = moreOf(parent, kids.slice(i + fits - 1), shown); }
+    const cells = more ? [...shown, more] : shown, rs = tiles(cells, rect);
+    if (fits === 1 || rs.every(roomy)) return { cells, rs, used: shown.length };
+  }
+}
 // Lays a parent's items out page by page: the first page in rect, each "more" click (state.grow) one more page below it,
 // so the cards already shown stay where they are. Answers the cells and where the last page ends.
 function paged(parent, kids, rect, grow, most = Infinity) {
   const out = [];
   let i = 0, y = rect.y;
   for (let p = 0; p <= grow && i < kids.length; p++) {
-    const left = kids.length - i;
     const fits = Math.max(1, Math.min(most, Math.floor(rect.w * rect.h / minCell())));
     // A last, short page is only as tall as its cards need.
-    const h = p === 0 ? rect.h : Math.min(rect.h, Math.max(160, Math.ceil(rect.h * Math.min(left, fits) / fits)));
-    let page = kids.slice(i, i + fits), more = null;
-    if (p === grow && left > fits) { page = kids.slice(i, i + fits - 1); more = moreOf(parent, kids.slice(i + fits - 1), page); }
-    i += page.length;
-    const cells = more ? [...page, more] : page;
-    const rs = tiles(cells, { x: rect.x, y, w: rect.w, h });
+    const h = p === 0 ? rect.h : Math.min(rect.h, Math.max(160, Math.ceil(rect.h * Math.min(kids.length - i, fits) / fits)));
+    const { cells, rs, used } = page(parent, kids, i, { x: rect.x, y, w: rect.w, h }, most, p === grow);
+    if (!cells.length) break;
     cells.forEach((c, j) => out.push({ node: c, rect: rs[j], role: "cell" }));
-    y += h;
+    i += used; y += h;
   }
   return { out, bottom: y };
 }
@@ -213,9 +224,11 @@ function cellHTML(n, r) {
 }
 function groupHead(n, r, { strip = false, open = false } = {}) {
   if (strip) return `<div class="gh" data-id="${esc(n.id)}"><span class="gn">${esc(n.name)}</span></div>`;
-  if (r.w < n.name.length * 10 + 14 && !open) return `<div class="gh" data-id="${esc(n.id)}"></div>`;
-  return `<div class="gh" data-id="${esc(n.id)}"><span class="gn">${esc(n.name)}</span>`
-    + (open ? `<button class="gx" data-collapse aria-label="Close">×</button>` : "") + `</div>`;
+  // The title at its size, or smaller where the section is narrow; none where even that doesn't fit.
+  const fs = [20, 16, 13].find(f => r.w >= n.name.length * f * .5 + 14 + (open ? 30 : 0));
+  if (!fs) return `<div class="gh" data-id="${esc(n.id)}"></div>`;
+  return `<div class="gh" data-id="${esc(n.id)}"><span class="gn"${fs < 20 ? ` style="font-size:${fs}px"` : ""}>${esc(n.name)}</span>`
+    + (r.w >= n.name.length * fs * .5 + 50 || open ? `<span class="tog" aria-hidden="true">+</span>` : "") + `</div>`;
 }
 // Grown below its first page (pageH tall), a stage's picture keeps its size and repeats below, mirrored every other
 // time, as the Best of LessWrong's grids repeat theirs; so the picture behind the first page never moves.
@@ -269,7 +282,7 @@ function paint(layer, focus, { morph = false, enter = false } = {}) {
       el.querySelector(".ghw").innerHTML = groupHead(n, r, it);
     } else {
       const own = n.kind === "post" && n.winner ? ownArt(n) : null;
-      el.className = `cell k-${n.kind}${own ? " winner" : ""}${isRead(n) ? " read" : ""}${state.selected === n ? " sel" : ""}`;
+      el.className = `cell k-${n.kind}${own ? " winner" : ""}${isRead(n) ? " read" : entryOf(n)?.stage === "reading" ? " reading" : ""}${state.selected === n ? " sel" : ""}`;
       el.innerHTML = cellHTML(n, r);
     }
     if (fresh) {
@@ -409,7 +422,6 @@ function dim(n) {
   layer?._els.forEach((el, key) => { if (key.startsWith("group:")) el.classList.toggle("hot", !!sec && key === "group:" + sec.id); });
 }
 map.addEventListener("click", e => {
-  if (e.target.closest("[data-collapse]")) { e.stopPropagation(); expand(null); return; }
   const add = e.target.closest("[data-add]");
   if (add) { e.stopPropagation(); toggleQueue(nodes.get(add.dataset.add), add); return; }
   const n = nodeAt(e.target);
@@ -442,7 +454,7 @@ const isRead = n => entryOf(n)?.stage === "read";
 const ON_LIST = { queue: "✓ On your list", reading: "✓ Reading", read: "✓ Read" };
 // After the reading list changes: the + buttons, and which cells show as read.
 function syncAddButtons() {
-  layer?._els.forEach((el, key) => { if (key.startsWith("cell:")) { const m = nodes.get(el.dataset.id); if (m) el.classList.toggle("read", isRead(m)); } });
+  layer?._els.forEach((el, key) => { if (key.startsWith("cell:")) { const m = nodes.get(el.dataset.id); if (m) { el.classList.toggle("read", isRead(m)); el.classList.toggle("reading", entryOf(m)?.stage === "reading"); } } });
   document.querySelectorAll("[data-add]").forEach(b => {
     const m = nodes.get(b.dataset.add); if (!m) return;
     const e = entryOf(m); b.classList.toggle("on", !!e);
